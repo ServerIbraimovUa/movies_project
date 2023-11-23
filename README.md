@@ -20,7 +20,7 @@
 
 ### Figma
 
-<a href="hhttps://www.figma.com/file/xahj7HlNeJQjRjNKaYsL5L/--Filmoteka--?type=design&node-id=5-46&mode=design&t=WIBZtrD5GtIeekJL-0">Filmoteka</a>
+<a href="https://www.figma.com/file/xahj7HlNeJQjRjNKaYsL5L/--Filmoteka--?type=design&node-id=5-46&mode=design&t=WIBZtrD5GtIeekJL-0">Filmoteka</a>
 
 ### Libraries
 
