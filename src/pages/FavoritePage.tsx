@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { FC, useEffect, useState } from "react";
 
-const FavoritePage = () => {
-  return (
-    <div>FavoritePage</div>
-  )
-}
+in
 
-export default FavoritePage
+const FavoritePage:FC = () => {
+  return <div>FavoritePage</div>;
+};
+
+export default FavoritePage;

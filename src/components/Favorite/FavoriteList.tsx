@@ -1,9 +1,7 @@
-import React from 'react'
+import React, { FC, useEffect, useState } from "react";
 
-const FavoriteList = () => {
-  return (
-    <div>FavoriteList</div>
-  )
-}
+const FavoriteList: FC = () => {
+  return <div>FavoriteList</div>;
+};
 
-export default FavoriteList
+export default FavoriteList;
