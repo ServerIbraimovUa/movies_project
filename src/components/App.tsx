@@ -7,6 +7,7 @@ import HomePage from "../pages/HomePage";
 import SignUpPage from "../pages/SignUpPage";
 import LoginPage from "../pages/LoginPage";
 import MovieDetails from "../pages/MovieDetails";
+import FavoritePage from "../pages/FavoritePage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/movie/:movieId" element={<MovieDetails />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<SignUpPage />} />
+        <Route path="/favorite" element={<FavoritePage />} />
       </Route>
     </Routes>
   );
