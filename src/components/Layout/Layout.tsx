@@ -12,6 +12,7 @@ const Layout: React.FC = () => {
             <NavLink to="/">Home</NavLink>
             <NavLink to="/login">Log In</NavLink>
             <NavLink to="/register">Sign Up</NavLink>
+            <NavLink to="/favorite">Favorite</NavLink>
           </nav>
         </Container>
       </header>
