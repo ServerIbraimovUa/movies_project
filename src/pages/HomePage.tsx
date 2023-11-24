@@ -12,6 +12,7 @@ const HomePage: FC = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
+    // Функція запиту за популярними фільмами
     const details = async () => {
       try {
         const { results } = await getAllTrending();
