@@ -4,17 +4,14 @@ import { auth } from "../../firebase-config";
 const provider = new GoogleAuthProvider();
 
 export const signInWithGoogle = () => {
-  signInWithPopup(auth, provider)
+   signInWithPopup(auth, provider)
     .then((result) => {
-      const name = result.user.displayName;
-      const email = result.user.email;
-      const photoURL = result.user.photoURL;
-
-      localStorage.setItem("name", name || "");
-      localStorage.setItem("email", email || "");
-      localStorage.setItem("photoURL", photoURL || "");
+      const user = result.user;
+      console.log(user);
     })
     .catch((error) => {
-      console.log(error);
-    });
-};
+      const errorCode = error.code;
+      alert(errorCode);
+      console.log(error.message);
+    })
+}
