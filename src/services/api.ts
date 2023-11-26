@@ -10,3 +10,13 @@ axios.defaults.params = {
 export const getAllTrending = async () => {
   return (await axios.get(`${BASE_URL}/trending/all/day`)).data;
 };
+
+export const getAllGenres = async () => {
+  return (await axios.get(`${BASE_URL}/genre/movie/list`)).data;
+};
+
+getAllGenres().then(console.log);
+
+export const getMovieDetails = async (id: number) => {
+  return (await axios.get(`${BASE_URL}/movie/${id}`)).data;
+};
