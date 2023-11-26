@@ -7,15 +7,7 @@ import Loading from "../components/Loading/Loading";
 import MovieDetails from "../components/MovieDetails/MovieDetails";
 
 const MovieDetailsPage: FC = () => {
-  const [movie, setMovie] = useState<IMovieDetails>({
-    id: 0,
-    title: "",
-    poster_path: "",
-    vote_average: 0,
-    release_date: "",
-    genres: [],
-    overview: "",
-  });
+  const [movie, setMovie] = useState<IMovieDetails>({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
