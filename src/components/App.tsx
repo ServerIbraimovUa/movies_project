@@ -7,8 +7,8 @@ import Layout from "./Layout/Layout";
 import HomePage from "../pages/HomePage";
 import SignUpPage from "../pages/SignUpPage";
 import LoginPage from "../pages/LoginPage";
-import MovieDetails from "../pages/MovieDetails";
 import FavoritePage from "../pages/FavoritePage";
+import MovieDetailsPage from "../pages/MovieDetailsPage";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       {/* Роути змінюємо в файлі routerTypes */}
       <Route path="/" element={<Layout />}>
         <Route path={RouteNames.Home} element={<HomePage />} />
-        <Route path={RouteNames.MovieDetails} element={<MovieDetails />} />
+        <Route path={RouteNames.MovieDetails} element={<MovieDetailsPage />} />
         <Route path={RouteNames.Login} element={<LoginPage />} />
         <Route path={RouteNames.Register} element={<SignUpPage />} />
         <Route path={RouteNames.Favorites} element={<FavoritePage />} />
