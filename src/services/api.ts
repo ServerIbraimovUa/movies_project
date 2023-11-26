@@ -16,3 +16,7 @@ export const getAllGenres = async () => {
 };
 
 getAllGenres().then(console.log);
+
+export const getMovieDetails = async (id: number) => {
+  return (await axios.get(`${BASE_URL}/movie/${id}`)).data;
+};

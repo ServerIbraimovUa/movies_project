@@ -1,6 +1,6 @@
 export enum RouteNames {
   Home = "/",
-  MovieDetails = "/movie/:movieId",
+  MovieDetails = "/movies/:movieId",
   Login = "/login",
   Register = "/register",
   Favorites = "/favorites",
