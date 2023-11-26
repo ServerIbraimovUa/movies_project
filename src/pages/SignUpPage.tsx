@@ -6,6 +6,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../firebase-config";
+import { signInWithGoogle } from "../components/Google/Google";
 
 const SignUpPage = () => {
   const [registerEmail, setRegisterEmail] = useState("");
@@ -69,7 +70,9 @@ const SignUpPage = () => {
         </button>
         <p>or sign up with social media</p>
         <ul>
-          <li>Google</li>
+          <li>
+            <button onClick={signInWithGoogle}>Google</button>
+          </li>
           <li>Facebook</li>
           <li>GitHub</li>
         </ul>
