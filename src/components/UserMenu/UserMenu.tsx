@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const UserMenu = () => {
   return (
     <>
-      <NavLink to="/favorite">Favorite</NavLink>
+      <NavLink to="/favorites">Favorite</NavLink>
       <div>
         {/* дінамічне ім'я користувача */}
         <p>User name</p>

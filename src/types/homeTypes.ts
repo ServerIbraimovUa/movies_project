@@ -8,3 +8,8 @@ export interface Movies {
   overview: string;
   genre_ids: number[];
 }
+
+export interface IGenres {
+  id: number;
+  name: string;
+}

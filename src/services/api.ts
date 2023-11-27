@@ -13,3 +13,10 @@ export const getAllTrending = async (language: string) => {
   return (await axios.get(url)).data;
 };
 
+export const getAllGenres = async () => {
+  return (await axios.get(`${BASE_URL}/genre/movie/list`)).data;
+};
+
+export const getMovieDetails = async (id: number) => {
+  return (await axios.get(`${BASE_URL}/movie/${id}`)).data;
+};
