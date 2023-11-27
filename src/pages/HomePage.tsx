@@ -5,31 +5,34 @@ import Error from "../components/Error/Error";
 import Loading from "../components/Loading/Loading";
 import HomeList from "../components/HomeList/HomeList";
 import { Movies } from "../types/homeTypes";
+import { useLanguage } from "../components/Language/LanguageContext";
 
 const HomePage: FC = () => {
+  const { language } = useLanguage();
   const [movies, setMovies] = useState<Movies[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    // Функція запиту за популярними фільмами
-    const details = async () => {
+    const fetchData = async () => {
       try {
-        const { results } = await getAllTrending();
+        const { results } = await getAllTrending(language);
         setMovies(results);
         setLoading(true);
       } catch (error) {
-        console.log(error);
+        console.error(error);
         setError(true);
         setLoading(true);
       }
     };
-    details();
-  }, []);
+
+    fetchData();
+  }, [language]);
+
   return (
     <section>
       <Container>
-        <h1>Popular movies of the day! </h1>
+        <h1>Популярні фільми дня!</h1>
         {error && <Error />}
         {loading ? <HomeList movies={movies} /> : <Loading />}
       </Container>
