@@ -1,8 +1,6 @@
 # Start of the movies_project
 
-
-## version: alfa-0.5.3.2
-
+## version: alfa-0.6.5.2
 
 ## Good job everyone
 
@@ -13,7 +11,6 @@
 ### `npm install`
 
 ### `npm start`
-
 
 ### Trello
 
@@ -36,7 +33,4 @@
 <a href="https://react-bootstrap.netlify.app/">react-bootstrap</a>
 
 <a href="https://mhnpd.github.io/react-loader-spinner/">react-loader-spinner</a>
-<a href=""></a>
-<a href=""></a>
-<a href=""></a>
-<a href=""></a>
+<a href=""></a> <a href=""></a> <a href=""></a> <a href=""></a>

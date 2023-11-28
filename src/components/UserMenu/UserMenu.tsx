@@ -7,7 +7,7 @@ const UserMenu = () => {
       <NavLink to="/favorites">Favorite</NavLink>
       <div>
         {/* дінамічне ім'я користувача */}
-        <p>User name</p>
+        <NavLink to='/settings'>User name</NavLink>
         <button>Log out</button>
       </div>
     </>
