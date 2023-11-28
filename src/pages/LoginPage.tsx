@@ -27,13 +27,17 @@ const LoginPage = () => {
         loginPassword
       );
       console.log(user);
-    } catch (error: any) {
-      console.log(error.message);
+    } catch (error) {
+      console.log(error);
     }
   };
 
   const logout = async () => {
-    await signOut(auth);
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
