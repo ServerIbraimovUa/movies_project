@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Route, Routes } from "react-router";
 import { RouteNames } from "../types/routerTypes";
+import RestrictedRoute from "./RestrictedRoute/RestrictedRoute";
 
 import Layout from "./Layout/Layout";
 import HomePage from "../pages/HomePage";
@@ -21,7 +22,7 @@ function App() {
         <Route path={RouteNames.Login} element={<LoginPage />} />
         <Route path={RouteNames.Register} element={<SignUpPage />} />
         <Route path={RouteNames.Favorites} element={<FavoritePage />} />
-         <Route path={RouteNames.Settings} element={<Settings/>} />
+         <Route path={RouteNames.Settings} element={<RestrictedRoute><Settings /></RestrictedRoute>} />
       </Route>
     </Routes>
   );
