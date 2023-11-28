@@ -1,6 +1,6 @@
 import { auth } from '../firebase-config';
-import { deleteUser, onAuthStateChanged } from 'firebase/auth';
-import { useForm } from 'react-hook-form';
+import { User, deleteUser, onAuthStateChanged } from 'firebase/auth';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -9,10 +9,14 @@ import {
 } from '../services/notifications';
 import { useState } from 'react';
 
-const Settings = () => {
-  const { register, handleSubmit } = useForm();
+type FormValues = {
+  password: string;
+};
 
-  const [user, setUser] = useState<any>(null);
+const Settings = () => {
+  const { register, handleSubmit } = useForm<FormValues>();
+
+  const [user, setUser] = useState<User | null>(null);
 
   onAuthStateChanged(auth, currentUser => {
     setUser(currentUser);
@@ -20,8 +24,10 @@ const Settings = () => {
 
   const navigate = useNavigate();
 
-  const onSubmit = async (form: any) => {
-    const credential = EmailAuthProvider.credential(user.email, form.password);
+  const onSubmit: SubmitHandler<FormValues> = async ({ password }) => {
+    if (!user) return;
+
+    const credential = EmailAuthProvider.credential(user.email || '', password);
     await reauthenticateWithCredential(user, credential)
       .then(() => {
         deleteUser(user);
