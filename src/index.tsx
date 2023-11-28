@@ -7,6 +7,8 @@ import { BrowserRouter } from "react-router-dom";
 import Text from './components/Language/i18n';
 import { I18nextProvider } from 'react-i18next';
 import { LanguageProvider } from "./components/Language/LanguageContext";
+import { ToastContainer  } from 'react-toastify';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -17,6 +19,7 @@ root.render(
       <BrowserRouter>
       <LanguageProvider>
         <App />
+	<ToastContainer />
         </LanguageProvider>
       </BrowserRouter>
     </React.StrictMode>
