@@ -4,7 +4,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import UserMenu from "../UserMenu/UserMenu";
 import AuthMenu from "../AuthMenu/AuthMenu";
 import SearchMovies from "../SearchMovies/SearchMovies";
-import LanguageSelector from "../Language/LanguageSelector";
+import LanguageSelector from "../../Language/LanguageSelector";
 
 const Layout: FC = () => {
   return (
