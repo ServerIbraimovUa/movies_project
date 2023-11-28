@@ -6,9 +6,9 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../firebase-config";
-import { signInWithGoogle } from "../components/Social Medias/Google";
-import { signInWithFacebook } from "../components/Social Medias/Facebook";
-import { signInWithGithub } from "../components/Social Medias/Github";
+import { signInWithGoogle } from "../auth/google";
+import { signInWithFacebook } from "../auth/facebook";
+import { signInWithGithub } from "../auth/github";
 
 const SignUpPage = () => {
   const [registerEmail, setRegisterEmail] = useState("");

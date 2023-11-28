@@ -6,9 +6,9 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import { signInWithGoogle } from "../components/Social Medias/Google";
-import { signInWithFacebook } from "../components/Social Medias/Facebook";
-import { signInWithGithub } from "../components/Social Medias/Github";
+import { signInWithGoogle } from "../auth/google";
+import { signInWithFacebook } from "../auth/facebook";
+import { signInWithGithub } from "../auth/github";
 
 const LoginPage = () => {
   const [loginEmail, setLoginEmail] = useState("");

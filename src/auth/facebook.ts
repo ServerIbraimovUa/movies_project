@@ -1,5 +1,5 @@
 import { signInWithPopup } from "firebase/auth";
-import { FacebookProvider, auth } from "../../firebase-config";
+import { FacebookProvider, auth } from "../firebase-config";
 
 export const signInWithFacebook = async () => {
   try {
