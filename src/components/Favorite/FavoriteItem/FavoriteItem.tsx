@@ -3,12 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import { Movies } from "../../../types/homeTypes";
 const BASE_IMG = "https://image.tmdb.org/t/p/w200";
 
-const FavoriteItem: FC<Partial<Movies>> = ({
-  poster_path,
-  vote_average,
-  title,
-  id,
-}) => {
+interface FavoriteItemProps{
+  card: Movies;
+}
+
+const FavoriteItem: FC<FavoriteItemProps> = (card) => {
+  const { id, poster_path, vote_average, title } = card;
   const location = useLocation();
   return (
     <Link to={`/movies/${id}`} state={{ from: location }}>
