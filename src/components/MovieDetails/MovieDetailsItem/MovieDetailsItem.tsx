@@ -4,8 +4,15 @@ import { IMovieDetailsProps } from "../MovieDetails";
 const BASE_IMG = "https://image.tmdb.org/t/p/w300";
 
 const MovieDetailsItem: FC<IMovieDetailsProps> = ({ movie }) => {
-  const { title, poster_path, vote_average, release_date, genres, overview } =
-    movie;
+  const {
+    title,
+    poster_path,
+    vote_average,
+    release_date,
+    genres,
+    overview,
+    backdrop_path,
+  } = movie;
 
   return (
     <>
