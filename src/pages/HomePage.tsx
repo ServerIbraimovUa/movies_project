@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 import Error from "../components/Error/Error";
 import Loading from "../components/Loading/Loading";
 
-import { useLanguage } from "../components/Language/LanguageContext";
+import { useLanguage } from "../Language/LanguageContext";
 
 import HomeList from "../components/Home/HomeList/HomeList";
 import { IGenres, Movies } from "../types/homeTypes";

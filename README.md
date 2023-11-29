@@ -1,6 +1,5 @@
 # Start of the movies_project
 
-
 ## version: alfa-0.6.6.2
 
 
