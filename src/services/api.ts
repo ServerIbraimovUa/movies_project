@@ -12,9 +12,6 @@ axios.defaults.params = {
 export const getAllTrending = async () => {
   return (await axios.get(`${BASE_URL}/trending/all/day`)).data;
 };
-<<<<<<< Updated upstream
-=======
-
 
 export const getAllGenres = async () => {
   return (await axios.get(`${BASE_URL}/genre/movie/list`)).data;
@@ -43,5 +40,3 @@ export const getActorById =async (id:number) => {
 export const getActorCredits =async (id:number) => {
   return (await axios.get(`${BASE_URL}/person/${id}/movie_credits`)).data.cast;
 }
-
->>>>>>> Stashed changes

@@ -23,13 +23,10 @@
     "react-redux": "^8.1.3",
     "react-router-dom": "^6.20.0",
     "react-scripts": "5.0.1",
-<<<<<<< Updated upstream
-=======
-
     "react-toastify": "^9.1.3",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
->>>>>>> Stashed changes
+
     "styled-components": "^6.1.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
@@ -57,8 +54,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-<<<<<<< Updated upstream
-=======
   },
   "devDependencies": {
 
@@ -66,6 +61,5 @@
     "@types/react-i18next": "^8.1.0",
 
     "@types/react-slick": "^0.23.12"
->>>>>>> Stashed changes
   }
 }
