@@ -4,12 +4,11 @@ import { Container } from "react-bootstrap";
 import Error from "../components/Error/Error";
 import Loading from "../components/Loading/Loading";
 
-import { useLanguage } from "../Language/LanguageContext";
+import { useLanguage } from "../components/Language/LanguageContext";
 
 import HomeList from "../components/Home/HomeList/HomeList";
 import { IGenres, Movies } from "../types/homeTypes";
 import Genres from "../components/Home/Genres/Genres";
-
 
 const HomePage: FC = () => {
   const { language } = useLanguage();
@@ -19,11 +18,10 @@ const HomePage: FC = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-
     const fetchData = async () => {
       try {
         const { results } = await getAllTrending(language);
-    // Функція запиту за популярними фільмами
+        // Функція запиту за популярними фільмами
         const { genres } = await getAllGenres();
         setGenres(genres);
 
@@ -41,7 +39,6 @@ const HomePage: FC = () => {
   return (
     <section>
       <Container style={{ display: "flex" }}>
-
         {error && <Error />}
         {loading ? (
           <>

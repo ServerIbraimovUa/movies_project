@@ -4,5 +4,6 @@ export enum RouteNames {
   Login = "/login",
   Register = "/register",
   Favorites = "/favorites",
-  Settings = '/settings',
+  Settings = "/settings",
+  Actor = "/actor/:actorId",
 }
