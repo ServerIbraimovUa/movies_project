@@ -37,7 +37,7 @@ const ActorPage: FC = () => {
 
     const MovieCredits = async () => {
       try {
-        const result = await getActorCredits(10297);
+        const result = await getActorCredits(Number(actorId));
         setLoading(true);
         setCredits(result);
       } catch (error) {
@@ -46,7 +46,7 @@ const ActorPage: FC = () => {
       }
     };
     MovieCredits();
-  }, []);
+  }, [actorId]);
 
   const sortedCredits = (arr: Credits[]): Credits[] => {
     return arr
