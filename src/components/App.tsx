@@ -12,6 +12,11 @@ import FavoritePage from "../pages/FavoritePage";
 import MovieDetailsPage from "../pages/MovieDetailsPage";
 import Settings from "../pages/Settings";
 
+import MovieDetailsPage from "../pages/MovieDetailsPage";
+import Settings from "../pages/Settings";
+
+import ActorPage from "../pages/ActorPage";
+
 function App() {
   return (
     <Routes>
