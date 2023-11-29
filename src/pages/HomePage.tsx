@@ -24,8 +24,18 @@ const HomePage: FC = () => {
         setLoading(true);
       }
     };
+<<<<<<< Updated upstream
     details();
   }, []);
+=======
+
+
+    fetchData();
+  }, [language]);
+
+
+
+>>>>>>> Stashed changes
   return (
     <section>
       <Container>
