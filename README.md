@@ -1,6 +1,7 @@
 # Start of the movies_project
 
-## version: alfa-0.4.3.1
+## version: alfa-0.6.6.2
+
 
 ## Good job everyone
 
@@ -8,9 +9,9 @@
 
 ## Не забуваємо створювати нову вітку, та дописувати в редмі бібліотеки, які ви додали до проєкту.
 
-### `npm start`
-
 ### `npm install`
+
+### `npm start`
 
 ### Trello
 
@@ -33,7 +34,5 @@
 <a href="https://react-bootstrap.netlify.app/">react-bootstrap</a>
 
 <a href="https://mhnpd.github.io/react-loader-spinner/">react-loader-spinner</a>
-<a href=""></a>
-<a href=""></a>
-<a href=""></a>
-<a href=""></a>
+<a href="https://www.npmjs.com/package/react-toastify">react-toastify</a>
+<a href=""></a> <a href=""></a> <a href=""></a> <a href=""></a>

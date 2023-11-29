@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
-import HomeListItem from "./HomeListItem/HomeListItem";
-import { Movies } from "../../types/homeTypes";
+import HomeListItem from "../HomeListItem/HomeListItem";
+import { Movies } from "../../../types/homeTypes";
 
 interface HomeListProps {
   movies: Movies[];

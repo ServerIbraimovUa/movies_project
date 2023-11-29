@@ -6,6 +6,9 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
+import { signInWithGoogle } from "../auth/google";
+import { signInWithFacebook } from "../auth/facebook";
+import { signInWithGithub } from "../auth/github";
 
 const LoginPage = () => {
   const [loginEmail, setLoginEmail] = useState("");
@@ -24,13 +27,17 @@ const LoginPage = () => {
         loginPassword
       );
       console.log(user);
-    } catch (error: any) {
-      console.log(error.message);
+    } catch (error) {
+      console.log(error);
     }
   };
 
   const logout = async () => {
-    await signOut(auth);
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -62,9 +69,15 @@ const LoginPage = () => {
         </button>
         <p>or login with social media</p>
         <ul>
-          <li>Google</li>
-          <li>Facebook</li>
-          <li>GitHub</li>
+          <li>
+            <button onClick={signInWithGoogle}>Google</button>
+          </li>
+          <li>
+            <button onClick={signInWithFacebook}>Facebook</button>
+          </li>
+          <li>
+            <button onClick={signInWithGithub}>GitHub</button>
+          </li>
         </ul>
         <button type="button" onClick={logout}>
           Sign out {user?.email}
