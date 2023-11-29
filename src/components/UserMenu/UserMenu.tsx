@@ -9,7 +9,7 @@ const UserMenu = () => {
       <NavLink to="/favorites">{t('layout.favorite')}</NavLink>
       <div>
         {/* дінамічне ім'я користувача */}
-        <p>{t('layout.username')}</p>
+        <NavLink to='/settings'>{t('layout.username')}</NavLink>
         <button>{t('layout.logout')}</button>
       </div>
     </>

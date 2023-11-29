@@ -6,6 +6,9 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../firebase-config";
+import { signInWithGoogle } from "../auth/google";
+import { signInWithFacebook } from "../auth/facebook";
+import { signInWithGithub } from "../auth/github";
 
 const SignUpPage = () => {
   const [registerEmail, setRegisterEmail] = useState("");
@@ -69,9 +72,15 @@ const SignUpPage = () => {
         </button>
         <p>or sign up with social media</p>
         <ul>
-          <li>Google</li>
-          <li>Facebook</li>
-          <li>GitHub</li>
+          <li>
+            <button onClick={signInWithGoogle}>Google</button>
+          </li>
+          <li>
+            <button onClick={signInWithFacebook}>Facebook</button>
+          </li>
+          <li>
+            <button onClick={signInWithGithub}>GitHub</button>
+          </li>
         </ul>
         <button type="button" onClick={logout}>
           Sign out {user?.email}
