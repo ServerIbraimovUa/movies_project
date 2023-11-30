@@ -19,7 +19,8 @@ const MovieDetailsItem: FC<IMovieDetailsProps> = ({ movie }) => {
 
   return (
     <>
-      <img src={`${BASE_IMG}${poster_path}`} alt={title} />
+      {poster_path && <img src={`${BASE_IMG}${poster_path}`} alt={title} />}
+
       <h1>{title}</h1>
       <p>{vote_average}</p>
       <h2>{t("movie.year")}</h2>

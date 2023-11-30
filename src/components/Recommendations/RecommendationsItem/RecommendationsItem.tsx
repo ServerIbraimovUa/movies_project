@@ -1,7 +1,9 @@
 import React, { FC } from "react";
 import { IMovieRecommendations } from "../../../types/movieDetailsTypes";
+import { Link } from "react-router-dom";
 
 const RecommendationsItem: FC<IMovieRecommendations> = ({
+  id,
   title,
   poster_path,
 }) => {
@@ -9,12 +11,15 @@ const RecommendationsItem: FC<IMovieRecommendations> = ({
 
   return (
     <li>
-      {poster_path ? (
-        <img src={`${BASE_IMG}${poster_path}`} alt={title} />
-      ) : (
-        <img src="" alt={title} />
-      )}
-      <h3>{title}</h3>
+      <Link to={`/movie/${id}`}>
+        {poster_path ? (
+          <img src={`${BASE_IMG}${poster_path}`} alt={title} />
+        ) : (
+          <img src="" alt={title} />
+        )}
+
+        <h3>{title}</h3>
+      </Link>
     </li>
   );
 };
