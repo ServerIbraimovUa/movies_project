@@ -21,7 +21,7 @@ const Layout: FC = () => {
 
             <span>Light Dark</span>
             <AuthMenu />
-            <UserMenu />
+            <UserMenu/>
           </nav>
         </Container>
       </header>
