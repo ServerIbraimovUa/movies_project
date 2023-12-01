@@ -1,7 +1,10 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
 const Error: React.FC = () => {
-  return <h1>Error</h1>;
+  const { t } = useTranslation();
+
+  return <h1>{t('erorr.erorr')}</h1>;
 };
 
 export default Error;

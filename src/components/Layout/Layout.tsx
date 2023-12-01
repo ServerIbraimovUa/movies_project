@@ -14,7 +14,6 @@ const Layout: FC = () => {
           <nav style={{ display: "flex", gap: "24px" }}>
             <NavLink to="/">Логотип</NavLink>
             <SearchMovies />
-            
 
             <div>
               <LanguageSelector />
@@ -22,7 +21,7 @@ const Layout: FC = () => {
 
             <span>Light Dark</span>
             <AuthMenu />
-            <UserMenu />
+            <UserMenu/>
           </nav>
         </Container>
       </header>

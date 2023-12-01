@@ -1,87 +1,80 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   User,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
-  signOut,
 } from "firebase/auth";
 import { auth } from "../firebase-config";
-import { signInWithGoogle } from "../auth/google";
-import { signInWithFacebook } from "../auth/facebook";
-import { signInWithGithub } from "../auth/github";
+import { AuthList } from "../auth/AuthList";
+import { logout } from "../auth/logout";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+interface UserAuth {
+  name: string;
+  email: string;
+  password: string;
+}
 
 const SignUpPage = () => {
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
   const [user, setUser] = useState<User | null>(null);
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
+  useEffect(() => {
+    const authorize = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
 
-  const register = async () => {
+    return () => authorize();
+  }, []); 
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<UserAuth>();
+
+  const signup: SubmitHandler<UserAuth> = async (data) => {
     try {
-      const user = await createUserWithEmailAndPassword(
+      const { email, password } = data;
+      const userCredential = await createUserWithEmailAndPassword(
         auth,
-        registerEmail,
-        registerPassword
+        email,
+        password
       );
-      console.log(user);
+      console.log(userCredential);
+      reset();
     } catch (error: any) {
       console.log(error.message);
     }
   };
-  const logout = async () => {
-    await signOut(auth);
-  };
-
   return (
     <div>
       <h1>Sign up</h1>
-      <form>
+      <form onSubmit={handleSubmit(signup)}>
         <label>
           Username
-          <input type="text" name="username" />
+          <input type="text" {...register("name", { required: true })} />
         </label>
         <label>
           Email
-          <input
-            type="email"
-            name="email"
-            onChange={(event) => {
-              setRegisterEmail(event.target.value);
-            }}
-          />
+          <input type="email" {...register("email", { required: true })} />
+          {errors.email && <span>This field is required</span>}
         </label>
         <label>
           Password
           <input
             type="password"
-            name="password"
-            onChange={(event) => {
-              setRegisterPassword(event.target.value);
-            }}
+            {...register("password", { required: true })}
           />
+          {errors.password && <span>This field is required</span>}
         </label>
         {/* <label>
           Repeat Password
           <input type="password" name="password" />
         </label> */}
-        <button type="button" onClick={register}>
-          Submit
-        </button>
+        <button type="submit">Submit</button>
         <p>or sign up with social media</p>
-        <ul>
-          <li>
-            <button onClick={signInWithGoogle}>Google</button>
-          </li>
-          <li>
-            <button onClick={signInWithFacebook}>Facebook</button>
-          </li>
-          <li>
-            <button onClick={signInWithGithub}>GitHub</button>
-          </li>
-        </ul>
+        <AuthList />
         <button type="button" onClick={logout}>
           Sign out {user?.email}
         </button>

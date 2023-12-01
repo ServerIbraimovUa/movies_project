@@ -16,6 +16,17 @@ export const getAllGenres = async () => {
   return (await axios.get(`${BASE_URL}/genre/movie/list`)).data;
 };
 
+export const getMovieWithGenre = async (
+  id: number | null,
+  year: number | null
+) => {
+  return (
+    await axios.get(
+      `${BASE_URL}/discover/movie?with_genres=${id}&primary_release_year=${year}`
+    )
+  ).data;
+};
+
 export const getMovieDetails = async (id: number) => {
   return (await axios.get(`${BASE_URL}/movie/${id}`)).data;
 };
@@ -31,3 +42,11 @@ export async function getMovieReview(id: number) {
 export async function getMovieRecommendations(id: number) {
   return (await axios(`${BASE_URL}/movie/${id}/similar`)).data;
 }
+
+export const getActorById = async (id: number) => {
+  return (await axios.get(`${BASE_URL}/person/${id}`)).data;
+};
+
+export const getActorCredits = async (id: number) => {
+  return (await axios.get(`${BASE_URL}/person/${id}/movie_credits`)).data.cast;
+};

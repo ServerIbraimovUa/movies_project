@@ -1,0 +1,28 @@
+{
+    "home": {
+      "releasehome": "Release data:",
+      "overview": "Overview",
+      "genres": "Genres"
+    },
+    "layout": {
+      "register": "Register",
+      "login": "Login",
+      "favorite": "Favorite",
+      "username": "User Name",
+      "logout": "Log out"
+          },
+    "erorr": {
+            "erorr": "Erorr"
+                },
+
+    "movie": {
+      "year": "Year:",
+      "genres": "Genres:",
+      "description": "Description"
+          },
+          "search": {
+            "search": "Search"
+          }
+  }
+  
+  
