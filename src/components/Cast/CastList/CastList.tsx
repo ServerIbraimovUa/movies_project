@@ -4,9 +4,13 @@ import CastItem from "../CastItem/CastItem";
 // import { StyledCastList } from "./CastList.styled";
 
 import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// import "./CastClick.css";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./CastClick.css";
+
 import { SlickContainer } from "../../Actor/CreditsSlick/CreditsSlick.styled";
 
 interface CastProps {
