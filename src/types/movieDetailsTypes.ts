@@ -29,3 +29,9 @@ export interface IMovieRecommendations {
   title: string;
   poster_path: string;
 }
+
+export interface IMovieTrailer {
+  id?: number;
+  site?: string;
+  key?: string;
+}

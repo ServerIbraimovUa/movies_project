@@ -43,6 +43,10 @@ export async function getMovieRecommendations(id: number) {
   return (await axios(`${BASE_URL}/movie/${id}/similar`)).data;
 }
 
+export async function getMovieTrailer(id: number) {
+  return (await axios(`${BASE_URL}/movie/${id}/videos`)).data;
+}
+
 export const getActorById = async (id: number) => {
   return (await axios.get(`${BASE_URL}/person/${id}`)).data;
 };
