@@ -7,16 +7,50 @@ axios.defaults.params = {
   api_key: API_KEY,
 };
 
-export const getAllTrending = async () => {
-  return (await axios.get(`${BASE_URL}/trending/all/day`)).data;
+export const getAllTrending = async (language: string) => {
+  const url = `${BASE_URL}/trending/all/day?language=${language}`;
+  return (await axios.get(url)).data;
 };
 
 export const getAllGenres = async () => {
   return (await axios.get(`${BASE_URL}/genre/movie/list`)).data;
 };
 
-getAllGenres().then(console.log);
+export const getMovieWithGenre = async (
+  id: number | null,
+  year: number | null
+) => {
+  return (
+    await axios.get(
+      `${BASE_URL}/discover/movie?with_genres=${id}&primary_release_year=${year}`
+    )
+  ).data;
+};
 
 export const getMovieDetails = async (id: number) => {
   return (await axios.get(`${BASE_URL}/movie/${id}`)).data;
+};
+
+export async function getMovieCast(id: number) {
+  return (await axios(`${BASE_URL}/movie/${id}/credits`)).data;
+}
+
+export async function getMovieReview(id: number) {
+  return (await axios(`${BASE_URL}/movie/${id}/reviews`)).data;
+}
+
+export async function getMovieRecommendations(id: number) {
+  return (await axios(`${BASE_URL}/movie/${id}/similar`)).data;
+}
+
+export async function getMovieTrailer(id: number) {
+  return (await axios(`${BASE_URL}/movie/${id}/videos`)).data;
+}
+
+export const getActorById = async (id: number) => {
+  return (await axios.get(`${BASE_URL}/person/${id}`)).data;
+};
+
+export const getActorCredits = async (id: number) => {
+  return (await axios.get(`${BASE_URL}/person/${id}/movie_credits`)).data.cast;
 };

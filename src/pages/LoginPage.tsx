@@ -1,71 +1,72 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { auth } from "../firebase-config";
 import {
   User,
   onAuthStateChanged,
   signInWithEmailAndPassword,
-  signOut,
 } from "firebase/auth";
+import { AuthList } from "../auth/AuthList";
+import { logout } from "../auth/logout";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+interface UserSignIn {
+  email: string;
+  password: string;
+}
 
 const LoginPage = () => {
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
   const [user, setUser] = useState<User | null>(null);
 
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
+  useEffect(() => {
+    const authorize = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
 
-  const login = async () => {
+    return () => authorize();
+  }, []); 
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<UserSignIn>();
+
+  const login: SubmitHandler<UserSignIn> = async (data) => {
     try {
-      const user = await signInWithEmailAndPassword(
+      const { email, password } = data;
+      const userCredential = await signInWithEmailAndPassword(
         auth,
-        loginEmail,
-        loginPassword
+        email,
+        password
       );
-      console.log(user);
+      console.log(userCredential);
+      reset();
     } catch (error: any) {
       console.log(error.message);
     }
   };
 
-  const logout = async () => {
-    await signOut(auth);
-  };
-
   return (
     <div>
       <h1>Login</h1>
-      <form>
+      <form onSubmit={handleSubmit(login)}>
         <label>
           Email
-          <input
-            type="email"
-            name="email"
-            onChange={(event) => {
-              setLoginEmail(event.target.value);
-            }}
-          />
+          <input type="email" {...register("email", { required: true })} />
+          {errors.email && <span>This field is required</span>}
         </label>
         <label>
           Password
           <input
             type="password"
-            name="password"
-            onChange={(event) => {
-              setLoginPassword(event.target.value);
-            }}
+            {...register("password", { required: true })}
           />
+          {errors.password && <span>This field is required</span>}
         </label>
-        <button type="button" onClick={login}>
-          Log In
-        </button>
+        <button type="submit">Log In</button>
         <p>or login with social media</p>
-        <ul>
-          <li>Google</li>
-          <li>Facebook</li>
-          <li>GitHub</li>
-        </ul>
+        <AuthList />
         <button type="button" onClick={logout}>
           Sign out {user?.email}
         </button>

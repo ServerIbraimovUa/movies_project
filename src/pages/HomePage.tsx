@@ -1,43 +1,61 @@
 import React, { FC, useEffect, useState } from "react";
-import { getAllGenres, getAllTrending } from "../services/api";
+import {
+  getAllGenres,
+  getAllTrending,
+  getMovieWithGenre,
+} from "../services/api";
 import { Container } from "react-bootstrap";
 import Error from "../components/Error/Error";
 import Loading from "../components/Loading/Loading";
+import { useLanguage } from "../components/Language/LanguageContext";
 import HomeList from "../components/Home/HomeList/HomeList";
 import { IGenres, Movies } from "../types/homeTypes";
 import Genres from "../components/Home/Genres/Genres";
+import Years from "../components/Home/Years/Years";
 
 const HomePage: FC = () => {
+  const { language } = useLanguage();
   const [movies, setMovies] = useState<Movies[]>([]);
   const [genres, setGenres] = useState<IGenres[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [genreId, setGenreId] = useState<number | null>(null);
+  const [year, setYear] = useState<number | null>(null);
 
   useEffect(() => {
-    // Функція запиту за популярними фільмами
-    const getMoviesDetails = async () => {
+    setLoading(false);
+    const fetchData = async () => {
       try {
-        const { results } = await getAllTrending();
         const { genres } = await getAllGenres();
+        if (genreId !== null || year !== null) {
+          const data = await getMovieWithGenre(genreId, year);
+          setMovies(data.results);
+        } else {
+          const { results } = await getAllTrending(language);
+          setMovies(results);
+        }
+
+        setLoading(true);
         setGenres(genres);
-        setMovies(results);
-        setLoading(true);
       } catch (error) {
-        console.log(error);
+        console.error(error);
         setError(true);
-        setLoading(true);
       }
     };
-    getMoviesDetails();
-  }, []);
+
+    fetchData();
+  }, [genreId, language, year]);
+
   return (
     <section>
       <Container style={{ display: "flex" }}>
         {error && <Error />}
-        {loading ? (
+        {movies.length !== 0 ? (
           <>
-            <Genres genres={genres} />
-            <HomeList movies={movies} />
+            <Genres genres={genres} setGenreId={setGenreId} />
+            <Years setYear={setYear} />
+
+            {loading ? <HomeList movies={movies} /> : <Loading />}
           </>
         ) : (
           <Loading />

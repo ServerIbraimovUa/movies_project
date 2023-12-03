@@ -1,34 +1,34 @@
-import React from "react";
+import React, { FC } from "react";
 import { Container } from "react-bootstrap";
 import { NavLink, Outlet } from "react-router-dom";
 import UserMenu from "../UserMenu/UserMenu";
 import AuthMenu from "../AuthMenu/AuthMenu";
 import SearchMovies from "../SearchMovies/SearchMovies";
+import LanguageSelector from "../Language/LanguageSelector";
 
-const Layout: React.FC = () => {
+const Layout: FC = () => {
   return (
     <>
       <header>
         <Container>
           <nav style={{ display: "flex", gap: "24px" }}>
-            <NavLink to="/">Logo</NavLink>
-            {/* компонент поіску фільмів  */}
+            <NavLink to="/">Логотип</NavLink>
             <SearchMovies />
 
-            {/* логіка перимикачей */}
-            <span>EN UA</span>
-            <span>Light Dark</span>
+            <div>
+              <LanguageSelector />
+            </div>
 
-            {/* тут буде перевірка вошел пользователь чи ні */}
+            <span>Light Dark</span>
             <AuthMenu />
-            <UserMenu />
+            <UserMenu/>
           </nav>
         </Container>
       </header>
       <main>
         <Outlet />
       </main>
-      <footer>{/* сюди вкладуєтся компонент футер */}</footer>
+      <footer>{/* сюди вкладається компонент футер */}</footer>
     </>
   );
 };

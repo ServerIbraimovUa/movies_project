@@ -1,0 +1,26 @@
+{
+    "home": {
+      "releasehome": "Дані випуску:",
+      "overview": "Огляд",
+      "genres": "Жанри"
+    },
+    "layout": {
+    "register": "Зареєструватися",
+    "login": "Логін",
+    "favorite": "Улюблені",
+    "username": "Ім'я користувача",
+    "logout": "Вийти"
+    },
+    "erorr": {
+      "erorr": "Помилка"
+          },
+    "movie": {
+      "year": "Рік:",
+      "genres": "Жанр:",
+      "description": "Опис"
+    },
+    "search": {
+      "search": "Пошук"
+    }
+            
+  }
