@@ -12,6 +12,7 @@ import HomeList from "../components/Home/HomeList/HomeList";
 import { IGenres, Movies } from "../types/homeTypes";
 import Genres from "../components/Home/Genres/Genres";
 import Years from "../components/Home/Years/Years";
+import Sidebar from "../components/Home/Sidebar/Sidebar";
 
 const HomePage: FC = () => {
   const { language } = useLanguage();
@@ -52,8 +53,11 @@ const HomePage: FC = () => {
         {error && <Error />}
         {movies.length !== 0 ? (
           <>
-            <Genres genres={genres} setGenreId={setGenreId} />
-            <Years setYear={setYear} />
+            <Sidebar
+              genres={genres}
+              setGenreId={setGenreId}
+              setYear={setYear}
+            />
 
             {loading ? <HomeList movies={movies} /> : <Loading />}
           </>

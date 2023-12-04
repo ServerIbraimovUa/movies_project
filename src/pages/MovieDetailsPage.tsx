@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { IMovieDetails } from "../types/movieDetailsTypes";
 import { getMovieDetails } from "../services/api";
 import { useParams } from "react-router-dom";
@@ -8,7 +8,7 @@ import MovieDetails from "../components/MovieDetails/MovieDetails";
 import Cast from "../components/Cast/Cast";
 import Reviews from "../components/Reviews/Reviews";
 import Recommendations from "../components/Recommendations/Recommendations";
-import MovieTrailer from "../MovieTrailer/MovieTrailer";
+import MovieTrailer from "../components/MovieTrailer/MovieTrailer";
 import { Container } from "react-bootstrap";
 
 const MovieDetailsPage: FC = () => {
