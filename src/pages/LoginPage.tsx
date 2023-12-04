@@ -6,8 +6,8 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { AuthList } from "../auth/AuthList";
-import { logout } from "../auth/logout";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { readUserData } from "../auth/database/readFunc";
 
 interface UserSignIn {
   email: string;
@@ -23,7 +23,7 @@ const LoginPage = () => {
     });
 
     return () => authorize();
-  }, []); 
+  }, []);
 
   const {
     register,
@@ -40,6 +40,9 @@ const LoginPage = () => {
         email,
         password
       );
+
+      readUserData(userCredential.user.uid);
+      
       console.log(userCredential);
       reset();
     } catch (error: any) {
@@ -67,9 +70,6 @@ const LoginPage = () => {
         <button type="submit">Log In</button>
         <p>or login with social media</p>
         <AuthList />
-        <button type="button" onClick={logout}>
-          Sign out {user?.email}
-        </button>
       </form>
     </div>
   );

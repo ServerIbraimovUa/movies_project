@@ -13,6 +13,7 @@ const HomeList: FC<HomeListProps> = ({ movies }) => {
       {movies.map((movie) => {
         const {
           title,
+          name,
           id,
           vote_average,
           poster_path,
@@ -20,11 +21,13 @@ const HomeList: FC<HomeListProps> = ({ movies }) => {
           original_title,
           genre_ids,
           release_date,
+          first_air_date,
         } = movie;
         return (
           <HomeListItem
             key={id}
             title={title}
+            name={name}
             vote_average={vote_average}
             poster_path={poster_path}
             id={id}
@@ -32,6 +35,7 @@ const HomeList: FC<HomeListProps> = ({ movies }) => {
             overview={overview}
             genre_ids={genre_ids}
             release_date={release_date}
+            first_air_date={first_air_date}
           />
         );
       })}

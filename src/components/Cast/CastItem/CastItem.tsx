@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { ICast } from "../../../types/movieDetailsTypes";
 import { Link } from "react-router-dom";
+import { StyledClickImg, StyledClickTitle } from "./CastItem.styled";
 
 const CastItem: FC<ICast> = ({ name, profile_path, id }) => {
   const BASE_IMG = "https://image.tmdb.org/t/p/w200";
@@ -9,12 +10,12 @@ const CastItem: FC<ICast> = ({ name, profile_path, id }) => {
     <li>
       <Link to={`/actor/${id}`}>
         {profile_path ? (
-          <img src={`${BASE_IMG}${profile_path}`} alt={name} />
+          <StyledClickImg src={`${BASE_IMG}${profile_path}`} alt={name} />
         ) : (
-          <img src="" alt={name} width="200" height="300" />
+          <StyledClickImg src="" alt={name} width="190" height="250" />
         )}
       </Link>
-      <h3>{name}</h3>
+      <StyledClickTitle>{name}</StyledClickTitle>
     </li>
   );
 };

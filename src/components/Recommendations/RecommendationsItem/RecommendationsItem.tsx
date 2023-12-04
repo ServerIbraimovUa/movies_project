@@ -1,6 +1,10 @@
 import React, { FC } from "react";
 import { IMovieRecommendations } from "../../../types/movieDetailsTypes";
 import { Link } from "react-router-dom";
+import {
+  StyledClickImg,
+  StyledClickTitle,
+} from "../../Cast/CastItem/CastItem.styled";
 
 const RecommendationsItem: FC<IMovieRecommendations> = ({
   id,
@@ -13,12 +17,12 @@ const RecommendationsItem: FC<IMovieRecommendations> = ({
     <li>
       <Link to={`/movie/${id}`}>
         {poster_path ? (
-          <img src={`${BASE_IMG}${poster_path}`} alt={title} />
+          <StyledClickImg src={`${BASE_IMG}${poster_path}`} alt={title} />
         ) : (
-          <img src="" alt={title} />
+          <StyledClickImg src="" alt={title} />
         )}
 
-        <h3>{title}</h3>
+        <StyledClickTitle>{title}</StyledClickTitle>
       </Link>
     </li>
   );
