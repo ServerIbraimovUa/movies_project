@@ -13,6 +13,9 @@ import MovieDetailsPage from "../pages/MovieDetailsPage";
 import Settings from "../pages/Settings";
 
 import ActorPage from "../pages/ActorPage";
+import EditProfile from '../pages/EditProfile';
+import AccountSettings from '../pages/AccountSettings';
+import DeleteAccount from '../pages/DeleteAccount';
 
 function App() {
   return (
@@ -32,7 +35,11 @@ function App() {
               <Settings />
             </RestrictedRoute>
           }
-        />
+        >
+          <Route path={'editProfile'} element={<EditProfile />} />
+          <Route path={'accountSettings'} element={<AccountSettings />} />
+          <Route path={'deleteAccount'} element={<DeleteAccount />} />
+        </Route>
       </Route>
     </Routes>
   );
