@@ -1,12 +1,14 @@
-import React, { FC, useEffect, useState } from "react";
-import { Movies } from "../../types/homeTypes";
+import  { FC } from "react";
 import FavoriteItem from "./FavoriteItem/FavoriteItem";
+import { Movies } from "../../types/homeTypes";
 
 interface FavoriteListProps {
   cards: Movies[];
 }
-const FavoriteList: FC<FavoriteListProps> =(cards) => {
-  return { cards.map(card => <FavoriteItem  card={card}/>) };
+const FavoriteList: FC<FavoriteListProps> =({cards}) => {
+  return (<ul>
+    { cards.map((card: Movies) => (<FavoriteItem key={card.id} card={card} />)) }
+    </ul>);
 };
 
 export default FavoriteList;
