@@ -1,8 +1,32 @@
+import { useState } from 'react';
 import defaultImg from '../images/defaultAvatar.jpg';
+import { User, onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../firebase-config';
+import { readUserData } from '../auth/database/readFunc';
+import { updateUserData } from '../auth/database/updateFunc';
 
 const EditProfile = () => {
+  const [user, setUser] = useState<User | null>(null);
+
+  onAuthStateChanged(auth, currentUser => {
+    setUser(currentUser);
+  });
+
+  const newUser = {
+    name: 'Tim',
+    email: 'tim@mail.com',
+    password: '123456789',
+    imageUrl: '2',
+    id: user?.uid,
+  };
+
+  const updateUser = () => {
+    return updateUserData(newUser);
+  };
+
   return (
     <div>
+      <button onClick={updateUser}>update</button>
       <h1>Profile</h1>
       <ul>
         <li>
