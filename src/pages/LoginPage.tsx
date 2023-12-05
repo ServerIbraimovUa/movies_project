@@ -5,9 +5,9 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { AuthList } from "../auth/AuthList";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { readUserData } from "../auth/database/readFunc";
+import { LoginPageForm } from "../components/LoginPage/LoginPageForm";
 
 interface UserSignIn {
   email: string;
@@ -27,7 +27,6 @@ const LoginPage = () => {
 
   const {
     register,
-    handleSubmit,
     formState: { errors },
     reset,
   } = useForm<UserSignIn>();
@@ -42,7 +41,7 @@ const LoginPage = () => {
       );
 
       readUserData(userCredential.user.uid);
-      
+
       console.log(userCredential);
       reset();
     } catch (error: any) {
@@ -53,24 +52,7 @@ const LoginPage = () => {
   return (
     <div>
       <h1>Login</h1>
-      <form onSubmit={handleSubmit(login)}>
-        <label>
-          Email
-          <input type="email" {...register("email", { required: true })} />
-          {errors.email && <span>This field is required</span>}
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            {...register("password", { required: true })}
-          />
-          {errors.password && <span>This field is required</span>}
-        </label>
-        <button type="submit">Log In</button>
-        <p>or login with social media</p>
-        <AuthList />
-      </form>
+      <LoginPageForm login={login} errors={errors} register={register} />
     </div>
   );
 };
