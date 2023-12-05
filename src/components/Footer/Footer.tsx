@@ -1,17 +1,12 @@
-
 import { Link } from "react-router-dom";
 
-
-
 const Footer = () => {
-    return (
-      
-        <div>
-            <hr />
-      <div>
+  return (
+    <div>
+      <hr />
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <p>LOGO</p>
-        <ul>
-          <li></li>
+        <ul style={{ display: "flex", gap: "40px" }}>
           <li>
             <Link to="">Support the project</Link>
           </li>
@@ -26,14 +21,14 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <div>
-        <div>
+      <div style={{ display: "flex", gap: "40px", justifyContent: "center" }}>
+        <div style={{ display: "flex", gap: "40px" }}>
           <a href="https://www.apple.com/store">App Store</a>
           <a href="https://play.google.com/store/games?device=phone">
             Google play
           </a>
         </div>
-        <ul>
+        <ul style={{ display: "flex", gap: "40px" }}>
           <li>
             <a href="https://github.com/">Github</a>
           </li>
@@ -51,8 +46,15 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <p>
-        2023 Filmoteka. All right reserved Created by <button type="button">TeamForce</button>
+      <p
+        style={{
+          display: "flex",
+          gap: "20px",
+          justifyContent: "center",
+        }}
+      >
+        2023 Filmoteka. All right reserved Created by{" "}
+        <button type="button">TeamForce</button>
       </p>
     </div>
   );
