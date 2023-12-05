@@ -1,9 +1,14 @@
-import React from 'react'
+import  { FC } from "react";
+import FavoriteItem from "./FavoriteItem/FavoriteItem";
+import { Movies } from "../../types/homeTypes";
 
-const FavoriteList = () => {
-  return (
-    <div>FavoriteList</div>
-  )
+interface FavoriteListProps {
+  cards: Movies[];
 }
+const FavoriteList: FC<FavoriteListProps> =({cards}) => {
+  return (<ul>
+    { cards.map((card: Movies) => (<FavoriteItem key={card.id} card={card} />)) }
+    </ul>);
+};
 
-export default FavoriteList
+export default FavoriteList;

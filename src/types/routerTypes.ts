@@ -6,4 +6,5 @@ export enum RouteNames {
   Favorites = "/favorites",
   Settings = "/settings",
   Actor = "/actor/:actorId",
+  Info = "/info"
 }

@@ -5,6 +5,7 @@ import UserMenu from "../UserMenu/UserMenu";
 import AuthMenu from "../AuthMenu/AuthMenu";
 import SearchMovies from "../SearchMovies/SearchMovies";
 import LanguageSelector from "../Language/LanguageSelector";
+import Footer from "../Footer/Footer";
 
 const Layout: FC = () => {
   return (
@@ -28,7 +29,7 @@ const Layout: FC = () => {
       <main>
         <Outlet />
       </main>
-      <footer>{/* сюди вкладається компонент футер */}</footer>
+      <footer><Footer /></footer>
     </>
   );
 };
