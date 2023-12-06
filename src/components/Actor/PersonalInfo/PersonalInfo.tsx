@@ -1,6 +1,6 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Actor } from "../../../types/actorTypes";
-import { Button, Card, Image, ListGroup } from "react-bootstrap";
+import { Card} from "react-bootstrap";
 
 const BASE_IMG = "https://image.tmdb.org/t/p/w500";
 
@@ -10,11 +10,9 @@ interface PersonalInfoProps{
   
 
 const PersonalInfo: FC<PersonalInfoProps> = ({actor}) => {
-const { id, name, profile_path, known_for_department, gender, birthday, place_of_birth, also_known_as }=actor;
-   
+const { id, name, profile_path, known_for_department, gender, birthday, place_of_birth, also_known_as }=actor;   
 
-  return (
-  
+  return ( 
     
    
    <Card style={{ width: '18rem' }} key={id}>
@@ -30,12 +28,14 @@ const { id, name, profile_path, known_for_department, gender, birthday, place_of
         <Card.Subtitle>Place of birth</Card.Subtitle>
         <Card.Text>{place_of_birth}</Card.Text>   
         <Card.Subtitle>Also known as</Card.Subtitle>
-        {also_known_as.map((item:string, index:number)=>{
+        {also_known_as && 
+        also_known_as.map((item:string, index:number)=>{
           return (
             <Card.Text key={index}>{item}</Card.Text>
           )
-        })}
-        
+        })
+      }      
+                
       </Card.Body>
     </Card>
    
