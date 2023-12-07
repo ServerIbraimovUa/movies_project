@@ -8,7 +8,7 @@ const CastItem: FC<ICast> = ({ name, profile_path, id }) => {
 
   return (
     <li>
-      <Link to={`/actor/${id}`} key={id}>
+      <Link to={`/actor/${id}`}>
         {profile_path ? (
           <StyledClickImg src={`${BASE_IMG}${profile_path}`} alt={name} />
         ) : (
