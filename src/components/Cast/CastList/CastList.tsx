@@ -56,19 +56,21 @@ const CastList: FC<CastProps> = ({ cast }) => {
 
   return (
     <SlickContainer>
-      <Slider {...settings}>
-        {cast &&
-          cast.map(({ id, name, profile_path }) => {
-            return (
-              <CastItem
-                key={id}
-                id={id}
-                name={name}
-                profile_path={profile_path}
-              />
-            );
-          })}
-      </Slider>
+      <ul>
+        <Slider {...settings}>
+          {cast &&
+            cast.map(({ id, name, profile_path }) => {
+              return (
+                <CastItem
+                  key={id}
+                  id={id}
+                  name={name}
+                  profile_path={profile_path}
+                />
+              );
+            })}
+        </Slider>
+      </ul>
     </SlickContainer>
   );
 };
