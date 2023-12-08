@@ -22,7 +22,9 @@ export interface IMovieReview {
   id: number;
   author: string;
   content: string;
-  avatar_path: string;
+  author_details: {
+    avatar_path: string;
+  };
 }
 
 export interface IMovieRecommendations {

@@ -1,23 +1,42 @@
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
 import { AuthList } from "../../auth/AuthList";
 import { toggleClick } from "../SignUpPage/toggleClick";
 import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase-config";
 
-interface LoginInt {
-  login: any;
-  register: any;
-  errors: any;
+interface UserSignIn {
+  email: string;
+  password: string;
 }
 
-export const LoginPageForm: React.FC<LoginInt> = ({
-  login,
-  register,
-  errors,
-}) => {
+export const LoginPageForm = () => {
   const [toggleInput, setToggleInput] = useState("password");
   const [toggleIcon, setToggleIcon] = useState(false);
-  const { handleSubmit } = useForm();
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+    reset,
+  } = useForm<UserSignIn>();
+
+  const login: SubmitHandler<UserSignIn> = async (data) => {
+    try {
+      const { email, password } = data;
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      console.log(userCredential);
+      reset();
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit(login)}>
       <label>
