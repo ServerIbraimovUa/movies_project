@@ -1,5 +1,4 @@
 export interface IMovieDetails {
-  name: any;
   id?: number;
   title?: string;
   poster_path?: string;

@@ -10,8 +10,7 @@ import Loading from "../components/Loading/Loading";
 import { useLanguage } from "../components/Language/LanguageContext";
 import HomeList from "../components/Home/HomeList/HomeList";
 import { IGenres, Movies } from "../types/homeTypes";
-import Genres from "../components/Home/Genres/Genres";
-import Years from "../components/Home/Years/Years";
+
 import Sidebar from "../components/Home/Sidebar/Sidebar";
 
 const HomePage: FC = () => {
