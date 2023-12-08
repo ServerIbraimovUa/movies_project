@@ -1,4 +1,5 @@
 export interface IMovieDetails {
+  name: any;
   id?: number;
   title?: string;
   poster_path?: string;
@@ -34,4 +35,13 @@ export interface IMovieTrailer {
   id?: number;
   site?: string;
   key?: string;
+}
+
+export interface FavoriteMovie {
+  id: number;
+  poster_path: string;
+  vote_average: number;
+  title: string;
+  name: string;
+  isFavorite: boolean;
 }
