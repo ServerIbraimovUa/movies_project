@@ -1,14 +1,28 @@
 import  { FC } from "react";
 import FavoriteItem from "./FavoriteItem/FavoriteItem";
-import { Movies } from "../../types/homeTypes";
 
-interface FavoriteListProps {
-  cards: Movies[];
-}
-const FavoriteList: FC<FavoriteListProps> =({cards}) => {
-  return (<ul>
-    { cards.map((card: Movies) => (<FavoriteItem key={card.id} card={card} />)) }
-    </ul>);
+import { useFavoriteMovies } from "../../hooks/useFavoriteMovies";
+import { FavoriteMovie } from "../../types/movieDetailsTypes";
+
+
+const FavoriteList: FC = () => {
+  const storedFavorite = localStorage.getItem("favorite");
+  const initialFavorite: FavoriteMovie[] = storedFavorite
+    ? JSON.parse(storedFavorite)
+    : [];
+
+  const { favorite, removeFavoriteById } = useFavoriteMovies(initialFavorite);
+  return (
+    <ul>
+      {favorite.map((favoriteMovie: FavoriteMovie) => (
+        <FavoriteItem
+          key={favoriteMovie.id}
+          favoriteMovie={favoriteMovie}
+          removeFavoriteById={removeFavoriteById}
+        />
+      ))}
+    </ul>
+  );
 };
 
 export default FavoriteList;
