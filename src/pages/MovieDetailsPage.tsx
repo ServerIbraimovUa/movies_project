@@ -1,7 +1,7 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { IMovieDetails } from "../types/movieDetailsTypes";
 import { getMovieDetails } from "../services/api";
-import { useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import Error from "../components/Error/Error";
 import Loading from "../components/Loading/Loading";
 import MovieDetails from "../components/MovieDetails/MovieDetails";
@@ -17,6 +17,9 @@ const MovieDetailsPage: FC = () => {
   const [error, setError] = useState(false);
 
   const { movieId } = useParams();
+
+  const location = useLocation();
+  const backLinkLocationRef = useRef(location.state?.from ?? "/");
 
   useEffect(() => {
     setLoading(true);
@@ -37,6 +40,7 @@ const MovieDetailsPage: FC = () => {
   return (
     <section>
       <Container>
+        <Link to={backLinkLocationRef.current}>Go back</Link>
         {error && <Error />}
         {loading ? (
           <Loading />
