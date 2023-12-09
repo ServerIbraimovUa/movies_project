@@ -35,5 +35,3 @@ const ReviewsItem: FC<ReviewsItemProps> = ({
 };
 
 export default ReviewsItem;
-
-// avatar_path
