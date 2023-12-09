@@ -1,13 +1,14 @@
 import React, { FC, useEffect, useState } from "react";
 
 import HomeListItem from "../HomeListItem/HomeListItem";
-import { Movies } from "../../../types/homeTypes";
+import { IGenres, Movies } from "../../../types/homeTypes";
 
 interface HomeListProps {
   movies: Movies[];
+  genres: IGenres[];
 }
 
-const HomeList: FC<HomeListProps> = ({ movies }) => {
+const HomeList: FC<HomeListProps> = ({ movies, genres }) => {
   const storedFavorite = localStorage.getItem("favorite");
   const initialFavorite: Movies[] = storedFavorite
     ? JSON.parse(storedFavorite)
@@ -37,6 +38,7 @@ const HomeList: FC<HomeListProps> = ({ movies }) => {
       prevFavorite.filter((item) => item.id !== id)
     );
   };
+
   return (
     <ul>
       {movies.map((movie) => {
@@ -68,6 +70,7 @@ const HomeList: FC<HomeListProps> = ({ movies }) => {
             addFavorite={addFavorite}
             removeFavorite={removeFavorite}
             isFavorite={isFavorite(movie.id)}
+            genres={genres}
           />
         );
       })}
