@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
-import { Movies } from "../../../types/homeTypes";
+import { IGenres, Movies } from "../../../types/homeTypes";
 
 const BASE_IMG = "https://image.tmdb.org/t/p/w200";
 
@@ -9,6 +9,7 @@ interface HomeListItemProps extends Movies {
   addFavorite: (id: number) => void;
   removeFavorite: (id: number) => void;
   isFavorite: boolean;
+  genres: IGenres[];
 }
 
 const HomeListItem: FC<HomeListItemProps> = ({
@@ -25,8 +26,15 @@ const HomeListItem: FC<HomeListItemProps> = ({
   addFavorite,
   removeFavorite,
   isFavorite,
+  genres,
 }) => {
   const location = useLocation();
+  const genresId = genre_ids.filter((g) => {
+    return genres.find((genre) => genre.id === g);
+  });
+  const genresName = genresId.map((g) => {
+    return genres.find((genre) => genre.id === g);
+  });
 
   return (
     <li style={{ display: "flex" }}>
@@ -43,7 +51,16 @@ const HomeListItem: FC<HomeListItemProps> = ({
           {(release_date || first_air_date) &&
             (release_date?.substring(0, 4) || first_air_date?.substring(0, 4))}
         </p>
-        <p>Genre: </p>
+        <div>
+          <p>Genre:</p>
+          {genresName && (
+            <ul>
+              {genresName.map((g) => (
+                <li key={g?.id}>{g?.name}</li>
+              ))}
+            </ul>
+          )}
+        </div>
         <p>Description: </p>
         <p>{overview}</p>
       </div>

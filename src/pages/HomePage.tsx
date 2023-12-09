@@ -58,7 +58,11 @@ const HomePage: FC = () => {
               setYear={setYear}
             />
 
-            {loading ? <HomeList movies={movies} /> : <Loading />}
+            {loading ? (
+              <HomeList movies={movies} genres={genres} />
+            ) : (
+              <Loading />
+            )}
           </>
         ) : (
           <Loading />
