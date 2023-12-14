@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { NavLink, Outlet } from "react-router-dom";
 import UserMenu from "../UserMenu/UserMenu";
@@ -6,8 +6,16 @@ import AuthMenu from "../AuthMenu/AuthMenu";
 import SearchMovies from "../SearchMovies/SearchMovies";
 import LanguageSelector from "../Language/LanguageSelector";
 import Footer from "../Footer/Footer";
+import { auth } from "../../firebase-config";
+import { User } from "firebase/auth";
 
 const Layout: FC = () => {
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    setUser(auth.currentUser);
+  }, []);
+  console.log(auth.currentUser);
   return (
     <>
       <header>
@@ -21,15 +29,16 @@ const Layout: FC = () => {
             </div>
 
             <span>Light Dark</span>
-            <AuthMenu />
-            <UserMenu/>
+            {user ? <UserMenu /> : <AuthMenu />}
           </nav>
         </Container>
       </header>
       <main>
         <Outlet />
       </main>
-      <footer><Footer /></footer>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };

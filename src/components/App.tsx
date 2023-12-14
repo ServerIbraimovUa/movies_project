@@ -13,9 +13,10 @@ import MovieDetailsPage from "../pages/MovieDetailsPage";
 import Settings from "../pages/Settings";
 
 import ActorPage from "../pages/ActorPage";
-import EditProfile from '../pages/EditProfile';
-import AccountSettings from '../pages/AccountSettings';
-import DeleteAccount from '../pages/DeleteAccount';
+import EditProfile from "../pages/EditProfile";
+import AccountSettings from "../pages/AccountSettings";
+import DeleteAccount from "../pages/DeleteAccount";
+import { PrivateRoute } from "./PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -27,7 +28,14 @@ function App() {
         <Route path={RouteNames.Actor} element={<ActorPage />} />
         <Route path={RouteNames.Login} element={<LoginPage />} />
         <Route path={RouteNames.Register} element={<SignUpPage />} />
-        <Route path={RouteNames.Favorites} element={<FavoritePage />} />
+        <Route
+          path={RouteNames.Favorites}
+          element={
+            // <PrivateRoute redirectTo={RouteNames.Login}>
+            <FavoritePage />
+            /* </PrivateRoute> */
+          }
+        />
         <Route
           path={RouteNames.Settings}
           element={
@@ -36,9 +44,9 @@ function App() {
             </RestrictedRoute>
           }
         >
-          <Route path={'editProfile'} element={<EditProfile />} />
-          <Route path={'accountSettings'} element={<AccountSettings />} />
-          <Route path={'deleteAccount'} element={<DeleteAccount />} />
+          <Route path={"editProfile"} element={<EditProfile />} />
+          <Route path={"accountSettings"} element={<AccountSettings />} />
+          <Route path={"deleteAccount"} element={<DeleteAccount />} />
         </Route>
       </Route>
     </Routes>
