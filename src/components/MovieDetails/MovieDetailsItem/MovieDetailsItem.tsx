@@ -24,7 +24,7 @@ const MovieDetailsItem: FC<IMovieDetailsProps> = ({ movie }) => {
       <h1>{title}</h1>
       <p>{vote_average}</p>
       <h2>{t("movie.year")}</h2>
-      <span>{release_date}</span>
+      <span>{release_date?.substring(0, 4)}</span>
 
       <h2>{t("movie.genres")}</h2>
       <span>
