@@ -5,7 +5,7 @@ import {
   GoogleAuthProvider,
   getAuth,
 } from "firebase/auth";
-import { getDatabase, ref } from "firebase/database";
+import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBOt5sD8GrEkW6o2tIrAYjD7Hh4eEW4U8I",
@@ -25,5 +25,3 @@ export const GoogleProvider = new GoogleAuthProvider();
 export const FacebookProvider = new FacebookAuthProvider();
 export const GitHubProvider = new GithubAuthProvider();
 export const db = getDatabase(app);
-export const userId = auth.currentUser?.uid;
-export const reference = ref(db, "users/" + userId);

@@ -11,5 +11,5 @@ export const PrivateRoute: FC<PrivateRouteProps> = ({
   children,
   redirectTo = "/",
 }) => {
-  return auth.currentUser ? children : <Navigate to={redirectTo} replace/>;
+  return auth.currentUser ? children : <Navigate to={redirectTo} replace />;
 };

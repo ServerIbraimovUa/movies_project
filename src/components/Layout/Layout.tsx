@@ -15,7 +15,7 @@ const Layout: FC = () => {
   useEffect(() => {
     setUser(auth.currentUser);
   }, []);
-  console.log(auth.currentUser);
+
   return (
     <>
       <header>

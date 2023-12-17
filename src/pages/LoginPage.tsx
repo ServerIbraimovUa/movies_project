@@ -10,9 +10,9 @@ const LoginPage = () => {
     const authorize = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
-
+    console.log(user);
     return () => authorize();
-  }, []);
+  }, [user]);
 
   return (
     <div>
