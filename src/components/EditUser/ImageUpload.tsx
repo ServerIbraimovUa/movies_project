@@ -1,8 +1,12 @@
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import defaultImg from '../../images/defaultAvatar.jpg';
+import { IImageUpload } from '../../types/editProfileTypes';
 
-const ImageUpload = ({ currentAvatarURL, onAvatarChanged }) => {
-  const [avatarURL, setAvatarURL] = useState<string | null>();
+const ImageUpload: FC<IImageUpload> = ({
+  currentAvatarURL,
+  onAvatarChanged,
+}) => {
+  const [avatarURL, setAvatarURL] = useState<string>('');
 
   useEffect(() => {
     setAvatarURL(currentAvatarURL || defaultImg);
@@ -16,11 +20,16 @@ const ImageUpload = ({ currentAvatarURL, onAvatarChanged }) => {
 
   return (
     <div>
-      <img src={avatarURL} alt="" width={'80px'} />
+      <img src={avatarURL} alt="User avatar" width={'100px'} height={'100px'} />
       <input
         type="file"
         accept="image/png, image/jpeg, image/jpg"
-        onChange={e => preview(e.target.files[0])}
+        onChange={e => {
+          if (!e.target.files) {
+            return;
+          }
+          preview(e.target.files[0]);
+        }}
       />
     </div>
   );

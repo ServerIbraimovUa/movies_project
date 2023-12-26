@@ -13,7 +13,7 @@ const UserModal: FC<IModal> = ({ show, close }) => {
       <Modal show={show} onHide={close}>
         <Modal.Body>
           <div>
-            <NavLink to="/settings" onClick={close}>
+            <NavLink to="/settings/personal-info" onClick={close}>
               settings
             </NavLink>
             <button onClick={close}>close</button>

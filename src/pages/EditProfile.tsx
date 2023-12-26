@@ -1,11 +1,5 @@
 import { useEffect, useState } from 'react';
-import {
-  EmailAuthProvider,
-  User,
-  reauthenticateWithCredential,
-  updatePassword,
-  updateProfile,
-} from 'firebase/auth';
+import { User, updateProfile } from 'firebase/auth';
 import { auth } from '../firebase-config';
 
 import NameForm from '../components/EditUser/NameForm';
@@ -15,12 +9,10 @@ import { upload } from '../services/image';
 
 const EditProfile = () => {
   const [user, setUser] = useState<User | null>(null);
-  const [isUpdatePassword, setIsUpdatePassword] = useState<boolean>(false);
-  const [isUpdateImg, setIsUpdateImg] = useState<boolean>(false);
   const [userEmail, setUserEmail] = useState<null | string>(null);
+  const [show, setShow] = useState(false);
 
   let updatedAvatarFile: File | null = null;
-
   console.log(user);
 
   useEffect(() => {
@@ -29,17 +21,16 @@ const EditProfile = () => {
     setUserEmail(auth.currentUser.email);
   }, [user, userEmail]);
 
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+
   const saveProfile = async () => {
-    if (updatedAvatarFile !== null) {
+    if (updatedAvatarFile !== null && user) {
       const avatarPath = `users-images/${user?.uid}`;
-
       const updatedAvatarURL = await upload(avatarPath, updatedAvatarFile);
-
       await updateProfile(user, {
         photoURL: updatedAvatarURL,
       });
-
-      //debugger;
     }
   };
 
@@ -47,35 +38,31 @@ const EditProfile = () => {
     <div>
       <h1>Profile</h1>
       <ul>
-        <li>
-          {/* <input
+        {/* <li>
+          <input
             defaultValue={userEmail || ''}
-            {...register('password', { required: true })}
-          /> */}
+            type="email"
+            {...register('email', { required: true })}
+          />
           <button>Change email</button>
-        </li>
+        </li> */}
         <li>
-          {isUpdatePassword ? (
-            <PasswordForm user={user} setIsUpdate={setIsUpdatePassword} />
-          ) : (
-            <button type="button" onClick={() => setIsUpdatePassword(true)}>
-              Change password
-            </button>
-          )}
+          <PasswordForm user={user} close={handleClose} show={show} />
+          <button type="button" onClick={handleShow}>
+            Change password
+          </button>
         </li>
       </ul>
       <div>
         <h2>User</h2>
         <div>
           <ImageUpload
-            currentAvatarURL={user?.photoURL}
+            currentAvatarURL={user?.photoURL ? user?.photoURL : ''}
             onAvatarChanged={file => (updatedAvatarFile = file)}
           />
-          {!isUpdateImg && (
-            <button type="button" onClick={() => saveProfile()}>
-              Save img
-            </button>
-          )}
+          <button type="button" onClick={() => saveProfile()}>
+            Save img
+          </button>
         </div>
         <select name="Gender">
           <option value="Male">Male</option>
