@@ -24,6 +24,7 @@ export interface IMovieReview {
   author_details: {
     avatar_path: string;
   };
+  created_at: string;
 }
 
 export interface IMovieRecommendations {
