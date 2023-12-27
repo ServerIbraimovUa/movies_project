@@ -1,22 +1,11 @@
-import { User, updateProfile } from 'firebase/auth';
+import { updateProfile } from 'firebase/auth';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import {
   failedNotification,
   successNotification,
 } from '../../services/notifications';
 import { FC } from 'react';
-
-type FormValues = {
-  name?: string;
-  photoURL?: string;
-  email?: string;
-  password?: string;
-  newPassword?: string;
-};
-
-interface INameForm {
-  user: User;
-}
+import { FormValues, INameForm } from '../../types/editProfileTypes';
 
 const NameForm: FC<INameForm> = ({ user }) => {
   const {
@@ -27,20 +16,19 @@ const NameForm: FC<INameForm> = ({ user }) => {
 
   const updateUserName: SubmitHandler<FormValues> = async ({ name }) => {
     if (!user) return;
-
-    await updateProfile(user, {
-      displayName: name,
-    })
-      .then(() => {
-        return successNotification('You have updated your name!');
-      })
-      .catch(error => {
-        return failedNotification(`Oops, smth went wrong: ${error.message}`);
+    try {
+      await updateProfile(user, {
+        displayName: name,
       });
+      successNotification('You have updated your name!');
+    } catch {
+      failedNotification("Can't update your name");
+    }
   };
 
   return (
     <form onSubmit={handleSubmit(updateUserName)}>
+      {errors.name && <span>{errors.name.message}</span>}
       <input
         defaultValue={user?.displayName || ''}
         {...register('name', { required: true })}

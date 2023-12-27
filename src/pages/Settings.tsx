@@ -6,13 +6,13 @@ const Settings = () => {
       <div>
         <ul>
           <li>
-            <Link to="editProfile">Edit Account</Link>
+            <Link to="personal-info">Edit Account</Link>
           </li>
           <li>
-            <Link to="accountSettings">Account Settings</Link>
+            <Link to="account">Account Settings</Link>
           </li>
           <li>
-            <Link to="deleteAccount">Delete Account</Link>
+            <Link to="account-deletion">Delete Account</Link>
           </li>
         </ul>
       </div>

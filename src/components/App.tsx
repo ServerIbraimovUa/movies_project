@@ -1,18 +1,18 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import { Route, Routes } from "react-router";
-import { RouteNames } from "../types/routerTypes";
-import RestrictedRoute from "./RestrictedRoute/RestrictedRoute";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import { Route, Routes } from 'react-router';
+import { RouteNames } from '../types/routerTypes';
+import RestrictedRoute from './RestrictedRoute/RestrictedRoute';
 
-import Layout from "./Layout/Layout";
-import HomePage from "../pages/HomePage";
-import SignUpPage from "../pages/SignUpPage";
-import LoginPage from "../pages/LoginPage";
-import FavoritePage from "../pages/FavoritePage";
-import MovieDetailsPage from "../pages/MovieDetailsPage";
-import Settings from "../pages/Settings";
+import Layout from './Layout/Layout';
+import HomePage from '../pages/HomePage';
+import SignUpPage from '../pages/SignUpPage';
+import LoginPage from '../pages/LoginPage';
+import FavoritePage from '../pages/FavoritePage';
+import MovieDetailsPage from '../pages/MovieDetailsPage';
+import Settings from '../pages/Settings';
 
-import ActorPage from "../pages/ActorPage";
+import ActorPage from '../pages/ActorPage';
 import EditProfile from '../pages/EditProfile';
 import AccountSettings from '../pages/AccountSettings';
 import DeleteAccount from '../pages/DeleteAccount';
@@ -36,9 +36,9 @@ function App() {
             </RestrictedRoute>
           }
         >
-          <Route path={'editProfile'} element={<EditProfile />} />
-          <Route path={'accountSettings'} element={<AccountSettings />} />
-          <Route path={'deleteAccount'} element={<DeleteAccount />} />
+          <Route path={'personal-info'} element={<EditProfile />} />
+          <Route path={'account'} element={<AccountSettings />} />
+          <Route path={'account-deletion'} element={<DeleteAccount />} />
         </Route>
       </Route>
     </Routes>

@@ -1,38 +1,19 @@
 import { useEffect, useState } from 'react';
-import defaultImg from '../images/defaultAvatar.jpg';
-import {
-  EmailAuthProvider,
-  User,
-  reauthenticateWithCredential,
-  updatePassword,
-} from 'firebase/auth';
+import { User, updateProfile } from 'firebase/auth';
 import { auth } from '../firebase-config';
-import { updateProfile } from 'firebase/auth';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import {
-  failedNotification,
-  successNotification,
-} from '../services/notifications';
-import NameForm from '../components/EditUser/NameForm';
 
-type FormValues = {
-  name?: string;
-  photoURL?: string;
-  email?: string;
-  password?: string;
-  newPassword?: string;
-};
+import NameForm from '../components/EditUser/NameForm';
+import PasswordForm from '../components/EditUser/PasswordForm';
+import ImageUpload from '../components/EditUser/ImageUpload';
+import { upload } from '../services/image';
 
 const EditProfile = () => {
   const [user, setUser] = useState<User | null>(null);
-  const [isUpdate, setIsUpdate] = useState(false);
   const [userEmail, setUserEmail] = useState<null | string>(null);
+  const [show, setShow] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormValues>();
+  let updatedAvatarFile: File | null = null;
+  console.log(user);
 
   useEffect(() => {
     if (!auth.currentUser) return;
@@ -40,68 +21,48 @@ const EditProfile = () => {
     setUserEmail(auth.currentUser.email);
   }, [user, userEmail]);
 
-  const updateUserPassword: SubmitHandler<FormValues> = async ({
-    password,
-    newPassword,
-  }) => {
-    if (!user || !password || !newPassword) return;
-    const credential = EmailAuthProvider.credential(user.email || '', password);
-    await reauthenticateWithCredential(user, credential).then(() => {
-      updatePassword(user, newPassword)
-        .then(() => {
-          alert('You have changed your password');
-          // ...
-          return;
-        })
-        .catch(error => {
-          // An error occurred
-          // ...
-        })
-        .finally(() => setIsUpdate(false));
-    });
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
 
-    console.log(credential);
+  const saveProfile = async () => {
+    if (updatedAvatarFile !== null && user) {
+      const avatarPath = `users-images/${user?.uid}`;
+      const updatedAvatarURL = await upload(avatarPath, updatedAvatarFile);
+      await updateProfile(user, {
+        photoURL: updatedAvatarURL,
+      });
+    }
   };
 
   return (
     <div>
       <h1>Profile</h1>
       <ul>
-        <li>
-          {/* <input
+        {/* <li>
+          <input
             defaultValue={userEmail || ''}
-            {...register('password', { required: true })}
-          /> */}
+            type="email"
+            {...register('email', { required: true })}
+          />
           <button>Change email</button>
-        </li>
+        </li> */}
         <li>
-          {isUpdate ? (
-            <form onSubmit={handleSubmit(updateUserPassword)}>
-              <input
-                type="password"
-                {...register('password', { required: true })}
-              />
-              <div>
-                <input
-                  type="password"
-                  {...register('newPassword', { required: true })}
-                />
-              </div>
-
-              <button type="submit">sub</button>
-            </form>
-          ) : (
-            <button type="button" onClick={() => setIsUpdate(true)}>
-              Change password
-            </button>
-          )}
+          <PasswordForm user={user} close={handleClose} show={show} />
+          <button type="button" onClick={handleShow}>
+            Change password
+          </button>
         </li>
       </ul>
       <div>
         <h2>User</h2>
         <div>
-          <img src={defaultImg} alt="" width={'80px'} height={'80px'} />
-          <button type="button">Edit</button>
+          <ImageUpload
+            currentAvatarURL={user?.photoURL ? user?.photoURL : ''}
+            onAvatarChanged={file => (updatedAvatarFile = file)}
+          />
+          <button type="button" onClick={() => saveProfile()}>
+            Save img
+          </button>
         </div>
         <select name="Gender">
           <option value="Male">Male</option>
