@@ -6,7 +6,7 @@ import {
   getAuth,
 } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
-} from "firebase/auth";
+
 import { getDatabase, ref } from "firebase/database";
 
 const firebaseConfig = {
