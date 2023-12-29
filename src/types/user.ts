@@ -9,4 +9,5 @@ export interface UserType {
   sex?: string;
   favorites?: FavoriteMovie[];
   imageUrl?: string;
+  isLoggedIn: boolean;
 }

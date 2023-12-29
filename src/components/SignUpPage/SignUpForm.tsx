@@ -15,6 +15,7 @@ interface UserAuth {
 }
 
 export const SignUpForm = () => {
+  const { createUser } = UseUser();
   const [toggleInput, setToggleInput] = useState("password");
   const [toggleIcon, setToggleIcon] = useState(false);
 
@@ -28,11 +29,10 @@ export const SignUpForm = () => {
     mode: "onTouched",
   });
 
-  const { createUser } = UseUser();
-
   const signup: SubmitHandler<UserAuth> = async (data) => {
     try {
       const { name, email, password } = data;
+      console.log(data);
 
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -47,6 +47,7 @@ export const SignUpForm = () => {
         theme: "light",
         language: "ua",
         uid: userCredential.user.uid,
+        isLoggedIn: true,
       });
 
       reset();

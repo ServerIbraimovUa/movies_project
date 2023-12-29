@@ -17,13 +17,15 @@ export const UseUser = () => {
   }, [user]);
 
   function createUser(user: UserType) {
+    console.log(user);
     writeUserData(user);
   }
   function deleteUser(uid: string) {
     deleteUser(uid);
   }
   function readUser(uid: string) {
-    readData(uid);
+    const data = readData(uid);
+    return data;
   }
   return { user, setUser, createUser, deleteUser, readUser };
 };
