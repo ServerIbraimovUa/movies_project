@@ -8,16 +8,16 @@ const Footer = () => {
         <p>LOGO</p>
         <ul style={{ display: "flex", gap: "40px" }}>
           <li>
-            <Link to="">Support the project</Link>
+            <Link to="info/about">Support the project</Link>
           </li>
           <li>
-            <Link to="">FAQ</Link>
+            <Link to="info/faq">FAQ</Link>
           </li>
           <li>
-            <Link to="">Terms of use</Link>
+            <Link to="info/terms">Terms of use</Link>
           </li>
           <li>
-            <Link to="">Copyright holders</Link>
+            <Link to="info/copyright">Copyright holders</Link>
           </li>
         </ul>
       </div>
