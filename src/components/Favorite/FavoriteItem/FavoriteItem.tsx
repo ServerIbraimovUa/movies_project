@@ -1,4 +1,4 @@
-import  { FC } from "react";
+import { FC } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Movies } from "../../../types/homeTypes";
 import { MdOutlineFavorite } from "react-icons/md";
@@ -19,7 +19,7 @@ const FavoriteItem: FC<FavoriteItemProps> = ({
   console.log(favoriteMovie);
   return (
     <li>
-      <Link to={`/movies/${id}`} state={{ from: location }}>
+      <Link to={`/movie/${id}`} state={{ from: location }}>
         <img src={`${BASE_IMG}${poster_path}`} alt={title ? title : name} />
         <p>{title ? title : name}</p>
         <p>{vote_average}</p>
