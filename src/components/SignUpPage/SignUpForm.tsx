@@ -47,7 +47,6 @@ export const SignUpForm = () => {
         theme: "light",
         language: "ua",
         uid: userCredential.user.uid,
-        isLoggedIn: true,
       });
 
       reset();

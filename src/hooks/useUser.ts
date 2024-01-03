@@ -27,5 +27,11 @@ export const UseUser = () => {
     const data = readData(uid);
     return data;
   }
-  return { user, setUser, createUser, deleteUser, readUser };
+  return {
+    user,
+    setUser,
+    createUser,
+    deleteUser,
+    readUser,
+  };
 };

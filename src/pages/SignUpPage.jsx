@@ -1,24 +1,25 @@
-import React, { useEffect,  } from "react";
+import React, { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase-config";
 import { SignUpForm } from "../components/SignUpPage/SignUpForm";
 import { UseUser } from "../hooks/useUser";
 
 const SignUpPage = () => {
-  const { setUser, readUser } = UseUser();
+  const { setUser } = UseUser();
 
   useEffect(() => {
     const authorize = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        const user = readUser(currentUser.uid);
-        console.log(user)
+        console.log(currentUser);
+        const user = currentUser.uid;
+        console.log(user);
         setUser(user);
       }
       setUser(null);
     });
 
     return () => authorize();
-  }, [setUser, readUser]);
+  }, [setUser]);
 
   return (
     <div>

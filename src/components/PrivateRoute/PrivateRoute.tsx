@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Navigate } from "react-router-dom";
+import { UseUser } from "../../hooks/useUser";
 import { auth } from "../../firebase-config";
 
 interface PrivateRouteProps {
@@ -11,5 +12,11 @@ export const PrivateRoute: FC<PrivateRouteProps> = ({
   children,
   redirectTo = "/",
 }) => {
-  return auth.currentUser ? children : <Navigate to={redirectTo} replace />;
+  const { readUser } = UseUser();
+  const uid = auth.currentUser?.uid;
+  let user;
+  if (uid) {
+    user = readUser(uid);
+  }
+  return user ? children : <Navigate to={redirectTo} replace />;
 };
