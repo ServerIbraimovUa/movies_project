@@ -5,6 +5,7 @@ import { AuthList } from "../../auth/AuthList";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase-config";
+import { useUser } from "../../context/UserContext";
 
 interface UserAuth {
   name: string;
@@ -14,6 +15,7 @@ interface UserAuth {
 }
 
 export const SignUpForm = () => {
+  const { createUser } = useUser();
   const [toggleInput, setToggleInput] = useState("password");
   const [toggleIcon, setToggleIcon] = useState(false);
 
@@ -29,7 +31,8 @@ export const SignUpForm = () => {
 
   const signup: SubmitHandler<UserAuth> = async (data) => {
     try {
-      const { email, password } = data;
+      const { name, email, password } = data;
+      console.log(data);
 
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -38,6 +41,13 @@ export const SignUpForm = () => {
       );
 
       console.log(userCredential);
+
+      createUser({
+        name,
+        theme: "light",
+        language: "ua",
+        uid: userCredential.user.uid,
+      });
 
       reset();
     } catch (error: any) {

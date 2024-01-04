@@ -4,6 +4,7 @@ import { auth } from "../firebase-config";
 export const logout = async () => {
   try {
     await signOut(auth);
+    console.log('succes')
   } catch (error) {
     console.log(error);
   }

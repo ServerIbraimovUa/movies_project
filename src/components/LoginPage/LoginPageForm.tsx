@@ -29,7 +29,7 @@ export const LoginPageForm = () => {
         email,
         password
       );
-      
+
       console.log(userCredential);
       reset();
     } catch (error: any) {

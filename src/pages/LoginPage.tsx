@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { auth } from "../firebase-config";
-import { User, onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { LoginPageForm } from "../components/LoginPage/LoginPageForm";
+import { useUser } from "../context/UserContext";
 
 const LoginPage = () => {
-  const [user, setUser] = useState<User | null>(null);
+  const { readUser } = useUser() || {};
 
   useEffect(() => {
     const authorize = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+      if (currentUser && readUser) {
+        readUser(currentUser.uid);
+      }
     });
-
     return () => authorize();
-  }, []);
+  }, [readUser]);
 
   return (
     <div>

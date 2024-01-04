@@ -4,10 +4,12 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
   getAuth,
-} from 'firebase/auth';
+} from "firebase/auth";
+
 import { getStorage } from 'firebase/storage';
 
 import { getDatabase, ref } from "firebase/database";
+
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBOt5sD8GrEkW6o2tIrAYjD7Hh4eEW4U8I',
@@ -30,4 +32,3 @@ export const db = getDatabase(app);
 export const userId = auth.currentUser?.uid;
 export const storage = getStorage();
 export const reference = ref(db, "users/" + userId);
-
