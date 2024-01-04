@@ -19,14 +19,29 @@ const HomePage: FC = () => {
   const [genres, setGenres] = useState<IGenres[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [genreId, setGenreId] = useState<number | null>(null);
-  const [year, setYear] = useState<number | null>(null);
+
+  const storedGenre = sessionStorage.getItem("genre");
+  const initialGenre = storedGenre ? JSON.parse(storedGenre) : null;
+  const storedYear = sessionStorage.getItem("year");
+  const initialYear = storedYear ? JSON.parse(storedYear) : null;
+  const [genreId, setGenreId] = useState<number | null>(initialGenre);
+  const [year, setYear] = useState<number | null>(initialYear);
+
+  useEffect(() => {
+    const setToLocalStorage = (genre: any, year: any) => {
+      sessionStorage.setItem("genre", JSON.stringify(genre));
+      sessionStorage.setItem("year", JSON.stringify(year));
+    };
+
+    setToLocalStorage(genreId, year);
+  }, [genreId, year]);
 
   useEffect(() => {
     setLoading(false);
     const fetchData = async () => {
       try {
         const { genres } = await getAllGenres();
+
         if (genreId !== null || year !== null) {
           const data = await getMovieWithGenre(genreId, year);
           setMovies(data.results);

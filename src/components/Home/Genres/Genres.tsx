@@ -10,14 +10,10 @@ const Genres: FC<GenresProps> = ({ genres, setGenreId }) => {
   const handleId = (id: number) => {
     setGenreId(id);
   };
+
   return (
     <>
       <ul>
-        <li>
-          <button type="button" onClick={() => setGenreId(null)}>
-            All genres
-          </button>
-        </li>
         {genres.map(({ id, name }) => (
           <li key={id}>
             <button type="button" onClick={() => handleId(id)}>
