@@ -16,6 +16,11 @@ import ActorPage from '../pages/ActorPage';
 import EditProfile from '../pages/EditProfile';
 import AccountSettings from '../pages/AccountSettings';
 import DeleteAccount from '../pages/DeleteAccount';
+import InfoPage from '../pages/InfoPage';
+import TermsOfUse from './Info/TermsOfUse';
+import AboutProject from './Info/AboutProject';
+import Copyright from './Info/Copyright';
+import FAQ from './Info/FAQ';
 
 function App() {
   return (
@@ -40,6 +45,14 @@ function App() {
           <Route path={'account'} element={<AccountSettings />} />
           <Route path={'account-deletion'} element={<DeleteAccount />} />
         </Route>
+        
+        <Route path={RouteNames.Info} element={<InfoPage/>}>
+          <Route path = {"faq"} element = {<FAQ/>}/>
+          <Route path = {"copyright"} element = {<Copyright/>}/>
+          <Route path = {"about"} element = {<AboutProject/>}/>
+          <Route path = {"terms"} element = {<TermsOfUse/>}/>
+        </Route>
+
       </Route>
     </Routes>
   );
