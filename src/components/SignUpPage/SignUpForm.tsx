@@ -5,7 +5,7 @@ import { AuthList } from "../../auth/AuthList";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase-config";
-import { UseUser } from "../../hooks/useUser";
+import { useUser } from "../../context/UserContext";
 
 interface UserAuth {
   name: string;
@@ -15,7 +15,7 @@ interface UserAuth {
 }
 
 export const SignUpForm = () => {
-  const { createUser } = UseUser();
+  const { createUser } = useUser();
   const [toggleInput, setToggleInput] = useState("password");
   const [toggleIcon, setToggleIcon] = useState(false);
 

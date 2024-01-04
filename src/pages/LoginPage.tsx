@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import { auth } from "../firebase-config";
 import { onAuthStateChanged } from "firebase/auth";
 import { LoginPageForm } from "../components/LoginPage/LoginPageForm";
-import { UseUser } from "../hooks/useUser";
+import { useUser } from "../context/UserContext";
 
 const LoginPage = () => {
-  const { readUser } = UseUser();
+  const { readUser } = useUser() || {};
 
   useEffect(() => {
     const authorize = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
+      if (currentUser && readUser) {
         readUser(currentUser.uid);
       }
     });

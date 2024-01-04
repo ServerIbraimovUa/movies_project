@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase-config";
 import { SignUpForm } from "../components/SignUpPage/SignUpForm";
-import { UseUser } from "../hooks/useUser";
+import { useUser } from "../context/UserContext";
 
 const SignUpPage = () => {
-  const { setUser } = UseUser();
+  const { setUser, isLoggedIn } = useUser();
 
   useEffect(() => {
     const authorize = onAuthStateChanged(auth, (currentUser) => {
@@ -14,12 +14,13 @@ const SignUpPage = () => {
         const user = currentUser.uid;
         console.log(user);
         setUser(user);
+        isLoggedIn(true);
       }
       setUser(null);
     });
 
     return () => authorize();
-  }, [setUser]);
+  }, [setUser,isLoggedIn]);
 
   return (
     <div>

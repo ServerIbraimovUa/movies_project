@@ -6,19 +6,10 @@ import AuthMenu from "../AuthMenu/AuthMenu";
 import SearchMovies from "../SearchMovies/SearchMovies";
 import LanguageSelector from "../Language/LanguageSelector";
 import Footer from "../Footer/Footer";
-import { UseUser } from "../../hooks/useUser";
-import { auth } from "../../firebase-config";
+import { useUser } from "../../context/UserContext";
 
 const Layout: FC = () => {
-  const { readUser } = UseUser();
-
-  const uid = auth.currentUser?.uid;
-  let user;
-  if (uid) {
-    user = readUser(uid);
-  }
-  console.log(user)
-
+  const { isLoggedIn } = useUser() || {};
   return (
     <>
       <header>
@@ -32,7 +23,7 @@ const Layout: FC = () => {
             </div>
 
             <span>Light Dark</span>
-            {user ? <UserMenu /> : <AuthMenu />}
+            {isLoggedIn ? <UserMenu /> : <AuthMenu />}
           </nav>
         </Container>
       </header>
