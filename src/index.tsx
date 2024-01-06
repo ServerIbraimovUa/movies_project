@@ -6,6 +6,8 @@ import { BrowserRouter } from "react-router-dom";
 
 import Text from "./Language/utils/i18n";
 
+import { ThemeProvider } from './components/SwitcherTheme/ThemeContext';
+
 import { I18nextProvider } from "react-i18next";
 import { LanguageProvider } from "./components/Language/LanguageContext";
 import { ToastContainer } from "react-toastify";
@@ -17,6 +19,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    <ThemeProvider>
       <UserProvider>
         <LanguageProvider>
           <I18nextProvider i18n={Text}>
@@ -25,6 +28,7 @@ root.render(
           <ToastContainer />
         </LanguageProvider>
       </UserProvider>
+      </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
