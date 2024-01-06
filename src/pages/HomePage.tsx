@@ -3,6 +3,7 @@ import {
   getAllGenres,
   getAllTrending,
   getMovieWithGenre,
+  searchMovies,
 } from "../services/api";
 import { Container } from "react-bootstrap";
 import Error from "../components/Error/Error";
@@ -12,6 +13,7 @@ import HomeList from "../components/Home/HomeList/HomeList";
 import { IGenres, Movies } from "../types/homeTypes";
 
 import Sidebar from "../components/Home/Sidebar/Sidebar";
+import { useSearchParams } from "react-router-dom";
 
 const HomePage: FC = () => {
   const { language } = useLanguage();
@@ -26,6 +28,24 @@ const HomePage: FC = () => {
   const initialYear = storedYear ? JSON.parse(storedYear) : null;
   const [genreId, setGenreId] = useState<number | null>(initialGenre);
   const [year, setYear] = useState<number | null>(initialYear);
+
+  const [queryText]: any = useSearchParams();
+  const queryParam = queryText.get("query") ?? "";
+  console.log(queryParam);
+
+  useEffect(() => {
+    const searchMoviesForQuery = async (q: string) => {
+      if (!queryParam) {
+        return;
+      }
+
+      try {
+        const { results } = await searchMovies(q);
+        setMovies(results);
+      } catch (error) {}
+    };
+    searchMoviesForQuery(queryParam);
+  }, [queryParam]);
 
   useEffect(() => {
     const setToLocalStorage = (genre: any, year: any) => {

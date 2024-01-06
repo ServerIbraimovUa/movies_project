@@ -1,13 +1,25 @@
-import React from "react";
-import { useTranslation } from 'react-i18next';
+import React, { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const SearchMovies: React.FC = () => {
-  const { t } = useTranslation();
+  const [query, setQuery] = useState("");
+  const [queryText, setQueryText]: any = useSearchParams();
+
+  const updateQuery = (e: any) => {
+    e.preventDefault();
+    const nextParams = query !== "" ? { query } : {};
+    setQueryText(nextParams);
+  };
+
   return (
-    <form>
+    <form onSubmit={updateQuery}>
       <label>
-        <input type="text" />
-        <button type="submit">{t('search.search')}</button>
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button type="submit">Search</button>
       </label>
     </form>
   );

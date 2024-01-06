@@ -24,7 +24,7 @@ export const getMovieWithGenre = async (
 };
 
 export const searchMovies = async (query: string) => {
-  return await axios.get(`${BASE_URL}/search/movie?query=${query}`);
+  return (await axios.get(`${BASE_URL}/search/movie?query=${query}`)).data;
 };
 
 export const getAllGenres = async () => {

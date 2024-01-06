@@ -15,7 +15,7 @@ interface UserAuth {
 }
 
 export const SignUpForm = () => {
-  const { createUser } = useUser();
+  // const { createUser } = useUser();
   const [toggleInput, setToggleInput] = useState("password");
   const [toggleIcon, setToggleIcon] = useState(false);
 
@@ -42,12 +42,12 @@ export const SignUpForm = () => {
 
       console.log(userCredential);
 
-      createUser({
-        name,
-        theme: "light",
-        language: "ua",
-        uid: userCredential.user.uid,
-      });
+      // createUser({
+      //   name,
+      //   theme: "light",
+      //   language: "ua",
+      //   uid: userCredential.user.uid,
+      // });
 
       reset();
     } catch (error: any) {
