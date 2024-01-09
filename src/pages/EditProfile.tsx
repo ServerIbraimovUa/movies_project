@@ -1,42 +1,53 @@
 import { useEffect, useState } from 'react';
-import { User, updateProfile } from 'firebase/auth';
+import { User, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebase-config';
 
-import NameForm from '../components/EditUser/NameForm';
 import PasswordForm from '../components/EditUser/PasswordForm';
 import ImageUpload from '../components/EditUser/ImageUpload';
 import { upload } from '../services/image';
+import { writeUserData } from '../db/writeData';
+import { readData } from '../db/readData';
 
 const EditProfile = () => {
   const [user, setUser] = useState<User | null>(null);
-  const [userEmail, setUserEmail] = useState<null | string>(null);
   const [show, setShow] = useState(false);
+  const [updatedAvatarFile, setUpdatedAvatarFile] = useState<File | null>(null);
+  const [databaseUser, setDatabaseUser] = useState<any>({});
 
-  let updatedAvatarFile: File | null = null;
-  console.log(user);
+  onAuthStateChanged(auth, currentUser => {
+    setUser(currentUser);
+  });
 
   useEffect(() => {
-    if (!auth.currentUser) return;
-    setUser(auth.currentUser);
-    setUserEmail(auth.currentUser.email);
-  }, [user, userEmail]);
+    const fetchUserFromDatabase = async () => {
+      if (!auth.currentUser) return;
+      setDatabaseUser(await readData(auth.currentUser.uid));
+    };
+    fetchUserFromDatabase();
+  }, [user]);
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
   const saveProfile = async () => {
-    if (updatedAvatarFile !== null && user) {
+    debugger;
+
+    if (!user) return;
+
+    if (updatedAvatarFile !== null) {
       const avatarPath = `users-images/${user?.uid}`;
       const updatedAvatarURL = await upload(avatarPath, updatedAvatarFile);
-      await updateProfile(user, {
-        photoURL: updatedAvatarURL,
-      });
+
+      databaseUser.imageUrl = updatedAvatarURL;
     }
+
+    await writeUserData({ ...databaseUser, uid: user.uid });
   };
 
   return (
     <div>
       <h1>Profile</h1>
+
       <ul>
         {/* <li>
           <input
@@ -57,18 +68,33 @@ const EditProfile = () => {
         <h2>User</h2>
         <div>
           <ImageUpload
-            currentAvatarURL={user?.photoURL ? user?.photoURL : ''}
-            onAvatarChanged={file => (updatedAvatarFile = file)}
+            currentAvatarURL={
+              databaseUser?.imageUrl ? databaseUser?.imageUrl : ''
+            }
+            onAvatarChanged={file => setUpdatedAvatarFile(file)}
           />
           <button type="button" onClick={() => saveProfile()}>
             Save img
           </button>
         </div>
-        <select name="Gender">
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
+        <select
+          name="Gender"
+          value={databaseUser.sex}
+          onChange={e => {
+            setDatabaseUser({ ...databaseUser, sex: e.target.value });
+          }}
+        >
+          <option value="none">None</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
         </select>
-        {user && <NameForm user={user} />}
+
+        <input
+          value={databaseUser?.username || ''}
+          onChange={e =>
+            setDatabaseUser({ ...databaseUser, username: e.target.value })
+          }
+        />
         {/* <input type="text" name="phone" placeholder="225-44-65" /> */}
         {/* <div>
             <h2>Social Networks</h2>
