@@ -9,7 +9,8 @@ import Footer from "../Footer/Footer";
 import { useUser } from "../../context/UserContext";
 
 const Layout: FC = () => {
-  const { isLoggedIn } = useUser() || {};
+  const { isLoggedIn } = useUser()!;
+  console.log(isLoggedIn);
   return (
     <>
       <header>

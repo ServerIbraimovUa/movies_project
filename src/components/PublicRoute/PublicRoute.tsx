@@ -2,16 +2,13 @@ import { FC } from "react";
 import { Navigate } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 
-interface PrivateRouteProps {
+interface PublicRouteProps {
   children: JSX.Element;
   redirectTo?: string;
 }
 
-export const PrivateRoute: FC<PrivateRouteProps> = ({
-  children,
-  redirectTo = "/",
-}) => {
+export const PublicRoute: FC<PublicRouteProps> = ({ children, redirectTo = "/" }) => {
   const { isLoggedIn } = useUser()!;
-  
-  return isLoggedIn ? children : <Navigate to={redirectTo} replace />;
+
+  return !isLoggedIn ? children : <Navigate to={redirectTo} replace />;
 };

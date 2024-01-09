@@ -17,14 +17,14 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <UserProvider>
-        <LanguageProvider>
-          <I18nextProvider i18n={Text}>
+      <LanguageProvider>
+        <I18nextProvider i18n={Text}>
+          <UserProvider>
             <App />
-          </I18nextProvider>
-          <ToastContainer />
-        </LanguageProvider>
-      </UserProvider>
+          </UserProvider>
+        </I18nextProvider>
+        <ToastContainer />
+      </LanguageProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

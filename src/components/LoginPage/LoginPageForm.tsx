@@ -5,6 +5,8 @@ import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase-config";
+import { useUser } from "../../context/UserContext";
+import { readData } from "../../db/readData";
 
 interface UserSignIn {
   email: string;
@@ -12,6 +14,7 @@ interface UserSignIn {
 }
 
 export const LoginPageForm = () => {
+  const { logIn } = useUser()!;
   const [toggleInput, setToggleInput] = useState("password");
   const [toggleIcon, setToggleIcon] = useState(false);
   const {
@@ -30,7 +33,15 @@ export const LoginPageForm = () => {
         password
       );
 
-      console.log(userCredential);
+      try {
+        const user = await readData(userCredential.user.uid);
+        console.log(user);
+        const { username } = user;
+
+        logIn(username);
+      } catch (error) {
+        
+      }
       reset();
     } catch (error: any) {
       console.log(error.message);

@@ -8,9 +8,9 @@ export function writeUserData({
   imageUrl = "",
   sex = "none",
   country = "none",
-  language = "ua",
+  language,
   favorites = [],
-  theme = "light",
+  theme,
 }: UserType) {
   try {
     set(ref(db, "users/" + uid), {
