@@ -1,20 +1,20 @@
-import { ref, set } from "firebase/database";
-import { db } from "../firebase-config";
-import { UserType } from "../types/user";
+import { ref, set } from 'firebase/database';
+import { db } from '../firebase-config';
+import { UserType } from '../types/user';
 
 export function writeUserData({
   uid,
-  name,
-  imageUrl = "",
-  sex = "none",
-  country = "none",
-  language = "ua",
+  username,
+  imageUrl = '',
+  sex = 'none',
+  country = 'none',
+  language = 'ua',
   favorites = [],
-  theme = "light",
+  theme = 'light',
 }: UserType) {
   try {
-    set(ref(db, "users/" + uid), {
-      username: name,
+    set(ref(db, 'users/' + uid), {
+      username,
       imageUrl,
       sex,
       country,
