@@ -20,8 +20,10 @@ const Sidebar: FC<ISidebarProps> = ({
 }) => {
   const [queryText, setQueryText]: any = useSearchParams();
   const reset = async () => {
-    const { results } = await getAllTrending();
-    setMovies(results);
+    if (queryText.size) {
+      const { results } = await getAllTrending();
+      setMovies(results);
+    }
     setGenreId(null);
     setYear(null);
     setQueryText("");
