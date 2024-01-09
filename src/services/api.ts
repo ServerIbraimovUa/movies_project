@@ -58,3 +58,8 @@ export const getActorById = async (id: number) => {
 export const getActorCredits = async (id: number) => {
   return (await axios.get(`${BASE_URL}/person/${id}/movie_credits`)).data.cast;
 };
+
+export const getUpcomingList = async (language: string) => {
+  const url = `${BASE_URL}/movie/upcoming?language=${language}`;
+  return (await axios.get(url)).data.results;
+};
