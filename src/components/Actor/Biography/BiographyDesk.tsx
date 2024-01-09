@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { Actor } from "../../../types/actorTypes";
-import { Button } from "./Biography.styled";
+import { BiographyTextDesk, Button,HeadingDesk,HeadingDeskName } from "./Biography.styled";
 
 
 
@@ -9,7 +9,7 @@ interface BiographyProps{
   }
   
 
-    const Biography: FC<BiographyProps> = ({actor}) => {
+    const BiographyDesk: FC<BiographyProps> = ({actor}) => {
     const { name, biography }=actor;
     const [showMore, setShowMore] = useState(false);
     
@@ -25,21 +25,23 @@ interface BiographyProps{
     
   return (
    <>
-   <h1>{name}</h1>
+   <HeadingDeskName>{name}</HeadingDeskName>
+   <HeadingDesk>Biography</HeadingDesk>
+   
    {biography &&   
    <>
    <p>{showMore ? biography : text} </p>
-   <div>
+   <BiographyTextDesk>
     {biography.length > 1000 &&
           <Button onClick={() => setShowMore(!showMore)}>
             {showMore ? "Read less" : "Read more"}
           </Button>  
      }
-  </div>
+  </BiographyTextDesk>
     </>    
    }
    </>
   );
 };
 
-export default Biography;
+export default BiographyDesk;

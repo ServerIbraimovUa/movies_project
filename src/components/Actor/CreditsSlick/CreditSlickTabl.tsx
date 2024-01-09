@@ -3,7 +3,7 @@ import { Credits } from "../../../types/actorTypes";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { SlickContainer, SlickImg } from "./CreditsSlick.styled";
+import { HeadingTabl, SlickBodyTabl, SlickContainer, SlickImgMob } from "./CreditsSlick.styled";
 import "./CreditsSlick.css";
 import { Link, useLocation } from "react-router-dom";
 import Img from '../../../images/defaultImg.jpg'
@@ -14,22 +14,22 @@ interface CreditsSlickProprs {
   credits: Credits[];
 }
 
-const CreditsSlick: FC<CreditsSlickProprs> = ({ credits }) => {
+const CreditsSlickTabl: FC<CreditsSlickProprs> = ({ credits }) => {
   const location = useLocation();
 
   const settings = {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 2,
+    slidesToShow: 4,
+    slidesToScroll: 1,
     initialSlide: 0,
     responsive: [
       {
         breakpoint: 1400,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 3,
+          slidesToScroll: 0,
           infinite: true,
           dots: true,
         },
@@ -37,17 +37,17 @@ const CreditsSlick: FC<CreditsSlickProprs> = ({ credits }) => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 4,
           slidesToScroll: 1,
-          initialSlide: 3,
+          initialSlide: 0,
         },
       },
       {
         breakpoint: 400,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 4,
           slidesToScroll: 1,
-          initialSlide: 2,
+          initialSlide: 0,
         },
       },
     ],
@@ -55,19 +55,19 @@ const CreditsSlick: FC<CreditsSlickProprs> = ({ credits }) => {
 
   return (
     <SlickContainer>
-      <h2>Known for</h2>
+      <HeadingTabl>Known for</HeadingTabl>
       <Slider {...settings}>
         {credits.map((credit) => {
           const { id, title, poster_path } = credit;
           return (
-            <div key={id}>
-              <Link to={`/movie/${id}`} state={{ from: location }}>
-                {poster_path? (<SlickImg src={`${BASE_IMG}${poster_path}`} alt={title} />):
-                (<SlickImg src={Img} alt={title} />)
-                }
+            <SlickBodyTabl key={id}>
+              <Link to={`/movie/${id}`} state={{ from: location }}>                
+              {poster_path ? (<SlickImgMob src={`${BASE_IMG}${poster_path}`} alt={title} />):
+                 (<SlickImgMob src={Img} alt={title} />)
+              } 
                 
               </Link>
-            </div>
+            </SlickBodyTabl>
           );
         })}
       </Slider>
@@ -75,4 +75,5 @@ const CreditsSlick: FC<CreditsSlickProprs> = ({ credits }) => {
   );
 };
 
-export default CreditsSlick;
+export default CreditsSlickTabl;
+     
