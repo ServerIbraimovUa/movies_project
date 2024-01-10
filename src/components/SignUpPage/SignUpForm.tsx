@@ -48,7 +48,7 @@ export const SignUpForm = () => {
 
         const newUser = {
           uid: userCredential.user.uid,
-          name,
+          username: name,
           language: "ua",
           theme: "light" as const,
         } as UserType;
