@@ -7,7 +7,7 @@ axios.defaults.params = {
   api_key: API_KEY,
 };
 
-export const getAllTrending = async (language: string) => {
+export const getAllTrending = async (language: string = "en") => {
   const url = `${BASE_URL}/trending/all/day?language=${language}`;
   return (await axios.get(url)).data;
 };

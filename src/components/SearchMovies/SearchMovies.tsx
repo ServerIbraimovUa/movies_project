@@ -9,6 +9,7 @@ const SearchMovies: React.FC = () => {
     e.preventDefault();
     const nextParams = query !== "" ? { query } : {};
     setQueryText(nextParams);
+    setQuery("");
   };
 
   return (

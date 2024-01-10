@@ -1,6 +1,8 @@
 # Start of the movies_project
 
-## version: alfa-0.7.11.9
+
+## version: alfa-0.7.12.9
+
 
 ## Good job everyone
 
@@ -44,4 +46,5 @@
 
 <a href="https://www.npmjs.com/package/@hookform/resolvers">yupResolver</a>
 
-<a href="https://www.npmjs.com/package/react-responsive"></a> react-responsive </a>
+<a href="https://www.npmjs.com/package/react-responsive"></a> react-responsive
+</a>
