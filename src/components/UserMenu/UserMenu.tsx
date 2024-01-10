@@ -8,7 +8,7 @@ import { useUser } from "../../context/UserContext";
 
 //  Коли користувач успішно пройшов реестрацію або логін
 const UserMenu = () => {
-  const { userName, logOut } = useUser()!;
+  const { user, logOut } = useUser()!;
   const { t } = useTranslation();
   const [show, setShow] = useState(false);
 
@@ -20,14 +20,16 @@ const UserMenu = () => {
     //context
     logOut();
   };
-
+  
+  // const {username} = user
+  console.log( user);
   return (
     <>
       <NavLink to="/favorites">{t("layout.favorite")}</NavLink>
       <div>
         {/* дінамічне ім'я користувача */}
         <button type="button" onClick={handleShow}>
-          {userName}
+          {user.username}
         </button>
         <UserModal close={handleClose} show={show} />
         <button type="button" onClick={handleLogOut}>
