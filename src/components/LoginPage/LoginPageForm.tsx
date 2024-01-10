@@ -38,7 +38,7 @@ export const LoginPageForm = () => {
         console.log(user);
         const { username } = user;
 
-        logIn(username);
+        logIn({ username, uid: userCredential.user.uid });
       } catch (error) {
         
       }

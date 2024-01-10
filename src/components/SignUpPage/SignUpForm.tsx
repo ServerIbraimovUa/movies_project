@@ -44,7 +44,7 @@ export const SignUpForm = () => {
       console.log(userCredential);
       
       if (userCredential.user) {
-        logIn(name);
+        logIn({username: name, uid: userCredential.user.uid});
 
         const newUser = {
           uid: userCredential.user.uid,

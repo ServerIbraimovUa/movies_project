@@ -1,12 +1,17 @@
-import { ReactNode, createContext, useContext, useState } from "react";
+import { ReactNode, createContext, useContext, useEffect, useState } from "react";
 
 
 interface UserContextType {
   isLoggedIn: boolean;
-  userName: string;
-  logIn:  (name: string) => void;
+  user: User;
+  logIn:  (user: User) => void;
   logOut: () => void;
 }
+
+export type User = {
+  uid: string;
+  username: string;
+};
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
@@ -18,23 +23,37 @@ interface UserProviderProps {
 
 export const UserProvider = ({ children }: UserProviderProps) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userName, setUserName] = useState("");
-  console.log(isLoggedIn, userName);
+  const [user, setUser] = useState({uid: '', username: '',});
+  console.log(isLoggedIn, user);
 
-   function logIn(name: string) {
+  useEffect(() => {
+    const currentUser = localStorage.getItem("currentUser");
+    if (currentUser) {
+      const { user } = JSON.parse(currentUser);
+      setIsLoggedIn(true);
+      setUser(user);
+    }
+    
+  }, []);
+
+   function logIn(user: User) {
      setIsLoggedIn(true);
-     setUserName(name)
+     setUser(user);
+     localStorage.setItem('currentUser', JSON.stringify({user, isLoggedIn: true}));
    }
    function logOut() {
      setIsLoggedIn(false);
-     setUserName('')
+     setUser({ uid: "", username: "" });
+     localStorage.removeItem("currentUser");
    }
+  
+  
 
   return (
     <UserContext.Provider
       value={{
         isLoggedIn,
-        userName,
+        user,
         logIn,
         logOut,
       }}
