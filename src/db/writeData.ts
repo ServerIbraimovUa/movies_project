@@ -5,15 +5,15 @@ import { UserType } from '../types/user';
 export function writeUserData({
   uid,
   username,
-  imageUrl = '',
-  sex = 'none',
-  country = 'none',
-  language = 'ua',
+  imageUrl = "",
+  sex = "none",
+  country = "none",
+  language,
   favorites = [],
-  theme = 'light',
+  theme,
 }: UserType) {
   try {
-    set(ref(db, 'users/' + uid), {
+    set(ref(db, "users/" + uid), {
       username,
       imageUrl,
       sex,

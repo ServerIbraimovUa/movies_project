@@ -1,22 +1,14 @@
 import { ReactNode, createContext, useContext, useState } from "react";
-import { UserType } from "../types/user";
-import { writeUserData } from "../db/writeData";
-import { readData } from "../db/readData";
-import { deleteUserData } from "../auth/database/deleteFunc";
-import { updateData } from "../db/updateData";
 
-interface typeUser {
+
+interface UserContextType {
   isLoggedIn: boolean;
-  user: UserType | null;
-  createUser: (user: UserType) => void;
-  deleteUser: (uid: string) => void;
-  readUser: (uid: string) => Promise<any>;
-  updateUser: (user: UserType) => void;
-  logIn: (user: UserType) => void;
+  userName: string;
+  logIn:  (name: string) => void;
   logOut: () => void;
 }
 
-const UserContext = createContext<typeUser | null>(null);
+const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const useUser = () => useContext(UserContext);
 
@@ -25,41 +17,24 @@ interface UserProviderProps {
 }
 
 export const UserProvider = ({ children }: UserProviderProps) => {
-  const [user, setUser] = useState<UserType | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("");
+  console.log(isLoggedIn, userName);
 
-  function createUser(user: UserType) {
-    console.log(user);
-    writeUserData(user);
-  }
-  function deleteUser(uid: string) {
-    deleteUserData(uid);
-  }
-  function readUser(uid: string) {
-    const data = readData(uid);
-    return data;
-  }
-  function updateUser(user: UserType) {
-    updateData(user);
-  }
-  function logIn(user: UserType) {
-    setUser(user);
-    setIsLoggedIn(true);
-  }
-  function logOut() {
-    setUser(null);
-    setIsLoggedIn(false);
-  }
+   function logIn(name: string) {
+     setIsLoggedIn(true);
+     setUserName(name)
+   }
+   function logOut() {
+     setIsLoggedIn(false);
+     setUserName('')
+   }
 
   return (
     <UserContext.Provider
       value={{
         isLoggedIn,
-        user,
-        createUser,
-        deleteUser,
-        readUser,
-        updateUser,
+        userName,
         logIn,
         logOut,
       }}

@@ -19,18 +19,14 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    
-      <UserProvider>
-        <LanguageProvider>
-          <I18nextProvider i18n={Text}>
-            <ThemeProvider>
+      <LanguageProvider>
+        <I18nextProvider i18n={Text}>
+          <UserProvider>
             <App />
-            </ThemeProvider>
-          </I18nextProvider>
-          <ToastContainer />
-        </LanguageProvider>
-      </UserProvider>
-      
+          </UserProvider>
+        </I18nextProvider>
+        <ToastContainer />
+      </LanguageProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
