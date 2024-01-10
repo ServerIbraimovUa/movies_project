@@ -31,7 +31,6 @@ const HomePage: FC = () => {
 
   const [queryText]: any = useSearchParams();
   const queryParam = queryText.get("query") ?? "";
-  console.log(queryParam);
 
   useEffect(() => {
     const searchMoviesForQuery = async (q: string) => {
@@ -91,6 +90,7 @@ const HomePage: FC = () => {
               genres={genres}
               setGenreId={setGenreId}
               setYear={setYear}
+              setMovies={setMovies}
             />
 
             {loading ? (

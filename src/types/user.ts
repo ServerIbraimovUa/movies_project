@@ -1,8 +1,8 @@
-import { FavoriteMovie } from "./movieDetailsTypes";
+import { FavoriteMovie } from './movieDetailsTypes';
 
 export interface UserType {
   uid: string;
-  name: string;
+  username: string;
   theme: 'light' | 'dark';
   language: 'ua' | 'en';
   country?: string;

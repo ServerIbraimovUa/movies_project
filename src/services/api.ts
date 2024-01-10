@@ -7,7 +7,7 @@ axios.defaults.params = {
   api_key: API_KEY,
 };
 
-export const getAllTrending = async (language: string) => {
+export const getAllTrending = async (language: string = "en") => {
   const url = `${BASE_URL}/trending/all/day?language=${language}`;
   return (await axios.get(url)).data;
 };
@@ -57,4 +57,9 @@ export const getActorById = async (id: number) => {
 
 export const getActorCredits = async (id: number) => {
   return (await axios.get(`${BASE_URL}/person/${id}/movie_credits`)).data.cast;
+};
+
+export const getUpcomingList = async (language: string) => {
+  const url = `${BASE_URL}/movie/upcoming?language=${language}`;
+  return (await axios.get(url)).data.results;
 };
