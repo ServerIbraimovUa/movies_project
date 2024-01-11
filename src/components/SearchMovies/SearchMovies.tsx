@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const SearchMovies: React.FC = () => {
+  const { t } = useTranslation();
   const [query, setQuery] = useState("");
   const [queryText, setQueryText]: any = useSearchParams();
 
@@ -19,7 +21,7 @@ const SearchMovies: React.FC = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button type="submit">Search</button>
+        <button type="submit">{t("searchmovies.search")}Search</button>
       </label>
     </form>
   );

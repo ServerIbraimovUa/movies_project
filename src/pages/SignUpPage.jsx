@@ -3,9 +3,11 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase-config";
 import { SignUpForm } from "../components/SignUpPage/SignUpForm";
 import { useUser } from "../context/UserContext";
+import { useTranslation } from "react-i18next";
 
 const SignUpPage = () => {
   const { setUser, isLoggedIn } = useUser();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const authorize = onAuthStateChanged(auth, (currentUser) => {
@@ -24,7 +26,7 @@ const SignUpPage = () => {
 
   return (
     <div>
-      <h1>Sign up</h1>
+      <h1>{t("signup.signup")}</h1>
       <SignUpForm />
     </div>
   );

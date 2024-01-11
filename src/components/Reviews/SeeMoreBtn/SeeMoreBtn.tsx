@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { useTranslation } from "react-i18next";
 
 interface ISeeMoreBtnProps {
   onClick: () => void;
@@ -6,8 +7,9 @@ interface ISeeMoreBtnProps {
 }
 
 const SeeMoreBtn: FC<ISeeMoreBtnProps> = ({ onClick, hasMoreReviews }) => {
+  const { t } = useTranslation();
   return (
-    <div>{hasMoreReviews && <button onClick={onClick}>See more</button>}</div>
+    <div>{hasMoreReviews && <button onClick={onClick}>{t("seemore.seemore")}</button>}</div>
   );
 };
 
