@@ -8,12 +8,14 @@ import {
   successNotification,
 } from '../services/notifications';
 import { useState } from 'react';
+import { useTranslation } from "react-i18next";
 
 type FormValues = {
   password: string;
 };
 
 const DeleteAccount = () => {
+  const { t } = useTranslation();
   const { register, handleSubmit } = useForm<FormValues>();
 
   const [user, setUser] = useState<User | null>(null);
@@ -40,12 +42,8 @@ const DeleteAccount = () => {
   };
   return (
     <div>
-      <h1>Delete Account</h1>
-      <p>
-        You've just entered the danger zone! If you would like to continue and
-        remove your account, you can do so by entering your password below and
-        confirming the prompts.
-      </p>
+      <h1>{t("delete.dellaccount")}</h1>
+      <p>{t("delete.dellparagraf")}</p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           type="password"
@@ -54,7 +52,7 @@ const DeleteAccount = () => {
             required: true,
           })}
         />
-        <button type="submit">Confirm</button>
+        <button type="submit">{t("delete.confirm")}</button>
       </form>
     </div>
   );

@@ -6,8 +6,10 @@ import NameForm from '../components/EditUser/NameForm';
 import PasswordForm from '../components/EditUser/PasswordForm';
 import ImageUpload from '../components/EditUser/ImageUpload';
 import { upload } from '../services/image';
+import { useTranslation } from "react-i18next";
 
 const EditProfile = () => {
+  const { t } = useTranslation();
   const [user, setUser] = useState<User | null>(null);
   const [userEmail, setUserEmail] = useState<null | string>(null);
   const [show, setShow] = useState(false);
@@ -36,7 +38,7 @@ const EditProfile = () => {
 
   return (
     <div>
-      <h1>Profile</h1>
+      <h1>{t("edit.profile")}</h1>
       <ul>
         {/* <li>
           <input
@@ -48,25 +50,21 @@ const EditProfile = () => {
         </li> */}
         <li>
           <PasswordForm user={user} close={handleClose} show={show} />
-          <button type="button" onClick={handleShow}>
-            Change password
-          </button>
+          <button type="button" onClick={handleShow}>{t("edit.change")}</button>
         </li>
       </ul>
       <div>
-        <h2>User</h2>
+        <h2>{t("edit.user")}</h2>
         <div>
           <ImageUpload
             currentAvatarURL={user?.photoURL ? user?.photoURL : ''}
             onAvatarChanged={file => (updatedAvatarFile = file)}
           />
-          <button type="button" onClick={() => saveProfile()}>
-            Save img
-          </button>
+          <button type="button" onClick={() => saveProfile()}>{t("edit.save")}</button>
         </div>
         <select name="Gender">
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
+          <option value="Male">{t("edit.male")}</option>
+          <option value="Female">{t("edit.female")}</option>
         </select>
         {user && <NameForm user={user} />}
         {/* <input type="text" name="phone" placeholder="225-44-65" /> */}

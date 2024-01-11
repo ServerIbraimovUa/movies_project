@@ -2,7 +2,11 @@
     "home": {
       "releasehome": "Release data:",
       "overview": "Overview",
-      "genres": "Genres"
+      "genres": "Genres",
+      "year": "Year:",
+      "genre": "Genre:",
+      "description": "Description:",
+      "watch": "Watch"
     },
     "layout": {
       "register": "Register",
@@ -20,9 +24,54 @@
       "genres": "Genres:",
       "description": "Description"
           },
-          "search": {
+
+      "search": {
             "search": "Search"
+          },
+      "actor": {
+         "acting": "Acting",
+         "info": "Personal Info",
+         "know": "Known For",
+         "gender": "Gender",
+         "birthday": "Birthday",
+         "place": "Place of birth",
+         "also": "Also known as"
+          },
+          "Delete": {
+           "dellaccount": "Delete Account",
+           "dellparagraf": "You've just entered the danger zone! If you would like to continue and remove your account, you can do so by entering your password below and confirming the prompts.",
+           "confirm": "Confirm"
+          },
+          "edit": {
+            "profile": "Profile",
+            "change": "Change password",
+            "save": "Save img",
+            "user": "User",
+            "male": "Male",
+            "female": "Female",
+            "submit": "Submit",
+            "close": "close",
+            "write": "Write your previouse password",
+            "writenew": "Write your new password",
+            "cancel": "Cancel"
+          },
+          "login": {
+           "login": "Login",
+           "email": "Email",
+           "password": "Password",
+           "this": "This field is required",
+           "log-in": "Log In",
+           "socialmedia": "or login with social media"
+          },
+          "detalies": {
+           "back": "Go back",
+           "thecast": "The cast is unavailable...",
+           "author": "Author:",
+           "noreviews": "No reviews yet...",
+           "oops": "Oops... we don't have any recommendations"
           }
+             
+
   }
   
   

@@ -5,6 +5,7 @@ import { RiEyeLine, RiEyeOffLine } from "react-icons/ri";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase-config";
+import { useTranslation } from "react-i18next";
 
 interface UserSignIn {
   email: string;
@@ -12,6 +13,7 @@ interface UserSignIn {
 }
 
 export const LoginPageForm = () => {
+  const { t } = useTranslation();
   const [toggleInput, setToggleInput] = useState("password");
   const [toggleIcon, setToggleIcon] = useState(false);
   const {
@@ -40,12 +42,12 @@ export const LoginPageForm = () => {
   return (
     <form onSubmit={handleSubmit(login)}>
       <label>
-        Email
+      {t("login.email")}
         <input type="email" {...register("email", { required: true })} />
-        {errors.email && <span>This field is required</span>}
+        {errors.email && <span>{t("login.this")}</span>}
       </label>
       <label>
-        Password
+      {t("login.password")}
         <input
           type={toggleInput}
           {...register("password", { required: true })}
@@ -57,10 +59,10 @@ export const LoginPageForm = () => {
         >
           {toggleIcon ? <RiEyeOffLine /> : <RiEyeLine />}
         </span>
-        {errors.password && <span>This field is required</span>}
+        {errors.password && <span>{t("login.this")}</span>}
       </label>
-      <button type="submit">Log In</button>
-      <p>or login with social media</p>
+      <button type="submit">{t("login.log-in")}</button>
+      <p>{t("login.socialmedia")}</p>
       <AuthList />
     </form>
   );

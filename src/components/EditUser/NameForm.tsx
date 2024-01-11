@@ -6,8 +6,10 @@ import {
 } from '../../services/notifications';
 import { FC } from 'react';
 import { FormValues, INameForm } from '../../types/editProfileTypes';
+import { useTranslation } from "react-i18next";
 
 const NameForm: FC<INameForm> = ({ user }) => {
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -33,7 +35,7 @@ const NameForm: FC<INameForm> = ({ user }) => {
         defaultValue={user?.displayName || ''}
         {...register('name', { required: true })}
       />
-      <button type="submit">Submit</button>
+      <button type="submit">{t("edit.submit")}</button>
     </form>
   );
 };

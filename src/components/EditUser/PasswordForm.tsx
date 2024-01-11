@@ -13,8 +13,10 @@ import {
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FormPasswords, IPasswordForm } from '../../types/editProfileTypes';
 import { updatePasswordSchema } from '../../schemas/updatePasswordSchema';
+import { useTranslation } from "react-i18next";
 
 const PasswordForm: FC<IPasswordForm> = ({ user, show, close }) => {
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -63,11 +65,11 @@ const PasswordForm: FC<IPasswordForm> = ({ user, show, close }) => {
             resetPasswords();
           }}
         >
-          close
+          {t("edit.close")}
         </button>
         <form onSubmit={handleSubmit(updateUserPassword)}>
           <label>
-            Write your previouse password
+          {t("edit.white")}
             {errors.password && (
               <div>
                 <span>{errors.password?.message}</span>
@@ -80,7 +82,7 @@ const PasswordForm: FC<IPasswordForm> = ({ user, show, close }) => {
           </label>
           <div>
             <label>
-              Write your new password
+            {t("edit.whitenew")}
               {errors.newPassword && (
                 <div>
                   <span>{errors.newPassword?.message}</span>
@@ -92,14 +94,14 @@ const PasswordForm: FC<IPasswordForm> = ({ user, show, close }) => {
               />
             </label>
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit">{t("edit.submit")}</button>
           <button
             onClick={() => {
               close();
               resetPasswords();
             }}
           >
-            Cancel
+            {t("edit.cancel")}
           </button>
         </form>
       </Modal.Body>

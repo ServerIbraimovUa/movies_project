@@ -7,6 +7,7 @@ import { SlickContainer, SlickImg } from "./CreditsSlick.styled";
 import "./CreditsSlick.css";
 import { Link, useLocation } from "react-router-dom";
 import Img from '../../../images/defaultImg.jpg'
+import { useTranslation } from "react-i18next";
 
 const BASE_IMG = "https://image.tmdb.org/t/p/w200";
 
@@ -16,6 +17,8 @@ interface CreditsSlickProprs {
 
 const CreditsSlick: FC<CreditsSlickProprs> = ({ credits }) => {
   const location = useLocation();
+  
+const { t } = useTranslation();
 
   const settings = {
     dots: false,
@@ -55,7 +58,7 @@ const CreditsSlick: FC<CreditsSlickProprs> = ({ credits }) => {
 
   return (
     <SlickContainer>
-      <h2>Known for</h2>
+      <h2>{t("actor.know")}</h2>
       <Slider {...settings}>
         {credits.map((credit) => {
           const { id, title, poster_path } = credit;

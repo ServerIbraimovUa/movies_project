@@ -2,6 +2,7 @@ import { FC } from "react";
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
 import { IGenres, Movies } from "../../../types/homeTypes";
+import { useTranslation } from "react-i18next";
 
 const BASE_IMG = "https://image.tmdb.org/t/p/w200";
 
@@ -28,6 +29,7 @@ const HomeListItem: FC<HomeListItemProps> = ({
   isFavorite,
   genres,
 }) => {
+  const { t } = useTranslation();
   const location = useLocation();
   const genresId = genre_ids.filter((g) => {
     return genres.find((genre) => genre.id === g);
@@ -47,12 +49,12 @@ const HomeListItem: FC<HomeListItemProps> = ({
       <div>
         <h2>{name || title}</h2>
         <p>
-          Year:{" "}
+        {t("home.year")}{" "}
           {(release_date || first_air_date) &&
             (release_date?.substring(0, 4) || first_air_date?.substring(0, 4))}
         </p>
         <div>
-          <p>Genre:</p>
+          <p>{t("home.genre")}</p>
           {genresName && (
             <ul>
               {genresName.map((g) => (
@@ -61,12 +63,12 @@ const HomeListItem: FC<HomeListItemProps> = ({
             </ul>
           )}
         </div>
-        <p>Description: </p>
+        <p>{t("home.description")} </p>
         <p>{overview}</p>
       </div>
       <div>
         <Link to={`/movie/${id}`} state={{ from: location }}>
-          Watch
+        {t("home.watch")}
         </Link>
         {!isFavorite ? (
           <button type="button" onClick={() => addFavorite(id)}>
