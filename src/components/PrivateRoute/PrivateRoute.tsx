@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 
 interface PrivateRouteProps {
@@ -12,10 +12,6 @@ export const PrivateRoute: FC<PrivateRouteProps> = ({
   redirectTo = "/",
 }) => {
   const { isLoggedIn } = useUser()!;
-  const location = useLocation()
 
-  const loc = location.pathname;
-  console.log(loc);
-  
-  return isLoggedIn ? children : <Navigate to={redirectTo}  />;
+  return isLoggedIn ? children : <Navigate to={redirectTo} />;
 };
