@@ -1,5 +1,8 @@
 import React, { FC } from "react";
 import { Credits } from "../../../types/actorTypes";
+
+import { useTranslation } from "react-i18next";
+
 import { ListGroup } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
 
@@ -8,10 +11,13 @@ interface ActorCreditsProps {
 }
 
 const ActorCredits: FC<ActorCreditsProps> = ({ credits }) => {
+
+  const { t } = useTranslation();
   const location = useLocation();
   return (
     <>
-      <h2>Acting</h2>
+      <h2>{t("actor.acting")}</h2>
+      
       <ListGroup>
         {credits.map((credit) => {
           const { id, title, release_date } = credit;

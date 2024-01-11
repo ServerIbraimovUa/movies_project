@@ -1,9 +1,11 @@
-import React from 'react'
+import  { FC } from "react";
+import {Movies} from '../types/homeTypes';
+import FavoriteList from "../components/Favorite/FavoriteList";
 
-const FavoritePage = () => {
-  return (
-    <div>FavoritePage</div>
-  )
-}
 
-export default FavoritePage
+
+const FavoritePage: FC = () => {
+  return <FavoriteList  />;
+};
+
+export default FavoritePage;

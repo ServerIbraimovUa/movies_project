@@ -1,6 +1,7 @@
 # Start of the movies_project
 
-## version: alfa-0.7.7.2
+## version: alfa-0.7.13.9
+
 
 ## Good job everyone
 
@@ -38,4 +39,12 @@
 
 <a href="https://react-slick.neostack.com/">react-slick</a>
 
-<a href="https://github.com/kenwheeler/slick#readme">slick-carousel</a> <a href=""></a> <a href=""></a>
+
+<a href="https://github.com/kenwheeler/slick#readme">slick-carousel</a>
+
+<a href="https://www.npmjs.com/package/yup">yup</a>
+
+<a href="https://www.npmjs.com/package/@hookform/resolvers">yupResolver</a>
+
+<a href=""></a> <a href=""></a> <a href=""></a>
+

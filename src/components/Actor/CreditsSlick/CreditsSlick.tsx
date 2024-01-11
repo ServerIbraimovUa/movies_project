@@ -8,6 +8,10 @@ import { SlickContainer, SlickImg } from "./CreditsSlick.styled";
 import "./CreditsSlick.css";
 import { Link, useLocation } from "react-router-dom";
 
+import Img from '../../../images/defaultImg.jpg'
+import { useTranslation } from "react-i18next";
+
+
 const BASE_IMG = "https://image.tmdb.org/t/p/w200";
 
 interface CreditsSlickProprs {
@@ -17,18 +21,22 @@ interface CreditsSlickProprs {
 const CreditsSlick: FC<CreditsSlickProprs> = ({ credits }) => {
   const location = useLocation();
 
+  
+const { t } = useTranslation();
+
+
   const settings = {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 9,
+    slidesToShow: 5,
     slidesToScroll: 2,
     initialSlide: 0,
     responsive: [
       {
         breakpoint: 1400,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           slidesToScroll: 3,
           infinite: true,
           dots: true,
@@ -37,15 +45,15 @@ const CreditsSlick: FC<CreditsSlickProprs> = ({ credits }) => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 3,
         },
       },
       {
-        breakpoint: 379,
+        breakpoint: 400,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 1,
           slidesToScroll: 1,
           initialSlide: 2,
         },
@@ -55,14 +63,17 @@ const CreditsSlick: FC<CreditsSlickProprs> = ({ credits }) => {
 
   return (
     <SlickContainer>
-      <h2>Known for</h2>
+      <h2>{t("actor.know")}</h2>
       <Slider {...settings}>
         {credits.map((credit) => {
-          const { id, title, vote_average, poster_path, release_date } = credit;
+          const { id, title, poster_path } = credit;
           return (
             <div key={id}>
               <Link to={`/movie/${id}`} state={{ from: location }}>
-                <SlickImg src={`${BASE_IMG}${poster_path}`} alt={title} />
+                {poster_path? (<SlickImg src={`${BASE_IMG}${poster_path}`} alt={title} />):
+                (<SlickImg src={Img} alt={title} />)
+                }
+                
               </Link>
             </div>
           );

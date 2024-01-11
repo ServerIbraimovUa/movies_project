@@ -11,14 +11,16 @@ const ReviewsList: FC<ReviewsProps> = ({ reviews }) => {
   return (
     <StyledReviewsList>
       {reviews &&
-        reviews.map(({ id, author, content, avatar_path }) => {
+        reviews.map(({ id, author, content, author_details, created_at }) => {
+          console.log(author_details);
+          const avatar_path = author_details?.avatar_path || "";
           return (
             <ReviewsItem
               key={id}
-              id={id}
               author={author}
               content={content}
               avatar_path={avatar_path}
+              created_at={created_at}
             />
           );
         })}

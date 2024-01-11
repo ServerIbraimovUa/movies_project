@@ -7,5 +7,10 @@ export const SlickContainer = styled.div`
 `;
 
 export const SlickImg = styled.img`
-   width: 100px;
+
+   background-color:#6D0FE4;
+   width: 190px;
+   height: 250px;
+   border-radius: 16px;
+
 `

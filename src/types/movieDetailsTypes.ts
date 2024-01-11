@@ -21,7 +21,14 @@ export interface IMovieReview {
   id: number;
   author: string;
   content: string;
+<<<<<<< HEAD
   avatar_path: string;
+=======
+  author_details: {
+    avatar_path: string;
+  };
+  created_at: string;
+>>>>>>> 27eaf5a267dff3c0abb74e4cd1ebcc4d86b5c360
 }
 
 export interface IMovieRecommendations {
@@ -34,4 +41,16 @@ export interface IMovieTrailer {
   id?: number;
   site?: string;
   key?: string;
+<<<<<<< HEAD
+=======
+}
+
+export interface FavoriteMovie {
+  id: number;
+  poster_path: string;
+  vote_average: number;
+  title: string;
+  name: string;
+  isFavorite: boolean;
+>>>>>>> 27eaf5a267dff3c0abb74e4cd1ebcc4d86b5c360
 }

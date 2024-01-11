@@ -6,7 +6,12 @@ import AuthMenu from "../AuthMenu/AuthMenu";
 import SearchMovies from "../SearchMovies/SearchMovies";
 import LanguageSelector from "../Language/LanguageSelector";
 
+import Footer from "../Footer/Footer";
+import { useUser } from "../../context/UserContext";
+
 const Layout: FC = () => {
+  const { isLoggedIn } = useUser() || {};
+
   return (
     <>
       <header>
@@ -20,15 +25,20 @@ const Layout: FC = () => {
             </div>
 
             <span>Light Dark</span>
-            <AuthMenu />
-            <UserMenu/>
+
+            {isLoggedIn ? <UserMenu /> : <AuthMenu />}
+
           </nav>
         </Container>
       </header>
       <main>
         <Outlet />
       </main>
-      <footer>{/* сюди вкладається компонент футер */}</footer>
+
+      <footer>
+        <Footer />
+      </footer>
+
     </>
   );
 };

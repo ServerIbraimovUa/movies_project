@@ -12,10 +12,6 @@ export const getAllTrending = async (language: string) => {
   return (await axios.get(url)).data;
 };
 
-export const getAllGenres = async () => {
-  return (await axios.get(`${BASE_URL}/genre/movie/list`)).data;
-};
-
 export const getMovieWithGenre = async (
   id: number | null,
   year: number | null
@@ -25,6 +21,14 @@ export const getMovieWithGenre = async (
       `${BASE_URL}/discover/movie?with_genres=${id}&primary_release_year=${year}`
     )
   ).data;
+};
+
+export const searchMovies = async (query: string) => {
+  return (await axios.get(`${BASE_URL}/search/movie?query=${query}`)).data;
+};
+
+export const getAllGenres = async () => {
+  return (await axios.get(`${BASE_URL}/genre/movie/list`)).data;
 };
 
 export const getMovieDetails = async (id: number) => {
