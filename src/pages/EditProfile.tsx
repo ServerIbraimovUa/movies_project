@@ -7,12 +7,26 @@ import ImageUpload from '../components/EditUser/ImageUpload';
 import { upload } from '../services/image';
 import { writeUserData } from '../db/writeData';
 import { readData } from '../db/readData';
+import {
+  failedNotification,
+  successNotification,
+} from '../services/notifications';
+import { useNavigate } from 'react-router-dom';
 
 const EditProfile = () => {
   const [user, setUser] = useState<User | null>(null);
   const [show, setShow] = useState(false);
   const [updatedAvatarFile, setUpdatedAvatarFile] = useState<File | null>(null);
   const [databaseUser, setDatabaseUser] = useState<any>({});
+
+  const navigate = useNavigate();
+
+  const socialMedia = {
+    facebook: 'Facebook',
+    instagram: 'Instagram',
+    twitter: 'Twitter',
+    youtube: 'Youtube',
+  };
 
   onAuthStateChanged(auth, currentUser => {
     setUser(currentUser);
@@ -30,42 +44,32 @@ const EditProfile = () => {
   const handleClose = () => setShow(false);
 
   const saveProfile = async () => {
-    debugger;
-
     if (!user) return;
-
     if (updatedAvatarFile !== null) {
       const avatarPath = `users-images/${user?.uid}`;
       const updatedAvatarURL = await upload(avatarPath, updatedAvatarFile);
 
       databaseUser.imageUrl = updatedAvatarURL;
     }
-
-    await writeUserData({ ...databaseUser, uid: user.uid });
+    try {
+      await writeUserData({ ...databaseUser, uid: user.uid });
+      navigate('/');
+      successNotification('You have updated your profile!');
+    } catch {
+      failedNotification("You couldn't update your profile");
+    }
   };
 
   return (
     <div>
-      <h1>Profile</h1>
-
-      <ul>
-        {/* <li>
-          <input
-            defaultValue={userEmail || ''}
-            type="email"
-            {...register('email', { required: true })}
-          />
-          <button>Change email</button>
-        </li> */}
-        <li>
-          <PasswordForm user={user} close={handleClose} show={show} />
-          <button type="button" onClick={handleShow}>
-            Change password
-          </button>
-        </li>
-      </ul>
       <div>
-        <h2>User</h2>
+        <PasswordForm user={user} close={handleClose} show={show} />
+        <button type="button" onClick={handleShow}>
+          Change password
+        </button>
+      </div>
+      <div>
+        <h2>Current User</h2>
         <div>
           <ImageUpload
             currentAvatarURL={
@@ -73,9 +77,6 @@ const EditProfile = () => {
             }
             onAvatarChanged={file => setUpdatedAvatarFile(file)}
           />
-          <button type="button" onClick={() => saveProfile()}>
-            Save img
-          </button>
         </div>
         <select
           name="Gender"
@@ -88,55 +89,37 @@ const EditProfile = () => {
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
-
         <input
           value={databaseUser?.username || ''}
           onChange={e =>
             setDatabaseUser({ ...databaseUser, username: e.target.value })
           }
         />
-        {/* <input type="text" name="phone" placeholder="225-44-65" /> */}
-        {/* <div>
-            <h2>Social Networks</h2>
-            <label>
+        {Object.keys(socialMedia).map(el => {
+          return (
+            <label key={el}>
               <input
                 type="url"
-                name="facebook"
-                placeholder="https://example.com"
+                name={el}
+                value={databaseUser.socials?.[el] || ''}
+                placeholder={el}
                 pattern="https://.*"
-                required
+                onChange={e => {
+                  setDatabaseUser({
+                    ...databaseUser,
+                    socials: databaseUser.socials
+                      ? { ...databaseUser.socials, [el]: e.target.value }
+                      : { [el]: e.target.value },
+                  });
+                }}
               />
             </label>
-            <label>
-              <input
-                type="url"
-                name="instagram"
-                placeholder="https://example.com"
-                pattern="https://.*"
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="url"
-                name="twitter"
-                placeholder="https://example.com"
-                pattern="https://.*"
-                required
-              />
-            </label>
-
-            <label>
-              <input
-                type="url"
-                name="youtube"
-                placeholder="https://example.com"
-                pattern="https://.*"
-                required
-              />
-            </label>
-          </div> */}
+          );
+        })}
       </div>
+      <button type="button" onClick={() => saveProfile()}>
+        Save
+      </button>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { User } from 'firebase/auth';
+import { UserType } from './user';
 
 export type FormPasswords = {
   password: string;
@@ -19,11 +20,13 @@ export type FormValues = {
   newPassword?: string;
 };
 
-export interface INameForm {
-  user: User;
-}
-
 export interface IImageUpload {
   currentAvatarURL: string;
   onAvatarChanged: (file: File) => void;
+}
+
+export interface ISocials {
+  el: string;
+  databaseUser: UserType;
+  setDatabaseUser: (object: object) => void;
 }
