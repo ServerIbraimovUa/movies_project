@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Error from "../Error/Error";
 import { getMovieRecommendations } from "../../services/api";
 import RecommendationsList from "./RecommendationsList/RecommendationsList";
+import { useTranslation } from "react-i18next";
 
 const Recommendations: FC = () => {
   const [recommendations, setRecommendations] = useState<
@@ -11,6 +12,7 @@ const Recommendations: FC = () => {
   >([]);
   const [error, setError] = useState(false);
 
+  const { t } = useTranslation();
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -28,7 +30,7 @@ const Recommendations: FC = () => {
   return (
     <div>
       {recommendations.length === 0 ? (
-        <h3>Oops... we don't have any recommendations</h3>
+        <h3>{t("detalies.oops")}</h3>
       ) : (
         <RecommendationsList recommendations={recommendations} />
       )}

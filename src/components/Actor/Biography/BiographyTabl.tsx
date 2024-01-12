@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { Actor } from "../../../types/actorTypes";
 import { BiographyTextTabl, Button,HeadingTabl, HeadingTablName } from "./Biography.styled";
-
+import { useTranslation } from "react-i18next";
 
 
 interface BiographyProps{
@@ -10,6 +10,7 @@ interface BiographyProps{
   
 
     const BiographyTabl: FC<BiographyProps> = ({actor}) => {
+      const { t } = useTranslation();
     const { name, biography }=actor;
     const [showMore, setShowMore] = useState(false);
     
@@ -26,7 +27,7 @@ interface BiographyProps{
   return (
    <>
    <HeadingTablName>{name}</HeadingTablName>
-   <HeadingTabl>Biography</HeadingTabl>
+   <HeadingTabl>{t("actor.biografi")}</HeadingTabl>
    
    {biography &&   
    <>

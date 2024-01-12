@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { Actor } from "../../../types/actorTypes";
 import { BiographyTextMob, Button, HeadingMob } from "./Biography.styled";
-
+import { useTranslation } from "react-i18next";
 
 
 interface BiographyProps{
@@ -10,6 +10,7 @@ interface BiographyProps{
   
 
     const BiographyMob: FC<BiographyProps> = ({actor}) => {
+      const { t } = useTranslation();
     const { biography }=actor;
     const [showMore, setShowMore] = useState(false);
     
@@ -25,7 +26,7 @@ interface BiographyProps{
     
   return (
    <>
-   <HeadingMob>Biography</HeadingMob>
+   <HeadingMob>{t("actor.biografi")}</HeadingMob>
    
    {biography &&   
    <>

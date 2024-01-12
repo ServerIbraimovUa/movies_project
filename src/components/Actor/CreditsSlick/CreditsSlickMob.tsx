@@ -7,6 +7,7 @@ import { HeadingMob, SlickBodyMob, SlickContainer, SlickImgMob } from "./Credits
 import "./CreditsSlick.css";
 import { Link, useLocation } from "react-router-dom";
 import Img from '../../../images/defaultImg.jpg'
+import { useTranslation } from "react-i18next";
 
 const BASE_IMG = "https://image.tmdb.org/t/p/w200";
 
@@ -16,6 +17,7 @@ interface CreditsSlickProprs {
 
 const CreditsSlickMob: FC<CreditsSlickProprs> = ({ credits }) => {
   const location = useLocation();
+  const { t } = useTranslation();
 
   const settings = {
     dots: false,
@@ -55,7 +57,7 @@ const CreditsSlickMob: FC<CreditsSlickProprs> = ({ credits }) => {
 
   return (
     <SlickContainer>
-      <HeadingMob>Known for</HeadingMob>
+      <HeadingMob>{t("actor.know")}</HeadingMob>
       <Slider {...settings}>
         {credits.map((credit) => {
           const { id, title, poster_path } = credit;

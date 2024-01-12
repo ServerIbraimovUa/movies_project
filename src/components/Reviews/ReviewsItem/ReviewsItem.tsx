@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { useTranslation } from "react-i18next";
 
 interface ReviewsItemProps {
   author: string;
@@ -13,6 +14,7 @@ const ReviewsItem: FC<ReviewsItemProps> = ({
   avatar_path,
   created_at,
 }) => {
+  const { t } = useTranslation();
   return (
     <li>
       {avatar_path ? (
@@ -28,7 +30,7 @@ const ReviewsItem: FC<ReviewsItemProps> = ({
           .reverse()
           .join(".")}
       </p>
-      <h3>Author: {author}</h3>
+      <h3>{t("detalies.author")}  {author}</h3>
       <p>{content}</p>
     </li>
   );

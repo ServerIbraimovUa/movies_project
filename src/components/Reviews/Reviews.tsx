@@ -5,6 +5,7 @@ import { getMovieReview } from "../../services/api";
 import ReviewsList from "./ReviewsList/ReviewsList";
 import Error from "../Error/Error";
 import SeeMoreBtn from "./SeeMoreBtn/SeeMoreBtn";
+import { useTranslation } from "react-i18next";
 
 const Reviews: FC = () => {
   const [reviews, setReview] = useState<IMovieReview[]>([]);
@@ -13,6 +14,7 @@ const Reviews: FC = () => {
 
   const { movieId } = useParams();
 
+  const { t } = useTranslation();
   useEffect(() => {
     const getReviews = async (id: number) => {
       try {
@@ -32,7 +34,7 @@ const Reviews: FC = () => {
   return (
     <div>
       {reviews.length === 0 ? (
-        <h3>No reviews yet...</h3>
+        <h3>{t("detalies.noreviews")}</h3>
       ) : (
         <>
           <ReviewsList reviews={reviews.slice(0, visibleReviews)} />
