@@ -1,22 +1,18 @@
-import { signInWithFacebook } from "./facebook";
-import { signInWithGithub } from "./github";
-import { signInWithGoogle } from "./google";
+import { SignInWithFacebook } from "./facebook";
+import { SignInWithGithub } from "./github";
+import { SignInWithGoogle } from "./google";
 
 export const AuthList = () => {
   const authSocial = [
-    { element: signInWithGoogle, name: "Google" },
-    { element: signInWithFacebook, name: "Facebook" },
-    { element: signInWithGithub, name: "Github" },
+    { element: <SignInWithGoogle /> },
+    { element: <SignInWithFacebook /> },
+    { element: <SignInWithGithub /> },
   ];
 
   return (
     <ul>
-      {authSocial.map(({ element, name }, index) => (
-        <li key={index}>
-          <button type="button" onClick={element}>
-            {name}
-          </button>
-        </li>
+      {authSocial.map(({ element }, index) => (
+        <li key={index}>{element}</li>
       ))}
     </ul>
   );
