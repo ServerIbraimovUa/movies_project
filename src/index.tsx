@@ -21,9 +21,11 @@ root.render(
     <BrowserRouter>
       <LanguageProvider>
         <I18nextProvider i18n={Text}>
+          <ThemeProvider>
           <UserProvider>
             <App />
           </UserProvider>
+          </ThemeProvider>
         </I18nextProvider>
         <ToastContainer />
       </LanguageProvider>
