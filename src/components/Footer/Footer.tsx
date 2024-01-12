@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <div>
       <hr />
@@ -8,16 +10,16 @@ const Footer = () => {
         <p>LOGO</p>
         <ul style={{ display: "flex", gap: "40px" }}>
           <li>
-            <Link to="info/about">Support the project</Link>
+            <Link to="info/about">{t("footer.support")}</Link>
           </li>
           <li>
-            <Link to="info/faq">FAQ</Link>
+            <Link to="info/faq">{t("footer.faq")}</Link>
           </li>
           <li>
-            <Link to="info/terms">Terms of use</Link>
+            <Link to="info/terms">{t("footer.terms")}</Link>
           </li>
           <li>
-            <Link to="info/copyright">Copyright holders</Link>
+            <Link to="info/copyright">{t("footer.copyright")}</Link>
           </li>
         </ul>
       </div>
@@ -53,8 +55,8 @@ const Footer = () => {
           justifyContent: "center",
         }}
       >
-        2023 Filmoteka. All right reserved Created by{" "}
-        <button type="button">TeamForce</button>
+        {t("footer.filmoteka")}{" "}
+        <button type="button">{t("footer.team")}</button>
       </p>
     </div>
   );

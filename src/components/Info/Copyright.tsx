@@ -1,18 +1,18 @@
 import React, { FC } from "react";
 import { Container } from "react-bootstrap";
-
+import { useTranslation } from "react-i18next";
 
 const Copyright: FC = () => {
+  const { t } = useTranslation();
   return (
     <>      
         <Container>
-          <h1>Copyright holders</h1>
+          <h1>{t("copyright.copyright")}</h1>
           <p>
-            Video materials are posted according to the law, and in the absence of a prohibition from the copyright holder. 
-            If copyright holders decide to withdraw their materials, they send an application.
+          {t("copyright.video")}
           </p>
           <p>
-            A complaint about copyright infringement can be submitted by email to support.
+          {t("copyright.complaint")}
           </p>
         </Container>
      

@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Credits } from "../../../types/actorTypes";
 import { useLocation } from "react-router-dom";
 import { CreditsListTabl, HeadingTabl, LinkCredit, ListGroupItemCredit } from "./ActorCredits.styled";
+import { useTranslation } from "react-i18next";
 
 interface ActorCreditsProps {
   credits: Credits[];
@@ -9,9 +10,10 @@ interface ActorCreditsProps {
 
 const ActorCreditsTabl: FC<ActorCreditsProps> = ({ credits }) => {
   const location = useLocation();
+  const { t } = useTranslation();
   return (
     <>
-      <HeadingTabl>Acting</HeadingTabl>
+      <HeadingTabl>{t("actor.acting")}</HeadingTabl>
       <CreditsListTabl>
         {credits.map((credit:Credits) => {
           const { id, title} = credit;

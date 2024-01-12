@@ -4,8 +4,10 @@ import { useParams } from "react-router-dom";
 import { getMovieCast } from "../../services/api";
 import CastList from "./CastList/CastList";
 import Error from "../Error/Error";
+import { useTranslation } from "react-i18next";
 
 const Cast: FC = () => {
+  const { t } = useTranslation();
   const [cast, setCast] = useState<ICast[]>([]);
   const [error, setError] = useState(false);
 
@@ -26,7 +28,7 @@ const Cast: FC = () => {
   return (
     <div>
       {cast.length === 0 ? (
-        <h3>The cast is unavailable...</h3>
+        <h3>{t("detalies.thecast")}</h3>
       ) : (
         <CastList cast={cast} />
       )}

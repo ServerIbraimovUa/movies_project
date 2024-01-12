@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Credits } from "../../../types/actorTypes";
 import { useLocation } from "react-router-dom";
 import { CreditsListMob, HeadingMob, LinkCredit, ListGroupItemCredit } from "./ActorCredits.styled";
+import { useTranslation } from "react-i18next";
 
 interface ActorCreditsProps {
   credits: Credits[];
@@ -9,9 +10,10 @@ interface ActorCreditsProps {
 
 const ActorCreditsMob: FC<ActorCreditsProps> = ({ credits }) => {
   const location = useLocation();
+  const { t } = useTranslation();
   return (
     <>
-      <HeadingMob>Acting</HeadingMob>
+      <HeadingMob>{t("actor.acting")}</HeadingMob>
       <CreditsListMob>
         {credits.map((credit:Credits) => {
           const { id, title} = credit;

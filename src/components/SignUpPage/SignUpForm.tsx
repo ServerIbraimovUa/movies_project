@@ -8,6 +8,7 @@ import { auth } from "../../firebase-config";
 import { useUser } from "../../context/UserContext";
 import { writeUserData } from "../../db/writeData";
 import { UserType } from "../../types/user";
+import { useTranslation } from "react-i18next";
 
 interface UserAuth {
   name: string;
@@ -64,20 +65,20 @@ export const SignUpForm = () => {
   };
 
   const password = watch("password", "");
-
+  const { t } = useTranslation();
   return (
     <form onSubmit={handleSubmit(signup)}>
       <label>
-        Username
+      {t("signform.user")}
         <input type="text" {...register("name", { required: true })} />
       </label>
       <label>
-        Email
+      {t("signform.email")}
         <input type="email" {...register("email", { required: true })} />
-        {errors.email && <span>This field is required</span>}
+        {errors.email && <span>{t("signform.this")}</span>}
       </label>
       <label>
-        Password
+      {t("signform.password")}
         <input
           type={toggleInput}
           {...register("password", { required: true })}
@@ -92,7 +93,7 @@ export const SignUpForm = () => {
         {errors.password && <span>{errors.password.message}</span>}
       </label>
       <label>
-        Repeat Password
+      {t("signform.repeat")}
         <input
           type={toggleInput}
           {...register("repeatPassword", {
@@ -110,8 +111,8 @@ export const SignUpForm = () => {
         </span>
         {errors.repeatPassword && <span>{errors.repeatPassword.message}</span>}
       </label>
-      <button type="submit">Submit</button>
-      <p>or sign up with social media</p>
+      <button type="submit">{t("signform.submit")}</button>
+      <p>{t("signform.orsign")}</p>
       <AuthList />
     </form>
   );
