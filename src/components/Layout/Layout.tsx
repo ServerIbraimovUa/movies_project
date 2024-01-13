@@ -12,29 +12,35 @@ import "./Layout.css";
 import SwitcherTheme from "../SwitcherTheme/SwitcherTheme";
 import { useTheme } from "../SwitcherTheme/ThemeContext";
 
+import styled, { ThemeProvider } from 'styled-components';
+
+const ContainerHeader = styled.div`
+  background-color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.textColor};
+`;
+
 const Layout: FC = () => {
   const { theme } = useTheme();
-
   const { isLoggedIn } = useUser()!;
-  console.log(isLoggedIn);
+
   return (
-    <>
-      <header className={`header ${theme === 'dark' ? 'dark' : 'light'}`}>
-        <Container>
-          <nav style={{ display: "flex", gap: "24px" }}>
-            <NavLink to="/">Логотип</NavLink>
-            <SearchMovies />
-
-            <div>
-              <LanguageSelector />
-            </div>
-
-            <div>
-              <SwitcherTheme />
-            </div>
-            {isLoggedIn ? <UserMenu /> : <AuthMenu />}
-          </nav>
-        </Container>
+    <ThemeProvider theme={theme}>
+      <header>
+        <ContainerHeader>
+          <Container>
+            <nav style={{ display: "flex", gap: "24px" }}>
+              <NavLink to="/">Логотип</NavLink>
+              <SearchMovies />
+              <div>
+                <LanguageSelector />
+              </div>
+              <div>
+                <SwitcherTheme />
+              </div>
+              {isLoggedIn ? <UserMenu /> : <AuthMenu />}
+            </nav>
+          </Container>
+        </ContainerHeader>
       </header>
       <main>
         <Outlet />
@@ -42,7 +48,7 @@ const Layout: FC = () => {
       <footer>
         <Footer />
       </footer>
-    </>
+    </ThemeProvider>
   );
 };
 
