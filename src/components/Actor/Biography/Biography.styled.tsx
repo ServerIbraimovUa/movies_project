@@ -8,30 +8,55 @@ export const Button = styled.button`
     background-color: transparent;
     color:#9040F6;
     border: none;
+   padding-top: 10px;
+   padding-bottom: 10px;
 
 `
 
-export const HeadingMob = styled.h2`
+export const HeadingName = styled.h2`
+     @media screen and (max-width:1023px){
+         position: absolute;
+          width: 1px;
+          height: 1px;
+          margin: -1px;
+          border: 0;
+          padding: 0;
+          white-space: nowrap;
+          clip-path: inset(100%);
+          clip: rect(0 0 0 0);
+          overflow: hidden;
+     }
+
+    @media screen and (min-width:1024px){
+        margin-bottom: 60px;        
+    }
+
+    @media screen and (min-width:1440px){
+        margin-bottom: 100px;        
+    }
+`
+
+export const Heading = styled.h3`
     margin-bottom: 16px;
+
+    @media screen and (min-width: 1024px){
+        margin-bottom: 20px;
+    }
+
+    @media screen and (min-width:1440px){
+        margin-bottom: 24px;
+    }       
 `
-export const HeadingTablName = styled.h1`
-    margin-bottom: 60px;
-`
-export const HeadingTabl = styled.h2`
-    margin-bottom: 20px;
-`
-export const HeadingDeskName = styled.h1`
-    margin-bottom: 100px;
-`
-export const HeadingDesk = styled.h2`
+
+export const BiographyText = styled.p`
     margin-bottom: 24px;
-`
-export const BiographyTextMob = styled.div`
-    margin-bottom: 24px;
-`
-export const BiographyTextTabl = styled.div`
-    margin-bottom: 40px;
-`
-export const BiographyTextDesk = styled.div`
-    margin-bottom: 60px;
+
+    @media screen and (min-width:1024px){
+        margin-bottom: 40px;
+    }
+
+    @media screen and (min-width:1440px){
+        margin-bottom: 60px;
+    }
+    
 `

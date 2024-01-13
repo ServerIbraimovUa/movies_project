@@ -5,7 +5,7 @@ export const ContainerSlick = styled(Container)`
 margin-left: auto;
 margin-right: auto;
 margin-bottom: 24px;
-  
+
 `
 export const SlickImg = styled.img`
    background-color:#6D0FE4;
