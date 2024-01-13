@@ -83,7 +83,7 @@
 
 
 
-// SwitcherTheme.tsx
+
 import React from 'react';
 import styled from 'styled-components';
 import { IoSunny, IoSunnyOutline } from 'react-icons/io5';

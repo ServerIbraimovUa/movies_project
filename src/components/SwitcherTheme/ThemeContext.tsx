@@ -1,4 +1,4 @@
-// ThemeContext.tsx
+
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { lightTheme, darkTheme, Theme } from './theme';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';

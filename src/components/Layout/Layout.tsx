@@ -12,12 +12,11 @@ import "./Layout.css";
 import SwitcherTheme from "../SwitcherTheme/SwitcherTheme";
 import { useTheme } from "../SwitcherTheme/ThemeContext";
 
-import styled, { ThemeProvider } from 'styled-components'; // Додайте ThemeProvider
+import styled, { ThemeProvider } from 'styled-components';
 
 const ContainerHeader = styled.div`
   background-color: ${props => props.theme.primaryColor};
   color: ${props => props.theme.textColor};
-  padding: 20px;
 `;
 
 const Layout: FC = () => {
