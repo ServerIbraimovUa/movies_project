@@ -8,7 +8,6 @@ import { Link, useLocation } from "react-router-dom";
 import Img from '../../images/defaultImg.jpg'
 import { UpcomingList } from "../../types/upcomingList";
 import { getUpcomingList } from "../../services/api";
-import { useLanguage } from "../Language/LanguageContext";
 import Loading from "../Loading/Loading";
 import Error from "../Error/Error";
 import {useMediaQuery} from 'react-responsive';
