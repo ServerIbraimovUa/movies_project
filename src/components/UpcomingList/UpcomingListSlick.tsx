@@ -18,17 +18,16 @@ const BASE_IMG = "https://image.tmdb.org/t/p/w200";
 
 const UpcomingListSlick: React.FC = () => {
   const location = useLocation();
-  const { language } = useLanguage();
   const [movies, setMovies] = useState<UpcomingList[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const isTabletOrMobile = useMediaQuery({query:'(max-width:1440px)'});
+  const isTabletOrMobile = useMediaQuery({query:'(max-width:1439px)'});
 
   useEffect(() => {
     const details = async () => {
       try {
-        const results = await getUpcomingList(language);
+        const results = await getUpcomingList();
         setMovies(results);
         setLoading(true);
     
@@ -76,7 +75,7 @@ const UpcomingListSlick: React.FC = () => {
       {
         breakpoint: 429,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           slidesToScroll: 1,
           initialSlide: 1,
         },

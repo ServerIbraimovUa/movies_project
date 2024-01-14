@@ -1,20 +1,21 @@
 import React, { FC } from "react";
 import { Credits } from "../../../types/actorTypes";
 import { useLocation } from "react-router-dom";
-import { CreditsListMob, HeadingMob, LinkCredit, ListGroupItemCredit } from "./ActorCredits.styled";
-import { useTranslation } from "react-i18next";
+import { Heading, LinkCredit, ListGroupItemCredit } from "./ActorCredits.styled";
+import { ListGroup } from "react-bootstrap";
 
 interface ActorCreditsProps {
   credits: Credits[];
 }
 
-const ActorCreditsMob: FC<ActorCreditsProps> = ({ credits }) => {
+const ActorCredits: FC<ActorCreditsProps> = ({ credits }) => {
   const location = useLocation();
   const { t } = useTranslation();
   return (
     <>
-      <HeadingMob>{t("actor.acting")}</HeadingMob>
-      <CreditsListMob>
+
+      <Heading>Acting</Heading>
+      <ListGroup>
         {credits.map((credit:Credits) => {
           const { id, title} = credit;
           return (
@@ -23,9 +24,9 @@ const ActorCreditsMob: FC<ActorCreditsProps> = ({ credits }) => {
             </LinkCredit>
           );
         })}
-      </CreditsListMob>
+      </ListGroup>
     </>
   );
 };
 
-export default ActorCreditsMob;
+export default ActorCredits;

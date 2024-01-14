@@ -1,17 +1,16 @@
 import React, { FC, useState } from "react";
 import { Actor } from "../../../types/actorTypes";
-import { BiographyTextDesk, Button,HeadingDesk,HeadingDeskName } from "./Biography.styled";
+
 import { useTranslation } from "react-i18next";
+import { BiographyText, Button, Heading, HeadingName } from "./Biography.styled";
 
 
 interface BiographyProps{
     actor:  Actor
   }
-  
-
-    const BiographyDesk: FC<BiographyProps> = ({actor}) => {
-      const { t } = useTranslation();
-    const { name, biography }=actor;
+    const Biography: FC<BiographyProps> = ({actor}) => {
+    const {name, biography }=actor;
+    const { t } = useTranslation();
     const [showMore, setShowMore] = useState(false);
     
 
@@ -26,23 +25,23 @@ interface BiographyProps{
     
   return (
    <>
-   <HeadingDeskName>{name}</HeadingDeskName>
-   <HeadingDesk>{t("actor.biografi")}</HeadingDesk>
+   <HeadingName>{name}</HeadingName>
+   <Heading>{t("actor.biografi")}</Heading>
    
    {biography &&   
    <>
    <p>{showMore ? biography : text} </p>
-   <BiographyTextDesk>
+   <BiographyText>
     {biography.length > 1000 &&
           <Button onClick={() => setShowMore(!showMore)}>
             {showMore ? "Read less" : "Read more"}
           </Button>  
      }
-  </BiographyTextDesk>
+  </BiographyText>
     </>    
    }
    </>
   );
 };
 
-export default BiographyDesk;
+export default Biography;
