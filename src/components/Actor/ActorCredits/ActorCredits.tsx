@@ -3,6 +3,7 @@ import { Credits } from "../../../types/actorTypes";
 import { useLocation } from "react-router-dom";
 import { Heading, LinkCredit, ListGroupItemCredit } from "./ActorCredits.styled";
 import { ListGroup } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 interface ActorCreditsProps {
   credits: Credits[];
@@ -14,7 +15,7 @@ const ActorCredits: FC<ActorCreditsProps> = ({ credits }) => {
   return (
     <>
 
-      <Heading>Acting</Heading>
+      <Heading>{t("actor.know")}</Heading>
       <ListGroup>
         {credits.map((credit:Credits) => {
           const { id, title} = credit;
