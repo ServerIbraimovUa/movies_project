@@ -55,7 +55,7 @@ const EditProfile = () => {
       databaseUser.imageUrl = updatedAvatarURL;
     }
     try {
-      writeUserData({ ...databaseUser, uid: user.uid });
+      await writeUserData({ ...databaseUser, uid: user.uid });
       navigate('/');
       successNotification('You have updated your profile!');
     } catch {
