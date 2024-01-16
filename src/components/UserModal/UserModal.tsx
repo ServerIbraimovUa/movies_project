@@ -1,39 +1,40 @@
 import { FC } from 'react';
 import { Modal } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
+import { SocialLink } from './SocialLink';
+import { IModal } from '../../types/userModalTypes';
 
-interface IModal {
-  show: boolean;
-  close(): void;
-}
-
-const UserModal: FC<IModal> = ({ show, close }) => {
+const UserModal: FC<IModal> = ({ show, close, databaseUser }) => {
   const { t } = useTranslation();
+  const { username, imageUrl, sex, country, socials } = databaseUser;
+
   return (
     <div>
       <Modal show={show} onHide={close}>
         <Modal.Body>
           <div>
             <NavLink to="/settings/personal-info" onClick={close}>
-            {t("usermodal.settings")}
+              {t('usermodal.settings')}
             </NavLink>
-            <button onClick={close}>{t("usermodal.close")}</button>
-            <h1>{t("usermodal.profile")}</h1>
+            <button onClick={close}>{t('usermodal.close')}</button>
+            <h1>{t('usermodal.profile')}</h1>
             <div>
-              <img src="" alt="" width={'50px'} height={'50px'} />
-              <p>{t("usermodal.email")}</p>
-              <p>{t("usermodal.name")}</p>
-              <p>{t("usermodal.gender")}</p>
+              <img
+                src={imageUrl}
+                alt="Avatar"
+                width={'150px'}
+                height={'150px'}
+              />
+              <p>
+                {t('usermodal.name')}: {username}
+              </p>
+              <p>
+                {t('usermodal.gender')}: {sex}
+              </p>
+              <p>Country: {country}</p>
             </div>
-            <div>
-            <h2>{t("usermodal.social")}</h2>
-              {/* {socialLinks &&  <ul>
-                 socialLinks.map(socialLink => {
-                    <SocialLink link={socialLink} />
-                  })
-                </ul>} */}
-            </div>
+            {socials && <SocialLink socials={socials} />}
           </div>
         </Modal.Body>
       </Modal>

@@ -3,12 +3,12 @@ import { User, deleteUser, onAuthStateChanged } from 'firebase/auth';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 import {
   failedNotification,
   successNotification,
 } from '../services/notifications';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type FormValues = {
   password: string;
@@ -21,9 +21,12 @@ const DeleteAccount = () => {
 
   const [user, setUser] = useState<User | null>(null);
 
-  onAuthStateChanged(auth, currentUser => {
-    setUser(currentUser);
-  });
+  useEffect(() => {
+    onAuthStateChanged(auth, currentUser => {
+      setUser(currentUser);
+      console.log(user);
+    });
+  }, []);
 
   const navigate = useNavigate();
 
@@ -43,8 +46,8 @@ const DeleteAccount = () => {
   };
   return (
     <div>
-      <h1>{t("delete.dellaccount")}</h1>
-      <p>{t("delete.dellparagraf")}</p>
+      <h1>{t('delete.dellaccount')}</h1>
+      <p>{t('delete.dellparagraf')}</p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           type="password"
@@ -53,7 +56,7 @@ const DeleteAccount = () => {
             required: true,
           })}
         />
-        <button type="submit">{t("delete.confirm")}</button>
+        <button type="submit">{t('delete.confirm')}</button>
       </form>
     </div>
   );

@@ -13,13 +13,14 @@ import {
 } from '../services/notifications';
 import { useNavigate } from 'react-router-dom';
 
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 const EditProfile = () => {
   const [user, setUser] = useState<User | null>(null);
   const [show, setShow] = useState(false);
   const [updatedAvatarFile, setUpdatedAvatarFile] = useState<File | null>(null);
   const [databaseUser, setDatabaseUser] = useState<any>({});
+
   const { t } = useTranslation();
 
   const navigate = useNavigate();
@@ -31,9 +32,12 @@ const EditProfile = () => {
     youtube: 'Youtube',
   };
 
-  onAuthStateChanged(auth, currentUser => {
-    setUser(currentUser);
-  });
+  useEffect(() => {
+    onAuthStateChanged(auth, currentUser => {
+      setUser(currentUser);
+      console.log(user);
+    });
+  }, []);
 
   useEffect(() => {
     const fetchUserFromDatabase = async () => {
@@ -65,8 +69,7 @@ const EditProfile = () => {
 
   return (
     <div>
-
-      <h1>{t("edit.profile")}</h1>
+      <h1>{t('edit.profile')}</h1>
 
       <ul>
         {/* <li>
@@ -79,11 +82,13 @@ const EditProfile = () => {
         </li> */}
         <li>
           <PasswordForm user={user} close={handleClose} show={show} />
-          <button type="button" onClick={handleShow}>{t("edit.change")}</button>
+          <button type="button" onClick={handleShow}>
+            {t('edit.change')}
+          </button>
         </li>
       </ul>
       <div>
-      <h2>{t("edit.user")}</h2>
+        <h2>{t('edit.user')}</h2>
 
         <div>
           <ImageUpload
@@ -94,9 +99,8 @@ const EditProfile = () => {
           />
 
           <button type="button" onClick={() => saveProfile()}>
-          {t("edit.save")}
+            {t('edit.save')}
           </button>
-
         </div>
         <select
           name="Gender"
@@ -105,9 +109,9 @@ const EditProfile = () => {
             setDatabaseUser({ ...databaseUser, sex: e.target.value });
           }}
         >
-          <option value="none">{t("edit.none")}</option>
-          <option value="Male">{t("edit.male")}</option>
-          <option value="Female">{t("edit.female")}</option>
+          <option value="none">{t('edit.none')}</option>
+          <option value="Male">{t('edit.male')}</option>
+          <option value="Female">{t('edit.female')}</option>
         </select>
         <input
           value={databaseUser?.username || ''}
