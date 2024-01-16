@@ -10,11 +10,8 @@ import {
 } from '../services/notifications';
 import { useEffect, useState } from 'react';
 import { readData } from '../db/readData';
-import { deleteObject, ref } from 'firebase/storage';
 import { deleteData } from '../db/deleteData';
-
 import { logout } from '../auth/logout';
-
 import { useUser } from '../context/UserContext';
 import { deleteImage } from '../services/image';
 
@@ -24,8 +21,7 @@ type FormValues = {
 
 const DeleteAccount = () => {
   const { register, handleSubmit } = useForm<FormValues>();
-  const { user, logOut } = useUser()!;
-
+  const { logOut } = useUser()!;
   const { t } = useTranslation();
 
   const [currentUser, setCurrentUser] = useState<User | null>(null);
@@ -38,9 +34,11 @@ const DeleteAccount = () => {
     logOut();
   };
 
-  onAuthStateChanged(auth, currentUser => {
-    setCurrentUser(currentUser);
-  });
+  useEffect(() => {
+    onAuthStateChanged(auth, currentUser => {
+      setCurrentUser(currentUser);
+    });
+  }, []);
 
   useEffect(() => {
     const fetchUserFromDatabase = async () => {

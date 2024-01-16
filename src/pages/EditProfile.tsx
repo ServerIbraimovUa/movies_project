@@ -20,6 +20,7 @@ const EditProfile = () => {
   const [show, setShow] = useState(false);
   const [updatedAvatarFile, setUpdatedAvatarFile] = useState<File | null>(null);
   const [databaseUser, setDatabaseUser] = useState<any>({});
+
   const { t } = useTranslation();
 
   const navigate = useNavigate();
@@ -31,9 +32,12 @@ const EditProfile = () => {
     youtube: 'Youtube',
   };
 
-  onAuthStateChanged(auth, currentUser => {
-    setUser(currentUser);
-  });
+  useEffect(() => {
+    onAuthStateChanged(auth, currentUser => {
+      setUser(currentUser);
+      console.log(user);
+    });
+  }, []);
 
   useEffect(() => {
     const fetchUserFromDatabase = async () => {
@@ -121,7 +125,7 @@ const EditProfile = () => {
         })}
       </div>
       <button type="button" onClick={() => saveProfile()}>
-        Save
+        {t('edit.save')}
       </button>
     </div>
   );
