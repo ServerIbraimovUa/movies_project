@@ -63,10 +63,9 @@ const EditProfile = () => {
       navigate('/');
       successNotification('You have updated your profile!');
     } catch {
-      failedNotification("You couldn't update your profile");
+      failedNotification('You have not updated your your profile');
     }
   };
-
   return (
     <div>
       <div>

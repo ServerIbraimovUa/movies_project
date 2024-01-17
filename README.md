@@ -1,6 +1,6 @@
 # Start of the movies_project
 
-## version: alfa-0.7.15.9
+## version: alfa-0.7.16.9
 
 ## Good job everyone
 
@@ -44,5 +44,10 @@
 
 <a href="https://www.npmjs.com/package/@hookform/resolvers">yupResolver</a>
 
-<a href="https://www.npmjs.com/package/react-responsive"></a> react-responsive
-</a>
+<a href="https://www.npmjs.com/package/react-responsive">react-responsive</a>
+
+<a href='https://www.npmjs.com/package/nanoid'>nanoid</a>
+
+<a href='https://www.npmjs.com/package/react-select-country-list'>react-select-country-list</a>
+
+<a href='https://www.npmjs.com/package/react-select'>react-select</a>

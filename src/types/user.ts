@@ -5,7 +5,7 @@ export interface UserType {
   username: string;
   theme: 'light' | 'dark';
   language: 'ua' | 'en';
-  country?: string;
+  country?: object;
   sex?: string;
   favorites?: FavoriteMovie[];
   imageUrl?: string;
