@@ -13,7 +13,7 @@ import {
 } from '../services/notifications';
 import { useNavigate } from 'react-router-dom';
 
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 const EditProfile = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -59,14 +59,13 @@ const EditProfile = () => {
       navigate('/');
       successNotification('You have updated your profile!');
     } catch {
-      failedNotification("You couldn't update your profile");
+      failedNotification('You have not updated your your profile');
     }
   };
 
   return (
     <div>
-
-      <h1>{t("edit.profile")}</h1>
+      <h1>{t('edit.profile')}</h1>
 
       <ul>
         {/* <li>
@@ -79,11 +78,13 @@ const EditProfile = () => {
         </li> */}
         <li>
           <PasswordForm user={user} close={handleClose} show={show} />
-          <button type="button" onClick={handleShow}>{t("edit.change")}</button>
+          <button type="button" onClick={handleShow}>
+            {t('edit.change')}
+          </button>
         </li>
       </ul>
       <div>
-      <h2>{t("edit.user")}</h2>
+        <h2>{t('edit.user')}</h2>
 
         <div>
           <ImageUpload
@@ -94,9 +95,8 @@ const EditProfile = () => {
           />
 
           <button type="button" onClick={() => saveProfile()}>
-          {t("edit.save")}
+            {t('edit.save')}
           </button>
-
         </div>
         <select
           name="Gender"
@@ -105,9 +105,9 @@ const EditProfile = () => {
             setDatabaseUser({ ...databaseUser, sex: e.target.value });
           }}
         >
-          <option value="none">{t("edit.none")}</option>
-          <option value="Male">{t("edit.male")}</option>
-          <option value="Female">{t("edit.female")}</option>
+          <option value="none">{t('edit.none')}</option>
+          <option value="Male">{t('edit.male')}</option>
+          <option value="Female">{t('edit.female')}</option>
         </select>
         <input
           value={databaseUser?.username || ''}

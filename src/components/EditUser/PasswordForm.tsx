@@ -4,7 +4,7 @@ import {
   reauthenticateWithCredential,
   updatePassword,
 } from 'firebase/auth';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Modal } from 'react-bootstrap';
 import {
   failedNotification,
@@ -13,10 +13,15 @@ import {
 import { yupResolver } from '@hookform/resolvers/yup';
 import { FormPasswords, IPasswordForm } from '../../types/editProfileTypes';
 import { updatePasswordSchema } from '../../schemas/updatePasswordSchema';
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
+import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
+import { toggleClick } from '../SignUpPage/toggleClick';
 
 const PasswordForm: FC<IPasswordForm> = ({ user, show, close }) => {
   const { t } = useTranslation();
+  const [toggleInput, setToggleInput] = useState('password');
+  const [toggleIcon, setToggleIcon] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -65,43 +70,58 @@ const PasswordForm: FC<IPasswordForm> = ({ user, show, close }) => {
             resetPasswords();
           }}
         >
-          {t("edit.close")}
+          {t('edit.close')}
         </button>
+        <p>If you want to change your password, please, write:</p>
         <form onSubmit={handleSubmit(updateUserPassword)}>
           <label>
-          {t("edit.white")}
+            {t('edit.white')}
             {errors.password && (
               <div>
                 <span>{errors.password?.message}</span>
               </div>
             )}
             <input
-              type="password"
+              type={toggleInput}
               {...register('password', { required: true })}
             />
+            <span
+              onClick={() =>
+                toggleClick(toggleInput, setToggleInput, setToggleIcon)
+              }
+            >
+              {toggleIcon ? <RiEyeOffLine /> : <RiEyeLine />}
+            </span>
           </label>
           <div>
             <label>
-            {t("edit.whitenew")}
+              {t('edit.whitenew')}
               {errors.newPassword && (
                 <div>
                   <span>{errors.newPassword?.message}</span>
                 </div>
               )}
               <input
-                type="password"
+                type={toggleInput}
                 {...register('newPassword', { required: true })}
               />
+              <span
+                onClick={() =>
+                  toggleClick(toggleInput, setToggleInput, setToggleIcon)
+                }
+              >
+                {toggleIcon ? <RiEyeOffLine /> : <RiEyeLine />}
+              </span>
             </label>
           </div>
-          <button type="submit">{t("edit.submit")}</button>
+          <button type="submit">{t('edit.submit')}</button>
           <button
             onClick={() => {
               close();
               resetPasswords();
             }}
           >
-            {t("edit.cancel")}
+            {t('edit.cancel')}
           </button>
         </form>
       </Modal.Body>
