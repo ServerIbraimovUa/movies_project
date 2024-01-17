@@ -32,7 +32,7 @@ const UserModal: FC<IModal> = ({ show, close, databaseUser }) => {
               <p>
                 {t('usermodal.gender')}: {sex}
               </p>
-              <p>Country: {country}</p>
+              <p>{`Country: ${country ? country.label : 'none'}`}</p>
             </div>
             {socials && <SocialLink socials={socials} />}
           </div>
