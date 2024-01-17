@@ -14,7 +14,7 @@ export function writeUserData({
   socials = {},
 }: UserType) {
   try {
-    set(ref(db, 'users/' + uid), {
+    return set(ref(db, 'users/' + uid), {
       username,
       imageUrl,
       sex,
