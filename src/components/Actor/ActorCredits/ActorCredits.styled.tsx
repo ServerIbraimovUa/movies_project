@@ -10,22 +10,15 @@ export const ListGroupItemCredit = styled(ListGroup.Item)`
     border: none;
   
 `
-export const HeadingMob=styled.h2`
+export const Heading=styled.h3`
     margin-bottom : 16px;
+
+    @media screen and (min-width : 1024px){
+        margin-bottom: 20px;
+    }
+
+    @media screen and (min-width : 1440px){
+        margin-bottom: 24px;
+    }
 `
 
-export const CreditsListMob = styled(ListGroup)`
-    margin-bottom: 54px;
-`
-export const HeadingTabl=styled.h2`
-    margin-bottom : 20px;
-`
-export const CreditsListTabl = styled(ListGroup)`
-    margin-bottom: 40px;
-`
-export const HeadingDesk=styled.h2`
-    margin-bottom : 24px;
-`
-export const CreditsListDesk = styled(ListGroup)`
-    margin-bottom: 24px;
-`
