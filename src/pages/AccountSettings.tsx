@@ -10,8 +10,10 @@ import {
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import { CountryHandler } from '../types/accountSettings';
+import { useTranslation } from 'react-i18next';
 
 const AccountSettings = () => {
+  const { t } = useTranslation();
   const [databaseUser, setDatabaseUser] = useState<any>({});
   const { user } = useUser()!;
   const navigate = useNavigate();
@@ -43,7 +45,7 @@ const AccountSettings = () => {
   return (
     <div>
       <label>
-        Default language
+      {t('accountsettings.defaultlanguage')}
         <select
           name="language"
           value={databaseUser.language}
@@ -56,7 +58,7 @@ const AccountSettings = () => {
         </select>
       </label>
       <label>
-        Default theme
+      {t('accountsettings.defaulttheme')}
         <select
           name="theme"
           value={databaseUser.theme}
@@ -69,7 +71,7 @@ const AccountSettings = () => {
         </select>
       </label>
       <label>
-        Country
+      {t('accountsettings.country')}
         <Select
           options={options}
           value={databaseUser.country}
@@ -78,7 +80,7 @@ const AccountSettings = () => {
         />
       </label>
       <button type="button" onClick={saveAccountSettings}>
-        Save
+      {t('accountsettings.save')}
       </button>
     </div>
   );

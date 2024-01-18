@@ -72,10 +72,10 @@ const PasswordForm: FC<IPasswordForm> = ({ user, show, close }) => {
         >
           {t('edit.close')}
         </button>
-        <p>If you want to change your password, please, write:</p>
+        <p>{t('edit.if')}</p>
         <form onSubmit={handleSubmit(updateUserPassword)}>
           <label>
-            {t('edit.white')}
+            {t('edit.write')}
             {errors.password && (
               <div>
                 <span>{errors.password?.message}</span>
@@ -95,7 +95,7 @@ const PasswordForm: FC<IPasswordForm> = ({ user, show, close }) => {
           </label>
           <div>
             <label>
-              {t('edit.whitenew')}
+              {t('edit.writenew')}
               {errors.newPassword && (
                 <div>
                   <span>{errors.newPassword?.message}</span>
@@ -121,7 +121,7 @@ const PasswordForm: FC<IPasswordForm> = ({ user, show, close }) => {
               resetPasswords();
             }}
           >
-            {t('edit.cancel')}
+            {t('edit.cancle')}
           </button>
         </form>
       </Modal.Body>

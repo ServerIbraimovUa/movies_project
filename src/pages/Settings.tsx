@@ -33,7 +33,7 @@ const Settings = () => {
           </li>
         </ul>
         <button type="button" onClick={logoutUserFromSettings}>
-          Log Out
+        {t('settings.logout')}
         </button>
       </div>
       <Outlet />

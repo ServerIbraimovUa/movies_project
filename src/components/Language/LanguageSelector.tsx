@@ -19,8 +19,8 @@ const LanguageSelector: React.FC = () => {
   return (
     <form action="">
       <select name="language" value={language} onChange={handleLanguageChange}>
-        <option value="en">En</option>
-        <option value="uk">Uk</option>
+        <option value="en">EN</option>
+        <option value="uk">UK</option>
       </select>
     </form>
   );
