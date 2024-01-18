@@ -37,7 +37,7 @@
        "also": "Also known as",
        "biografi": "Biography"
         },
-        "Delete": {
+        "delete": {
          "dellaccount": "Delete Account",
          "dellparagraf": "You've just entered the danger zone! If you would like to continue and remove your account, you can do so by entering your password below and confirming the prompts.",
          "confirm": "Confirm"
@@ -55,7 +55,8 @@
           "writenew": "Write your new password",
           "cancel": "Cancel",
           "none": "None",
-          "save": "Save img"
+          "if": "If you want to change your password, please, write:",
+          "current": "Current user"
         },
         "login": {
          "login": "Login",
@@ -75,7 +76,8 @@
         "settings": {
          "edit": "Edit Account",
          "account": "Account Settings",
-         "delete": "Delete Account"
+         "delete": "Delete Account",
+         "logout": "Log Out"
         },
         "signup": {
          "signup": "Sign up"
@@ -187,6 +189,13 @@
          "copyright": "Copyright holders",
          "filmoteka": "2023 Filmoteka. All right reserved Created by",
          "team": "TeamForce"
-        }
+        },
+        "accountsettings": {
+          "defaultlanguage": "Default language",
+          "defaulttheme": "Default theme",
+          "country": "Country",
+          "save": "Save"
+    
+         }
 
 }

@@ -75,7 +75,7 @@ const EditProfile = () => {
         </button>
       </div>
       <div>
-        <h2>Current user</h2>
+        <h2>{t('edit.current')}</h2>
         <div>
           <ImageUpload
             currentAvatarURL={
