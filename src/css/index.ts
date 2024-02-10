@@ -168,17 +168,21 @@ main {
 .container {
   width: 100%;
   margin: 0 auto; 
+  padding-left: 16px;
+  padding-right: 16px;
+
   
   @media ${device.mobile} {
-        max-width: 320px;
+        max-width: 398px;
+       
         }
   
   @media ${device.tablet} {
-        max-width: 744px;
+        max-width: 961px;
         }
 
     @media ${device.desktop} {        
-        max-width: 1264px;       
+        max-width: 1280px;       
       }
 }
 `;
