@@ -25,7 +25,7 @@ const Layout: FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <header>
+      <header>
         <ContainerHeader>
           <Container>
             <nav style={{ display: "flex", gap: "24px" }}>
@@ -41,13 +41,13 @@ const Layout: FC = () => {
             </nav>
           </Container>
         </ContainerHeader>
-      </header> */}
+      </header>
       <main>
         <Outlet />
       </main>
-      {/* <footer>
+      <footer>
         <Footer />
-      </footer> */}
+      </footer>
     </ThemeProvider>
   );
 };

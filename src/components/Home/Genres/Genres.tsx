@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { IGenres } from "../../../types/homeTypes";
+import { GenresItem, GenresList } from "./Genres.styled";
 
 interface GenresProps {
   genres: IGenres[];
@@ -13,15 +14,15 @@ const Genres: FC<GenresProps> = ({ genres, setGenreId }) => {
 
   return (
     <>
-      <ul>
+      <GenresList>
         {genres.map(({ id, name }) => (
-          <li key={id}>
+          <GenresItem key={id}>
             <button type="button" onClick={() => handleId(id)}>
               {name}
             </button>
-          </li>
+          </GenresItem>
         ))}
-      </ul>
+      </GenresList>
     </>
   );
 };

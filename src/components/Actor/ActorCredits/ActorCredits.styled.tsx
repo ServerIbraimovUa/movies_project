@@ -1,37 +1,39 @@
 import { ListGroup } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { device } from '../../../css/deviceSize';
 
 export const LinkCredit = styled(Link)`
-    text-decoration-color: #19191B;  
+    font-family: var(--work-sans-font-semi-bold);
+    font-weight: var(--bold-font-weight);
+    font-size: 16px;  
+    line-height: 125%;
+    letter-spacing: 0.03em;
+    text-decoration-color: var( --text-clr-black);
+    text-decoration: underline;
 `
 export const ListGroupCredit=styled(ListGroup)`
     padding: 20px 16px;
    
 `
-export const ListGroupItemCredit = styled(ListGroup.Item)`
- font-family: 'WorkSans-SemiBold',sans-serif;
- font-weight: var(--bold-font-weight);
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 125%;
-    letter-spacing: 0.03em;
+export const ListGroupItemCredit = styled(ListGroup.Item)` 
     margin-bottom: 8px;
     padding: 10px;
     border: none;
   
 `
 export const Heading=styled.h2`
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 125%;
     margin-bottom : 16px;
+    
+    font-size: 32px;
+    font-weight: var(--bold-font-weight);
+    line-height: 125%;
 
-    @media screen and (min-width : 1024px){
+    @media ${device.tablet}{
         margin-bottom: 20px;
     }
 
-    @media screen and (min-width : 1440px){
+    @media ${device.desktop}{
         margin-bottom: 24px;
     }
 `

@@ -74,7 +74,7 @@ const HomeListItem: FC<HomeListItemProps> = ({
         <Content>{ original_language}</Content>
         </SubTitle>
         <SubTitle>{t("home.description")}</SubTitle>
-        <Content>{overview}</Content>
+        <Content>{overview && overview.substring(0,90)+"..."}</Content>
         </ContentWrapper>
         <ButtonWrapper>
         <WatchButton to={`/movie/${id}`} state={{ from: location }}>

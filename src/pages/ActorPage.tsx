@@ -1,18 +1,18 @@
 import React, { FC, useEffect, useState } from "react";
-import { getActorById, getActorCredits } from "../../services/api";
+import { getActorById, getActorCredits } from "../services/api";
 import { Col, Container, Row} from "react-bootstrap";
-import Error from "../../components/Error/Error";
-import Loading from "../../components/Loading/Loading";
+import Error from "../components/Error/Error";
+import Loading from "../components/Loading/Loading";
 
-import { Actor, Credits } from "../../types/actorTypes";
+import { Actor, Credits } from "../types/actorTypes";
 
 import { useParams } from "react-router-dom";
-import UpcomingListSlick from "../../components/UpcomingList/UpcomingListSlick";
+import UpcomingListSlick from "../components/UpcomingList/UpcomingListSlick";
 
-import PersonalInfo from "../../components/Actor/PersonalInfo/PersonalInfo";
-import CreditsSlick from "../../components/Actor/CreditsSlick/CreditsSlick";
-import Biography from "../../components/Actor/Biography/Biography";
-import ActorCredits from "../../components/Actor/ActorCredits/ActorCredits";
+import PersonalInfo from "../components/Actor/PersonalInfo/PersonalInfo";
+import CreditsSlick from "../components/Actor/CreditsSlick/CreditsSlick";
+import Biography from "../components/Actor/Biography/Biography";
+import ActorCredits from "../components/Actor/ActorCredits/ActorCredits";
 
 const ActorPage: FC = () => {
   const [actor, setActor] = useState<Actor>({});
@@ -58,7 +58,7 @@ const ActorPage: FC = () => {
 
   return (
    <section>
-      <Container className="p-3 container">
+      <Container className="container">
         {loading ? (
         
         <>          
