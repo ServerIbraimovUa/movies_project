@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import App from "./components/App";
 import { BrowserRouter } from "react-router-dom";
 
 import Text from "./Language/utils/i18n";
 
-import { ThemeProvider } from './components/SwitcherTheme/ThemeContext';
+import { ThemeProvider } from "./components/SwitcherTheme/ThemeContext";
 
 import { I18nextProvider } from "react-i18next";
 import { LanguageProvider } from "./components/Language/LanguageContext";
