@@ -3,8 +3,7 @@ import styled from 'styled-components';
 export const Heading = styled.h1`
     text-align: center;
     font-weight: 700;
-    font-size: 40px;
-    line-height: 60%;
+    font-size: 40px;    
     margin-bottom: 24px;
 
     @media screen and (min-width: 768px){
@@ -53,9 +52,7 @@ export const CardSubtitle = styled.h3`
 `
 
 export const CardText = styled.p`
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 120%;
+ 
   margin-bottom : 16px;
     &:last-child{
       margin-bottom: 24px;

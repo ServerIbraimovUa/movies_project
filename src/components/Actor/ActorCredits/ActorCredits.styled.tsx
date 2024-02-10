@@ -10,6 +10,8 @@ export const ListGroupCredit=styled(ListGroup)`
    
 `
 export const ListGroupItemCredit = styled(ListGroup.Item)`
+ font-family: 'WorkSans-SemiBold',sans-serif;
+ font-weight: var(--bold-font-weight);
     font-size: 16px;
     font-weight: 700;
     line-height: 125%;

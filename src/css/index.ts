@@ -177,13 +177,11 @@ main {
 .container {
   width: 100%;
   margin: 0 auto; 
-<<<<<<< Updated upstream
+
   padding-left: 16px;
   padding-right: 16px;
 
-=======
   overflow-x: hidden;
->>>>>>> Stashed changes
   
   @media ${device.mobile} {
         max-width: 398px;

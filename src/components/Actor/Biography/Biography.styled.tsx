@@ -61,14 +61,10 @@ margin-bottom: 16px;
 export const BiographyText = styled.p`
     margin-bottom: 24px;
     padding-top: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
 
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 120%;
-
-    &:last-child{
+     &:last-child{
         margin-bottom: 0px;
     }
 
