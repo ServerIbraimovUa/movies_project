@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 
 import HomeListItem from "../HomeListItem/HomeListItem";
 import { IGenres, Movies } from "../../../types/homeTypes";
+import { List } from "./HomeList.styled";
 
 interface HomeListProps {
   movies: Movies[];
@@ -40,7 +41,7 @@ const HomeList: FC<HomeListProps> = ({ movies, genres }) => {
   };
 
   return (
-    <ul>
+    <List>
       {movies.map((movie) => {
         const {
           title,
@@ -53,6 +54,8 @@ const HomeList: FC<HomeListProps> = ({ movies, genres }) => {
           genre_ids,
           release_date,
           first_air_date,
+          original_language
+
         } = movie;
         return (
           <HomeListItem
@@ -71,10 +74,11 @@ const HomeList: FC<HomeListProps> = ({ movies, genres }) => {
             removeFavorite={removeFavorite}
             isFavorite={isFavorite(movie.id)}
             genres={genres}
+            original_language={original_language}
           />
         );
       })}
-    </ul>
+    </List>
   );
 };
 

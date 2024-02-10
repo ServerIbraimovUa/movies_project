@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { YearsItem, YearsList } from "./Years.styled";
 
 interface IYear {
   setYear: (id: number) => void;
@@ -11,15 +12,15 @@ const Years: FC<IYear> = ({ setYear }) => {
   }
 
   return (
-    <ul>
+    <YearsList>
       {years.map((year) => (
-        <li key={year}>
+        <YearsItem key={year}>
           <button type="button" onClick={() => setYear(year)}>
             {year}
           </button>
-        </li>
+        </YearsItem>
       ))}
-    </ul>
+    </YearsList>
   );
 };
 

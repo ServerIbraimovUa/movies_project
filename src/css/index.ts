@@ -185,9 +185,11 @@ main {
 .container {
   width: 100%;
   margin: 0 auto; 
+  
   padding-left: 16px;
   padding-right: 16px;
 
+  overflow-x: hidden;
   
   @media ${device.mobile} {
         max-width: 398px;

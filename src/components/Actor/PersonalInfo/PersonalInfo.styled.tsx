@@ -1,10 +1,14 @@
 import styled from 'styled-components';
+import { device } from '../../../css/deviceSize';
 
-export const Heading = styled.h2`
-    text-align: center;
+export const Heading = styled.h1`
     margin-bottom: 24px;
 
-    @media screen and (min-width: 1024px){
+    text-align: center;
+    font-weight: var(--bold-font-weight);
+    font-size: 40px;    
+
+    @media screen and (min-width: 768px){
       position: absolute;
       width: 1px;
       height: 1px;
@@ -20,42 +24,49 @@ export const Heading = styled.h2`
 
 export const CardImg = styled.img`
   float: left;
+  width: 189px;
   margin-right: 24px;
   margin-bottom: 24px;
-  width: 189px;
   border-radius : 16px;
   
-  @media screen and (min-width: 1024px)  {
+  @media ${device.tablet} {
+    float: none;
     width: 144px;
     margin-right: 20px;
     margin-bottom: 40px;
-    float: none;
   }
-  @media screen and (min-width: 1440px){
+
+  @media ${device.desktop}{
+    float:none;
     width: 231px;    
     margin-right: 24px;
     margin-bottom: 40px;
-    float:none;
   }   
   
 `
-export const CardSubtitle = styled.h4`
+export const CardSubtitle = styled.h3`
     margin-bottom : 12px;
+    font-size: 24px;
+    font-weight: var(--bold-font-weight);
 
-    @media screen and (min-width:1024px){
+    @media ${device.tablet}{
       margin-bottom : 24px;
     }
 `
 
-export const CardText = styled.p`
-    margin-bottom : 16px;
+export const CardText = styled.p` 
+  margin-bottom : 16px;
+  
+    &:last-child{
+      margin-bottom: 24px;
+    }
 
-    @media screen and (min-width:1024px){
+    @media ${device.tablet}{
       margin-bottom : 40px;      
     }
 `
 
 export const Info=styled.div`
- min-width: 430px;
+ width: 398px;
  margin-bottom: 24px;
 `

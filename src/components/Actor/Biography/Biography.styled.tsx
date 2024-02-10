@@ -1,20 +1,22 @@
 import styled from 'styled-components';
+import { device } from '../../../css/deviceSize';
 
 export const Button = styled.button`
     display: flex;
     margin-left: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: none;
+
     font-size: large;
     text-decoration: underline;
     background-color: transparent;
-    color:#9040F6;
-    border: none;
-   padding-top: 10px;
-   padding-bottom: 10px;
+    color:var(dark-violet-clr);
 
 `
-
 export const HeadingName = styled.h2`
-     @media screen and (max-width:1023px){
+
+     @media screen and (max-width:768px){
          position: absolute;
           width: 1px;
           height: 1px;
@@ -27,8 +29,12 @@ export const HeadingName = styled.h2`
           overflow: hidden;
      }
 
-    @media screen and (min-width:1024px){
-        margin-bottom: 60px;        
+    @media screen and (min-width:768px){
+        margin-bottom: 60px;     
+
+        font-size: 40px;
+        font-weight: var(--bold-font-weight);
+        line-height: 150%;
     }
 
     @media screen and (min-width:1440px){
@@ -36,26 +42,36 @@ export const HeadingName = styled.h2`
     }
 `
 
-export const Heading = styled.h3`
+export const Heading = styled.h2`
+    font-size: 32px;
+    font-weight: var(--bold-font-weight);
+    line-height: 125%;
     margin-bottom: 16px;
 
-    @media screen and (min-width: 1024px){
+    @media ${device.tablet}{
         margin-bottom: 20px;
     }
 
-    @media screen and (min-width:1440px){
+    @media ${device.desktop}{
         margin-bottom: 24px;
     }       
 `
 
 export const BiographyText = styled.p`
     margin-bottom: 24px;
+    padding-top: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
 
-    @media screen and (min-width:1024px){
+     &:last-child{
+        margin-bottom: 0px;
+    }
+
+    @media ${device.tablet}{
         margin-bottom: 40px;
     }
 
-    @media screen and (min-width:1440px){
+    @media ${device.desktop}{
         margin-bottom: 60px;
     }
     

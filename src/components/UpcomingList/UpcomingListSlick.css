@@ -1,8 +1,12 @@
 .slick-next:before{
-    color: #6D0FE4;
+    color: var(--violet-hover);
 }
 
 .slick-prev:before{
-    color: #6D0FE4;
+    color: var(--violet-hover);
 }
 
+.slick-track{    
+    display: flex;
+    gap:12px;
+  }

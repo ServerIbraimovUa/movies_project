@@ -1,8 +1,7 @@
 import React, { FC } from "react";
 import { Credits } from "../../../types/actorTypes";
 import { useLocation } from "react-router-dom";
-import { Heading, LinkCredit, ListGroupItemCredit } from "./ActorCredits.styled";
-import { ListGroup } from "react-bootstrap";
+import { Heading, LinkCredit, ListGroupCredit, ListGroupItemCredit } from "./ActorCredits.styled";
 import { useTranslation } from "react-i18next";
 
 interface ActorCreditsProps {
@@ -15,8 +14,8 @@ const ActorCredits: FC<ActorCreditsProps> = ({ credits }) => {
   return (
     <>
 
-      <Heading>{t("actor.know")}</Heading>
-      <ListGroup>
+      <Heading>{t("actor.acting")}</Heading>
+      <ListGroupCredit>
         {credits.map((credit:Credits) => {
           const { id, title} = credit;
           return (
@@ -25,7 +24,8 @@ const ActorCredits: FC<ActorCreditsProps> = ({ credits }) => {
             </LinkCredit>
           );
         })}
-      </ListGroup>
+      </ListGroupCredit>
+
     </>
   );
 };

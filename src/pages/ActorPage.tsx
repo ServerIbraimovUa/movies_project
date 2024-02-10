@@ -1,18 +1,18 @@
 import React, { FC, useEffect, useState } from "react";
-import { getActorById, getActorCredits } from "../../services/api";
+import { getActorById, getActorCredits } from "../services/api";
 import { Col, Container, Row} from "react-bootstrap";
-import Error from "../../components/Error/Error";
-import Loading from "../../components/Loading/Loading";
+import Error from "../components/Error/Error";
+import Loading from "../components/Loading/Loading";
 
-import { Actor, Credits } from "../../types/actorTypes";
+import { Actor, Credits } from "../types/actorTypes";
 
 import { useParams } from "react-router-dom";
-import UpcomingListSlick from "../../components/UpcomingList/UpcomingListSlick";
+import UpcomingListSlick from "../components/UpcomingList/UpcomingListSlick";
 
-import PersonalInfo from "../../components/Actor/PersonalInfo/PersonalInfo";
-import CreditsSlick from "../../components/Actor/CreditsSlick/CreditsSlick";
-import Biography from "../../components/Actor/Biography/Biography";
-import ActorCredits from "../../components/Actor/ActorCredits/ActorCredits";
+import PersonalInfo from "../components/Actor/PersonalInfo/PersonalInfo";
+import CreditsSlick from "../components/Actor/CreditsSlick/CreditsSlick";
+import Biography from "../components/Actor/Biography/Biography";
+import ActorCredits from "../components/Actor/ActorCredits/ActorCredits";
 
 const ActorPage: FC = () => {
   const [actor, setActor] = useState<Actor>({});
@@ -57,29 +57,30 @@ const ActorPage: FC = () => {
   };
 
   return (
-   
-      <Container>
+   <section>
+      <Container className="container">
         {loading ? (
         
         <>          
        
         <Row className = "mx-auto">
           <UpcomingListSlick />
-        </Row>
+        </Row> 
         
         <Row>
-            <Col lg={3} md={5} sm={"auto"} xs={"auto"} >            
+             <Col lg={3} md={5} sm={"auto"} xs={"auto"} >            
              <PersonalInfo actor = {actor}/>          
-            </Col>
+            </Col> 
             <Col lg={9} md={7} sm={"auto"} xs={"auto"}>
               <Row>
-                <Biography actor = {actor}/></Row>   
+               <Biography actor = {actor}/>
+              </Row>   
               <Row className = "mx-auto">
                 <CreditsSlick credits = {sortedCredits(credits)}/>                          
-              </Row>
-              <Row className = "mx-auto">
+              </Row> 
+             <Row className = "mx-auto">
                 <ActorCredits credits = {credits}/>              
-              </Row>
+              </Row> 
             </Col>
           </Row></>
         ) : (
@@ -88,7 +89,7 @@ const ActorPage: FC = () => {
 
         {error && <Error />}
       </Container>
-  
+      </section>
   );
 };
 
