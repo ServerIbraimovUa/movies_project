@@ -29,7 +29,16 @@ export const GlobalStyle = createGlobalStyle`
     --grey-bg-clr: #61646B;
     --grey-disabled-clr: #E4E4E4;
 
-    /* HOVER */
+     /* HOVER ACTIVE*/
+    //LIGHT
+    --violet-hover: #6d0fe4;
+    --violet-click: #4A00A8;
+    --violet-disabled-clr: #CFC5DC;
+    --grey-hover: #c7c7c7;
+    
+
+    //DARK
+    --black-bg-btn-hover: #2E0044;
     --violet-hover: #6d0fe4;
     --grey-hover: #c7c7c7;
 
@@ -168,17 +177,21 @@ main {
 .container {
   width: 100%;
   margin: 0 auto; 
+  padding-left: 16px;
+  padding-right: 16px;
+
   
   @media ${device.mobile} {
-        max-width: 320px;
+        max-width: 398px;
+       
         }
   
   @media ${device.tablet} {
-        max-width: 744px;
+        max-width: 961px;
         }
 
     @media ${device.desktop} {        
-        max-width: 1264px;       
+        max-width: 1280px;       
       }
 }
 `;
