@@ -40,15 +40,11 @@ const UserMenu = () => {
         <button type="button" onClick={handleShow}>
           {user.username}
         </button>
-        <UserModal
-          close={handleClose}
-          show={show}
-          databaseUser={databaseUser}
-        />
         <button type="button" onClick={handleLogOut}>
           {t('layout.logout')}
         </button>
       </div>
+      <UserModal close={handleClose} show={show} databaseUser={databaseUser} />
     </>
   );
 };
