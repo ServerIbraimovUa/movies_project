@@ -9,6 +9,7 @@ export interface Movies {
   first_air_date: string;
   overview: string;
   genre_ids: number[];
+  original_language:string
 }
 
 export interface IGenres {

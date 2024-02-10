@@ -1,12 +1,17 @@
-import { Container } from 'react-bootstrap';
 import styled from 'styled-components';
 
-export const ContainerSlick = styled(Container)`
-margin-left: auto;
-margin-right: auto;
-margin-bottom: 24px;
 
-`
+export const SlickContainer = styled.div`  
+ margin-bottom: 24px;
+
+ @media screen and (min-width:1024px){
+   margin-bottom: 40px;
+ }
+ @media screen and (min-width:1440px){
+   margin-bottom: 60px;
+ }
+`;
+
 export const SlickImg = styled.img`
    background-color:#6D0FE4;
    width: 190px;   

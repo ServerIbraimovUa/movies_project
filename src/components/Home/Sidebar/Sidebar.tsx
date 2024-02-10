@@ -4,6 +4,7 @@ import Years from "../Years/Years";
 import { IGenres, Movies } from "../../../types/homeTypes";
 import { getAllTrending } from "../../../services/api";
 import { useSearchParams } from "react-router-dom";
+import { SidebarContainer } from "./Sidebar.styled";
 
 interface ISidebarProps {
   genres: IGenres[];
@@ -29,17 +30,19 @@ const Sidebar: FC<ISidebarProps> = ({
     setQueryText("");
   };
   return (
-    <div>
+   <SidebarContainer>
       <div>
         <p>Genres</p>
         <button type="button" onClick={reset}>
           Reset all
         </button>
         <Genres genres={genres} setGenreId={setGenreId} />
+        </div>
+        <div>
         <p>Year</p>
         <Years setYear={setYear} />
       </div>
-    </div>
+      </SidebarContainer>
   );
 };
 

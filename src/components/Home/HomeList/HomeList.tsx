@@ -53,6 +53,8 @@ const HomeList: FC<HomeListProps> = ({ movies, genres }) => {
           genre_ids,
           release_date,
           first_air_date,
+          original_language
+
         } = movie;
         return (
           <HomeListItem
@@ -71,6 +73,7 @@ const HomeList: FC<HomeListProps> = ({ movies, genres }) => {
             removeFavorite={removeFavorite}
             isFavorite={isFavorite(movie.id)}
             genres={genres}
+            original_language={original_language}
           />
         );
       })}

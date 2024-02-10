@@ -5,7 +5,6 @@ import {
   getMovieWithGenre,
   searchMovies,
 } from "../services/api";
-import { Container } from "react-bootstrap";
 import Error from "../components/Error/Error";
 import Loading from "../components/Loading/Loading";
 import { useLanguage } from "../components/Language/LanguageContext";
@@ -14,6 +13,8 @@ import { IGenres, Movies } from "../types/homeTypes";
 
 import Sidebar from "../components/Home/Sidebar/Sidebar";
 import { useSearchParams } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import UpcomingListSlick from "../components/UpcomingList/UpcomingListSlick";
 
 const HomePage: FC = () => {
   const { language } = useLanguage();
@@ -79,10 +80,11 @@ const HomePage: FC = () => {
 
     fetchData();
   }, [genreId, language, year]);
-
+console.log(movies);
   return (
     <section>
-      <Container style={{ display: "flex" }}>
+      <Container className="p-3 container">
+        <UpcomingListSlick/>
         {error && <Error />}
         {movies.length !== 0 ? (
           <>

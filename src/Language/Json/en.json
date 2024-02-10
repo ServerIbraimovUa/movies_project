@@ -6,7 +6,8 @@
     "year": "Year:",
     "genre": "Genre:",
     "description": "Description:",
-    "watch": "Watch"
+    "watch": "Watch",
+    "language":"Language:"
   },
   "layout": {
     "register": "Register",

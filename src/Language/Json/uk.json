@@ -6,7 +6,8 @@
     "year": "Рік:",
     "genre": "Жанр:",
     "description": "Опис:",
-    "watch": "Дивитися"
+    "watch": "Дивитися",
+    "language":"Мова:"
   },
   "layout": {
   "register": "Зареєструватися",

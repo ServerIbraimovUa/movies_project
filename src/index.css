@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -17,12 +18,20 @@ li,
 h1,
 h2,
 h3,
-h4,
-p {
+h4
+ {
   margin: 0;
   padding: 0;
 }
 
 li {
   list-style: none;
+}
+
+
+.container{
+  
+  overflow-x: hidden;
+  margin-left: auto;
+  margin-right: auto;
 }
