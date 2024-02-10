@@ -54,6 +54,14 @@ export const GlobalStyle = createGlobalStyle`
     --medium-font-weight: 500;
     --semi-bold-font-weight: 600;
     --bold-font-weight: 700;
+
+    --zen-maru-font-regular: ${ZenMaruRegular};
+    --zen-maru-font-medium: ${ZenMaruMedium};
+    --zen-maru-font-bold: ${ZenMaruBold};
+
+    --work-sans-font-regular: ${WorkSansRegular};
+    --work-sans-font-medium: ${WorkSansMedium};
+    --work-sans-font-semi-bold: ${WorkSansSemiBold};
     
 }
 
