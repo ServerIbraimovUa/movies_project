@@ -35,7 +35,6 @@ const EditProfile = () => {
   useEffect(() => {
     onAuthStateChanged(auth, currentUser => {
       setUser(currentUser);
-      console.log(user);
     });
   }, []);
 

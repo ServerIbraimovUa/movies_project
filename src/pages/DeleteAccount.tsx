@@ -1,4 +1,4 @@
-import { auth, storage } from '../firebase-config';
+import { auth } from '../firebase-config';
 import { User, deleteUser, onAuthStateChanged } from 'firebase/auth';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
