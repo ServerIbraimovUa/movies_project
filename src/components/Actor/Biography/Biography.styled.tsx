@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+
+
 export const Button = styled.button`
     display: flex;
     margin-left: auto;
@@ -14,7 +16,9 @@ export const Button = styled.button`
 `
 
 export const HeadingName = styled.h2`
-     @media screen and (max-width:1023px){
+
+
+     @media screen and (max-width:768px){
          position: absolute;
           width: 1px;
           height: 1px;
@@ -27,7 +31,10 @@ export const HeadingName = styled.h2`
           overflow: hidden;
      }
 
-    @media screen and (min-width:1024px){
+    @media screen and (min-width:768px){
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 150%;
         margin-bottom: 60px;        
     }
 
@@ -36,8 +43,11 @@ export const HeadingName = styled.h2`
     }
 `
 
-export const Heading = styled.h3`
-    margin-bottom: 16px;
+export const Heading = styled.h2`
+font-size: 32px;
+font-weight: 700;
+line-height: 125%;
+margin-bottom: 16px;
 
     @media screen and (min-width: 1024px){
         margin-bottom: 20px;
@@ -50,6 +60,17 @@ export const Heading = styled.h3`
 
 export const BiographyText = styled.p`
     margin-bottom: 24px;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 120%;
+
+    &:last-child{
+        margin-bottom: 0px;
+    }
 
     @media screen and (min-width:1024px){
         margin-bottom: 40px;

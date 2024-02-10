@@ -57,29 +57,30 @@ const ActorPage: FC = () => {
   };
 
   return (
-   
-      <Container>
+   <section>
+      <Container className="p-3 container">
         {loading ? (
         
         <>          
        
         <Row className = "mx-auto">
           <UpcomingListSlick />
-        </Row>
+        </Row> 
         
         <Row>
-            <Col lg={3} md={5} sm={"auto"} xs={"auto"} >            
+             <Col lg={3} md={5} sm={"auto"} xs={"auto"} >            
              <PersonalInfo actor = {actor}/>          
-            </Col>
+            </Col> 
             <Col lg={9} md={7} sm={"auto"} xs={"auto"}>
               <Row>
-                <Biography actor = {actor}/></Row>   
+               <Biography actor = {actor}/>
+              </Row>   
               <Row className = "mx-auto">
                 <CreditsSlick credits = {sortedCredits(credits)}/>                          
-              </Row>
-              <Row className = "mx-auto">
+              </Row> 
+             <Row className = "mx-auto">
                 <ActorCredits credits = {credits}/>              
-              </Row>
+              </Row> 
             </Col>
           </Row></>
         ) : (
@@ -88,7 +89,7 @@ const ActorPage: FC = () => {
 
         {error && <Error />}
       </Container>
-  
+      </section>
   );
 };
 

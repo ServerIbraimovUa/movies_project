@@ -23,17 +23,25 @@ const CreditsSlick: FC<CreditsSlickProprs> = ({ credits }) => {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 8,
     slidesToScroll: 2,
     initialSlide: 0,
     responsive: [
       {
         breakpoint: 1400,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 7,
           slidesToScroll: 3,
           infinite: true,
           dots: true,
+        },
+      },
+      {
+        breakpoint: 990,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          initialSlide: 3,
         },
       },
       {
@@ -49,7 +57,7 @@ const CreditsSlick: FC<CreditsSlickProprs> = ({ credits }) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          initialSlide: 2,
+          initialSlide: 1,
         },
       },
     ],

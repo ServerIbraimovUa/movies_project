@@ -25,12 +25,13 @@ interface BiographyProps{
     
   return (
    <>
+
    <HeadingName>{name}</HeadingName>
    <Heading>{t("actor.biografi")}</Heading>
    
    {biography &&   
    <>
-   <p>{showMore ? biography : text} </p>
+   <BiographyText>{showMore ? biography : text} </BiographyText>
    <BiographyText>
     {biography.length > 1000 &&
           <Button onClick={() => setShowMore(!showMore)}>
@@ -40,6 +41,7 @@ interface BiographyProps{
   </BiographyText>
     </>    
    }
+
    </>
   );
 };

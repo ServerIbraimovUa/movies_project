@@ -14,6 +14,7 @@ const { id, name, profile_path, known_for_department, gender, birthday, place_of
 
   return ( 
     <>
+   
     <Heading>{name}</Heading>
     <Info key={id}>
 
@@ -35,7 +36,9 @@ const { id, name, profile_path, known_for_department, gender, birthday, place_of
           );
         })}
 
-    </Info></>  
+    </Info>
+
+    </>  
    
   );
 };

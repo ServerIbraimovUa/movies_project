@@ -6,3 +6,7 @@
     color: #6D0FE4;
 }
 
+.slick-track{    
+  display: flex;
+  gap:12px;
+}

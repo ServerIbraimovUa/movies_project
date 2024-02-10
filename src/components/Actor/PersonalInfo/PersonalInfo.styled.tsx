@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
-export const Heading = styled.h2`
+export const Heading = styled.h1`
     text-align: center;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 60%;
     margin-bottom: 24px;
 
-    @media screen and (min-width: 1024px){
+    @media screen and (min-width: 768px){
       position: absolute;
       width: 1px;
       height: 1px;
@@ -25,7 +28,7 @@ export const CardImg = styled.img`
   width: 189px;
   border-radius : 16px;
   
-  @media screen and (min-width: 1024px)  {
+  @media screen and (min-width: 768px)  {
     width: 144px;
     margin-right: 20px;
     margin-bottom: 40px;
@@ -39,7 +42,9 @@ export const CardImg = styled.img`
   }   
   
 `
-export const CardSubtitle = styled.h4`
+export const CardSubtitle = styled.h3`
+    font-size: 24px;
+    font-weight: 700;
     margin-bottom : 12px;
 
     @media screen and (min-width:1024px){
@@ -48,7 +53,13 @@ export const CardSubtitle = styled.h4`
 `
 
 export const CardText = styled.p`
-    margin-bottom : 16px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 120%;
+  margin-bottom : 16px;
+    &:last-child{
+      margin-bottom: 24px;
+    }
 
     @media screen and (min-width:1024px){
       margin-bottom : 40px;      
@@ -56,6 +67,6 @@ export const CardText = styled.p`
 `
 
 export const Info=styled.div`
- min-width: 430px;
+ width: 398px;
  margin-bottom: 24px;
 `
