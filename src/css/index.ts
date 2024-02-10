@@ -82,11 +82,6 @@ export const GlobalStyle = createGlobalStyle`
   color: inherit;
 }
 
-*:hover,
-*:focus,
-*:active {
-  cursor: inherit;
-}
 
 button {
   background-color: transparent;
@@ -117,12 +112,6 @@ h6 {
 p {
   margin: 0;
 }
-
-/* img {
-  display: block;
-  width: 100%;
-  height: auto;
-} */
 
 /* STANDART STYLES */
     
@@ -192,16 +181,4 @@ main {
         max-width: 1264px;       
       }
 }
-/* 
-section{
-  padding-top:68px;     
-
-  @media ${device.tablet} {
-    padding-top:  155px;     
-  }
-
-  @media ${device.desktop} {
-    padding-top: 150px;
-  }
-} */
 `;
