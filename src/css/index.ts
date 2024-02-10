@@ -6,7 +6,6 @@ import ZenMaruRegular from '../assets/fonts/ZenMaruGothic/ZenMaruGothic-Regular.
 import ZenMaruMedium from '../assets/fonts/ZenMaruGothic/ZenMaruGothic-Medium.ttf';
 import ZenMaruBold from '../assets/fonts/ZenMaruGothic/ZenMaruGothic-Bold.ttf';
 import { device } from './deviceSize';
-import '../';
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -77,10 +76,58 @@ export const GlobalStyle = createGlobalStyle`
     src: url(${ZenMaruBold}) format('truetype'),
     }
     
+    /* RESET STYLES */
+    a {
+  text-decoration: none;
+  color: inherit;
+}
+
+*:hover,
+*:focus,
+*:active {
+  cursor: inherit;
+}
+
+button {
+  background-color: transparent;
+  color: inherit;
+  border-width: 0;
+  padding: 0;
+}
+
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+/* img {
+  display: block;
+  width: 100%;
+  height: auto;
+} */
 
 /* STANDART STYLES */
     
     body {
+    margin: 0;
     overflow-x: hidden;
     font-family: 'ZenMaru-Gothic', 'WorkSans', sans-serif;
     font-weight: var(--regular-font-weight);
@@ -90,6 +137,19 @@ export const GlobalStyle = createGlobalStyle`
     
     color: var(--text-clr-black);
     background-color: var(--bg-clr-light-theme);   
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  flex-grow: 1;
 }
 
  .is-hidden {
@@ -132,7 +192,7 @@ export const GlobalStyle = createGlobalStyle`
         max-width: 1264px;       
       }
 }
-
+/* 
 section{
   padding-top:68px;     
 
@@ -143,4 +203,5 @@ section{
   @media ${device.desktop} {
     padding-top: 150px;
   }
-}`;
+} */
+`;
