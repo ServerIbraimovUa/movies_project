@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './components/App';
 import { GlobalStyle } from './css';
+import App from './components/App';
 import { BrowserRouter } from 'react-router-dom';
 import Text from './Language/utils/i18n';
 import { ThemeProvider } from './components/SwitcherTheme/ThemeContext';

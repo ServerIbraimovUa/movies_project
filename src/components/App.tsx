@@ -1,5 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
 import { Route, Routes } from "react-router";
 import { RouteNames } from "../types/routerTypes";
 
