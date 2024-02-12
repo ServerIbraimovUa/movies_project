@@ -1,0 +1,15 @@
+.settings-modal-body {
+  background-color: var(--violet-clr);
+}
+
+.settings-link {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .settings-modal {
+    display: none;
+  }
+}

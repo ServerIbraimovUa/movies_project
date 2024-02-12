@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { device } from '../../../css/deviceSize';
 
 export const LinkCredit = styled(Link)`
-    font-family: var(--work-sans-font-semi-bold);
+    font-family: var(--second-font-semi-bold);
     font-weight: var(--bold-font-weight);
     font-size: 16px;  
     line-height: 125%;
