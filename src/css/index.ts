@@ -185,7 +185,6 @@ main {
 .main-container {
   width: 100%;
   margin: 0 auto; 
-  overflow-x: hidden;
   
   @media ${device.mobile} {
         max-width: 398px;
