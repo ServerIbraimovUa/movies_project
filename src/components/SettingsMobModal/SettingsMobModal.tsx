@@ -14,6 +14,7 @@ import {
   SettingsIcon,
   SettingsList,
   SettingsLogoutBtn,
+  SettingsMobModalThumb,
   SettingsThumb,
 } from './SettingMobModal.styled';
 import { SettingsListItem } from '../../pages/Settings/Settings.styled';
@@ -42,44 +43,46 @@ const SettingsMobModal: FC<ISettings> = ({ show, close }) => {
       fullscreen={true}
     >
       <Modal.Body className="settings-modal-body">
-        <ModalBtnContainer>
-          <ModalCloseBtn onClick={close}>
-            <ModalSvg>
-              <use href={`${icons}#icon-close-btn`}></use>
-            </ModalSvg>
-          </ModalCloseBtn>
-        </ModalBtnContainer>
-        <SettingsThumb>
-          <SettingsList>
-            <SettingsListItem onClick={close}>
-              <Link to="/settings/personal-info" className="settings-link">
-                <SettingsIcon>
-                  <use href={`${icons}#icon-profile`}></use>
-                </SettingsIcon>
-                {t('settings.edit')}
-              </Link>
-            </SettingsListItem>
-            <SettingsListItem onClick={close}>
-              <Link to="/settings/account" className="settings-link">
-                <SettingsIcon>
-                  <use href={`${icons}#icon-setting`}></use>
-                </SettingsIcon>
-                {t('settings.account')}
-              </Link>
-            </SettingsListItem>
-            <SettingsListItem onClick={close}>
-              <Link to="/settings/account-deletion" className="settings-link">
-                <SettingsIcon>
-                  <use href={`${icons}#icon-trashcan`}></use>
-                </SettingsIcon>
-                {t('settings.delete')}
-              </Link>
-            </SettingsListItem>
-          </SettingsList>
-          <SettingsLogoutBtn type="button" onClick={handleLogOut}>
-            {t('settings.logout')}
-          </SettingsLogoutBtn>
-        </SettingsThumb>
+        <SettingsMobModalThumb>
+          <ModalBtnContainer>
+            <ModalCloseBtn onClick={close}>
+              <ModalSvg>
+                <use href={`${icons}#icon-close-btn`}></use>
+              </ModalSvg>
+            </ModalCloseBtn>
+          </ModalBtnContainer>
+          <SettingsThumb>
+            <SettingsList>
+              <SettingsListItem onClick={close}>
+                <Link to="/settings/personal-info" className="settings-link">
+                  <SettingsIcon>
+                    <use href={`${icons}#icon-profile`}></use>
+                  </SettingsIcon>
+                  {t('settings.edit')}
+                </Link>
+              </SettingsListItem>
+              <SettingsListItem onClick={close}>
+                <Link to="/settings/account" className="settings-link">
+                  <SettingsIcon>
+                    <use href={`${icons}#icon-setting`}></use>
+                  </SettingsIcon>
+                  {t('settings.account')}
+                </Link>
+              </SettingsListItem>
+              <SettingsListItem onClick={close}>
+                <Link to="/settings/account-deletion" className="settings-link">
+                  <SettingsIcon>
+                    <use href={`${icons}#icon-trashcan`}></use>
+                  </SettingsIcon>
+                  {t('settings.delete')}
+                </Link>
+              </SettingsListItem>
+            </SettingsList>
+            <SettingsLogoutBtn type="button" onClick={handleLogOut}>
+              {t('settings.logout')}
+            </SettingsLogoutBtn>
+          </SettingsThumb>
+        </SettingsMobModalThumb>
       </Modal.Body>
     </Modal>
   );

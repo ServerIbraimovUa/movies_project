@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const SettingsMobModalThumb = styled.div`
+  max-width: 398px;
+  margin: 0 auto;
+`;
+
 export const SettingsList = styled.ul`
   display: flex;
   flex-direction: column;
@@ -23,7 +28,7 @@ export const SettingsIcon = styled.svg`
 `;
 
 export const SettingsLogoutBtn = styled.button`
-  width: 100%;
+  width: 398px;
   padding: 13px 0;
   color: var(--dark-violet-clr);
   border: 2px solid var(--dark-violet-clr);
