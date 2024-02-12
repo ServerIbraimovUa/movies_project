@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
     --dark-violet-clr: #9040F6;
     --violet-clr: #ECDEFF;
     --light-violet-clr: #F4EBFF;
-    --bg-clr-light-theme: rgba(113, 0, 255, 0.05);
+    --bg-clr-light-theme: #F5F5F5;
 
     --text-clr-black: #2F2E30;
     --text-clr-grey: #61646B;
@@ -185,19 +185,14 @@ main {
 .container {
   width: 100%;
   margin: 0 auto; 
-  
-  padding-left: 16px;
-  padding-right: 16px;
-
   overflow-x: hidden;
-  
   @media ${device.mobile} {
         max-width: 398px;
        
         }
   
   @media ${device.tablet} {
-        max-width: 961px;
+        max-width: 962px;
         }
 
     @media ${device.desktop} {        

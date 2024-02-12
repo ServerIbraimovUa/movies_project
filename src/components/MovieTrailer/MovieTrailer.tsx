@@ -1,5 +1,4 @@
 import React, { FC, useEffect, useState } from "react";
-import { IMovieTrailer } from "../../types/movieDetailsTypes";
 import { useParams } from "react-router-dom";
 import { getMovieTrailer } from "../../services/api";
 // import TrailerItem from "./TrailerItem";

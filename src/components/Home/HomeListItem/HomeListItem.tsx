@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
 import { IGenres, Movies } from "../../../types/homeTypes";
 import { useTranslation } from "react-i18next";

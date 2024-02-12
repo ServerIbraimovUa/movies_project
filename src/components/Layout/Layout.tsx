@@ -45,9 +45,9 @@ const Layout: FC = () => {
       <main>
         <Outlet />
       </main>
-      <footer>
+      {/* <footer>
         <Footer />
-      </footer>
+      </footer> */}
     </ThemeProvider>
   );
 };

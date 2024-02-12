@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import  { FC } from "react";
 import { IMovieDetailsProps } from "../MovieDetails";
 import { useTranslation } from "react-i18next";
 
@@ -14,7 +14,6 @@ const MovieDetailsItem: FC<IMovieDetailsProps> = ({ movie }) => {
     release_date,
     genres,
     overview,
-    backdrop_path,
   } = movie;
 
   return (
