@@ -75,7 +75,7 @@ const UpcomingListSlick = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 5,
+          slidesToShow: 4,
           slidesToScroll: 1,
           initialSlide: 1,
         },

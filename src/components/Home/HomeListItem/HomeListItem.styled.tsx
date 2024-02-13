@@ -38,10 +38,14 @@ export const CardImg = styled.img`
 `
 export const ContentWrapper=styled.div`
   margin-bottom: 16px;
+
+  @media ${device.tablet}{
+    margin-bottom: 24px;
+  }
  
 `
 export const Title=styled.h2`
-  margin-bottom: 45px;
+  margin-bottom: 30px;
 
   font-size: 24px;
   font-weight:var( --bold-font-weight);
@@ -81,7 +85,7 @@ export const GenresList=styled.ul`
   flex-wrap: wrap;
 
   padding: 0px;
-  margin:0px;
+  margin-bottom: 10px;
   
 `
 export const ButtonWrapper=styled.div`
