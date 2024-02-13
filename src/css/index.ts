@@ -8,7 +8,6 @@ import ZenMaruBold from '../assets/fonts/ZenMaruGothic/ZenMaruGothic-Bold.ttf';
 import { device } from './deviceSize';
 import './index.css';
 
-
 export const GlobalStyle = createGlobalStyle`
 
 :root{
@@ -64,6 +63,8 @@ export const GlobalStyle = createGlobalStyle`
     --second-font-medium: ${WorkSansMedium};
     --second-font-semi-bold: ${WorkSansSemiBold};
     
+    // Animation
+     --hover-focus-trans: 350ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
