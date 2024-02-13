@@ -3,6 +3,8 @@ import { GoogleProvider, auth } from "../firebase-config";
 import { useUser } from "../context/UserContext";
 import { UserType } from "../types/user";
 import { writeUserData } from "../db/writeData";
+import Icon from "../components/Icon/Icon";
+import { AuthBtn } from "./AuthList.styled";
 
 export const SignInWithGoogle = () => {
   const { logIn } = useUser()!;
@@ -31,8 +33,12 @@ export const SignInWithGoogle = () => {
   };
 
   return (
-    <button type="button" onClick={handleSignIn}>
-      Google
-    </button>
+    <AuthBtn
+      type="button"
+      onClick={handleSignIn}
+      className="btn bg-transparent"
+    >
+      <Icon id="google" className="icon-auth" />
+    </AuthBtn>
   );
 };
