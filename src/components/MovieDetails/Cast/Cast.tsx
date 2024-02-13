@@ -1,10 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
-import { ICast } from "../../types/movieDetailsTypes";
+import { ICast } from "../../../types/movieDetailsTypes";
 import { useParams } from "react-router-dom";
-import { getMovieCast } from "../../services/api";
+import { getMovieCast } from "../../../services/api";
 import CastList from "./CastList/CastList";
-import Error from "../Error/Error";
+import Error from "../../Error/Error";
 import { useTranslation } from "react-i18next";
+import { MovieCastStyled } from "./Cast.styled";
 
 const Cast: FC = () => {
   const { t } = useTranslation();
@@ -26,14 +27,17 @@ const Cast: FC = () => {
   }, [movieId]);
 
   return (
-    <div>
+    <MovieCastStyled>
       {cast.length === 0 ? (
         <h3>{t("detalies.thecast")}</h3>
       ) : (
-        <CastList cast={cast} />
+        <>
+          <h3 className="cast-title">Actors</h3>
+          <CastList cast={cast} />
+        </>
       )}
       {error && <Error />}
-    </div>
+    </MovieCastStyled>
   );
 };
 

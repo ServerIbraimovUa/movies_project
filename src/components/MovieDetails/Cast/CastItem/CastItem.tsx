@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { ICast } from "../../../types/movieDetailsTypes";
+import { ICast } from "../../../../types/movieDetailsTypes";
 import { Link } from "react-router-dom";
 import { StyledClickImg, StyledClickTitle } from "./CastItem.styled";
 

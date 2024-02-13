@@ -1,9 +1,8 @@
 import React, { FC, useEffect, useState } from "react";
-import { IMovieTrailer } from "../../types/movieDetailsTypes";
 import { useParams } from "react-router-dom";
-import { getMovieTrailer } from "../../services/api";
-// import TrailerItem from "./TrailerItem";
-import Error from "../Error/Error";
+import { getMovieTrailer } from "../../../services/api";
+import Error from "../../Error/Error";
+import { TrailerStyled } from "./MovieTrailer.styled";
 
 const srcTrailer = "https://www.youtube.com/embed/";
 const MovieTrailer: FC = () => {
@@ -26,15 +25,16 @@ const MovieTrailer: FC = () => {
   }, [movieId]);
 
   return (
-    <div>
+    <TrailerStyled>
       {trailer && (
         <iframe
+          className="trailer"
           src={`${srcTrailer}${trailer}`}
           title="YouTube video player"
         ></iframe>
       )}
       {error && <Error />}
-    </div>
+    </TrailerStyled>
   );
 };
 
