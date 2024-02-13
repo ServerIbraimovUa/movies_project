@@ -8,6 +8,14 @@ import { auth } from "../../firebase-config";
 import { useUser } from "../../context/UserContext";
 import { readData } from "../../db/readData";
 import { useTranslation } from "react-i18next";
+import {
+  EyeIcon,
+  Input,
+  InputWrapper,
+  SignButton,
+  StyledNavLink,
+  SvgSpan,
+} from "../SignUpPage/SignUpForm.styled";
 
 interface UserSignIn {
   email: string;
@@ -22,7 +30,7 @@ export const LoginPageForm = () => {
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     reset,
   } = useForm<UserSignIn>();
 
@@ -41,9 +49,7 @@ export const LoginPageForm = () => {
         const { username } = user;
 
         logIn({ username, uid: userCredential.user.uid });
-      } catch (error) {
-        
-      }
+      } catch (error) {}
       reset();
     } catch (error: any) {
       console.log(error.message);
@@ -52,29 +58,46 @@ export const LoginPageForm = () => {
 
   return (
     <form onSubmit={handleSubmit(login)}>
-      <label>
-      {t("login.email")}
-        <input type="email" {...register("email", { required: true })} />
-        {errors.email && <span>{t("login.this")}</span>}
-      </label>
-      <label>  
-        {t("login.password")}
-        <input
+      <InputWrapper>
+        <Input
+          type="email"
+          {...register("email", { required: true })}
+          placeholder={t("login.email")}
+        />
+        {errors.email && <span> {t("login.this")}</span>}
+      </InputWrapper>
+      <InputWrapper>
+        <Input
           type={toggleInput}
           {...register("password", { required: true })}
+          placeholder="Password"
+          className="form-control"
         />
-        <span
+        <SvgSpan
           onClick={() =>
             toggleClick(toggleInput, setToggleInput, setToggleIcon)
           }
         >
-          {toggleIcon ? <RiEyeOffLine /> : <RiEyeLine />}
-        </span>
-        {errors.password && <span>{t("login.this")}</span>}
-      </label>
-      <button type="submit">{t("login.log-in")}</button>
+          {toggleIcon ? (
+            <EyeIcon as={RiEyeOffLine} />
+          ) : (
+            <EyeIcon as={RiEyeLine} />
+          )}
+        </SvgSpan>
+        {errors.password && <span>{errors.password.message}</span>}
+      </InputWrapper>
+      <SignButton
+        type="submit"
+        disabled={!isValid}
+        style={{
+          backgroundColor: isValid ? "rgb(144, 64, 246)" : "#CFC5DC",
+        }}
+      >
+        {t("login.log-in")}
+      </SignButton>
       <p>{t("login.socialmedia")}</p>
       <AuthList />
+      <StyledNavLink to="/register">Register</StyledNavLink>
     </form>
   );
 };
