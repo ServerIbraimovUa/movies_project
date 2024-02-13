@@ -3,14 +3,14 @@ import { RouteNames } from "../types/routerTypes";
 
 import Layout from "./Layout/Layout";
 import HomePage from "../pages/HomePage";
-import SignUpPage from "../pages/SignUpPage";
-import LoginPage from "../pages/LoginPage";
+import SignUpPage from "../pages/SignUpPage/SignUpPage";
+import LoginPage from "../pages/LoginPage/LoginPage";
 import FavoritePage from "../pages/FavoritePage";
 import MovieDetailsPage from "../pages/MovieDetailsPage";
 import Settings from "../pages/Settings/Settings";
 
 import { PrivateRoute } from "./PrivateRoute/PrivateRoute";
-import ActorPage from "../pages/ActorPage";
+import ActorPage from "../pages/ActorPage/ActorPage";
 import EditProfile from "../pages/EditProfile";
 import AccountSettings from "../pages/AccountSettings";
 import DeleteAccount from "../pages/DeleteAccount";

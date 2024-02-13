@@ -1,19 +1,20 @@
+import { ListUl } from "./AuthList.styled";
 import { SignInWithFacebook } from "./facebook";
 import { SignInWithGithub } from "./github";
 import { SignInWithGoogle } from "./google";
 
 export const AuthList = () => {
   const authSocial = [
-    { element: <SignInWithGoogle /> },
     { element: <SignInWithFacebook /> },
+    { element: <SignInWithGoogle /> },
     { element: <SignInWithGithub /> },
   ];
 
   return (
-    <ul>
+    <ListUl>
       {authSocial.map(({ element }, index) => (
         <li key={index}>{element}</li>
       ))}
-    </ul>
+    </ListUl>
   );
 };

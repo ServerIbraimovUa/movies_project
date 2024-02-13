@@ -14,12 +14,14 @@ export const LinkCredit = styled(Link)`
 `
 export const ListGroupCredit=styled(ListGroup)`
     padding: 20px 16px;
+    margin-bottom: 40px;
    
 `
 export const ListGroupItemCredit = styled(ListGroup.Item)` 
     margin-bottom: 8px;
     padding: 10px;
     border: none;
+    background-color: transparent;
   
 `
 export const Heading=styled.h2`
