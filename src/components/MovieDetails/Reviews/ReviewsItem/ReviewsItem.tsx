@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { useTranslation } from "react-i18next";
+import { ReviewCardStyled } from "./ReviewsItem.styled";
 
 interface ReviewsItemProps {
   author: string;
@@ -16,23 +17,27 @@ const ReviewsItem: FC<ReviewsItemProps> = ({
 }) => {
   const { t } = useTranslation();
   return (
-    <li>
+    <ReviewCardStyled>
       {avatar_path ? (
         <img src="заглушка" alt={author} />
       ) : (
         <img src={avatar_path} alt={author} />
       )}
-      <p>
-        {created_at
-          .substring(0, 10)
-          .replaceAll("-", ".")
-          .split(".")
-          .reverse()
-          .join(".")}
-      </p>
-      <h3>{t("detalies.author")}  {author}</h3>
-      <p>{content}</p>
-    </li>
+      <div>
+        <p>
+          {created_at
+            .substring(0, 10)
+            .replaceAll("-", ".")
+            .split(".")
+            .reverse()
+            .join(".")}
+        </p>
+        <h3>
+          {t("detalies.author")} {author}
+        </h3>
+        <p>{content}</p>
+      </div>
+    </ReviewCardStyled>
   );
 };
 

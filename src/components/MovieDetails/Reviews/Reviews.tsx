@@ -1,9 +1,9 @@
 import React, { FC, useEffect, useState } from "react";
-import { IMovieReview } from "../../types/movieDetailsTypes";
+import { IMovieReview } from "../../../types/movieDetailsTypes";
 import { useParams } from "react-router-dom";
-import { getMovieReview } from "../../services/api";
+import { getMovieReview } from "../../../services/api";
 import ReviewsList from "./ReviewsList/ReviewsList";
-import Error from "../Error/Error";
+import Error from "../../Error/Error";
 import SeeMoreBtn from "./SeeMoreBtn/SeeMoreBtn";
 import { useTranslation } from "react-i18next";
 

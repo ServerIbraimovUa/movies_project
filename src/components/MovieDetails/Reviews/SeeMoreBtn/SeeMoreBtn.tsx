@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { useTranslation } from "react-i18next";
+import { MoreBtnStyled } from "./SeeMoreBtn.styled";
 
 interface ISeeMoreBtnProps {
   onClick: () => void;
@@ -9,7 +10,13 @@ interface ISeeMoreBtnProps {
 const SeeMoreBtn: FC<ISeeMoreBtnProps> = ({ onClick, hasMoreReviews }) => {
   const { t } = useTranslation();
   return (
-    <div>{hasMoreReviews && <button onClick={onClick}>{t("seemore.seemore")}</button>}</div>
+    <MoreBtnStyled>
+      {hasMoreReviews && (
+        <button onClick={onClick} className="see-more-btn">
+          {t("seemore.seemore")}
+        </button>
+      )}
+    </MoreBtnStyled>
   );
 };
 

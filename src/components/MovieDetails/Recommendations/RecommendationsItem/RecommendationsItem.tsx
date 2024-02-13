@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { IMovieRecommendations } from "../../../types/movieDetailsTypes";
+import { IMovieRecommendations } from "../../../../types/movieDetailsTypes";
 import { Link } from "react-router-dom";
 import {
   StyledClickImg,

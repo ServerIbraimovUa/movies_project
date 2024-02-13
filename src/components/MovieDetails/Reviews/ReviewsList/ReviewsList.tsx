@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { IMovieReview } from "../../../types/movieDetailsTypes";
+import { IMovieReview } from "../../../../types/movieDetailsTypes";
 import ReviewsItem from "../ReviewsItem/ReviewsItem";
 import { StyledReviewsList } from "./ReviewsList.styled";
 
@@ -12,7 +12,6 @@ const ReviewsList: FC<ReviewsProps> = ({ reviews }) => {
     <StyledReviewsList>
       {reviews &&
         reviews.map(({ id, author, content, author_details, created_at }) => {
-          console.log(author_details);
           const avatar_path = author_details?.avatar_path || "";
           return (
             <ReviewsItem
