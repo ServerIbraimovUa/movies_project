@@ -69,4 +69,12 @@ export const CardText = styled.p`
 export const Info=styled.div`
  width: 398px;
  margin-bottom: 24px;
+
+ @media ${device.tablet}{
+      width: 250px;
+    }
+
+@media ${device.desktop}{
+      width: 350px;
+    }
 `

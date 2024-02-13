@@ -10,7 +10,7 @@ import MovieDetailsPage from "../pages/MovieDetailsPage";
 import Settings from "../pages/Settings/Settings";
 
 import { PrivateRoute } from "./PrivateRoute/PrivateRoute";
-import ActorPage from "../pages/ActorPage";
+import ActorPage from "../pages/ActorPage/ActorPage";
 import EditProfile from "../pages/EditProfile";
 import AccountSettings from "../pages/AccountSettings";
 import DeleteAccount from "../pages/DeleteAccount";

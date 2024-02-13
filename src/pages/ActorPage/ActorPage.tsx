@@ -1,18 +1,19 @@
 import React, { FC, useEffect, useState } from 'react';
-import { getActorById, getActorCredits } from '../services/api';
-import { Col, Container, Row } from 'react-bootstrap';
-import Error from '../components/Error/Error';
-import Loading from '../components/Loading/Loading';
+import { getActorById, getActorCredits } from '../../services/api';
+import Error from '../../components/Error/Error';
+import Loading from '../../components/Loading/Loading';
 
-import { Actor, Credits } from '../types/actorTypes';
+import { Actor, Credits } from '../../types/actorTypes';
 
 import { useParams } from 'react-router-dom';
-import UpcomingListSlick from '../components/UpcomingList/UpcomingListSlick';
+import UpcomingListSlick from '../../components/UpcomingList/UpcomingListSlick';
 
-import PersonalInfo from '../components/Actor/PersonalInfo/PersonalInfo';
-import CreditsSlick from '../components/Actor/CreditsSlick/CreditsSlick';
-import Biography from '../components/Actor/Biography/Biography';
-import ActorCredits from '../components/Actor/ActorCredits/ActorCredits';
+import PersonalInfo from '../../components/Actor/PersonalInfo/PersonalInfo';
+import CreditsSlick from '../../components/Actor/CreditsSlick/CreditsSlick';
+import Biography from '../../components/Actor/Biography/Biography';
+import ActorCredits from '../../components/Actor/ActorCredits/ActorCredits';
+import { ActorPageContainer, BiographyContainer, PersonalInfoContainer } from './ActorPage.styled';
+
 
 const ActorPage: FC = () => {
   const [actor, setActor] = useState<Actor>({});
@@ -57,36 +58,27 @@ const ActorPage: FC = () => {
 
   return (
     <section>
-      <Container className="main-container">
+      <div className="main-container">
         {loading ? (
-          <>
-            <Row className="mx-auto">
-              <UpcomingListSlick />
-            </Row>
-
-            <Row>
-              <Col lg={3} md={5} sm={'auto'} xs={'auto'}>
+          <>        
+              <UpcomingListSlick />   
+              <ActorPageContainer>   
+                <PersonalInfoContainer>
                 <PersonalInfo actor={actor} />
-              </Col>
-              <Col lg={9} md={7} sm={'auto'} xs={'auto'}>
-                <Row>
-                  <Biography actor={actor} />
-                </Row>
-                <Row className="mx-auto">
-                  <CreditsSlick credits={sortedCredits(credits)} />
-                </Row>
-                <Row className="mx-auto">
-                  <ActorCredits credits={credits} />
-                </Row>
-              </Col>
-            </Row>
+                </PersonalInfoContainer>
+              <BiographyContainer>
+                <Biography actor={actor} />           
+                <CreditsSlick credits={sortedCredits(credits)} />            
+                <ActorCredits credits={credits} />
+              </BiographyContainer>
+              </ActorPageContainer> 
           </>
         ) : (
           <Loading />
         )}
 
         {error && <Error />}
-      </Container>
+      </div>
     </section>
   );
 };
