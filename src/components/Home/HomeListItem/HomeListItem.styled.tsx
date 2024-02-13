@@ -8,7 +8,8 @@ export const Info=styled.div`
  padding: 20px;
  margin-bottom: 24px;
 
- background-color: var( --light-violet-clr);
+ /* background-color: var( --light-violet-clr); */
+ background-color: ${props => props.theme.bgHomeColor};
  border-radius: 24px;
 
  @media ${device.desktop}{
@@ -46,6 +47,7 @@ export const Title=styled.h2`
   font-size: 24px;
   font-weight:var( --bold-font-weight);
   line-height: 100%;
+  color: ${props => props.theme.textColor};  
 
   @media ${device.tablet}{
     font-size: 32px;
@@ -57,7 +59,7 @@ export const SubTitle=styled.p`
 
   font-size: 20px;
   font-weight: var( --bold-font-weight);
-
+  color: ${props => props.theme.textColor};  
   @media ${device.tablet}{
     font-size: 24px;
     line-height: 100%;
@@ -66,6 +68,7 @@ export const SubTitle=styled.p`
 export const Content=styled.span`
   font-size: 16px;
   line-height: 150%;
+  color: ${props => props.theme.textHomeColor};  
 
   @media ${device.tablet}{
     font-size: 20px; 
@@ -75,14 +78,15 @@ export const Content=styled.span`
 export const GenresWrapper=styled.div`
   display: flex;
   gap:5px;
+  
 `
 export const GenresList=styled.ul`
   display: flex;
   flex-wrap: wrap;
-
+  color: ${props => props.theme.textHomeColor};  
   padding: 0px;
   margin:0px;
-  
+  font-size: 20px;
 `
 export const ButtonWrapper=styled.div`
   display: flex;

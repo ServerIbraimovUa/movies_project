@@ -10,9 +10,8 @@ import { useUser } from '../../context/UserContext';
 
 import './Layout.css';
 import SwitcherTheme from '../SwitcherTheme/SwitcherTheme';
-import { useTheme } from '../SwitcherTheme/ThemeContext';
 
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import icons from '../../assets/images/sprite.svg';
 import { SettingMobModalIcon, SettingMobileModalBtn } from './Layout.styled';
 import SettingsMobModal from '../SettingsMobModal/SettingsMobModal';
@@ -23,7 +22,7 @@ const ContainerHeader = styled.div`
 `;
 
 const Layout: FC = () => {
-  const { theme } = useTheme();
+
   const { isLoggedIn } = useUser()!;
   const [show, setShow] = useState(false);
 
@@ -33,7 +32,7 @@ const Layout: FC = () => {
   const handleClose = () => setShow(false);
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <header>
         <ContainerHeader>
           <Container>
@@ -63,7 +62,7 @@ const Layout: FC = () => {
         <Footer />
       </footer>
       <SettingsMobModal close={handleClose} show={show} />
-    </ThemeProvider>
+      </>
   );
 };
 

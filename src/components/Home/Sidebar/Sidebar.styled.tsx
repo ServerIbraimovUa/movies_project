@@ -15,7 +15,8 @@ export const SidebarContainer=styled.div`
         padding: 32px 16px;
         margin-right: 20px;
         border-radius: 24px;
-        background-color: var(--light-violet-clr);           
+        background-color: ${props => props.theme.bgHomeColor};
+  color: ${props => props.theme.textColor};        
    }
    @media ${device.desktop}{
         width:340px;
