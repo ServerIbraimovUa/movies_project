@@ -6,6 +6,8 @@ import ZenMaruRegular from '../assets/fonts/ZenMaruGothic/ZenMaruGothic-Regular.
 import ZenMaruMedium from '../assets/fonts/ZenMaruGothic/ZenMaruGothic-Medium.ttf';
 import ZenMaruBold from '../assets/fonts/ZenMaruGothic/ZenMaruGothic-Bold.ttf';
 import { device } from './deviceSize';
+import './index.css';
+
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -39,7 +41,6 @@ export const GlobalStyle = createGlobalStyle`
 
     //DARK
     --black-bg-btn-hover: #2E0044;
-    --violet-hover: #6d0fe4;
     --grey-hover: #c7c7c7;
 
 
@@ -55,13 +56,13 @@ export const GlobalStyle = createGlobalStyle`
     --semi-bold-font-weight: 600;
     --bold-font-weight: 700;
 
-    --zen-maru-font-regular: ${ZenMaruRegular};
-    --zen-maru-font-medium: ${ZenMaruMedium};
-    --zen-maru-font-bold: ${ZenMaruBold};
+    --main-font-regular: ${ZenMaruRegular};
+    --main-font-medium: ${ZenMaruMedium};
+    --main-font-bold: ${ZenMaruBold};
 
-    --work-sans-font-regular: ${WorkSansRegular};
-    --work-sans-font-medium: ${WorkSansMedium};
-    --work-sans-font-semi-bold: ${WorkSansSemiBold};
+    --second-font-regular: ${WorkSansRegular};
+    --second-font-medium: ${WorkSansMedium};
+    --second-font-semi-bold: ${WorkSansSemiBold};
     
 }
 
@@ -182,14 +183,9 @@ main {
   overflow: hidden;
 }
 
-.container {
+.main-container {
   width: 100%;
   margin: 0 auto; 
-  
-  padding-left: 16px;
-  padding-right: 16px;
-
-  overflow-x: hidden;
   
   @media ${device.mobile} {
         max-width: 398px;
@@ -197,7 +193,7 @@ main {
         }
   
   @media ${device.tablet} {
-        max-width: 961px;
+        max-width: 962px;
         }
 
     @media ${device.desktop} {        

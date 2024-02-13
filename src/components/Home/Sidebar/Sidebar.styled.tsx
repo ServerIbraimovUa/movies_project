@@ -30,7 +30,7 @@ export const GenresWrapper=styled.div`
 export const GenresTilte=styled.h3`
     margin-bottom: 20px;
 
-    font-family: var(--work-sans-font-regular);
+    font-family: var(--second-font-regular);
     font-weight: var( --semi-bold-font-weight);
     font-size: 24px;
     line-height: 150%;
@@ -42,7 +42,7 @@ export const YearWrapper=styled.div`
 export const YearsTitle=styled.h3`
     margin-bottom: 20px;
 
-    font-family: var(--work-sans-font-regular);
+    font-family: var(--second-font-regular);
     font-weight: var( --semi-bold-font-weight);
     font-size: 24px;
     line-height: 150%;

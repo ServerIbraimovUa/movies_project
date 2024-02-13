@@ -1,28 +1,27 @@
-import React, { FC, useEffect, useState } from "react";
-import { getActorById, getActorCredits } from "../services/api";
-import { Col, Container, Row} from "react-bootstrap";
-import Error from "../components/Error/Error";
-import Loading from "../components/Loading/Loading";
+import React, { FC, useEffect, useState } from 'react';
+import { getActorById, getActorCredits } from '../services/api';
+import { Col, Container, Row } from 'react-bootstrap';
+import Error from '../components/Error/Error';
+import Loading from '../components/Loading/Loading';
 
-import { Actor, Credits } from "../types/actorTypes";
+import { Actor, Credits } from '../types/actorTypes';
 
-import { useParams } from "react-router-dom";
-import UpcomingListSlick from "../components/UpcomingList/UpcomingListSlick";
+import { useParams } from 'react-router-dom';
+import UpcomingListSlick from '../components/UpcomingList/UpcomingListSlick';
 
-import PersonalInfo from "../components/Actor/PersonalInfo/PersonalInfo";
-import CreditsSlick from "../components/Actor/CreditsSlick/CreditsSlick";
-import Biography from "../components/Actor/Biography/Biography";
-import ActorCredits from "../components/Actor/ActorCredits/ActorCredits";
+import PersonalInfo from '../components/Actor/PersonalInfo/PersonalInfo';
+import CreditsSlick from '../components/Actor/CreditsSlick/CreditsSlick';
+import Biography from '../components/Actor/Biography/Biography';
+import ActorCredits from '../components/Actor/ActorCredits/ActorCredits';
 
 const ActorPage: FC = () => {
   const [actor, setActor] = useState<Actor>({});
   const [credits, setCredits] = useState<Credits[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  
 
-  const { actorId } = useParams(); 
-  
+  const { actorId } = useParams();
+
   useEffect(() => {
     const details = async () => {
       try {
@@ -57,39 +56,38 @@ const ActorPage: FC = () => {
   };
 
   return (
-   <section>
-      <Container className="container">
+    <section>
+      <Container className="main-container">
         {loading ? (
-        
-        <>          
-       
-        <Row className = "mx-auto">
-          <UpcomingListSlick />
-        </Row> 
-        
-        <Row>
-             <Col lg={3} md={5} sm={"auto"} xs={"auto"} >            
-             <PersonalInfo actor = {actor}/>          
-            </Col> 
-            <Col lg={9} md={7} sm={"auto"} xs={"auto"}>
-              <Row>
-               <Biography actor = {actor}/>
-              </Row>   
-              <Row className = "mx-auto">
-                <CreditsSlick credits = {sortedCredits(credits)}/>                          
-              </Row> 
-             <Row className = "mx-auto">
-                <ActorCredits credits = {credits}/>              
-              </Row> 
-            </Col>
-          </Row></>
+          <>
+            <Row className="mx-auto">
+              <UpcomingListSlick />
+            </Row>
+
+            <Row>
+              <Col lg={3} md={5} sm={'auto'} xs={'auto'}>
+                <PersonalInfo actor={actor} />
+              </Col>
+              <Col lg={9} md={7} sm={'auto'} xs={'auto'}>
+                <Row>
+                  <Biography actor={actor} />
+                </Row>
+                <Row className="mx-auto">
+                  <CreditsSlick credits={sortedCredits(credits)} />
+                </Row>
+                <Row className="mx-auto">
+                  <ActorCredits credits={credits} />
+                </Row>
+              </Col>
+            </Row>
+          </>
         ) : (
           <Loading />
         )}
 
         {error && <Error />}
       </Container>
-      </section>
+    </section>
   );
 };
 

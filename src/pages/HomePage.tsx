@@ -14,7 +14,9 @@ import { IGenres, Movies } from "../types/homeTypes";
 import Sidebar from "../components/Home/Sidebar/Sidebar";
 import { useSearchParams } from "react-router-dom";
 
-import Container from 'react-bootstrap/Container';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const HomePage: FC = () => {
   const { language } = useLanguage();
@@ -81,34 +83,30 @@ const HomePage: FC = () => {
     fetchData();
   }, [genreId, language, year]);
 
-
-
   return (
     <section>
-    <Container style={{ display: "flex" }}>
-      {error && <Error />}
-      {movies.length !== 0 ? (
-        <>
-          <Sidebar
-            genres={genres}
-            setGenreId={setGenreId}
-            setYear={setYear}
-            setMovies={setMovies}
-          />
+      <Container style={{ display: "flex" }}>
+        {error && <Error />}
+        {movies.length !== 0 ? (
+          <>
+            <Sidebar
+              genres={genres}
+              setGenreId={setGenreId}
+              setYear={setYear}
+              setMovies={setMovies}
+            />
 
-          {loading ? (
-            <HomeList movies={movies} genres={genres} />
-          ) : (
-            <Loading />
-          )}
-        </>
-      ) : (
-        <Loading />
-      )}
-    </Container>
-  </section>
-   
-
+            {loading ? (
+              <HomeList movies={movies} genres={genres} />
+            ) : (
+              <Loading />
+            )}
+          </>
+        ) : (
+          <Loading />
+        )}
+      </Container>
+    </section>
   );
 };
 
