@@ -1,5 +1,10 @@
 .user-modal {
-  max-width: 398px;
+  width: 398px;
+}
+
+.modal > .modal-fullscreen {
+  width: 100%;
+  overflow: hidden;
 }
 
 @media screen and (min-width: 1024px) {
@@ -7,6 +12,7 @@
     max-width: 961px;
   }
 }
+
 @media screen and (min-width: 1440px) {
   .user-modal {
     max-width: 1280px;
@@ -22,7 +28,7 @@
 }
 
 .user-modal {
-  top: 70%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }

@@ -1,19 +1,29 @@
 import { useEffect, useState } from 'react';
 import { User, onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../firebase-config';
+import { auth } from '../../firebase-config';
 
-import PasswordForm from '../components/EditUser/PasswordForm';
-import ImageUpload from '../components/EditUser/ImageUpload';
-import { upload } from '../services/image';
-import { writeUserData } from '../db/writeData';
-import { readData } from '../db/readData';
+import PasswordForm from '../../components/EditUser/PasswordForm/PasswordForm';
+import ImageUpload from '../../components/EditUser/ImageUpload/ImageUpload';
+import { upload } from '../../services/image';
+import { writeUserData } from '../../db/writeData';
+import { readData } from '../../db/readData';
 import {
   failedNotification,
   successNotification,
-} from '../services/notifications';
+} from '../../services/notifications';
 import { useNavigate } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
+import {
+  ChangePasswordBtn,
+  EditProfileContainer,
+  EditProfileTitle,
+  NameInput,
+  PasswordThumb,
+  SelectorsWrap,
+  SexSelect,
+  UserInfoWrapper,
+} from './EditProfile.styled';
 
 const EditProfile = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -66,40 +76,42 @@ const EditProfile = () => {
     }
   };
   return (
-    <div>
-      <div>
+    <EditProfileContainer className="main-container">
+      <PasswordThumb>
         <PasswordForm user={user} close={handleClose} show={show} />
-        <button type="button" onClick={handleShow}>
+        <ChangePasswordBtn type="button" onClick={handleShow}>
           {t('edit.change')}
-        </button>
-      </div>
+        </ChangePasswordBtn>
+      </PasswordThumb>
       <div>
-        <h2>{t('edit.current')}</h2>
-        <div>
+        <EditProfileTitle>{t('edit.current')}</EditProfileTitle>
+        <UserInfoWrapper>
           <ImageUpload
             currentAvatarURL={
               databaseUser?.imageUrl ? databaseUser?.imageUrl : ''
             }
             onAvatarChanged={file => setUpdatedAvatarFile(file)}
           />
-        </div>
-        <select
-          name="Gender"
-          value={databaseUser.sex}
-          onChange={e => {
-            setDatabaseUser({ ...databaseUser, sex: e.target.value });
-          }}
-        >
-          <option value="none">{t('edit.none')}</option>
-          <option value="Male">{t('edit.male')}</option>
-          <option value="Female">{t('edit.female')}</option>
-        </select>
-        <input
-          value={databaseUser?.username || ''}
-          onChange={e =>
-            setDatabaseUser({ ...databaseUser, username: e.target.value })
-          }
-        />
+          <SelectorsWrap>
+            <SexSelect
+              name="Gender"
+              value={databaseUser.sex}
+              onChange={e => {
+                setDatabaseUser({ ...databaseUser, sex: e.target.value });
+              }}
+            >
+              <option value="none">{t('edit.none')}</option>
+              <option value="Male">{t('edit.male')}</option>
+              <option value="Female">{t('edit.female')}</option>
+            </SexSelect>
+            <NameInput
+              value={databaseUser?.username || ''}
+              onChange={e =>
+                setDatabaseUser({ ...databaseUser, username: e.target.value })
+              }
+            />
+          </SelectorsWrap>
+        </UserInfoWrapper>
         {Object.keys(socialMedia).map(el => {
           return (
             <label key={el}>
@@ -125,7 +137,7 @@ const EditProfile = () => {
       <button type="button" onClick={() => saveProfile()}>
         {t('edit.save')}
       </button>
-    </div>
+    </EditProfileContainer>
   );
 };
 

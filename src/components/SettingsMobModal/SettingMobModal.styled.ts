@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const SettingsMobModalThumb = styled.div`
   max-width: 398px;
+  min-height: 500px;
   margin: 0 auto;
 `;
 
@@ -15,10 +16,10 @@ export const SettingsList = styled.ul`
 `;
 
 export const SettingsThumb = styled.div`
-  height: 90dvh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 450px;
+  margin-top: 50px;
 `;
 
 export const SettingsIcon = styled.svg`
@@ -28,11 +29,12 @@ export const SettingsIcon = styled.svg`
 `;
 
 export const SettingsLogoutBtn = styled.button`
-  width: 398px;
-  padding: 13px 0;
+  min-width: 100%;
+  height: 40px;
   color: var(--dark-violet-clr);
   border: 2px solid var(--dark-violet-clr);
   border-radius: 12px;
+  margin-bottom: 20px;
 
   &:active {
     color: var(--violet-click);
