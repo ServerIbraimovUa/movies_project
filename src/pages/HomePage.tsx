@@ -14,15 +14,7 @@ import { IGenres, Movies } from "../types/homeTypes";
 import Sidebar from "../components/Home/Sidebar/Sidebar";
 import { useSearchParams } from "react-router-dom";
 
-import UpcomingListSlick from "../components/UpcomingList/UpcomingListSlick";
-import PersonalInfo from "../components/Actor/PersonalInfo/PersonalInfo";
-import Biography from "../components/Actor/Biography/Biography";
-import CreditsSlick from "../components/Actor/CreditsSlick/CreditsSlick";
-import ActorCredits from "../components/Actor/ActorCredits/ActorCredits";
-
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 const HomePage: FC = () => {
   const { language } = useLanguage();

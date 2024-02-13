@@ -115,16 +115,14 @@ export const Button=styled.button`
   width: 44px;
   height: 44px;
   border: 1px solid var(--dark-violet-clr);
+  color:var(--dark-violet-clr);
   border-radius: 8px;
 `
 export const IconBorder=styled(MdOutlineFavoriteBorder)`
   width: 24px;
   height: 24px;
-  padding: 10px;
-  color:var(--dark-violet-clr);
 `
 export const Icon=styled(MdOutlineFavorite)`
   width: 24px;
-  height: 24px;
-  color: var(--dark-violet-clr);
-`
+  height: 24px;  
+ `
