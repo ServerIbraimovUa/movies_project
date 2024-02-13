@@ -9,6 +9,15 @@ import { useUser } from "../../context/UserContext";
 import { writeUserData } from "../../db/writeData";
 import { UserType } from "../../types/user";
 import { useTranslation } from "react-i18next";
+import {
+  AuthText,
+  EyeIcon,
+  Input,
+  InputWrapper,
+  SignButton,
+  StyledNavLink,
+  SvgSpan,
+} from "./SignUpForm.styled";
 
 interface UserAuth {
   name: string;
@@ -21,12 +30,13 @@ export const SignUpForm = () => {
   const { logIn } = useUser()!;
   const [toggleInput, setToggleInput] = useState("password");
   const [toggleIcon, setToggleIcon] = useState(false);
+  const [toggleSecondIcon, setToggleSecondIcon] = useState(false);
 
   const {
     handleSubmit,
     watch,
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     reset,
   } = useForm<UserAuth>({
     mode: "onTouched",
@@ -43,9 +53,9 @@ export const SignUpForm = () => {
       );
 
       console.log(userCredential);
-      
+
       if (userCredential.user) {
-        logIn({username: name, uid: userCredential.user.uid});
+        logIn({ username: name, uid: userCredential.user.uid });
 
         const newUser = {
           uid: userCredential.user.uid,
@@ -53,9 +63,8 @@ export const SignUpForm = () => {
           language: "ua",
           theme: "light" as const,
         } as UserType;
-        //записуємо нового юзера в база данних
-          writeUserData(newUser); 
-        
+        // записуємо нового юзера в базу даних
+        writeUserData(newUser);
       }
 
       reset();
@@ -66,54 +75,81 @@ export const SignUpForm = () => {
 
   const password = watch("password", "");
   const { t } = useTranslation();
+
   return (
     <form onSubmit={handleSubmit(signup)}>
-      <label>
-      {t("signform.user")}
-        <input type="text" {...register("name", { required: true })} />
-      </label>
-      <label>
-      {t("signform.email")}
-        <input type="email" {...register("email", { required: true })} />
-        {errors.email && <span>{t("signform.this")}</span>}
-      </label>
-      <label>
-      {t("signform.password")}
-        <input
+      <InputWrapper>
+        <Input
+          type="text"
+          {...register("name", { required: true })}
+          placeholder={t("signform.user")}
+        />
+      </InputWrapper>
+      <InputWrapper>
+        <Input
+          type="email"
+          {...register("email", { required: true })}
+          placeholder={t("signform.email")}
+        />
+        {errors.email && <span> {t("signform.this")}</span>}
+      </InputWrapper>
+      <InputWrapper>
+        <Input
           type={toggleInput}
           {...register("password", { required: true })}
+          placeholder="Password"
+          className="form-control"
         />
-        <span
+        <SvgSpan
           onClick={() =>
             toggleClick(toggleInput, setToggleInput, setToggleIcon)
           }
         >
-          {toggleIcon ? <RiEyeOffLine /> : <RiEyeLine />}
-        </span>
+          {toggleIcon ? (
+            <EyeIcon as={RiEyeOffLine} />
+          ) : (
+            <EyeIcon as={RiEyeLine} />
+          )}
+        </SvgSpan>
         {errors.password && <span>{errors.password.message}</span>}
-      </label>
-      <label>
-      {t("signform.repeat")}
-        <input
+      </InputWrapper>
+      <InputWrapper>
+        <Input
           type={toggleInput}
           {...register("repeatPassword", {
             required: true,
             validate: (value: string) =>
               value === password || "Passwords do not match",
           })}
+          placeholder="Confirm Password"
+          className="form-control"
         />
-        <span
+        <SvgSpan
           onClick={() =>
-            toggleClick(toggleInput, setToggleInput, setToggleIcon)
+            toggleClick(toggleInput, setToggleInput, setToggleSecondIcon)
           }
         >
-          {toggleIcon ? <RiEyeOffLine /> : <RiEyeLine />}
-        </span>
+          {toggleSecondIcon ? (
+            <EyeIcon as={RiEyeOffLine} />
+          ) : (
+            <EyeIcon as={RiEyeLine} />
+          )}
+        </SvgSpan>
         {errors.repeatPassword && <span>{errors.repeatPassword.message}</span>}
-      </label>
-      <button type="submit">{t("signform.submit")}</button>
-      <p>{t("signform.orsign")}</p>
+      </InputWrapper>
+
+      <SignButton
+        type="submit"
+        disabled={!isValid}
+        style={{
+          backgroundColor: isValid ? "rgb(144, 64, 246)" : "#CFC5DC",
+        }}
+      >
+        {t("signform.submit")}
+      </SignButton>
+      <AuthText>{t("signform.orsign")}</AuthText>
       <AuthList />
+      <StyledNavLink to="/login">Log in</StyledNavLink>
     </form>
   );
 };

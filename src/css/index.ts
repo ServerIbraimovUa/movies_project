@@ -8,6 +8,7 @@ import ZenMaruBold from '../assets/fonts/ZenMaruGothic/ZenMaruGothic-Bold.ttf';
 import { device } from './deviceSize';
 import './index.css';
 
+
 export const GlobalStyle = createGlobalStyle`
 
 :root{
