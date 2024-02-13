@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import { device } from "../../../css/deviceSize";
 
+export const HomePageContainer=styled.div`
+    @media ${device.tablet}{
+        display: flex;
+        gap: 20px;
+    }
+`
 export const List=styled.ul`
 
 @media ${device.tablet}{
