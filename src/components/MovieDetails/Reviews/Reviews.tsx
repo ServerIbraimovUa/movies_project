@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { IMovieReview } from "../../../types/movieDetailsTypes";
 import { useParams } from "react-router-dom";
 import { getMovieReview } from "../../../services/api";

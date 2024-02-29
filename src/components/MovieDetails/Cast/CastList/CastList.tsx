@@ -1,12 +1,11 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 import { ICast } from "../../../../types/movieDetailsTypes";
 import CastItem from "../CastItem/CastItem";
-
-import { SlickContainer } from "../../../Actor/CreditsSlick/CreditsSlick.styled";
+import { SliderContainer } from "./CastList.styled";
 
 interface CastProps {
   cast: ICast[];
@@ -50,23 +49,21 @@ const CastList: FC<CastProps> = ({ cast }) => {
   };
 
   return (
-    <SlickContainer>
-      <ul>
-        <Slider {...settings}>
-          {cast &&
-            cast.map(({ id, name, profile_path }) => {
-              return (
-                <CastItem
-                  key={id}
-                  id={id}
-                  name={name}
-                  profile_path={profile_path}
-                />
-              );
-            })}
-        </Slider>
-      </ul>
-    </SlickContainer>
+    <SliderContainer>
+      <Slider {...settings}>
+        {cast &&
+          cast.map(({ id, name, profile_path }) => {
+            return (
+              <CastItem
+                key={id}
+                id={id}
+                name={name}
+                profile_path={profile_path}
+              />
+            );
+          })}
+      </Slider>
+    </SliderContainer>
   );
 };
 

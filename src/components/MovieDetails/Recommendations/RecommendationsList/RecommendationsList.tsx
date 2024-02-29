@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { IMovieRecommendations } from "../../../../types/movieDetailsTypes";
 import RecommendationsItem from "../RecommendationsItem/RecommendationsItem";
 

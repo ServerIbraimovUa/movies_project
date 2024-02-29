@@ -1,4 +1,4 @@
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FC, useEffect, useRef, useState } from "react";
 
@@ -6,12 +6,10 @@ import { IMovieDetails } from "../types/movieDetailsTypes";
 import { getMovieDetails } from "../services/api";
 import Error from "../components/Error/Error";
 import Loading from "../components/Loading/Loading";
-// import MovieDetails from "../components/MovieDetails/MovieDetails";
 import Cast from "../components/MovieDetails/Cast/Cast";
 import Reviews from "../components/MovieDetails/Reviews/Reviews";
 import Recommendations from "../components/MovieDetails/Recommendations/Recommendations";
 import MovieTrailer from "../components/MovieDetails/MovieTrailer/MovieTrailer";
-// import { Container } from "react-bootstrap";
 import UpcomingListSlick from "../components/UpcomingList/UpcomingListSlick";
 import {
   BackBtnStyled,

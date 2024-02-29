@@ -18,4 +18,8 @@ export const StyledClickTitle = styled.p`
 
   font-size: 16px;
   font-weight: var(--regular-font-weight);
+
+  @media ${device.tablet} {
+    font-size: 20px;
+  }
 `;
