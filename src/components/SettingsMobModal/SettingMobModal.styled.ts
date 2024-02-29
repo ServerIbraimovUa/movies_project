@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 export const SettingsMobModalThumb = styled.div`
-  max-width: 398px;
-  min-height: 500px;
   margin: 0 auto;
+  min-width: 430px;
 `;
 
 export const SettingsList = styled.ul`
@@ -18,7 +17,8 @@ export const SettingsList = styled.ul`
 export const SettingsThumb = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 450px;
+  justify-content: space-between;
+  height: 828px;
   margin-top: 50px;
 `;
 
