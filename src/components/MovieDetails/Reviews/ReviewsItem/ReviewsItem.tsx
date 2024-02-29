@@ -1,5 +1,5 @@
-import React, { FC } from "react";
-import { useTranslation } from "react-i18next";
+import { FC } from "react";
+
 import { ReviewCardStyled } from "./ReviewsItem.styled";
 
 interface ReviewsItemProps {
@@ -15,27 +15,23 @@ const ReviewsItem: FC<ReviewsItemProps> = ({
   avatar_path,
   created_at,
 }) => {
-  const { t } = useTranslation();
   return (
     <ReviewCardStyled>
-      {avatar_path ? (
-        <img src="заглушка" alt={author} />
-      ) : (
-        <img src={avatar_path} alt={author} />
-      )}
+      <img src={avatar_path} alt={author} />
+
       <div>
-        <p>
-          {created_at
-            .substring(0, 10)
-            .replaceAll("-", ".")
-            .split(".")
-            .reverse()
-            .join(".")}
-        </p>
-        <h3>
-          {t("detalies.author")} {author}
-        </h3>
-        <p>{content}</p>
+        <div className="review-created">
+          <h3 className="review-name">{author}</h3>
+          <p>
+            {created_at
+              .substring(0, 10)
+              .replaceAll("-", ".")
+              .split(".")
+              .reverse()
+              .join(".")}
+          </p>
+        </div>
+        <p className="review-text">{content}</p>
       </div>
     </ReviewCardStyled>
   );

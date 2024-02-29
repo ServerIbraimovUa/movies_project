@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieTrailer } from "../../../services/api";
 import Error from "../../Error/Error";
@@ -26,13 +26,16 @@ const MovieTrailer: FC = () => {
 
   return (
     <TrailerStyled>
-      {trailer && (
+      {trailer ? (
         <iframe
           className="trailer"
           src={`${srcTrailer}${trailer}`}
           title="YouTube video player"
         ></iframe>
+      ) : (
+        <p>Ops...there's no trailer here</p>
       )}
+
       {error && <Error />}
     </TrailerStyled>
   );
