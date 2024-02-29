@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { SearchButton, SearchForm, SearchInput } from "./SearchMovies.styled";
+import Icon from "../Icon/Icon";
 
 const SearchMovies: React.FC = () => {
   const [query, setQuery] = useState("");
@@ -14,16 +16,18 @@ const SearchMovies: React.FC = () => {
   };
 
   return (
-    <form onSubmit={updateQuery}>
+    <SearchForm onSubmit={updateQuery}>
       <label>
-        <input
+        <SearchInput
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button type="submit">{t("searchmovies.search")}</button>
+        <SearchButton type="submit">
+          <Icon className="search-icon" id="search" />
+        </SearchButton>
       </label>
-    </form>
+    </SearchForm>
   );
 };
 

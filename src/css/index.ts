@@ -1,10 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import WorkSansRegular from '../assets/fonts/WorkSans/WorkSans-Regular.ttf';
-import WorkSansMedium from '../assets/fonts/WorkSans/WorkSans-Medium.ttf';
-import WorkSansSemiBold from '../assets/fonts/WorkSans/WorkSans-SemiBold.ttf';
-import ZenMaruRegular from '../assets/fonts/ZenMaruGothic/ZenMaruGothic-Regular.ttf';
-import ZenMaruMedium from '../assets/fonts/ZenMaruGothic/ZenMaruGothic-Medium.ttf';
-import ZenMaruBold from '../assets/fonts/ZenMaruGothic/ZenMaruGothic-Bold.ttf';
 import { device } from './deviceSize';
 import './index.css';
 
@@ -17,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     --violet-clr: #ECDEFF;
     --light-violet-clr: #F4EBFF;
     --bg-clr-light-theme: rgba(113, 0, 255, 0.05);
-
+    --grey-normal: #61646b;
     --text-clr-black: #2F2E30;
     --text-clr-grey: #61646B;
     --text-clr-white: #FBF8FF;
@@ -106,9 +100,8 @@ p {
 /* STANDART STYLES */
     
     body {
-    margin: 0;
-    overflow-x: hidden;
-    font-family: var(--main-font-bold);
+    margin: 0; 
+    font-family: var(--main-font);
     font-weight: var(--regular-font-weight);
     font-style: normal;
     font-size: var(--font-size);
@@ -158,6 +151,7 @@ main {
 .main-container {
   width: 100%;
   margin: 0 auto; 
+  overflow-x: hidden;
   
   @media ${device.mobile} {
         max-width: 398px;

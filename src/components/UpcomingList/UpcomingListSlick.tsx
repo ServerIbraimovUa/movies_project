@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {
-  SlickContainer,
-  SlickImg,
-  SlickImgMob,
-} from "./UpcomingListSlick.styled";
+import { SlickImg, SlickImgMob } from "./UpcomingListSlick.styled";
 import "./UpcomingListSlick.css";
 import { Link, useLocation } from "react-router-dom";
 import Img from "../../images/defaultImg.jpg";
@@ -93,7 +89,7 @@ const UpcomingListSlick = () => {
   };
 
   return (
-    <SlickContainer className="main-container">
+    <div className="main-container">
       <Slider {...settings}>
         {loading ? (
           movies.map((movie) => {
@@ -125,7 +121,7 @@ const UpcomingListSlick = () => {
 
         {error && <Error />}
       </Slider>
-    </SlickContainer>
+    </div>
   );
 };
 
