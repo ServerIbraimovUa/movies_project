@@ -20,8 +20,8 @@
     "erorr": "Erorr"
   },
   "movie": {
-    "year": "Year:",
-    "genres": "Genres:",
+    "year": "Year: ",
+    "genres": "Genres: ",
     "description": "Description"
   },
 
@@ -70,7 +70,7 @@
   "detalies": {
     "back": "Go back",
     "thecast": "The cast is unavailable...",
-    "author": "Author:",
+  
     "noreviews": "No reviews yet...",
     "oops": "Oops... we don't have any recommendations"
   },

@@ -6,17 +6,14 @@ export const MovieSectionStyled = styled.section`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-bottom: 48px;
+
+  @media ${device.tablet} {
+    gap: 32px;
+  }
 `;
 
 export const BackBtnStyled = styled(Link)`
   text-decoration: underline;
   color: var(--dark-violet-clr);
   font-weight: var(--medium-font-weight);
-
-  /* margin-bottom: 8px; */
-
-  /* @media ${device.desktop} {
-    justify-content: end;
-  } */
 `;
