@@ -4,10 +4,15 @@ import { useUser } from '../../context/UserContext';
 import { logout } from '../../auth/logout';
 import { successNotification } from '../../services/notifications';
 import {
+  NavLinkSettings,
   SettingsContainer,
   SettingsLinkListThumb,
   SettingsListItem,
+  SettingsLogoutBtnTablet,
+  TabletSettingsIcon,
+  TabletSettingsList,
 } from './Settings.styled';
+import icons from '../../assets/images/sprite.svg';
 
 const Settings = () => {
   const { t } = useTranslation();
@@ -25,34 +30,49 @@ const Settings = () => {
   };
 
   return (
-    <SettingsContainer>
+    <SettingsContainer className="main-container">
       <SettingsLinkListThumb>
-        <ul>
+        <TabletSettingsList>
           <SettingsListItem
             className={
               location.pathname === '/settings/personal-info' ? 'active' : ''
             }
           >
-            <Link to="personal-info">{t('settings.edit')}</Link>
+            <NavLinkSettings to="personal-info">
+              <TabletSettingsIcon>
+                <use href={`${icons}#icon-profile`}></use>
+              </TabletSettingsIcon>
+              {t('settings.edit')}
+            </NavLinkSettings>
           </SettingsListItem>
           <SettingsListItem
             className={
               location.pathname === '/settings/account' ? 'active' : ''
             }
           >
-            <Link to="account">{t('settings.account')}</Link>
+            <NavLinkSettings to="account">
+              <TabletSettingsIcon>
+                <use href={`${icons}#icon-setting`}></use>
+              </TabletSettingsIcon>
+              {t('settings.account')}
+            </NavLinkSettings>
           </SettingsListItem>
           <SettingsListItem
             className={
               location.pathname === '/settings/account-deletion' ? 'active' : ''
             }
           >
-            <Link to="account-deletion">{t('settings.delete')}</Link>
+            <NavLinkSettings to="account-deletion">
+              <TabletSettingsIcon>
+                <use href={`${icons}#icon-trashcan`}></use>
+              </TabletSettingsIcon>
+              {t('settings.delete')}
+            </NavLinkSettings>
           </SettingsListItem>
-        </ul>
-        <button type="button" onClick={logoutUserFromSettings}>
+        </TabletSettingsList>
+        <SettingsLogoutBtnTablet type="button" onClick={logoutUserFromSettings}>
           {t('settings.logout')}
-        </button>
+        </SettingsLogoutBtnTablet>
       </SettingsLinkListThumb>
       <Outlet />
     </SettingsContainer>

@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
-import UserModal from "../UserModal/UserModal";
-import defaultImg from "../../images/defaultAvatar.jpg";
+import { useState, useEffect } from 'react';
+import UserModal from '../UserModal/UserModal';
+import defaultImg from '../../images/defaultAvatar.jpg';
 
-import { useUser } from "../../context/UserContext";
-import { readData } from "../../db/readData";
-import { ButtonAvatar, ModalImg, UserContainer } from "./UserMenu.styled";
-import { useMediaQuery } from "react-responsive";
+import { useUser } from '../../context/UserContext';
+import { readData } from '../../db/readData';
+import { ButtonAvatar, ModalImg, UserContainer } from './UserMenu.styled';
+import { useMediaQuery } from 'react-responsive';
 
 //  Коли користувач успішно пройшов реестрацію або логін
 const UserMenu = () => {
@@ -22,13 +22,16 @@ const UserMenu = () => {
   }, [user]);
 
   const handleShow = () => {
+    if (window.innerWidth <= 1023) {
+      return;
+    }
     setShow(true);
   };
 
   const handleClose = () => setShow(false);
 
   const { imageUrl, username } = databaseUser;
-  const isTabletOrDesk = useMediaQuery({ query: "(min-width:1024px)" });
+  const isTabletOrDesk = useMediaQuery({ query: '(min-width:1024px)' });
 
   return (
     <>

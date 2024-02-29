@@ -9,13 +9,13 @@ import { Modal } from 'react-bootstrap';
 import {
   failedNotification,
   successNotification,
-} from '../../services/notifications';
+} from '../../../services/notifications';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FormPasswords, IPasswordForm } from '../../types/editProfileTypes';
-import { updatePasswordSchema } from '../../schemas/updatePasswordSchema';
+import { FormPasswords, IPasswordForm } from '../../../types/editProfileTypes';
+import { updatePasswordSchema } from '../../../schemas/updatePasswordSchema';
 import { useTranslation } from 'react-i18next';
 import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
-import { toggleClick } from '../SignUpPage/toggleClick';
+import { toggleClick } from '../../SignUpPage/toggleClick';
 
 const PasswordForm: FC<IPasswordForm> = ({ user, show, close }) => {
   const { t } = useTranslation();
