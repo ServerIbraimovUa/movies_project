@@ -15,7 +15,7 @@ export const SettingsList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  font-family: var(--main-font-medium);
+  font-family: var(--main-font);
   font-weight: var(--medium-font-weight);
   color: var(--text-clr-grey);
 `;

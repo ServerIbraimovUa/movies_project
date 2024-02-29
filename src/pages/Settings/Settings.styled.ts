@@ -18,6 +18,8 @@ export const SettingsLinkListThumb = styled.div`
     justify-content: space-between;
     width: 278px;
     padding: 24px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
 `;
 
@@ -25,8 +27,8 @@ export const TabletSettingsList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  font-family: var(--main-font-medium);
-  font-weight: var(--medium-font-weight);
+  font-family: var(--main-font);
+  font-weight: var(--bold-font-weight);
   color: var(--text-clr-grey);
 `;
 
@@ -64,6 +66,8 @@ export const NavLinkSettings = styled(NavLink)`
 export const SettingsLogoutBtnTablet = styled.button`
   min-width: 230px;
   height: 40px;
+  font-family: var(--main-font);
+  font-weight: var(--bold-font-weight);
   color: var(--dark-violet-clr);
   border: 2px solid var(--dark-violet-clr);
   border-radius: 12px;

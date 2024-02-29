@@ -4,7 +4,7 @@ import { device } from '../../css/deviceSize';
 
 export const ModalThumb = styled.div`
   padding: 0 15px 15px 15px;
-  font-family: var(--main-font-regular);
+  font-family: var(--main-font);
 `;
 
 export const ModalBtnContainer = styled.div`

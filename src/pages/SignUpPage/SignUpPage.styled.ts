@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import authBackground from "../../images/auth-bg.png";
-import { device } from "../../css/deviceSize";
+import styled from 'styled-components';
+import authBackground from '../../images/auth-bg.png';
+import { device } from '../../css/deviceSize';
 
 export const CenteredContent = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ export const CenteredContent = styled.div`
 
   .title {
     color: var(--text-clr-black);
-    font-family: var(--main-font-bold);
+    font-family: var(--main-font);
     font-weight: var(--bold-font-weight);
     margin-bottom: 40px;
     font-size: 32px;
