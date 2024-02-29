@@ -15,6 +15,9 @@ const UserMenu = () => {
   const [databaseUser, setDatabaseUser] = useState<any>({});
 
   const handleShow = () => {
+    if (window.innerWidth <= 1023) {
+      return;
+    }
     setShow(true);
     const fetchUserFromDatabase = async () => {
       if (!user) return;

@@ -1,32 +1,19 @@
-.user-modal {
-  width: 398px;
-}
-
-.modal > .modal-fullscreen {
-  width: 100%;
-  overflow: hidden;
-}
-
 @media screen and (min-width: 1024px) {
-  .user-modal {
-    max-width: 961px;
+  .modal-content {
+    width: 560px;
+    min-height: 360px;
   }
-}
 
-@media screen and (min-width: 1440px) {
-  .user-modal {
-    max-width: 1280px;
+  #modal-user {
+    margin: 0 auto;
   }
-}
-.user-modal-body {
-  background-color: var(--bg-clr-light-theme);
-}
 
-.modal-backdrop {
-  width: 100%;
-  height: 100%;
-}
+  .user-modal-body {
+    background-color: var(--bg-clr-light-theme);
+  }
 
-#modal-user {
-  margin: 0 auto;
+  .modal-backdrop {
+    width: 100%;
+    height: 100%;
+  }
 }
