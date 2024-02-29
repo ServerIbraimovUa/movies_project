@@ -55,45 +55,12 @@ export const GlobalStyle = createGlobalStyle`
     --semi-bold-font-weight: 600;
     --bold-font-weight: 700;
 
-    --main-font-regular: ${ZenMaruRegular};
-    --main-font-medium: ${ZenMaruMedium};
-    --main-font-bold: ${ZenMaruBold};
-
-    --second-font-regular: ${WorkSansRegular};
-    --second-font-medium: ${WorkSansMedium};
-    --second-font-semi-bold: ${WorkSansSemiBold};
+    --main-font: "Zen Maru Gothic", serif;
+    --second-font: "Work Sans", sans-serif;
     
     // Animation
      --hover-focus-trans: 350ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-
-/* FONTS */
-
-@font-face {
-    font-family: 'WorkSans-Regular',sans-serif;
-    src: url(${WorkSansRegular}) format('truetype'),
-    }
-    @font-face {
-    font-family: 'WorkSans-Medium',sans-serif;
-    src: url(${WorkSansMedium}) format('truetype'),
-    }
-    @font-face {
-    font-family: 'WorkSans-SemiBold',sans-serif;
-    src: url(${WorkSansSemiBold}) format('truetype'),
-    }
-    @font-face {
-    font-family: 'ZenMaruGothic-Regular',sans-serif;
-    src: url(${ZenMaruRegular}) format('truetype'),
-    }
-     @font-face {
-    font-family: 'ZenMaruGothic-Medium',sans-serif;
-    src: url(${ZenMaruMedium}) format('truetype'),
-    }
-     @font-face {
-    font-family: 'ZenMaruGothic-Bold',sans-serif;
-    src: url(${ZenMaruBold}) format('truetype'),
-    }
     
     /* RESET STYLES */
     a {
@@ -107,6 +74,10 @@ button {
   color: inherit;
   border-width: 0;
   padding: 0;
+}
+
+a, button, input, select, option {
+   cursor: pointer;
 }
 
 ul,
@@ -137,7 +108,7 @@ p {
     body {
     margin: 0;
     overflow-x: hidden;
-    font-family: 'ZenMaru-Gothic', 'WorkSans', sans-serif;
+    font-family: var(--main-font-bold);
     font-weight: var(--regular-font-weight);
     font-style: normal;
     font-size: var(--font-size);
