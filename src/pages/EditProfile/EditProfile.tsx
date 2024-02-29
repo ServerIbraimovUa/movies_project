@@ -15,6 +15,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
 import {
+  ArrowIcon,
   ChangePasswordBtn,
   EditProfileContainer,
   EditProfileTitle,
@@ -25,6 +26,7 @@ import {
   SaveProfileInfoBtn,
   SelectorsWrap,
   SexSelect,
+  SexThumb,
   SocialNetworksContainer,
   SocialNetworksInput,
   UserInfoWrapper,
@@ -32,6 +34,7 @@ import {
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import icons from '../../assets/images/sprite.svg';
 
 type Inputs = {
   name?: string;
@@ -123,16 +126,24 @@ const EditProfile = () => {
                   onAvatarChanged={file => setUpdatedAvatarFile(file)}
                 />
                 <SelectorsWrap>
-                  <SexSelect
-                    value={databaseUser.sex}
-                    onChange={e => {
-                      setDatabaseUser({ ...databaseUser, sex: e.target.value });
-                    }}
-                  >
-                    <option value="none">{t('edit.none')}</option>
-                    <option value="Male">{t('edit.male')}</option>
-                    <option value="Female">{t('edit.female')}</option>
-                  </SexSelect>
+                  <SexThumb>
+                    <SexSelect
+                      value={databaseUser.sex}
+                      onChange={e => {
+                        setDatabaseUser({
+                          ...databaseUser,
+                          sex: e.target.value,
+                        });
+                      }}
+                    >
+                      <option value="none">{t('edit.none')}</option>
+                      <option value="Male">{t('edit.male')}</option>
+                      <option value="Female">{t('edit.female')}</option>
+                    </SexSelect>
+                    <ArrowIcon>
+                      <use href={`${icons}#icon-down-arrow`}></use>
+                    </ArrowIcon>
+                  </SexThumb>
                   <NameLabel>
                     <NameInput
                       {...register('name')}

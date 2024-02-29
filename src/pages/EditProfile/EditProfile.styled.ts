@@ -17,7 +17,8 @@ export const PasswordThumb = styled.div`
 export const ChangePasswordBtn = styled.button`
   width: 189px;
   height: 44px;
-  font-family: var(--main-font-medium);
+  font-family: var(--main-font);
+  font-weight: var(--bold-font-weight);
   border: 1px solid var(--dark-violet-clr);
   border-radius: 12px;
   color: var(--dark-violet-clr);
@@ -41,7 +42,7 @@ export const ChangePasswordBtn = styled.button`
 
 export const EditProfileTitle = styled.h2`
   margin-bottom: 20px;
-  font-family: var(--main-font-bold);
+  font-family: var(--main-font);
   font-weight: var(--bold-font-weight);
   font-size: 24px;
   line-height: 1;
@@ -75,15 +76,22 @@ export const SelectorsWrap = styled.div`
   }
 `;
 
-export const SexSelect = styled.select`
+export const SexThumb = styled.div`
+  position: relative;
   width: 166px;
+`;
+
+export const SexSelect = styled.select`
+  width: 100%;
   height: 44px;
   padding: 0 10px;
-  font-family: var(--main-font-regular);
+  font-family: var(--main-font);
   color: var(--text-clr-grey);
   border-color: var(--text-clr-grey);
   border-radius: 8px;
   transition: color var(--hover-focus-trans), border var(--hover-focus-trans);
+  -webkit-appearance: none;
+  -moz-appearance: none;
 
   &:focus-within {
     outline: none;
@@ -101,6 +109,15 @@ export const SexSelect = styled.select`
   }
 `;
 
+export const ArrowIcon = styled.svg`
+  position: absolute;
+  z-index: 10;
+  right: 10px;
+  top: 12px;
+  width: 16px;
+  height: 16px;
+`;
+
 export const NameLabel = styled.label`
   width: 268px;
 
@@ -113,7 +130,7 @@ export const NameInput = styled.input`
   width: 100%;
   height: 44px;
   padding: 0 10px;
-  font-family: var(--main-font-regular);
+  font-family: var(--main-font);
   color: var(--text-clr-grey);
   border: 1px solid var(--text-clr-grey);
   border-radius: 8px;
@@ -161,7 +178,8 @@ export const SocialNetworksInput = styled.input`
   height: 44px;
   padding-left: 10px;
   padding-right: 10px;
-  font-family: var(--main-font-regular);
+  font-family: var(--main-font);
+  text-transform: capitalize;
   color: var(--text-clr-grey);
   border: 1px solid var(--text-clr-grey);
   border-radius: 8px;
@@ -192,6 +210,7 @@ export const SaveProfileInfoBtn = styled.button`
   width: 193px;
   height: 44px;
   margin-bottom: 60px;
+  font-family: var(--main-font);
   font-weight: var(--medium-font-weight);
   line-height: 1.5;
   border-radius: 12px;
@@ -212,7 +231,7 @@ export const SaveProfileInfoBtn = styled.button`
 `;
 
 export const ErrorInputText = styled.p`
-  font-family: var(--main-font-regular);
+  font-family: var(--main-font);
   font-size: 12px;
   color: var(--text-clr-red);
 `;
