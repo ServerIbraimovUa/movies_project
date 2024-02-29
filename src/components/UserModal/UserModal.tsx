@@ -22,7 +22,7 @@ const UserModal: FC<IModal> = ({ show, close, databaseUser }) => {
   const { username, imageUrl, sex, country, socials } = databaseUser;
   console.log(databaseUser);
   return (
-    <div>
+    <div id="modal-user">
       <Modal show={show} onHide={close} className="user-modal">
         <Modal.Body className="user-modal-body">
           <ModalThumb>

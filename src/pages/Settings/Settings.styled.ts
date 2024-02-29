@@ -32,7 +32,7 @@ export const TabletSettingsList = styled.ul`
 
 export const SettingsListItem = styled.li`
   width: 230px;
-  padding: 10px 20px;
+  padding: 10px 15px;
   transform: stroke var(--hover-focus-trans), color var(--hover-focus-trans),
     border var(--hover-focus-trans);
 
