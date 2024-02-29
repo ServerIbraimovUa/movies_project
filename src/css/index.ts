@@ -18,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     --violet-clr: #ECDEFF;
     --light-violet-clr: #F4EBFF;
     --bg-clr-light-theme: rgba(113, 0, 255, 0.05);
-
+    --grey-normal: #61646b;
     --text-clr-black: #2F2E30;
     --text-clr-grey: #61646B;
     --text-clr-white: #FBF8FF;
@@ -134,8 +134,7 @@ p {
 /* STANDART STYLES */
     
     body {
-    margin: 0;
-    overflow-x: hidden;
+    margin: 0; 
     font-family: 'ZenMaru-Gothic', 'WorkSans', sans-serif;
     font-weight: var(--regular-font-weight);
     font-style: normal;
@@ -186,6 +185,7 @@ main {
 .main-container {
   width: 100%;
   margin: 0 auto; 
+  overflow-x: hidden;
   
   @media ${device.mobile} {
         max-width: 398px;
