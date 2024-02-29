@@ -1,10 +1,11 @@
-import React, { FC, useEffect, useState } from "react";
-import { IMovieRecommendations } from "../../types/movieDetailsTypes";
+import { FC, useEffect, useState } from "react";
+import { IMovieRecommendations } from "../../../types/movieDetailsTypes";
 import { useParams } from "react-router-dom";
-import Error from "../Error/Error";
-import { getMovieRecommendations } from "../../services/api";
-import RecommendationsList from "./RecommendationsList/RecommendationsList";
+import Error from "../../Error/Error";
+import { getMovieRecommendations } from "../../../services/api";
 import { useTranslation } from "react-i18next";
+import { RecommendationsStyled } from "./Recommendations.styled";
+import RecommendationsList from "./RecommendationsList/RecommendationsList";
 
 const Recommendations: FC = () => {
   const [recommendations, setRecommendations] = useState<
@@ -28,14 +29,17 @@ const Recommendations: FC = () => {
   }, [movieId]);
 
   return (
-    <div>
+    <RecommendationsStyled>
       {recommendations.length === 0 ? (
         <h3>{t("detalies.oops")}</h3>
       ) : (
-        <RecommendationsList recommendations={recommendations} />
+        <>
+          <h3 className="recommendations-title">Catalog</h3>
+          <RecommendationsList recommendations={recommendations} />
+        </>
       )}
       {error && <Error />}
-    </div>
+    </RecommendationsStyled>
   );
 };
 

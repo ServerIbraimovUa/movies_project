@@ -1,19 +1,21 @@
-import React, { FC } from "react";
-import { IMovieReview } from "../../../types/movieDetailsTypes";
+import { FC } from "react";
+import { IMovieReview } from "../../../../types/movieDetailsTypes";
 import ReviewsItem from "../ReviewsItem/ReviewsItem";
 import { StyledReviewsList } from "./ReviewsList.styled";
 
 interface ReviewsProps {
   reviews: IMovieReview[];
 }
+const BASE_IMG = "https://image.tmdb.org/t/p/w300";
 
 const ReviewsList: FC<ReviewsProps> = ({ reviews }) => {
   return (
     <StyledReviewsList>
       {reviews &&
         reviews.map(({ id, author, content, author_details, created_at }) => {
-          console.log(author_details);
-          const avatar_path = author_details?.avatar_path || "";
+          const avatar_path = author_details?.avatar_path
+            ? `${BASE_IMG}${author_details.avatar_path}`
+            : "../../../../../public/userAvatar.png";
           return (
             <ReviewsItem
               key={id}
