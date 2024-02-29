@@ -1,13 +1,21 @@
+import Icon from "../Icon/Icon";
+import { FC } from "react";
+import { ButtonLogin, ButtonLoginMob } from "./AuthMenu.styled";
+import { t } from "i18next";
 import { NavLink } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
 
-const AuthMenu = () => {
-  const { t } = useTranslation();
-
+const AuthMenu: FC = () => {
   return (
     <>
-      <NavLink to="/register">{t('layout.register')}</NavLink>
-      <NavLink to="/login">{t('layout.login')}</NavLink>
+      <ButtonLoginMob>
+        <NavLink to="/login">
+          {" "}
+          <Icon className="icon-login" id="login" />
+        </NavLink>
+      </ButtonLoginMob>
+      <ButtonLogin>
+        <NavLink to="/login">{t("layout.login")}</NavLink>
+      </ButtonLogin>
     </>
   );
 };
