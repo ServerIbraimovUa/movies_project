@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Movies } from "../../../types/homeTypes";
-import { MdOutlineFavorite } from "react-icons/md";
 import { FavoriteMovie } from "../../../types/movieDetailsTypes";
+import { StyledLi } from "./FavoriteItem.styled";
+import { IconBorder } from "../../Home/HomeListItem/HomeListItem.styled";
 const BASE_IMG = "https://image.tmdb.org/t/p/w200";
 
 interface FavoriteItemProps {
@@ -18,16 +18,24 @@ const FavoriteItem: FC<FavoriteItemProps> = ({
   const location = useLocation();
   console.log(favoriteMovie);
   return (
-    <li>
+    <StyledLi>
       <Link to={`/movie/${id}`} state={{ from: location }}>
-        <img src={`${BASE_IMG}${poster_path}`} alt={title ? title : name} />
-        <p>{title ? title : name}</p>
+        <div className="img-wrapper">
+          <img src={`${BASE_IMG}${poster_path}`} alt={title ? title : name} />
+        </div>
+
+        <h2>{title ? title : name}</h2>
         <p>{vote_average}</p>
       </Link>
-      <button type="button" onClick={() => removeFavoriteById(id)}>
-        <MdOutlineFavorite />
-      </button>
-    </li>
+      <div className="wrapper-watch">
+        <a className="link" href="#">
+          Watch
+        </a>
+        <button type="button" onClick={() => removeFavoriteById(id)}>
+          <IconBorder />
+        </button>
+      </div>
+    </StyledLi>
   );
 };
 

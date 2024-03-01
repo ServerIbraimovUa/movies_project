@@ -6,11 +6,13 @@ import { useTheme } from "../SwitcherTheme/ThemeContext";
 import { ThemeProvider } from "styled-components";
 import Header from "../Header/Header";
 
+
 const Layout: FC = () => {
   const { theme } = useTheme();
 
   return (
     <ThemeProvider theme={theme}>
+
       <header>
         <Header />
       </header>
@@ -18,6 +20,7 @@ const Layout: FC = () => {
         <Outlet />
       </main>
       <footer>{/* <Footer /> */}</footer>
+
     </ThemeProvider>
   );
 };
