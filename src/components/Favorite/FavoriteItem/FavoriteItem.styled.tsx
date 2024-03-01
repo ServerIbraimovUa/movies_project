@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { device } from "../../../css/deviceSize";
+import { MdOutlineFavorite } from "react-icons/md";
 
 export const StyledLi = styled.li`
   display: flex;
@@ -15,10 +15,6 @@ export const StyledLi = styled.li`
   @media screen and (min-width: 768px) {
     width: 308px;
   }
-  @media screen and (min-width: 1440px) {
-    width: 430px;
-    height: 692px;
-  }
 
   img {
     width: 157px;
@@ -27,17 +23,12 @@ export const StyledLi = styled.li`
       width: 268px;
       height: 350px;
     }
-    @media screen and (min-width: 1440px) {
-      width: 350px;
-      height: 432px;
-    }
   }
   .img-wrapper {
     margin-bottom: 16px;
     border-radius: 16px;
     overflow: hidden;
     @media screen and (min-width: 1440px) {
-      margin-bottom: 24px;
     }
   }
   h2 {
@@ -54,14 +45,12 @@ export const StyledLi = styled.li`
       line-height: 1.25;
     }
     @media screen and (min-width: 1440px) {
-      margin-bottom: 24px;
     }
   }
   p {
     margin-bottom: 12px;
     color: L var(--dark-violet-clr);
     @media screen and (min-width: 1440px) {
-      margin-bottom: 24px;
     }
   }
 
@@ -85,15 +74,28 @@ export const StyledLi = styled.li`
       height: 44px;
     }
     @media screen and (min-width: 1440px) {
-      width: 290px;
-      height: 44px;
     }
   }
   button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 1px solid var(--dark-violet-clr);
     border-radius: 8px;
     padding: 10px;
     width: 44px;
     height: 44px;
   }
+
+  .star-wrapper {
+    margin-bottom: 12px;
+    @media screen and (min-width: 768px) {
+      margin-bottom: 24px;
+    }
+  }
+`;
+export const Icon = styled(MdOutlineFavorite)`
+  width: 24px;
+  height: 24px;
+  fill: var(--dark-violet-clr);
 `;

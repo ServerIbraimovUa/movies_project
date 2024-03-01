@@ -6,9 +6,10 @@ export const StyledUl = styled.ul`
   grid-template-columns: 1fr 1fr;
   gap: 20px 17px;
   @media ${device.tablet} {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
     gap: 20px;
   }
   @media ${device.desktop} {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 `;
