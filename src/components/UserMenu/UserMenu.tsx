@@ -1,50 +1,53 @@
-import { NavLink } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import UserModal from '../UserModal/UserModal';
-import { logout } from '../../auth/logout';
+import defaultImg from '../../images/defaultAvatar.jpg';
 
 import { useUser } from '../../context/UserContext';
 import { readData } from '../../db/readData';
+import { ButtonAvatar, ModalImg, UserContainer } from './UserMenu.styled';
+import { useMediaQuery } from 'react-responsive';
 
 //  Коли користувач успішно пройшов реестрацію або логін
 const UserMenu = () => {
-  const { user, logOut } = useUser()!;
-  const { t } = useTranslation();
+  const { user } = useUser()!;
   const [show, setShow] = useState(false);
   const [databaseUser, setDatabaseUser] = useState<any>({});
 
-  const handleShow = () => {
-    setShow(true);
+  useEffect(() => {
     const fetchUserFromDatabase = async () => {
       if (!user) return;
       setDatabaseUser(await readData(user.uid));
     };
     fetchUserFromDatabase();
-  };
-  const handleClose = () => setShow(false);
-  const handleLogOut = () => {
-    //firebase
-    logout();
-    //context
-    logOut();
+  }, [user]);
+
+  const handleShow = () => {
+    if (window.innerWidth <= 1023) {
+      return;
+    }
+    setShow(true);
   };
 
-  // const {username} = user
-  console.log(user);
+  const handleClose = () => setShow(false);
+
+  const { imageUrl, username } = databaseUser;
+  const isTabletOrDesk = useMediaQuery({ query: '(min-width:1024px)' });
+
   return (
     <>
-      <NavLink to="/favorites">{t('layout.favorite')}</NavLink>
-      <div>
+      <UserContainer>
         {/* дінамічне ім'я користувача */}
-        <button type="button" onClick={handleShow}>
-          {user.username}
-        </button>
-        <button type="button" onClick={handleLogOut}>
-          {t('layout.logout')}
-        </button>
-      </div>
-      <UserModal close={handleClose} show={show} databaseUser={databaseUser} />
+        <ButtonAvatar type="button" onClick={handleShow}>
+          {isTabletOrDesk && username}
+          <ModalImg src={imageUrl ? imageUrl : defaultImg} alt="Avatar" />
+        </ButtonAvatar>
+
+        <UserModal
+          close={handleClose}
+          show={show}
+          databaseUser={databaseUser}
+        />
+      </UserContainer>
     </>
   );
 };

@@ -3,6 +3,8 @@ import { FacebookProvider, auth } from "../firebase-config";
 import { useUser } from "../context/UserContext";
 import { UserType } from "../types/user";
 import { writeUserData } from "../db/writeData";
+import { AuthBtn } from "./AuthList.styled";
+import Icon from "../components/Icon/Icon";
 
 export const SignInWithFacebook = () => {
   const { logIn } = useUser()!;
@@ -31,8 +33,12 @@ export const SignInWithFacebook = () => {
   };
 
   return (
-    <button type="button" onClick={handleSignIn}>
-      Facebook
-    </button>
+    <AuthBtn
+      type="button"
+      onClick={handleSignIn}
+      className="btn bg-transparent"
+    >
+      <Icon id="auth-facebook" className="icon-auth" />
+    </AuthBtn>
   );
 };

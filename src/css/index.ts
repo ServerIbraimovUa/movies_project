@@ -1,10 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import WorkSansRegular from '../assets/fonts/WorkSans/WorkSans-Regular.ttf';
-import WorkSansMedium from '../assets/fonts/WorkSans/WorkSans-Medium.ttf';
-import WorkSansSemiBold from '../assets/fonts/WorkSans/WorkSans-SemiBold.ttf';
-import ZenMaruRegular from '../assets/fonts/ZenMaruGothic/ZenMaruGothic-Regular.ttf';
-import ZenMaruMedium from '../assets/fonts/ZenMaruGothic/ZenMaruGothic-Medium.ttf';
-import ZenMaruBold from '../assets/fonts/ZenMaruGothic/ZenMaruGothic-Bold.ttf';
 import { device } from './deviceSize';
 import './index.css';
 
@@ -16,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     --dark-violet-clr: #9040F6;
     --violet-clr: #ECDEFF;
     --light-violet-clr: #F4EBFF;
-    --bg-clr-light-theme: #F5F5F5;
+    --bg-clr-light-theme: rgba(113, 0, 255, 0.05);
 
     --text-clr-black: #2F2E30;
     --text-clr-grey: #61646B;
@@ -55,43 +49,12 @@ export const GlobalStyle = createGlobalStyle`
     --semi-bold-font-weight: 600;
     --bold-font-weight: 700;
 
-    --main-font-regular: ${ZenMaruRegular};
-    --main-font-medium: ${ZenMaruMedium};
-    --main-font-bold: ${ZenMaruBold};
-
-    --second-font-regular: ${WorkSansRegular};
-    --second-font-medium: ${WorkSansMedium};
-    --second-font-semi-bold: ${WorkSansSemiBold};
+    --main-font: "Zen Maru Gothic", serif;
+    --second-font: "Work Sans", sans-serif;
     
+    // Animation
+     --hover-focus-trans: 350ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-
-/* FONTS */
-
-@font-face {
-    font-family: 'WorkSans-Regular',sans-serif;
-    src: url(${WorkSansRegular}) format('truetype'),
-    }
-    @font-face {
-    font-family: 'WorkSans-Medium',sans-serif;
-    src: url(${WorkSansMedium}) format('truetype'),
-    }
-    @font-face {
-    font-family: 'WorkSans-SemiBold',sans-serif;
-    src: url(${WorkSansSemiBold}) format('truetype'),
-    }
-    @font-face {
-    font-family: 'ZenMaruGothic-Regular',sans-serif;
-    src: url(${ZenMaruRegular}) format('truetype'),
-    }
-     @font-face {
-    font-family: 'ZenMaruGothic-Medium',sans-serif;
-    src: url(${ZenMaruMedium}) format('truetype'),
-    }
-     @font-face {
-    font-family: 'ZenMaruGothic-Bold',sans-serif;
-    src: url(${ZenMaruBold}) format('truetype'),
-    }
     
     /* RESET STYLES */
     a {
@@ -105,6 +68,10 @@ button {
   color: inherit;
   border-width: 0;
   padding: 0;
+}
+
+a, button, input, select, option {
+   cursor: pointer;
 }
 
 ul,
@@ -133,9 +100,8 @@ p {
 /* STANDART STYLES */
     
     body {
-    margin: 0;
-    overflow-x: hidden;
-    font-family: 'ZenMaru-Gothic', 'WorkSans', sans-serif;
+    margin: 0; 
+    font-family: var(--main-font);
     font-weight: var(--regular-font-weight);
     font-style: normal;
     font-size: var(--font-size);
@@ -185,6 +151,7 @@ main {
 .main-container {
   width: 100%;
   margin: 0 auto; 
+  
   @media ${device.mobile} {
         max-width: 398px;
        

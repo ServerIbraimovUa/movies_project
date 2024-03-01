@@ -1,9 +1,14 @@
 .switch {
     position: relative;
     display: inline-block;
+    width: 82px;
+    height: 30px;
+  }
+  @media screen and (min-width:1024px){
+   .switch{
     width: 92px;
     height: 44px;
- 
+   }
   }
   
   .switch input {
@@ -23,28 +28,37 @@
     border-radius: 4px;
     border: 1px solid #61646B;
     transition: 0.4s;
+     border-radius: 10px;
+    border-color: var(--grey-normal);
 
   }
   
   .slider:before {
     position: absolute;
     content: '';
-    height: 32px;
+    height: 20px;
     width: 32px;
     left: 5px;
-    bottom: 5px;
+    bottom: 4px;
     background-color: transparent;
     border-radius: 4px;
-    border: 1px solid #61646B;
+    border: 1px solid var(--grey-normal);
     transition: 0.4s;
   }
   .slider.dark {
     background-color: white;
   }
-  
+  @media screen and (min-width:1024px){
+     .slider:before{
+      height: 32px;     
+      bottom: 5px;
+     }
+  }
   
   
   .switch.dark .slider:before {
+     left: 5px;
+    bottom: 5px;
     transform: translateX(150%);
   }
 
@@ -52,15 +66,24 @@
     transform: translateX(0);
   }
 .moon {
-    margin-left: 30px;
-    margin-top: 10px;
-    fill: #9040F6;
-    color: #9040F6;
+  margin-left: 20px;
+  fill: #9040F6;
+  color: #9040F6;
 }
 .sun {
-    margin-top: 10px;
-    margin-left: 10px;
-    fill: #9040F6;
-    color: #9040F6;
+  margin-left: 10px;
+  fill: #9040F6;
+  color: #9040F6;
+  
+}
 
+@media screen and (min-width:1024px){
+  .sun{
+    margin-top: 10px;
+  }
+  .moon{
+    margin-left: 30px;
+    margin-top: 10px;
+    
+  }
 }

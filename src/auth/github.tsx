@@ -3,6 +3,8 @@ import { GitHubProvider, auth } from "../firebase-config";
 import { writeUserData } from "../db/writeData";
 import { UserType } from "../types/user";
 import { useUser } from "../context/UserContext";
+import { AuthBtn } from "./AuthList.styled";
+import Icon from "../components/Icon/Icon";
 
 export const SignInWithGithub = () => {
   const { logIn } = useUser()!;
@@ -31,8 +33,12 @@ export const SignInWithGithub = () => {
   };
 
   return (
-    <button type="button" onClick={handleSignIn}>
-      Github
-    </button>
+    <AuthBtn
+      type="button"
+      onClick={handleSignIn}
+      className="btn bg-transparent"
+    >
+      <Icon id="auth-github" className="icon-auth" />
+    </AuthBtn>
   );
 };

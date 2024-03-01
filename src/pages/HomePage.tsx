@@ -13,16 +13,10 @@ import { IGenres, Movies } from "../types/homeTypes";
 
 import Sidebar from "../components/Home/Sidebar/Sidebar";
 import { useSearchParams } from "react-router-dom";
-
+import { HomePageContainer } from "../components/Home/HomeList/HomeList.styled";
+import SearchMovies from "../components/SearchMovies/SearchMovies";
 import UpcomingListSlick from "../components/UpcomingList/UpcomingListSlick";
-import PersonalInfo from "../components/Actor/PersonalInfo/PersonalInfo";
-import Biography from "../components/Actor/Biography/Biography";
-import CreditsSlick from "../components/Actor/CreditsSlick/CreditsSlick";
-import ActorCredits from "../components/Actor/ActorCredits/ActorCredits";
-
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { useMediaQuery } from "react-responsive";
 
 const HomePage: FC = () => {
   const { language } = useLanguage();
@@ -40,6 +34,8 @@ const HomePage: FC = () => {
 
   const [queryText]: any = useSearchParams();
   const queryParam = queryText.get("query") ?? "";
+
+  const isMobile = useMediaQuery({ query: "(max-width:1023px)" });
 
   useEffect(() => {
     const searchMoviesForQuery = async (q: string) => {
@@ -89,34 +85,35 @@ const HomePage: FC = () => {
     fetchData();
   }, [genreId, language, year]);
 
-
-
   return (
     <section>
-    <Container style={{ display: "flex" }}>
-      {error && <Error />}
-      {movies.length !== 0 ? (
-        <>
-          <Sidebar
-            genres={genres}
-            setGenreId={setGenreId}
-            setYear={setYear}
-            setMovies={setMovies}
-          />
+      <UpcomingListSlick />
+      <HomePageContainer className="main-container">
+        {error && <Error />}
+        {movies.length !== 0 ? (
+          <>
+            <Sidebar
+              genres={genres}
+              setGenreId={setGenreId}
+              setYear={setYear}
+              setMovies={setMovies}
+            />
 
-          {loading ? (
-            <HomeList movies={movies} genres={genres} />
-          ) : (
-            <Loading />
-          )}
-        </>
-      ) : (
-        <Loading />
-      )}
-    </Container>
-  </section>
-   
+            {loading ? (
+              <>
+                {isMobile && <SearchMovies />}
 
+                <HomeList movies={movies} genres={genres} />
+              </>
+            ) : (
+              <Loading />
+            )}
+          </>
+        ) : (
+          <Loading />
+        )}
+      </HomePageContainer>
+    </section>
   );
 };
 

@@ -10,193 +10,191 @@
     "language":"Language:"
   },
   "layout": {
-    "register": "Register",
+    "register": "Registration",
     "login": "Login",
     "favorite": "Favorite",
     "username": "User Name",
     "logout": "Log out"
-        },
+  },
   "erorr": {
-          "erorr": "Erorr"
-              },
+    "erorr": "Erorr"
+  },
   "movie": {
-    "year": "Year:",
-    "genres": "Genres:",
+    "year": "Year: ",
+    "genres": "Genres: ",
     "description": "Description"
-        },
+  },
 
-    "search": {
-          "search": "Search"
-        },
-    "actor": {
-       "acting": "Acting",
-       "info": "Personal Info",
-       "know": "Known For",
-       "gender": "Gender",
-       "birthday": "Birthday",
-       "place": "Place of birth",
-       "also": "Also known as",
-       "biografi": "Biography"
-        },
-        "delete": {
-         "dellaccount": "Delete Account",
-         "dellparagraf": "You've just entered the danger zone! If you would like to continue and remove your account, you can do so by entering your password below and confirming the prompts.",
-         "confirm": "Confirm"
-        },
-        "edit": {
-          "profile": "Profile",
-          "change": "Change password",
-          "save": "Save img",
-          "user": "User",
-          "male": "Male",
-          "female": "Female",
-          "submit": "Submit",
-          "close": "close",
-          "write": "Write your previouse password",
-          "writenew": "Write your new password",
-          "cancel": "Cancel",
-          "none": "None",
-          "if": "If you want to change your password, please, write:",
-          "current": "Current user"
-        },
-        "login": {
-         "login": "Login",
-         "email": "Email",
-         "password": "Password",
-         "this": "This field is required",
-         "log-in": "Log In",
-         "socialmedia": "or login with social media"
-        },
-        "detalies": {
-         "back": "Go back",
-         "thecast": "The cast is unavailable...",
-         "author": "Author:",
-         "noreviews": "No reviews yet...",
-         "oops": "Oops... we don't have any recommendations"
-        },
-        "settings": {
-         "edit": "Edit Account",
-         "account": "Account Settings",
-         "delete": "Delete Account",
-         "logout": "Log Out"
-        },
-        "signup": {
-         "signup": "Sign up"
-        },
-        "usermodal": {
-          "settings": "settings",
-          "profile": "User Profile",
-          "close": "close",
-          "email": "Email",
-          "name": "Name",
-          "gender": "Gender",
-          "social": "Social media"
-        },
-        "signform": {
-          "user": "Username",
-          "email": "Email",
-          "this": "This field is required",
-          "password": "Password",
-          "repeat": "Repeat Password",
-          "submit": "Submit",
-          "orsign": "or sign up with social media"
-        },
-        "searchmovies": {
-         "search": "Search"
-        },
-        "seemore": {
-         "seemore": "See more"
-        },
-        "about": {
-          "about": "About Project"
-        },
-        "copyright": {
-          "copyright": "Copyright holders",
-          "video": "Video materials are posted according to the law, and in the absence of a prohibition from the copyright holder. If copyright holders decide to withdraw their materials, they send an application.",
-          "complaint": "A complaint about copyright infringement can be submitted by email to support."
-        },
-        "faq": {
-          "on": "On what devices can I use the service?",
-          "filmoteka": "Filmoteka available on all modern devices via a web-browser.",
-          "how": "How to change video quality?",
-          "at": "At the moment there is no such possibility.",
-          "problems": "Problems loading videos?",
-          "speedtitle": "The recommended speed for comfortable video viewing is 20 Mbit/sec.",
-          "speedloadings": "If you experience problems loading videos (constant buffering), make sure that your Internet channel is free and that there are no other programs running on your device that can significantly load the device’s resources:",
-          "speedone": "1. Close unnecessary browser tabs - they can overload your device's memory;",
-          "speedtwo": "2. Make sure that when playing a video, you have disabled torrent clients and other programs that may load the Internet channel you are using;",
-          "speedthree": "3. Try playing the video in another browser;",
-          "speedfour": "4. Try using the “Incognito” mode in the browser;",
-          "speedfive": "5. Clear your browser cache and delete cookies;",
-          "speedsix": "6. Disable the VPN client if it is active.",
-          "speedend": "If the above steps do not resolve the problem, please write to support."
-        }, 
-        "terms": {
-          "termstitle": "Terms of use",
-          "termswelcome": "Welcome to the website of the Internet resource “Filmoteka”!",
-          "termsdear": "Dear Visitor, the administration of the information resource “Filmoteka” thanks you for visiting our website “Filmoteka”!",
-          "termspleace": "Please read the Rules and Conditions of Use of the “Filmoteka” website before you start using the “Filmoteka” website.",
-          "termsand": "I. Terms and Conditions for using the website filmoteka.ua",
-          "termsone": "1.1. These Terms and Rules for using the “Filmoteka” Site filmoteka.ua (hereinafter referred to as the Site) were developed by the Administration of the Filmoteka.ua Site (hereinafter referred to as the Administration) and determine the conditions for the use and development of the Site, as well as the rights and obligations of its Users and Administration.",
-          "termstwo": "1.2. These Terms and Rules (hereinafter referred to as the “Rules”) are a legally binding agreement between the User and the Administration, the subject of which is the provision by the Administration to the User of services for using the Site, which regulate access and use of the site “Filmoteka” (filmoteka.ua), which is provided by “Filmoteka” » on the following terms:",
-          "termsthre": "1.2.1. The User's access to and use of this website 'Filmoteka' filmoteka.ua is subject to these Rules. By accessing the Site and using it, the User accepts, without restrictions and reservations, the legally binding compliance with the Rules, which come into force immediately upon the User’s first visit to the Site filmoteka.ua.",
-          "termsfour": "If the User does not agree to comply with these Rules, the User has the right not to visit and/or use the Site anymore.",
-          "termsfive": "1.2.2 The administration reserves the right to change and/or supplement these conditions unilaterally at any time without any special notice by publishing changes on the website.",
-          "termssix": "These Rules are an open and publicly available document. The current version of the Rules is posted on the Internet.",
-          "termsseven": "The Administration strongly recommends that you regularly re-read these Rules in order to be aware of all changes made by the “Filmoteka” Administration. If the User continues to use the filmoteka.ua website after publishing changes in the Rules section, the latter automatically assumes a legal obligation to comply with these Rules with all amendments and/or changes/additions made to them.",
-          "termseight": "1.2.3. Ignorance of the rules does not exempt you from the need to follow them. The posting of any message on the site by the User automatically means his agreement with these rules and the need to comply with them.",
-          "copyrighttitle": "II. Copyright and ownership of content",
-          "copyrightone": "2.1. This Site and all Content of the site, materials published on the site (hereinafter referred to as the “Content”) are protected by the legislation of Ukraine, as well as international legislation on copyright and related rights.",
-          "copyrighttwo": "2.1.1 Intellectual property rights to Content: texts, designs, logos, graphics, icons, images and other materials on this Site are the property of “Filmoteka”, or are contained on the Site with the permission of the respective owner.",
-          "copyrightthre": "2.1.2. Creating links to the Site is encouraged under the following conditions:",
-          "copyrightfour": "1) The User will inform the Administration in advance about each link in writing;",
-          "copyrightfive": "2) The link will not contain or imply any indication that “Filmoteka” sponsors and/or endorses the User's site",
-          "copyrightsix": "3) The User will immediately remove any links to the Site, upon the first request of the Administration.",
-          "copyrightseven": "2.2. The use by the User of any Content (copying, publication, etc.) without the written permission of “Filmoteka” and/or the owner of the Content is strictly prohibited. “Filmoteka” will enforce its intellectual property rights to the fullest extent permitted by law, including criminal prosecution.",
-          "contentstitle": "III. Contents and operation of the site",
-          "contentsone": "3.1. The Administration makes every reasonable effort to ensure the accuracy of the information on the Site.",
-          "contentstwo": "3.2. The administration does not provide guarantees regarding the accuracy of the information, its timeliness, reliability and safety.",
-          "contentsthre": "3.3. The content on the Site may contain inaccuracies and typographical errors.",
-          "contentsfour": "3.4. The administration reserves the right, without warning, to change or delete any part of the information posted on the Site at any time.",
-          "contentsfive": "3.5. “Filmoteka” has the right to suspend or terminate the operation of this Site at its sole discretion",
-          "contentssix": "3.6. The administration is not responsible for any loss or damage caused by:",
-          "contentsseven": "3.6.1 And the use of this site or the inability to use it.",
-          "contentseight": "3.6.2. Caused by changes or deletion of information, as well as stoppage or cessation of operation of the site",
-          "contentsnine": "3.7. The administration is not responsible for any losses incurred due to inaccuracies in the schedule.",
-          "contentsnote": "Note: The Site Administration does not guarantee the accuracy of the schedule in any cinema, since the administration of cinemas may change the schedule partially or completely without notifying the Site Administration. The administration strongly recommends that, in order to avoid unpleasant situations, before going to the cinema, you check the current schedule with the cinema administrators.",
-          "usetitle": "IV. Use of the site",
-          "useone": "5.1. Any visitor to the “Filmoteka” website can become a user of the Site, who will have the opportunity to use interactive services and services provided by the Site that do not require registration.",
-          "usetwo": "5.2. A user of the Site can register in order to use the full range of services and interactive services that require registration, and will be able to:",
-          "usethre": "5.2.1. Each time you visit our website, the User will log in under the nickname assigned to the user, without re-entering the password.",
-          "usefour": "5.2.2. The user will be able to receive replies by e-mail to messages left on the site, as well as to which he has subscribed;",
-          "usefive": "5.2.3. The user will be able to rate:",
-          "usesix": "1) reviews of films, cinemas, actors, etc.;",
-          "useseven": "2) films, actors, etc.",
-          "useeight": "3) follow the films that interest you;",
-          "usenine": "4) participate in competitions;",
-          "useten": "5) receive the site’s newsletter;",
-          "useeleven": "6) will be able to obtain the status of editor and, together with the Administration and editorial staff of the site, participate in the work of the site: post their reviews, multimedia files for films, photos of favorite actors, etc.",
-          "usetwelve": "6.2.4. When posting comments on the Site, the User must comply with the relevant rules:",
-          "usethirteen": "Do not post messages containing: (1) Calls for violation of current legislation, statements of a racist nature, incitement of ethnic hatred, and anything else that falls under the scope of the Criminal Code of Ukraine; (2) Deliberately false information; (3) Explicit advertising content; (4) Rude, obscene expressions and insults in any form - messages that are rude in tone, containing “attacks” on individuals; (5) Not relevant to the topic under discussion.",
-          "usefourteen": "6.2.5. If you agree with someone else's review, simply vote for it by putting “+1”",
-          "usefiveteen": "6.3. The administration reserves the right: (1) to delete messages that contain only a quote from someone else’s review; (2) delete and edit messages.",
-          "usesixteen": "6.4. The Administration does not bear any responsibility for messages posted by the User on the Site, since all messages reflect the opinions of their authors.",
-          "useseventeen": "6.5. The Administration reserves the right, at its unilateral discretion, to deprive the User of registration if the User violates these Rules without first notifying the offender."
-        },
-        "footer": {
-         "support": "Support the project",
-         "faq": "FAQ",
-         "terms": "Terms of use",
-         "copyright": "Copyright holders",
-         "filmoteka": "2023 Filmoteka. All right reserved Created by",
-         "team": "TeamForce"
-        },
-        "accountsettings": {
-          "defaultlanguage": "Default language",
-          "defaulttheme": "Default theme",
-          "country": "Country",
-          "save": "Save"
-    
-         }
-
+  "search": {
+    "search": "Search"
+  },
+  "actor": {
+    "acting": "Acting",
+    "info": "Personal Info",
+    "know": "Known For",
+    "gender": "Gender",
+    "birthday": "Birthday",
+    "place": "Place of birth",
+    "also": "Also known as",
+    "biografi": "Biography"
+  },
+  "delete": {
+    "dellaccount": "Delete Account",
+    "dellparagraf": "You've just entered the danger zone! If you would like to continue and remove your account, you can do so by entering your password below and confirming the prompts.",
+    "confirm": "Confirm"
+  },
+  "edit": {
+    "profile": "Profile",
+    "change": "Change password",
+    "save": "Save img",
+    "user": "User",
+    "male": "Male",
+    "female": "Female",
+    "submit": "Submit",
+    "close": "close",
+    "write": "Write your previouse password",
+    "writenew": "Write your new password",
+    "cancel": "Cancel",
+    "none": "None",
+    "if": "If you want to change your password, please, write:",
+    "current": "Current user"
+  },
+  "login": {
+    "login": "Login",
+    "email": "Email",
+    "password": "Password",
+    "this": "This field is required",
+    "log-in": "Log In",
+    "socialmedia": "or login with social media"
+  },
+  "detalies": {
+    "back": "Go back",
+    "thecast": "The cast is unavailable...",
+  
+    "noreviews": "No reviews yet...",
+    "oops": "Oops... we don't have any recommendations"
+  },
+  "settings": {
+    "edit": "Edit Account",
+    "account": "Account Settings",
+    "delete": "Delete Account",
+    "logout": "Log Out"
+  },
+  "signup": {
+    "signup": "Sign up"
+  },
+  "usermodal": {
+    "settings": "settings",
+    "profile": "User Profile",
+    "close": "close",
+    "email": "Email",
+    "name": "Name",
+    "gender": "Gender",
+    "social": "Social media"
+  },
+  "signform": {
+    "user": "Username",
+    "email": "Email",
+    "this": "This field is required",
+    "password": "Password",
+    "repeat": "Repeat Password",
+    "submit": "Submit",
+    "orsign": "or sign up with social media"
+  },
+  "searchmovies": {
+    "search": "Search"
+  },
+  "seemore": {
+    "seemore": "See more"
+  },
+  "about": {
+    "about": "About Project"
+  },
+  "copyright": {
+    "copyright": "Copyright holders",
+    "video": "Video materials are posted according to the law, and in the absence of a prohibition from the copyright holder. If copyright holders decide to withdraw their materials, they send an application.",
+    "complaint": "A complaint about copyright infringement can be submitted by email to support."
+  },
+  "faq": {
+    "on": "On what devices can I use the service?",
+    "filmoteka": "Filmoteka available on all modern devices via a web-browser.",
+    "how": "How to change video quality?",
+    "at": "At the moment there is no such possibility.",
+    "problems": "Problems loading videos?",
+    "speedtitle": "The recommended speed for comfortable video viewing is 20 Mbit/sec.",
+    "speedloadings": "If you experience problems loading videos (constant buffering), make sure that your Internet channel is free and that there are no other programs running on your device that can significantly load the device’s resources:",
+    "speedone": "1. Close unnecessary browser tabs - they can overload your device's memory;",
+    "speedtwo": "2. Make sure that when playing a video, you have disabled torrent clients and other programs that may load the Internet channel you are using;",
+    "speedthree": "3. Try playing the video in another browser;",
+    "speedfour": "4. Try using the “Incognito” mode in the browser;",
+    "speedfive": "5. Clear your browser cache and delete cookies;",
+    "speedsix": "6. Disable the VPN client if it is active.",
+    "speedend": "If the above steps do not resolve the problem, please write to support."
+  },
+  "terms": {
+    "termstitle": "Terms of use",
+    "termswelcome": "Welcome to the website of the Internet resource “Filmoteka”!",
+    "termsdear": "Dear Visitor, the administration of the information resource “Filmoteka” thanks you for visiting our website “Filmoteka”!",
+    "termspleace": "Please read the Rules and Conditions of Use of the “Filmoteka” website before you start using the “Filmoteka” website.",
+    "termsand": "I. Terms and Conditions for using the website filmoteka.ua",
+    "termsone": "1.1. These Terms and Rules for using the “Filmoteka” Site filmoteka.ua (hereinafter referred to as the Site) were developed by the Administration of the Filmoteka.ua Site (hereinafter referred to as the Administration) and determine the conditions for the use and development of the Site, as well as the rights and obligations of its Users and Administration.",
+    "termstwo": "1.2. These Terms and Rules (hereinafter referred to as the “Rules”) are a legally binding agreement between the User and the Administration, the subject of which is the provision by the Administration to the User of services for using the Site, which regulate access and use of the site “Filmoteka” (filmoteka.ua), which is provided by “Filmoteka” » on the following terms:",
+    "termsthre": "1.2.1. The User's access to and use of this website 'Filmoteka' filmoteka.ua is subject to these Rules. By accessing the Site and using it, the User accepts, without restrictions and reservations, the legally binding compliance with the Rules, which come into force immediately upon the User’s first visit to the Site filmoteka.ua.",
+    "termsfour": "If the User does not agree to comply with these Rules, the User has the right not to visit and/or use the Site anymore.",
+    "termsfive": "1.2.2 The administration reserves the right to change and/or supplement these conditions unilaterally at any time without any special notice by publishing changes on the website.",
+    "termssix": "These Rules are an open and publicly available document. The current version of the Rules is posted on the Internet.",
+    "termsseven": "The Administration strongly recommends that you regularly re-read these Rules in order to be aware of all changes made by the “Filmoteka” Administration. If the User continues to use the filmoteka.ua website after publishing changes in the Rules section, the latter automatically assumes a legal obligation to comply with these Rules with all amendments and/or changes/additions made to them.",
+    "termseight": "1.2.3. Ignorance of the rules does not exempt you from the need to follow them. The posting of any message on the site by the User automatically means his agreement with these rules and the need to comply with them.",
+    "copyrighttitle": "II. Copyright and ownership of content",
+    "copyrightone": "2.1. This Site and all Content of the site, materials published on the site (hereinafter referred to as the “Content”) are protected by the legislation of Ukraine, as well as international legislation on copyright and related rights.",
+    "copyrighttwo": "2.1.1 Intellectual property rights to Content: texts, designs, logos, graphics, icons, images and other materials on this Site are the property of “Filmoteka”, or are contained on the Site with the permission of the respective owner.",
+    "copyrightthre": "2.1.2. Creating links to the Site is encouraged under the following conditions:",
+    "copyrightfour": "1) The User will inform the Administration in advance about each link in writing;",
+    "copyrightfive": "2) The link will not contain or imply any indication that “Filmoteka” sponsors and/or endorses the User's site",
+    "copyrightsix": "3) The User will immediately remove any links to the Site, upon the first request of the Administration.",
+    "copyrightseven": "2.2. The use by the User of any Content (copying, publication, etc.) without the written permission of “Filmoteka” and/or the owner of the Content is strictly prohibited. “Filmoteka” will enforce its intellectual property rights to the fullest extent permitted by law, including criminal prosecution.",
+    "contentstitle": "III. Contents and operation of the site",
+    "contentsone": "3.1. The Administration makes every reasonable effort to ensure the accuracy of the information on the Site.",
+    "contentstwo": "3.2. The administration does not provide guarantees regarding the accuracy of the information, its timeliness, reliability and safety.",
+    "contentsthre": "3.3. The content on the Site may contain inaccuracies and typographical errors.",
+    "contentsfour": "3.4. The administration reserves the right, without warning, to change or delete any part of the information posted on the Site at any time.",
+    "contentsfive": "3.5. “Filmoteka” has the right to suspend or terminate the operation of this Site at its sole discretion",
+    "contentssix": "3.6. The administration is not responsible for any loss or damage caused by:",
+    "contentsseven": "3.6.1 And the use of this site or the inability to use it.",
+    "contentseight": "3.6.2. Caused by changes or deletion of information, as well as stoppage or cessation of operation of the site",
+    "contentsnine": "3.7. The administration is not responsible for any losses incurred due to inaccuracies in the schedule.",
+    "contentsnote": "Note: The Site Administration does not guarantee the accuracy of the schedule in any cinema, since the administration of cinemas may change the schedule partially or completely without notifying the Site Administration. The administration strongly recommends that, in order to avoid unpleasant situations, before going to the cinema, you check the current schedule with the cinema administrators.",
+    "usetitle": "IV. Use of the site",
+    "useone": "5.1. Any visitor to the “Filmoteka” website can become a user of the Site, who will have the opportunity to use interactive services and services provided by the Site that do not require registration.",
+    "usetwo": "5.2. A user of the Site can register in order to use the full range of services and interactive services that require registration, and will be able to:",
+    "usethre": "5.2.1. Each time you visit our website, the User will log in under the nickname assigned to the user, without re-entering the password.",
+    "usefour": "5.2.2. The user will be able to receive replies by e-mail to messages left on the site, as well as to which he has subscribed;",
+    "usefive": "5.2.3. The user will be able to rate:",
+    "usesix": "1) reviews of films, cinemas, actors, etc.;",
+    "useseven": "2) films, actors, etc.",
+    "useeight": "3) follow the films that interest you;",
+    "usenine": "4) participate in competitions;",
+    "useten": "5) receive the site’s newsletter;",
+    "useeleven": "6) will be able to obtain the status of editor and, together with the Administration and editorial staff of the site, participate in the work of the site: post their reviews, multimedia files for films, photos of favorite actors, etc.",
+    "usetwelve": "6.2.4. When posting comments on the Site, the User must comply with the relevant rules:",
+    "usethirteen": "Do not post messages containing: (1) Calls for violation of current legislation, statements of a racist nature, incitement of ethnic hatred, and anything else that falls under the scope of the Criminal Code of Ukraine; (2) Deliberately false information; (3) Explicit advertising content; (4) Rude, obscene expressions and insults in any form - messages that are rude in tone, containing “attacks” on individuals; (5) Not relevant to the topic under discussion.",
+    "usefourteen": "6.2.5. If you agree with someone else's review, simply vote for it by putting “+1”",
+    "usefiveteen": "6.3. The administration reserves the right: (1) to delete messages that contain only a quote from someone else’s review; (2) delete and edit messages.",
+    "usesixteen": "6.4. The Administration does not bear any responsibility for messages posted by the User on the Site, since all messages reflect the opinions of their authors.",
+    "useseventeen": "6.5. The Administration reserves the right, at its unilateral discretion, to deprive the User of registration if the User violates these Rules without first notifying the offender."
+  },
+  "footer": {
+    "support": "Support the project",
+    "faq": "FAQ",
+    "terms": "Terms of use",
+    "copyright": "Copyright holders",
+    "filmoteka": "2023 Filmoteka. All right reserved Created by",
+    "team": "TeamForce"
+  },
+  "accountsettings": {
+    "defaultlanguage": "Default language",
+    "defaulttheme": "Default theme",
+    "country": "Country",
+    "save": "Save"
+  }
 }

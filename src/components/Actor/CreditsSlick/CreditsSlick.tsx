@@ -25,7 +25,7 @@ const CreditsSlick: FC<CreditsSlickProprs> = ({ credits }) => {
     speed: 500,
     slidesToShow: 8,
     slidesToScroll: 2,
-    initialSlide: 0,
+    initialSlide: 8,
     responsive: [
       {
         breakpoint: 1400,

@@ -9,6 +9,10 @@ export const toggleClick = (
     (arg0: boolean): void;
   }
 ) => {
+  if (toggle === "repeatPassword") {
+    setIcon(true);
+    return setInput("repeatPassword");
+  }
   if (toggle === "password") {
     setIcon(true);
     return setInput("text");

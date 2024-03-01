@@ -9,17 +9,16 @@ export const SidebarContainer=styled.div`
     @media ${device.tablet}{
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 24px;
 
-        width: 272px;
+        width: 304px;
         padding: 32px 16px;
-        margin-right: 20px;
         border-radius: 24px;
         background-color: var(--light-violet-clr);           
    }
    @media ${device.desktop}{
-        width:340px;
-        margin-right: 24px;
+        width:372px;
+        padding: 36px;
    }
 `
 export const GenresWrapper=styled.div`
@@ -63,5 +62,5 @@ export const ButtonReset=styled.button`
 `
 export const TitleWrapper=styled.div`
     display: flex;
-    gap:20px;
+    gap:50px;
 `

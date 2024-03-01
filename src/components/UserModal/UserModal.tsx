@@ -22,10 +22,10 @@ const UserModal: FC<IModal> = ({ show, close, databaseUser }) => {
   const { username, imageUrl, sex, country, socials } = databaseUser;
   console.log(databaseUser);
   return (
-    <div>
-      <Modal show={show} onHide={close} className="user-modal">
+    <div id="modal-user">
+      <Modal show={show} onHide={close}>
         <Modal.Body className="user-modal-body">
-          <ModalThumb>
+          <ModalThumb className="user-modal">
             <ModalBtnContainer>
               <ModalLink to="/settings/personal-info" onClick={close}>
                 <ModalSvg>
