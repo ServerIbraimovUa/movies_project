@@ -2,6 +2,11 @@
   background-color: var(--violet-clr);
 }
 
+.modal > .modal-fullscreen {
+  width: 100%;
+  overflow: hidden;
+}
+
 .settings-link {
   display: flex;
   gap: 5px;

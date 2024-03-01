@@ -1,12 +1,17 @@
-.slick-next:before{
-    color: var(--violet-hover);
+.slick-next:before {
+  color: var(--violet-hover);
 }
 
-.slick-prev:before{
-    color: var(--violet-hover);
+.slick-prev:before {
+  color: var(--violet-hover);
 }
 
-.slick-track{    
-    display: flex;
-    gap:12px;
-  }
+.slick-track {
+  display: flex;
+  gap: 24px;
+}
+
+.slick-slider{
+  margin-top: 10px;
+  margin-bottom: 24px;
+}

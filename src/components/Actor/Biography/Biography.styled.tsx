@@ -11,7 +11,8 @@ export const Button = styled.button`
     font-size: large;
     text-decoration: underline;
     background-color: transparent;
-    color:var(dark-violet-clr);
+    color: var(--dark-violet-clr);
+    outline: none;
 
 `
 export const HeadingName = styled.h2`

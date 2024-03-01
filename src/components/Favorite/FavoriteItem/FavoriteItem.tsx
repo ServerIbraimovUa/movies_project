@@ -1,8 +1,9 @@
 import { FC } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Movies } from "../../../types/homeTypes";
-import { MdOutlineFavorite } from "react-icons/md";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { FavoriteMovie } from "../../../types/movieDetailsTypes";
+import { Icon, StyledLi } from "./FavoriteItem.styled";
+
+import StarRating from "../../Stars/Stars";
 const BASE_IMG = "https://image.tmdb.org/t/p/w200";
 
 interface FavoriteItemProps {
@@ -16,18 +17,27 @@ const FavoriteItem: FC<FavoriteItemProps> = ({
 }) => {
   const { id, poster_path, vote_average, title, name } = favoriteMovie;
   const location = useLocation();
-  console.log(favoriteMovie);
+
   return (
-    <li>
+    <StyledLi>
       <Link to={`/movie/${id}`} state={{ from: location }}>
-        <img src={`${BASE_IMG}${poster_path}`} alt={title ? title : name} />
-        <p>{title ? title : name}</p>
-        <p>{vote_average}</p>
+        <div className="img-wrapper">
+          <img src={`${BASE_IMG}${poster_path}`} alt={title ? title : name} />
+        </div>
+        <h2>{title ? title : name}</h2>
+        <div className="star-wrapper">
+          <StarRating rating={vote_average} />
+        </div>
       </Link>
-      <button type="button" onClick={() => removeFavoriteById(id)}>
-        <MdOutlineFavorite />
-      </button>
-    </li>
+      <div className="wrapper-watch">
+        <NavLink to={`/movie/${id}`} className="link" >
+          Watch
+        </NavLink>
+        <button type="button" onClick={() => removeFavoriteById(id)}>
+          <Icon />
+        </button>
+      </div>
+    </StyledLi>
   );
 };
 

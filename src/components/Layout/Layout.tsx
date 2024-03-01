@@ -1,12 +1,11 @@
-import { FC, useState } from 'react';
-import { Container } from 'react-bootstrap';
-import { NavLink, Outlet } from 'react-router-dom';
-import UserMenu from '../UserMenu/UserMenu';
-import AuthMenu from '../AuthMenu/AuthMenu';
-import SearchMovies from '../SearchMovies/SearchMovies';
-import LanguageSelector from '../Language/LanguageSelector';
-import Footer from '../Footer/Footer';
-import { useUser } from '../../context/UserContext';
+import { FC } from "react";
+import { Outlet } from "react-router-dom";
+import Footer from "../Footer/Footer";
+import "./Layout.css";
+import { useTheme } from "../SwitcherTheme/ThemeContext";
+import { ThemeProvider } from "styled-components";
+import Header from "../Header/Header";
+
 
 import './Layout.css';
 import SwitcherTheme from '../SwitcherTheme/SwitcherTheme';
@@ -33,36 +32,20 @@ const Layout: FC = () => {
 
   return (
     <>
+
       <header>
-        <ContainerHeader>
-          <Container>
-            <nav style={{ display: 'flex', gap: '24px' }}>
-              <SettingMobileModalBtn onClick={handleShow}>
-                <SettingMobModalIcon>
-                  <use href={`${icons}#icon-settings-mob-modal`}></use>
-                </SettingMobModalIcon>
-              </SettingMobileModalBtn>
-              <NavLink to="/">Логотип</NavLink>
-              <SearchMovies />
-              <div>
-                <LanguageSelector />
-              </div>
-              <div>
-                <SwitcherTheme />
-              </div>
-              {isLoggedIn ? <UserMenu /> : <AuthMenu />}
-            </nav>
-          </Container>
-        </ContainerHeader>
+        <Header />
       </header>
       <main>
         <Outlet />
       </main>
+
       <footer>
         <Footer />
       </footer>
       <SettingsMobModal close={handleClose} show={show} />
       </>
+
   );
 };
 

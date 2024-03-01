@@ -1,6 +1,7 @@
 import React from "react";
 import { useLanguage } from "./LanguageContext";
 import { useTranslation } from "react-i18next";
+import { LanguageContainer } from "./Language.styled";
 
 const LanguageSelector: React.FC = () => {
   const { language, setLanguage } = useLanguage();
@@ -10,19 +11,26 @@ const LanguageSelector: React.FC = () => {
     i18n.changeLanguage(lng);
   };
 
-  const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleLanguageChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
     const selectedLanguage = event.target.value;
     setLanguage(selectedLanguage);
     changeLanguage(selectedLanguage);
   };
 
   return (
-    <form action="">
-      <select name="language" value={language} onChange={handleLanguageChange}>
+    <LanguageContainer action="">
+      <select
+        className="select-lang"
+        name="language"
+        value={language}
+        onChange={handleLanguageChange}
+      >
         <option value="en">EN</option>
         <option value="uk">UK</option>
       </select>
-    </form>
+    </LanguageContainer>
   );
 };
 

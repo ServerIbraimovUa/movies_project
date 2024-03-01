@@ -39,10 +39,14 @@ export const CardImg = styled.img`
 `
 export const ContentWrapper=styled.div`
   margin-bottom: 16px;
+
+  @media ${device.tablet}{
+    margin-bottom: 24px;
+  }
  
 `
 export const Title=styled.h2`
-  margin-bottom: 45px;
+  margin-bottom: 30px;
 
   font-size: 24px;
   font-weight:var( --bold-font-weight);
@@ -87,6 +91,9 @@ export const GenresList=styled.ul`
   padding: 0px;
   margin:0px;
   font-size: 20px;
+
+  margin-bottom: 10px;
+
 `
 export const ButtonWrapper=styled.div`
   display: flex;
@@ -119,13 +126,12 @@ export const Button=styled.button`
   width: 44px;
   height: 44px;
   border: 1px solid var(--dark-violet-clr);
+  color:var(--dark-violet-clr);
   border-radius: 8px;
 `
 export const IconBorder=styled(MdOutlineFavoriteBorder)`
   width: 24px;
   height: 24px;
-  padding: 10px;
-  color:var(--dark-violet-clr);
 `
 export const Icon=styled(MdOutlineFavorite)`
   width: 24px;
