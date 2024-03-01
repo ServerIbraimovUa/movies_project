@@ -12,7 +12,7 @@ import Settings from '../pages/Settings/Settings';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 import ActorPage from '../pages/ActorPage/ActorPage';
 import EditProfile from '../pages/EditProfile/EditProfile';
-import AccountSettings from '../pages/AccountSettings';
+import AccountSettings from '../pages/AccountSettings/AccountSettings';
 import DeleteAccount from '../pages/DeleteAccount';
 import InfoPage from '../pages/InfoPage';
 import TermsOfUse from './Info/TermsOfUse';

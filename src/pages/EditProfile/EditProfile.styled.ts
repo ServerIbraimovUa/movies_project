@@ -116,6 +116,7 @@ export const ArrowIcon = styled.svg`
   top: 12px;
   width: 16px;
   height: 16px;
+  pointer-events: none;
 `;
 
 export const NameLabel = styled.label`
@@ -206,7 +207,7 @@ export const SocialNetworksInput = styled.input`
   }
 `;
 
-export const SaveProfileInfoBtn = styled.button`
+export const SaveInfoBtn = styled.button`
   width: 193px;
   height: 44px;
   margin-bottom: 60px;

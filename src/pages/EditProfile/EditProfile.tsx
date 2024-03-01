@@ -23,7 +23,7 @@ import {
   NameInput,
   NameLabel,
   PasswordThumb,
-  SaveProfileInfoBtn,
+  SaveInfoBtn,
   SelectorsWrap,
   SexSelect,
   SexThumb,
@@ -194,12 +194,12 @@ const EditProfile = () => {
               })}
             </SocialNetworksContainer>
           </div>
-          <SaveProfileInfoBtn
+          <SaveInfoBtn
             type="button"
             onClick={handleSubmit(() => saveProfile())}
           >
             {t('edit.save')}
-          </SaveProfileInfoBtn>
+          </SaveInfoBtn>
         </EditProfileContainer>
       )}
     </>

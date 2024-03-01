@@ -7,7 +7,7 @@
     "genre": "Genre:",
     "description": "Description:",
     "watch": "Watch",
-    "language":"Language:"
+    "language": "Language:"
   },
   "layout": {
     "register": "Registration",
@@ -46,7 +46,7 @@
   "edit": {
     "profile": "Profile",
     "change": "Change password",
-    "save": "Save img",
+    "save": "Save",
     "user": "User",
     "male": "Male",
     "female": "Female",
@@ -70,7 +70,7 @@
   "detalies": {
     "back": "Go back",
     "thecast": "The cast is unavailable...",
-  
+
     "noreviews": "No reviews yet...",
     "oops": "Oops... we don't have any recommendations"
   },

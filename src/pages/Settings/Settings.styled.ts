@@ -3,10 +3,12 @@ import { device } from '../../css/deviceSize';
 import { NavLink } from 'react-router-dom';
 
 export const SettingsContainer = styled.div`
-  display: flex;
-  gap: 45px;
-  min-height: 500px;
   padding-top: 60px;
+  @media ${device.tablet} {
+    display: flex;
+    gap: 45px;
+    min-height: 500px;
+  }
 `;
 
 export const SettingsLinkListThumb = styled.div`
@@ -20,6 +22,7 @@ export const SettingsLinkListThumb = styled.div`
     padding: 24px;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: var(--violet-clr);
   }
 `;
 
