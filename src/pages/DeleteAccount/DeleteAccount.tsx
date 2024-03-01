@@ -1,4 +1,4 @@
-import { auth } from '../firebase-config';
+import { auth } from '../../firebase-config';
 import { User, deleteUser, onAuthStateChanged } from 'firebase/auth';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
@@ -7,13 +7,22 @@ import { useTranslation } from 'react-i18next';
 import {
   failedNotification,
   successNotification,
-} from '../services/notifications';
+} from '../../services/notifications';
 import { useEffect, useState } from 'react';
-import { readData } from '../db/readData';
-import { deleteData } from '../db/deleteData';
-import { logout } from '../auth/logout';
-import { useUser } from '../context/UserContext';
-import { deleteImage } from '../services/image';
+import { readData } from '../../db/readData';
+import { deleteData } from '../../db/deleteData';
+import { logout } from '../../auth/logout';
+import { useUser } from '../../context/UserContext';
+import { deleteImage } from '../../services/image';
+import {
+  DeleteAccountContainer,
+  DeleteAccountThumb,
+  DeleteBtn,
+  DeleteInfoThumb,
+  DeleteInput,
+  DeleteText,
+  DeleteTitle,
+} from './DeleteAccount.styled';
 
 type FormValues = {
   password: string;
@@ -26,6 +35,7 @@ const DeleteAccount = () => {
 
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [databaseUser, setDatabaseUser] = useState<any>({});
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const handleLogOut = () => {
     //firebase
@@ -71,20 +81,33 @@ const DeleteAccount = () => {
     }
   };
   return (
-    <div>
-      <h1>{t('delete.dellaccount')}</h1>
-      <p>{t('delete.dellparagraf')}</p>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          type="password"
-          placeholder="password"
-          {...register('password', {
-            required: true,
-          })}
-        />
-        <button type="submit">{t('delete.confirm')}</button>
-      </form>
-    </div>
+    <DeleteAccountContainer>
+      <DeleteAccountThumb>
+        <DeleteInfoThumb>
+          <DeleteTitle>{t('delete.dellaccount')}</DeleteTitle>
+          <DeleteText>{t('delete.dellparagraf')}</DeleteText>
+        </DeleteInfoThumb>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <DeleteInput
+            type="password"
+            placeholder="password"
+            {...register('password', {
+              required: true,
+            })}
+            onChange={e => {
+              if (e.target.value) {
+                setIsDisabled(false);
+                return;
+              }
+              setIsDisabled(true);
+            }}
+          />
+        </form>
+      </DeleteAccountThumb>
+      <DeleteBtn type="submit" disabled={isDisabled}>
+        {t('delete.confirm')}
+      </DeleteBtn>
+    </DeleteAccountContainer>
   );
 };
 

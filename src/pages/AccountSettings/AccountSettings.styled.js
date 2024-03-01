@@ -5,10 +5,12 @@ export const AccountThumb = styled.div`
   display: flex;
   flex-direction: column;
   gap: 35px;
-  justify-content: center;
   align-items: center;
   @media ${device.tablet} {
     gap: 80px;
+  }
+  @media ${device.desktop} {
+    gap: 150px;
   }
 `;
 
@@ -36,6 +38,9 @@ export const SelectContainer = styled.div`
 
   @media ${device.tablet} {
     width: 636px;
+  }
+  @media ${device.desktop} {
+    width: 845px;
   }
 `;
 
@@ -80,6 +85,10 @@ export const AccountArrowIcon = styled.svg`
 
   @media ${device.tablet} {
     right: 138px;
+    top: 12px;
+  }
+  @media ${device.desktop} {
+    right: 346px;
     top: 12px;
   }
 `;

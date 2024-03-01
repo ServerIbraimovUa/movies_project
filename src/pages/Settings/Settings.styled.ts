@@ -6,8 +6,11 @@ export const SettingsContainer = styled.div`
   padding-top: 60px;
   @media ${device.tablet} {
     display: flex;
-    gap: 45px;
-    min-height: 500px;
+    gap: 50px;
+    min-height: 700px;
+  }
+  @media ${device.desktop} {
+    gap: 130px;
   }
 `;
 

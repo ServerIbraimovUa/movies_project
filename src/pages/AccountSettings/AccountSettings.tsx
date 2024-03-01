@@ -54,7 +54,7 @@ const AccountSettings = () => {
 
   return (
     <AccountThumb>
-      <AccountContainer className="main-container">
+      <AccountContainer>
         <AccountLabel>
           {t('accountsettings.defaultlanguage')}
           <SelectContainer>
