@@ -12,6 +12,7 @@ const UserMenu = () => {
   const { user } = useUser()!;
   const [show, setShow] = useState(false);
   const [databaseUser, setDatabaseUser] = useState<any>({});
+  const isTablet = useMediaQuery({ query: '(min-width: 1024px)' });
 
   useEffect(() => {
     const fetchUserFromDatabase = async () => {
@@ -21,12 +22,7 @@ const UserMenu = () => {
     fetchUserFromDatabase();
   }, [user]);
 
-  const handleShow = () => {
-    if (window.innerWidth <= 1023) {
-      return;
-    }
-    setShow(true);
-  };
+  const handleShow = () => setShow(true);
 
   const handleClose = () => setShow(false);
 
@@ -42,11 +38,13 @@ const UserMenu = () => {
           <ModalImg src={imageUrl ? imageUrl : defaultImg} alt="Avatar" />
         </ButtonAvatar>
 
-        <UserModal
-          close={handleClose}
-          show={show}
-          databaseUser={databaseUser}
-        />
+        {isTablet && (
+          <UserModal
+            close={handleClose}
+            show={show}
+            databaseUser={databaseUser}
+          />
+        )}
       </UserContainer>
     </>
   );
