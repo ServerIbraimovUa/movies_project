@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FavoriteMovie } from "../../../types/movieDetailsTypes";
-import { StyledLi } from "./FavoriteItem.styled";
-import { IconBorder } from "../../Home/HomeListItem/HomeListItem.styled";
+import { Icon, StyledLi } from "./FavoriteItem.styled";
+
+import StarRating from "../../Stars/Stars";
 const BASE_IMG = "https://image.tmdb.org/t/p/w200";
 
 interface FavoriteItemProps {
@@ -16,23 +17,24 @@ const FavoriteItem: FC<FavoriteItemProps> = ({
 }) => {
   const { id, poster_path, vote_average, title, name } = favoriteMovie;
   const location = useLocation();
-  console.log(favoriteMovie);
+
   return (
     <StyledLi>
       <Link to={`/movie/${id}`} state={{ from: location }}>
         <div className="img-wrapper">
           <img src={`${BASE_IMG}${poster_path}`} alt={title ? title : name} />
         </div>
-
         <h2>{title ? title : name}</h2>
-        <p>{vote_average}</p>
+        <div className="star-wrapper">
+          <StarRating rating={vote_average} />
+        </div>
       </Link>
       <div className="wrapper-watch">
         <a className="link" href="#">
           Watch
         </a>
         <button type="button" onClick={() => removeFavoriteById(id)}>
-          <IconBorder />
+          <Icon />
         </button>
       </div>
     </StyledLi>
