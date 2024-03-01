@@ -1,26 +1,25 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useUser } from '../../context/UserContext';
-import { readData } from '../../db/readData';
-import { writeUserData } from '../../db/writeData';
+import { useUser } from '../../../context/UserContext';
+import { readData } from '../../../db/readData';
+import { writeUserData } from '../../../db/writeData';
 import { useNavigate } from 'react-router-dom';
 import {
   failedNotification,
   successNotification,
-} from '../../services/notifications';
+} from '../../../services/notifications';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
-import { CountryHandler } from '../../types/accountSettings';
+import { CountryHandler } from '../../../types/accountSettings';
 import { useTranslation } from 'react-i18next';
 import {
   AccountArrowIcon,
   AccountContainer,
   AccountLabel,
-  AccountSelect,
   AccountThumb,
   SelectContainer,
 } from './AccountSettings.styled';
-import { SaveInfoBtn } from '../EditProfile/EditProfile.styled';
-import icons from '../../assets/images/sprite.svg';
+import icons from '../../../assets/images/sprite.svg';
+import { SettingsSelect, SettingsSubmitBtn } from '../Settings.styled';
 
 const AccountSettings = () => {
   const { t } = useTranslation();
@@ -58,7 +57,8 @@ const AccountSettings = () => {
         <AccountLabel>
           {t('accountsettings.defaultlanguage')}
           <SelectContainer>
-            <AccountSelect
+            <SettingsSelect
+              id="account-select"
               name="language"
               value={databaseUser.language}
               onChange={e =>
@@ -67,7 +67,7 @@ const AccountSettings = () => {
             >
               <option value="en">English</option>
               <option value="ua">Ukrainian</option>
-            </AccountSelect>
+            </SettingsSelect>
             <AccountArrowIcon>
               <use href={`${icons}#icon-down-arrow`}></use>
             </AccountArrowIcon>
@@ -77,7 +77,8 @@ const AccountSettings = () => {
         <AccountLabel>
           {t('accountsettings.defaulttheme')}
           <SelectContainer>
-            <AccountSelect
+            <SettingsSelect
+              id="account-select"
               name="theme"
               value={databaseUser.theme}
               onChange={e =>
@@ -86,7 +87,7 @@ const AccountSettings = () => {
             >
               <option value="dark">Dark</option>
               <option value="light">Light</option>
-            </AccountSelect>
+            </SettingsSelect>
             <AccountArrowIcon>
               <use href={`${icons}#icon-down-arrow`}></use>
             </AccountArrowIcon>
@@ -127,9 +128,9 @@ const AccountSettings = () => {
           </SelectContainer>
         </AccountLabel>
       </AccountContainer>
-      <SaveInfoBtn type="button" onClick={saveAccountSettings}>
+      <SettingsSubmitBtn type="button" onClick={saveAccountSettings}>
         {t('accountsettings.save')}
-      </SaveInfoBtn>
+      </SettingsSubmitBtn>
     </AccountThumb>
   );
 };

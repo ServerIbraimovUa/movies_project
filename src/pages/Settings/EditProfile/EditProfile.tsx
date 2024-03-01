@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import { User, onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../firebase-config';
+import { auth } from '../../../firebase-config';
 
-import PasswordForm from '../../components/EditUser/PasswordForm/PasswordForm';
-import ImageUpload from '../../components/EditUser/ImageUpload/ImageUpload';
-import { upload } from '../../services/image';
-import { writeUserData } from '../../db/writeData';
-import { readData } from '../../db/readData';
+import PasswordForm from '../../../components/EditUser/PasswordForm/PasswordForm';
+import ImageUpload from '../../../components/EditUser/ImageUpload/ImageUpload';
+import { upload } from '../../../services/image';
+import { writeUserData } from '../../../db/writeData';
+import { readData } from '../../../db/readData';
 import {
   failedNotification,
   successNotification,
-} from '../../services/notifications';
+} from '../../../services/notifications';
 import { useNavigate } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
@@ -23,9 +23,7 @@ import {
   NameInput,
   NameLabel,
   PasswordThumb,
-  SaveInfoBtn,
   SelectorsWrap,
-  SexSelect,
   SexThumb,
   SocialNetworksContainer,
   SocialNetworksInput,
@@ -34,7 +32,8 @@ import {
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import icons from '../../assets/images/sprite.svg';
+import icons from '../../../assets/images/sprite.svg';
+import { SettingsSelect, SettingsSubmitBtn } from '../Settings.styled';
 
 type Inputs = {
   name?: string;
@@ -127,7 +126,7 @@ const EditProfile = () => {
                 />
                 <SelectorsWrap>
                   <SexThumb>
-                    <SexSelect
+                    <SettingsSelect
                       value={databaseUser.sex}
                       onChange={e => {
                         setDatabaseUser({
@@ -139,7 +138,7 @@ const EditProfile = () => {
                       <option value="none">{t('edit.none')}</option>
                       <option value="Male">{t('edit.male')}</option>
                       <option value="Female">{t('edit.female')}</option>
-                    </SexSelect>
+                    </SettingsSelect>
                     <ArrowIcon>
                       <use href={`${icons}#icon-down-arrow`}></use>
                     </ArrowIcon>
@@ -147,7 +146,9 @@ const EditProfile = () => {
                   <NameLabel>
                     <NameInput
                       {...register('name')}
-                      className={errors?.name?.message ? 'error' : ''}
+                      className={`${
+                        errors?.name?.message ? 'error' : ''
+                      }  settings-input`}
                       value={databaseUser.username}
                       onChange={e => {
                         setDatabaseUser({
@@ -176,6 +177,7 @@ const EditProfile = () => {
                 return (
                   <label key={el}>
                     <SocialNetworksInput
+                      className="settings-input"
                       name={el}
                       type="url"
                       value={databaseUser.socials?.[el] || ''}
@@ -194,12 +196,12 @@ const EditProfile = () => {
               })}
             </SocialNetworksContainer>
           </div>
-          <SaveInfoBtn
+          <SettingsSubmitBtn
             type="button"
             onClick={handleSubmit(() => saveProfile())}
           >
             {t('edit.save')}
-          </SaveInfoBtn>
+          </SettingsSubmitBtn>
         </EditProfileContainer>
       )}
     </>

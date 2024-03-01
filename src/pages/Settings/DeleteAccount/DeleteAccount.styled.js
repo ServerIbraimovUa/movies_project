@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '../../css/deviceSize';
+import { device } from '../../../css/deviceSize';
 
 export const DeleteAccountContainer = styled.div`
   display: flex;
@@ -75,33 +75,5 @@ export const DeleteInput = styled.input`
 
   @media ${device.desktop} {
     width: 410px;
-  }
-`;
-
-export const DeleteBtn = styled.button`
-  width: 193px;
-  height: 44px;
-  margin-bottom: 60px;
-  font-family: var(--main-font);
-  font-weight: var(--medium-font-weight);
-  line-height: 1.5;
-  border-radius: 12px;
-  background-color: var(--dark-violet-clr);
-  color: var(--text-clr-white);
-  transition: background-color var(--hover-focus-trans);
-
-  &:active {
-    background-color: var(--violet-click);
-  }
-
-  &:disabled {
-    background-color: var(--violet-disabled-clr);
-  }
-
-  @media ${device.tablet} {
-    &:hover,
-    &:focus {
-      background-color: var(--violet-hover);
-    }
   }
 `;

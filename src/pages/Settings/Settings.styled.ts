@@ -91,3 +91,60 @@ export const SettingsLogoutBtnTablet = styled.button`
     border: 2px solid var(--violet-hover);
   }
 `;
+
+export const SettingsSubmitBtn = styled.button`
+  width: 193px;
+  height: 44px;
+  margin-bottom: 60px;
+  font-family: var(--main-font);
+  font-weight: var(--medium-font-weight);
+  line-height: 1.5;
+  border-radius: 12px;
+  background-color: var(--dark-violet-clr);
+  color: var(--text-clr-white);
+  transition: background-color var(--hover-focus-trans);
+
+  &:active {
+    background-color: var(--violet-click);
+  }
+
+  &:disabled {
+    background-color: var(--violet-disabled-clr);
+  }
+
+  @media ${device.tablet} {
+    &:hover,
+    &:focus {
+      background-color: var(--violet-hover);
+    }
+  }
+`;
+
+export const SettingsSelect = styled.select`
+  width: 100%;
+  height: 44px;
+  padding: 0 10px;
+  font-family: var(--main-font);
+  font-size: var(--font-size);
+  color: var(--text-clr-grey);
+  border-color: var(--text-clr-grey);
+  border-radius: 8px;
+  transition: color var(--hover-focus-trans), border var(--hover-focus-trans);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  &:focus-within {
+    outline: none;
+    color: var(--violet-click);
+    border: 1px solid var(--violet-click);
+  }
+
+  @media ${device.tablet} {
+    &:hover,
+    &:focus,
+    &:focus-within {
+      color: var(--violet-hover);
+      border: 1px solid var(--violet-hover);
+    }
+  }
+`;

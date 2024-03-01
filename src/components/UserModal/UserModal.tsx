@@ -11,6 +11,7 @@ import {
   ModalInfoThumb,
   ModalLink,
   ModalSvg,
+  ModalTextSocialsThumb,
   ModalTextThumb,
   ModalThumb,
   ModalTitle,
@@ -49,17 +50,19 @@ const UserModal: FC<IModal> = ({ show, close, databaseUser }) => {
                 width={'150px'}
                 height={'150px'}
               />
-              <ModalTextThumb>
-                <p>
-                  {t('usermodal.name')}: {username}
-                </p>
-                <p>
-                  {t('usermodal.gender')}: {sex}
-                </p>
-                <p>{`Country: ${country ? country.label : 'none'}`}</p>
-              </ModalTextThumb>
+              <ModalTextSocialsThumb>
+                <ModalTextThumb>
+                  <p>
+                    {t('usermodal.name')}: {username}
+                  </p>
+                  <p>
+                    {t('usermodal.gender')}: {sex}
+                  </p>
+                  <p>{`Country: ${country ? country.label : 'none'}`}</p>
+                </ModalTextThumb>
+                {socials && <SocialLink socials={socials} />}
+              </ModalTextSocialsThumb>
             </ModalInfoThumb>
-            {socials && <SocialLink socials={socials} />}
           </ModalThumb>
         </Modal.Body>
       </Modal>

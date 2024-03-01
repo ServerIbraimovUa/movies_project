@@ -1,4 +1,4 @@
-import { auth } from '../../firebase-config';
+import { auth } from '../../../firebase-config';
 import { User, deleteUser, onAuthStateChanged } from 'firebase/auth';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { EmailAuthProvider, reauthenticateWithCredential } from 'firebase/auth';
@@ -7,22 +7,22 @@ import { useTranslation } from 'react-i18next';
 import {
   failedNotification,
   successNotification,
-} from '../../services/notifications';
+} from '../../../services/notifications';
 import { useEffect, useState } from 'react';
-import { readData } from '../../db/readData';
-import { deleteData } from '../../db/deleteData';
-import { logout } from '../../auth/logout';
-import { useUser } from '../../context/UserContext';
-import { deleteImage } from '../../services/image';
+import { readData } from '../../../db/readData';
+import { deleteData } from '../../../db/deleteData';
+import { logout } from '../../../auth/logout';
+import { useUser } from '../../../context/UserContext';
+import { deleteImage } from '../../../services/image';
 import {
   DeleteAccountContainer,
   DeleteAccountThumb,
-  DeleteBtn,
   DeleteInfoThumb,
   DeleteInput,
   DeleteText,
   DeleteTitle,
 } from './DeleteAccount.styled';
+import { SettingsSubmitBtn } from '../Settings.styled';
 
 type FormValues = {
   password: string;
@@ -104,9 +104,9 @@ const DeleteAccount = () => {
           />
         </form>
       </DeleteAccountThumb>
-      <DeleteBtn type="submit" disabled={isDisabled}>
+      <SettingsSubmitBtn type="submit" disabled={isDisabled}>
         {t('delete.confirm')}
-      </DeleteBtn>
+      </SettingsSubmitBtn>
     </DeleteAccountContainer>
   );
 };

@@ -1,0 +1,34 @@
+.settings-input {
+  height: 44px;
+  padding: 0 10px;
+  font-family: var(--main-font);
+  color: var(--text-clr-grey);
+  border: 1px solid var(--text-clr-grey);
+  border-radius: 8px;
+  transition: color var(--hover-focus-trans), border var(--hover-focus-trans);
+}
+
+.settings-input:focus-within {
+  outline: none;
+  color: var(--violet-click);
+  border: 1px solid var(--violet-click);
+}
+
+@media screen and (min-width: 1024px) {
+  .settings-input:hover,
+  .settings-input:focus,
+  .settings-input:focus-within {
+    color: var(--violet-hover);
+    border: 1px solid var(--violet-hover);
+  }
+
+  #account-select {
+    width: 519px;
+  }
+}
+
+.settings-input .error {
+  outline: none;
+  color: var(--text-clr-red);
+  border: 1px solid var(--text-clr-red);
+}

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { device } from '../../css/deviceSize';
+import { device } from '../../../css/deviceSize';
 
 export const AccountThumb = styled.div`
   display: flex;
@@ -41,36 +41,6 @@ export const SelectContainer = styled.div`
   }
   @media ${device.desktop} {
     width: 845px;
-  }
-`;
-
-export const AccountSelect = styled.select`
-  width: 100%;
-  height: 44px;
-  padding: 0 10px 0 20px;
-  font-family: var(--main-font);
-  font-size: var(--font-size);
-  color: var(--text-clr-grey);
-  border-color: var(--text-clr-grey);
-  border-radius: 8px;
-  transition: color var(--hover-focus-trans), border var(--hover-focus-trans);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-  &:focus-within {
-    outline: none;
-    color: var(--violet-click);
-    border: 1px solid var(--violet-click);
-  }
-
-  @media ${device.tablet} {
-    width: 519px;
-    &:hover,
-    &:focus,
-    &:focus-within {
-      color: var(--violet-hover);
-      border: 1px solid var(--violet-hover);
-    }
   }
 `;
 
