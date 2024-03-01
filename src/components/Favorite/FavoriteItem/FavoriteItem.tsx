@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { FavoriteMovie } from "../../../types/movieDetailsTypes";
 import { Icon, StyledLi } from "./FavoriteItem.styled";
 
@@ -30,9 +30,9 @@ const FavoriteItem: FC<FavoriteItemProps> = ({
         </div>
       </Link>
       <div className="wrapper-watch">
-        <a className="link" href="#">
+        <NavLink to={`/movie/${id}`} className="link" >
           Watch
-        </a>
+        </NavLink>
         <button type="button" onClick={() => removeFavoriteById(id)}>
           <Icon />
         </button>
