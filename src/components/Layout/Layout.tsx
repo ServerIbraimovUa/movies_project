@@ -7,11 +7,31 @@ import { ThemeProvider } from "styled-components";
 import Header from "../Header/Header";
 
 
+import './Layout.css';
+import SwitcherTheme from '../SwitcherTheme/SwitcherTheme';
+
+import styled from 'styled-components';
+import icons from '../../assets/images/sprite.svg';
+import { SettingMobModalIcon, SettingMobileModalBtn } from './Layout.styled';
+import SettingsMobModal from '../SettingsMobModal/SettingsMobModal';
+
+const ContainerHeader = styled.div`
+  background-color: ${props => props.theme.primaryColor};
+  color: ${props => props.theme.textColor};
+`;
+
 const Layout: FC = () => {
-  const { theme } = useTheme();
+
+  const { isLoggedIn } = useUser()!;
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => {
+    setShow(true);
+  };
+  const handleClose = () => setShow(false);
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
 
       <header>
         <Header />
@@ -19,9 +39,13 @@ const Layout: FC = () => {
       <main>
         <Outlet />
       </main>
-      <footer>{/* <Footer /> */}</footer>
 
-    </ThemeProvider>
+      <footer>
+        <Footer />
+      </footer>
+      <SettingsMobModal close={handleClose} show={show} />
+      </>
+
   );
 };
 
