@@ -53,7 +53,7 @@ export const DeleteInput = styled.input`
   font-size: var(--font-size);
   text-transform: capitalize;
   color: var(--text-clr-grey);
-  border-color: var(--text-clr-grey);
+  border: 1px solid var(--text-clr-grey);
   border-radius: 8px;
   transition: color var(--hover-focus-trans), border var(--hover-focus-trans);
 
