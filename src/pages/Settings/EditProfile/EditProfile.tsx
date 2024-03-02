@@ -144,6 +144,14 @@ const EditProfile = () => {
                     </ArrowIcon>
                   </SexThumb>
                   <NameLabel>
+                    {errors.name && (
+                      <>
+                        <ErrorInputText>
+                          Only alphabets are allowed for this field. <br />
+                          Use at least 3 letters, but less than 30.
+                        </ErrorInputText>
+                      </>
+                    )}
                     <NameInput
                       {...register('name')}
                       className={`${
@@ -157,16 +165,6 @@ const EditProfile = () => {
                         });
                       }}
                     />
-                    {errors.name && (
-                      <>
-                        <ErrorInputText>
-                          Only alphabets are allowed for this field.
-                        </ErrorInputText>
-                        <ErrorInputText>
-                          Use at least 3 letters, but less than 30.
-                        </ErrorInputText>
-                      </>
-                    )}
                   </NameLabel>
                 </SelectorsWrap>
               </UserInfoWrapper>

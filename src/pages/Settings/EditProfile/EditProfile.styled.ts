@@ -92,8 +92,8 @@ export const ArrowIcon = styled.svg`
 `;
 
 export const NameLabel = styled.label`
+  position: relative;
   width: 268px;
-
   @media ${device.tablet} {
     width: 290px;
   }
@@ -132,6 +132,11 @@ export const SocialNetworksInput = styled.input`
 `;
 
 export const ErrorInputText = styled.p`
+  position: absolute;
+  top: 45px;
+  right: 30px;
+  width: 250px;
+
   font-family: var(--main-font);
   font-size: 12px;
   color: var(--text-clr-red);
