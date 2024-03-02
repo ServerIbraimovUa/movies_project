@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useUser } from '../../../context/UserContext';
 import { writeUserData } from '../../../db/writeData';
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +9,7 @@ import {
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import { CountryHandler } from '../../../types/accountSettings';
+import { UserType } from '../../../types/user';
 import { useTranslation } from 'react-i18next';
 import {
   AccountArrowIcon,
@@ -25,15 +26,21 @@ const AccountSettings = () => {
   const navigate = useNavigate();
   const options = useMemo(() => countryList().getData(), []);
   const { user, databaseUser, setDatabaseUser } = useUser()!;
+  const [userToSave, setUserToSave] = useState({} as UserType);
+
+  useEffect(() => {
+    setUserToSave({ ...databaseUser });
+  }, [databaseUser]);
 
   const changeHandler: CountryHandler = chosenCountry => {
-    setDatabaseUser({ ...databaseUser, country: chosenCountry });
+    setUserToSave({ ...userToSave, country: chosenCountry });
   };
 
   const saveAccountSettings = async () => {
     if (!user) return;
     try {
-      await writeUserData({ ...databaseUser, uid: user.uid });
+      await writeUserData({ ...userToSave, uid: user.uid });
+      setDatabaseUser({ ...userToSave });
       navigate('/');
       successNotification('You have updated your account settings!');
     } catch {
@@ -50,11 +57,11 @@ const AccountSettings = () => {
             <SettingsSelect
               id="account-select"
               name="language"
-              value={databaseUser.language}
+              value={userToSave.language}
               onChange={e => {
                 if (e.target.value === 'ua' || e.target.value === 'en') {
-                  setDatabaseUser({
-                    ...databaseUser,
+                  setUserToSave({
+                    ...userToSave,
                     language: e.target.value,
                   });
                 }
@@ -75,10 +82,10 @@ const AccountSettings = () => {
             <SettingsSelect
               id="account-select"
               name="theme"
-              value={databaseUser.theme}
+              value={userToSave.theme}
               onChange={e => {
                 if (e.target.value === 'dark' || e.target.value === 'light') {
-                  setDatabaseUser({ ...databaseUser, theme: e.target.value });
+                  setUserToSave({ ...userToSave, theme: e.target.value });
                 }
               }}
             >
@@ -115,9 +122,12 @@ const AccountSettings = () => {
                 }),
               }}
               options={options}
-              value={databaseUser.country}
+              value={
+                userToSave?.country?.value !== ''
+                  ? userToSave.country
+                  : 'Select a country'
+              }
               onChange={(e: any) => changeHandler(e)}
-              placeholder="Select a country"
             />
             <AccountArrowIcon>
               <use href={`${icons}#icon-down-arrow`}></use>

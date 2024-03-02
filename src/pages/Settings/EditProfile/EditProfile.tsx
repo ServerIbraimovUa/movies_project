@@ -34,6 +34,7 @@ import * as yup from 'yup';
 import icons from '../../../assets/images/sprite.svg';
 import { SettingsSelect, SettingsSubmitBtn } from '../Settings.styled';
 import { useUser } from '../../../context/UserContext';
+import { UserType } from '../../../types/user';
 
 type Inputs = {
   name?: string;
@@ -54,6 +55,11 @@ const EditProfile = () => {
   const navigate = useNavigate();
   const { user, databaseUser, setDatabaseUser } = useUser()!;
   const [actualUser, setActualUser] = useState<User | null>(null);
+  const [userToSave, setUserToSave] = useState({} as UserType);
+
+  useEffect(() => {
+    setUserToSave({ ...databaseUser });
+  }, [databaseUser]);
 
   const {
     register,
@@ -85,10 +91,11 @@ const EditProfile = () => {
       const avatarPath = `users-images/${user?.uid}`;
       const updatedAvatarURL = await upload(avatarPath, updatedAvatarFile);
 
-      databaseUser.imageUrl = updatedAvatarURL;
+      userToSave.imageUrl = updatedAvatarURL;
     }
     try {
-      await writeUserData({ ...databaseUser, uid: user.uid });
+      await writeUserData({ ...userToSave, uid: user.uid });
+      setDatabaseUser({ ...userToSave });
       navigate('/');
       successNotification('You have updated your profile!');
     } catch {
@@ -98,7 +105,7 @@ const EditProfile = () => {
 
   return (
     <>
-      {databaseUser && (
+      {Object.keys(userToSave).length > 0 && (
         <EditProfileContainer>
           <PasswordThumb>
             <PasswordForm user={actualUser} close={handleClose} show={show} />
@@ -112,17 +119,17 @@ const EditProfile = () => {
               <UserInfoWrapper>
                 <ImageUpload
                   currentAvatarURL={
-                    databaseUser?.imageUrl ? databaseUser?.imageUrl : ''
+                    userToSave?.imageUrl ? userToSave?.imageUrl : ''
                   }
                   onAvatarChanged={file => setUpdatedAvatarFile(file)}
                 />
                 <SelectorsWrap>
                   <SexThumb>
                     <SettingsSelect
-                      value={databaseUser.sex}
+                      value={userToSave.sex}
                       onChange={e => {
-                        setDatabaseUser({
-                          ...databaseUser,
+                        setUserToSave({
+                          ...userToSave,
                           sex: e.target.value,
                         });
                       }}
@@ -149,10 +156,10 @@ const EditProfile = () => {
                       className={`${
                         errors?.name?.message ? 'error' : ''
                       }  settings-input`}
-                      value={databaseUser.username}
+                      value={userToSave.username}
                       onChange={e => {
-                        setDatabaseUser({
-                          ...databaseUser,
+                        setUserToSave({
+                          ...userToSave,
                           username: e.target.value,
                         });
                       }}
@@ -170,13 +177,13 @@ const EditProfile = () => {
                       className="settings-input"
                       name={el}
                       type="url"
-                      value={databaseUser.socials?.[el] || ''}
+                      value={userToSave.socials?.[el] || ''}
                       placeholder={el}
                       onChange={e => {
-                        setDatabaseUser({
-                          ...databaseUser,
-                          socials: databaseUser.socials
-                            ? { ...databaseUser.socials, [el]: e.target.value }
+                        setUserToSave({
+                          ...userToSave,
+                          socials: userToSave.socials
+                            ? { ...userToSave.socials, [el]: e.target.value }
                             : { [el]: e.target.value },
                         });
                       }}
