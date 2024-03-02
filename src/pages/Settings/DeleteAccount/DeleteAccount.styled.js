@@ -4,18 +4,17 @@ import { device } from '../../../css/deviceSize';
 export const DeleteAccountContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 40px;
+  gap: 30px;
 
   @media ${device.tablet} {
-    gap: 65px;
+    gap: 40px;
   }
 `;
 
 export const DeleteAccountThumb = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  align-items: center;
 `;
 
 export const DeleteInfoThumb = styled.div`
@@ -63,6 +62,12 @@ export const DeleteInput = styled.input`
     border: 1px solid var(--violet-click);
   }
 
+  &.error {
+    outline: none;
+    color: var(--text-clr-red);
+    border: 1px solid var(--text-clr-red);
+  }
+
   @media ${device.tablet} {
     width: 472px;
     &:hover,
@@ -75,5 +80,14 @@ export const DeleteInput = styled.input`
 
   @media ${device.desktop} {
     width: 410px;
+  }
+`;
+
+export const DeleteForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  @media ${device.tablet} {
+    gap: 60px;
   }
 `;
