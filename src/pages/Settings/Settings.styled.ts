@@ -113,6 +113,7 @@ export const SettingsSubmitBtn = styled.button`
   }
 
   @media ${device.tablet} {
+    margin-bottom: 0;
     &:hover,
     &:focus {
       background-color: var(--violet-hover);
