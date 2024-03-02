@@ -37,7 +37,13 @@ const Header: FC = () => {
     <>
       <ContainerHeader>
         <NavBar>
-          <SettingMobileModalBtn onClick={handleShow}>
+          <SettingMobileModalBtn
+            onClick={() => {
+              if (isLoggedIn) {
+                handleShow();
+              }
+            }}
+          >
             <SettingMobModalIcon>
               <use href={`${icons}#icon-settings-mob-modal`}></use>
             </SettingMobModalIcon>
