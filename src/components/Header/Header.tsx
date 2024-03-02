@@ -15,7 +15,7 @@ import {
 import SettingsMobModal from '../SettingsMobModal/SettingsMobModal';
 import { useUser } from '../../context/UserContext';
 import Icon from '../Icon/Icon';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import SearchMovies from '../SearchMovies/SearchMovies';
 import { Navbar } from 'react-bootstrap';
@@ -25,6 +25,7 @@ const Header: FC = () => {
   const { isLoggedIn } = useUser()!;
   const [show, setShow] = useState(false);
   const isMobile = useMediaQuery({ query: '(max-width: 1023px)' });
+  const { pathname } = useLocation();
 
   const handleShow = () => {
     setShow(true);
@@ -53,7 +54,8 @@ const Header: FC = () => {
             <Icon className="logo-icon" id="Logo" />
           </Navbar.Brand>
 
-          {isTabletOrDesktop && <SearchMovies />}
+          {isTabletOrDesktop && pathname === '/' && <SearchMovies />}
+
           <SwitcherContainerDesk>
             <SwitcherTheme />
             {isLoggedIn && (

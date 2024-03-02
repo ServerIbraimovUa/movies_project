@@ -6,6 +6,7 @@ export const ContainerHeader = styled.div`
   background-color: ${(props) => props.theme.primaryColor};
   color: ${(props) => props.theme.textColor};
   padding: 10px 0px;
+  overflow-x: hidden;
   .logo-icon {
     width: 80px;
     height: 44px;
