@@ -30,16 +30,11 @@ type FormValues = {
 };
 
 const DeleteAccount = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormValues>();
-  const { logOut } = useUser()!;
+  const { register, handleSubmit } = useForm<FormValues>();
+  const { logOut, databaseUser, setDatabaseUser } = useUser()!;
   const { t } = useTranslation();
 
   const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [databaseUser, setDatabaseUser] = useState<any>({});
   const [isDisabled, setIsDisabled] = useState(true);
   const [isError, setIsError] = useState(false);
 
@@ -62,7 +57,7 @@ const DeleteAccount = () => {
       setDatabaseUser(await readData(auth.currentUser.uid));
     };
     fetchUserFromDatabase();
-  }, [currentUser]);
+  }, [currentUser, setDatabaseUser]);
 
   const navigate = useNavigate();
 

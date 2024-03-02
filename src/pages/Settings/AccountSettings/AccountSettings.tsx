@@ -1,6 +1,5 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useUser } from '../../../context/UserContext';
-import { readData } from '../../../db/readData';
 import { writeUserData } from '../../../db/writeData';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -23,22 +22,13 @@ import { SettingsSelect, SettingsSubmitBtn } from '../Settings.styled';
 
 const AccountSettings = () => {
   const { t } = useTranslation();
-  const [databaseUser, setDatabaseUser] = useState<any>({});
-  const { user } = useUser()!;
   const navigate = useNavigate();
   const options = useMemo(() => countryList().getData(), []);
+  const { user, databaseUser, setDatabaseUser } = useUser()!;
 
-  const changeHandler: CountryHandler = value => {
-    setDatabaseUser({ ...databaseUser, country: value });
+  const changeHandler: CountryHandler = chosenCountry => {
+    setDatabaseUser({ ...databaseUser, country: chosenCountry });
   };
-
-  useEffect(() => {
-    const fetchUserFromDatabase = async () => {
-      if (!user) return;
-      setDatabaseUser(await readData(user.uid));
-    };
-    fetchUserFromDatabase();
-  }, [user]);
 
   const saveAccountSettings = async () => {
     if (!user) return;
@@ -61,9 +51,14 @@ const AccountSettings = () => {
               id="account-select"
               name="language"
               value={databaseUser.language}
-              onChange={e =>
-                setDatabaseUser({ ...databaseUser, language: e.target.value })
-              }
+              onChange={e => {
+                if (e.target.value === 'ua' || e.target.value === 'en') {
+                  setDatabaseUser({
+                    ...databaseUser,
+                    language: e.target.value,
+                  });
+                }
+              }}
             >
               <option value="en">English</option>
               <option value="ua">Ukrainian</option>
@@ -81,9 +76,11 @@ const AccountSettings = () => {
               id="account-select"
               name="theme"
               value={databaseUser.theme}
-              onChange={e =>
-                setDatabaseUser({ ...databaseUser, theme: e.target.value })
-              }
+              onChange={e => {
+                if (e.target.value === 'dark' || e.target.value === 'light') {
+                  setDatabaseUser({ ...databaseUser, theme: e.target.value });
+                }
+              }}
             >
               <option value="dark">Dark</option>
               <option value="light">Light</option>
@@ -119,7 +116,7 @@ const AccountSettings = () => {
               }}
               options={options}
               value={databaseUser.country}
-              onChange={changeHandler}
+              onChange={(e: any) => changeHandler(e)}
               placeholder="Select a country"
             />
             <AccountArrowIcon>

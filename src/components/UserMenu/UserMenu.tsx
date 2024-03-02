@@ -9,9 +9,8 @@ import { useMediaQuery } from 'react-responsive';
 
 //  Коли користувач успішно пройшов реестрацію або логін
 const UserMenu = () => {
-  const { user } = useUser()!;
+  const { user, databaseUser, setDatabaseUser } = useUser()!;
   const [show, setShow] = useState(false);
-  const [databaseUser, setDatabaseUser] = useState<any>({});
   const isTablet = useMediaQuery({ query: '(min-width: 1024px)' });
 
   useEffect(() => {
@@ -20,7 +19,7 @@ const UserMenu = () => {
       setDatabaseUser(await readData(user.uid));
     };
     fetchUserFromDatabase();
-  }, [user]);
+  }, [user, setDatabaseUser]);
 
   const handleShow = () => setShow(true);
 
@@ -38,13 +37,7 @@ const UserMenu = () => {
           <ModalImg src={imageUrl ? imageUrl : defaultImg} alt="Avatar" />
         </ButtonAvatar>
 
-        {isTablet && (
-          <UserModal
-            close={handleClose}
-            show={show}
-            databaseUser={databaseUser}
-          />
-        )}
+        {isTablet && <UserModal close={handleClose} show={show} />}
       </UserContainer>
     </>
   );

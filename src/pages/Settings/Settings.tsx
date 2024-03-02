@@ -1,4 +1,4 @@
-import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useUser } from '../../context/UserContext';
 import { logout } from '../../auth/logout';
@@ -13,12 +13,32 @@ import {
   TabletSettingsList,
 } from './Settings.styled';
 import icons from '../../assets/images/sprite.svg';
+import { useEffect, useState } from 'react';
+import { User, onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../firebase-config';
+import { readData } from '../../db/readData';
 
 const Settings = () => {
   const { t } = useTranslation();
   const { logOut } = useUser()!;
   const navigate = useNavigate();
   const location = useLocation();
+  const { setDatabaseUser } = useUser()!;
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, currentUser => {
+      setUser(currentUser);
+    });
+  }, []);
+
+  useEffect(() => {
+    const fetchUserFromDatabase = async () => {
+      if (!auth.currentUser) return;
+      setDatabaseUser(await readData(auth.currentUser.uid));
+    };
+    fetchUserFromDatabase();
+  }, [user, setDatabaseUser]);
 
   const logoutUserFromSettings = () => {
     //firebase

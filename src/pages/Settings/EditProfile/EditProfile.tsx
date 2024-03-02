@@ -6,7 +6,6 @@ import PasswordForm from '../../../components/EditUser/PasswordForm/PasswordForm
 import ImageUpload from '../../../components/EditUser/ImageUpload/ImageUpload';
 import { upload } from '../../../services/image';
 import { writeUserData } from '../../../db/writeData';
-import { readData } from '../../../db/readData';
 import {
   failedNotification,
   successNotification,
@@ -34,6 +33,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import icons from '../../../assets/images/sprite.svg';
 import { SettingsSelect, SettingsSubmitBtn } from '../Settings.styled';
+import { useUser } from '../../../context/UserContext';
 
 type Inputs = {
   name?: string;
@@ -48,12 +48,12 @@ const schema = yup.object().shape({
 });
 
 const EditProfile = () => {
-  const [user, setUser] = useState<User | null>(null);
   const [show, setShow] = useState(false);
   const [updatedAvatarFile, setUpdatedAvatarFile] = useState<File | null>(null);
-  const [databaseUser, setDatabaseUser] = useState<any>(null);
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { user, databaseUser, setDatabaseUser } = useUser()!;
+  const [actualUser, setActualUser] = useState<User | null>(null);
 
   const {
     register,
@@ -72,17 +72,9 @@ const EditProfile = () => {
 
   useEffect(() => {
     onAuthStateChanged(auth, currentUser => {
-      setUser(currentUser);
+      setActualUser(currentUser);
     });
   }, []);
-
-  useEffect(() => {
-    const fetchUserFromDatabase = async () => {
-      if (!auth.currentUser) return;
-      setDatabaseUser(await readData(auth.currentUser.uid));
-    };
-    fetchUserFromDatabase();
-  }, [user]);
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
@@ -109,7 +101,7 @@ const EditProfile = () => {
       {databaseUser && (
         <EditProfileContainer>
           <PasswordThumb>
-            <PasswordForm user={user} close={handleClose} show={show} />
+            <PasswordForm user={actualUser} close={handleClose} show={show} />
             <ChangePasswordBtn type="button" onClick={handleShow}>
               {t('edit.change')}
             </ChangePasswordBtn>
