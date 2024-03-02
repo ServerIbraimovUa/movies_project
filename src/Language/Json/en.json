@@ -50,13 +50,13 @@
     "user": "User",
     "male": "Male",
     "female": "Female",
-    "submit": "Submit",
+    "submit": "Save",
     "close": "close",
-    "write": "Write your previouse password",
-    "writenew": "Write your new password",
+    "write": "Old password",
+    "writenew": "New password",
     "cancel": "Cancel",
     "none": "None",
-    "if": "If you want to change your password, please, write:",
+    "if": "If you want to charge your password enter your new password in the fled below and click Save",
     "current": "Current user"
   },
   "login": {
