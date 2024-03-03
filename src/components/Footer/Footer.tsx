@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   ButtonWrapper,
   ContainerFooter,
+  FooterLink,
   FooterList,
   IconWrapper,
   InfoWrapper,
@@ -21,60 +21,60 @@ const Footer = () => {
       </LogoWrapper>
       <IconWrapper>
         <li>
-          <a href="https://github.com/">
+          <FooterLink to="https://github.com/">
             <Icon className="github-icon" id="githubf" />
-          </a>
+          </FooterLink>
         </li>
         <li>
-          <a href="https://web.telegram.org/">
+          <FooterLink to="https://web.telegram.org/">
             <Icon className="telegram-icon" id="telegramf" />
-          </a>
+          </FooterLink>
         </li>
         <li>
-          <a href="https://www.facebook.com/">
+          <FooterLink to="https://www.facebook.com/">
             <Icon className="facebook-icon" id="facebookf" />
-          </a>
+          </FooterLink>
         </li>
         <li>
-          <a href="https://www.instagram.com/">
+          <FooterLink to="https://www.instagram.com/">
             <Icon className="circles-icon" id="circlesf" />
-          </a>
+          </FooterLink>
         </li>
         <li>
-          <a href="https://twitter.com/?lang=ru">
+          <FooterLink to="https://twitter.com/?lang=ru">
             <Icon className="cross-icon" id="crossf" />
-          </a>
+          </FooterLink>
         </li>
       </IconWrapper>
 
       <FooterList>
         <li>
-          <Link to="info/about">{t("footer.support")}</Link>
+          <FooterLink to="info/about">{t("footer.about")}</FooterLink>
         </li>
         <li>
-          <Link to="info/about">{t("footer.support")}</Link>
+          <FooterLink to="info/support">{t("footer.support")}</FooterLink>
         </li>
         <li>
-          <Link to="info/faq">{t("footer.faq")}</Link>
+          <FooterLink to="info/faq">{t("footer.faq")}</FooterLink>
         </li>
         <li>
-          <Link to="info/terms">{t("footer.terms")}</Link>
+          <FooterLink to="info/terms">{t("footer.terms")}</FooterLink>
         </li>
         <li>
-          <Link to="info/copyright">{t("footer.copyright")}</Link>
+          <FooterLink to="info/copyright">{t("footer.copyright")}</FooterLink>
         </li>
       </FooterList>
       <hr className="separator" />
 
       <ButtonWrapper>
-        <a href="https://www.apple.com/store">
+        <FooterLink to="https://www.apple.com/store">
           {" "}
           <Icon className="apple-icon" id="apple" />
-        </a>
+        </FooterLink>
 
-        <a href="https://play.google.com/store/games?device=phone">
+        <FooterLink to="https://play.google.com/store/games?device=phone">
           <Icon className="google-icon" id="googlef" />
-        </a>
+        </FooterLink>
       </ButtonWrapper>
       <InfoWrapper>
         <SpanInfo>{t("footer.filmoteka")}</SpanInfo>

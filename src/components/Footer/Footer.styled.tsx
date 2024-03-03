@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { device } from "../../css/deviceSize";
+import { Link } from "react-router-dom";
 
 export const ContainerFooter = styled.div`
   background-color: ${(props) => props.theme.primaryColor};
@@ -23,7 +25,7 @@ export const ContainerFooter = styled.div`
     "bw bw"
     "i i";
 
-  @media screen and (min-width: 1024px) {
+  @media ${device.tablet} {
     padding: 40px 30px;
     row-gap: 45px;
     grid-template-columns: auto auto auto;
@@ -34,7 +36,7 @@ export const ContainerFooter = styled.div`
       "bw bw iw"
       "i i i";
   }
-  @media screen and (min-width: 1440px) {
+  @media ${device.desktop} {
     padding-top: 87px;
     padding-bottom: 30px;
     padding-left: 80px;
@@ -56,6 +58,11 @@ export const IconWrapper = styled.ul`
   gap: 12px;
   justify-content: flex-end;
   align-items: center;
+
+  @media ${device.tablet} {
+    gap: 24px;
+  }
+
   .github-icon,
   .telegram-icon,
   .facebook-icon,
@@ -65,11 +72,13 @@ export const IconWrapper = styled.ul`
     height: 36px;
     fill: transparent;
     stroke: black;
-  }
-  @media screen and (min-width: 1024px) {
-    gap: 24px;
+
+    &:hover {
+      stroke: var(--dark-violet-clr);
+    }
   }
 `;
+
 export const FooterList = styled.ul`
   grid-area: fl;
   display: flex;
@@ -79,17 +88,23 @@ export const FooterList = styled.ul`
   font-size: 20px;
   line-height: 150%;
   letter-spacing: 0.02em;
-  color: var(--text-clr-black);
 
-  @media screen and (min-width: 1024px) {
+  @media ${device.tablet} {
     flex-direction: row;
     gap: 20px;
   }
-  @media screen and (min-width: 1440px) {
+  @media ${device.desktop} {
     gap: 62px;
   }
 `;
 
+export const FooterLink = styled(Link)`
+  &:hover,
+  &:focus,
+  &:active {
+    color: var(--dark-violet-clr);
+  }
+`;
 export const ButtonWrapper = styled.div`
   display: flex;
   gap: 20px;
@@ -103,7 +118,7 @@ export const ButtonWrapper = styled.div`
     border: 1px solid var(--text-clr-black);
   }
 
-  @media screen and (min-width: 1024px) {
+  @media ${device.tablet} {
     gap: 16px;
   }
 `;
@@ -115,7 +130,7 @@ export const InfoWrapper = styled.div`
   align-items: center;
   gap: 12px;
 
-  @media screen and (min-width: 1440px) {
+  @media ${device.desktop} {
     margin-top: 38px;
   }
 `;

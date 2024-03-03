@@ -16,7 +16,7 @@ export const ContainerHeader = styled.div`
     padding: 0;
     margin: 0;
   }
-  @media screen and (min-width: 1024px) {
+  @media ${device.tablet} {
     padding: 30px;
   }
 `;
@@ -52,7 +52,7 @@ export const SwitcherContainerMob = styled.div`
     width: 44px;
     height: 30px;
   }
-  @media screen and (min-width: 1024px) {
+  @media ${device.tablet} {
     display: none;
   }
 `;
@@ -65,7 +65,7 @@ export const SwitcherContainerDesk = styled.div`
     width: 44px;
     height: 44px;
   }
-  @media screen and (min-width: 1024px) {
+  @media ${device.tablet} {
     gap: 24px;
     margin-right: 24px;
     display: flex;

@@ -1,21 +1,17 @@
 import React, { FC } from "react";
 import { Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import { Description, Title } from "./Info.styled";
 
 const Copyright: FC = () => {
   const { t } = useTranslation();
   return (
-    <>      
-        <Container>
-          <h1>{t("copyright.copyright")}</h1>
-          <p>
-          {t("copyright.video")}
-          </p>
-          <p>
-          {t("copyright.complaint")}
-          </p>
-        </Container>
-     
+    <>
+      <Container className="info-container">
+        <Title>{t("copyright.copyright")}</Title>
+        <Description>{t("copyright.video")}</Description>
+        <Description>{t("copyright.complaint")}</Description>
+      </Container>
     </>
   );
 };
