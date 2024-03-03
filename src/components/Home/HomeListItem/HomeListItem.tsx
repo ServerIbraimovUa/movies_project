@@ -56,58 +56,56 @@ const HomeListItem: FC<HomeListItemProps> = ({
   });
 
   return (
-    <li>
-      <Info>
-        <ContentWrapper>
-          <Link to={`/movie/${id}`} state={{ from: location }}>
-            <CardImg src={`${BASE_IMG}${poster_path}`} alt={title} />
-          </Link>
+    <Info>
+      <ContentWrapper>
+        <Link to={`/movie/${id}`} state={{ from: location }}>
+          <CardImg src={`${BASE_IMG}${poster_path}`} alt={title} />
+        </Link>
 
-          <Title>{name || title}</Title>
-          <StarWrapper>
-            <StarRating rating={vote_average} />
-          </StarWrapper>
-          <SubTitle>
-            {t("home.year")}{" "}
-            <Content>
-              {(release_date || first_air_date) &&
-                (release_date?.substring(0, 4) ||
-                  first_air_date?.substring(0, 4))}
-            </Content>
-          </SubTitle>
-          <GenresWrapper>
-            <SubTitle>{t("home.genre")} </SubTitle>
-            {genresName && (
-              <GenresList>
-                {genresName.map((g) => (
-                  <li key={g?.id}>{g?.name},</li>
-                ))}
-              </GenresList>
-            )}
-          </GenresWrapper>
-          <SubTitle>
-            {t("home.language")} <Content>{original_language}</Content>
-          </SubTitle>
-          <SubTitle>{t("home.description")}</SubTitle>
-          <Content>{overview && overview.substring(0, 100) + "..."}</Content>
-        </ContentWrapper>
-        <ButtonWrapper>
-          <WatchButton to={`/movie/${id}`} state={{ from: location }}>
-            {t("home.watch")}
-          </WatchButton>
-
-          {!isFavorite ? (
-            <Button type="button" onClick={() => addFavorite(id)}>
-              <IconBorder />
-            </Button>
-          ) : (
-            <Button type="button" onClick={() => removeFavorite(id)}>
-              <Icon />
-            </Button>
+        <Title>{name || title}</Title>
+        <StarWrapper>
+          <StarRating rating={vote_average} />
+        </StarWrapper>
+        <SubTitle>
+          {t("home.year")}{" "}
+          <Content>
+            {(release_date || first_air_date) &&
+              (release_date?.substring(0, 4) ||
+                first_air_date?.substring(0, 4))}
+          </Content>
+        </SubTitle>
+        <GenresWrapper>
+          <SubTitle>{t("home.genre")} </SubTitle>
+          {genresName && (
+            <GenresList>
+              {genresName.map((g) => (
+                <li key={g?.id}>{g?.name},</li>
+              ))}
+            </GenresList>
           )}
-        </ButtonWrapper>
-      </Info>
-    </li>
+        </GenresWrapper>
+        <SubTitle>
+          {t("home.language")} <Content>{original_language}</Content>
+        </SubTitle>
+        <SubTitle>{t("home.description")}</SubTitle>
+        <Content>{overview && overview.substring(0, 100) + "..."}</Content>
+      </ContentWrapper>
+      <ButtonWrapper>
+        <WatchButton to={`/movie/${id}`} state={{ from: location }}>
+          {t("home.watch")}
+        </WatchButton>
+
+        {!isFavorite ? (
+          <Button type="button" onClick={() => addFavorite(id)}>
+            <IconBorder />
+          </Button>
+        ) : (
+          <Button type="button" onClick={() => removeFavorite(id)}>
+            <Icon />
+          </Button>
+        )}
+      </ButtonWrapper>
+    </Info>
   );
 };
 
