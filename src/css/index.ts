@@ -148,9 +148,10 @@ main {
   overflow: hidden;
 }
 
-.main-container {
+.main-container, .info-container {
   width: 100%;
   margin: 0 auto; 
+ 
   
   @media ${device.mobile} {
         max-width: 398px;
@@ -164,5 +165,10 @@ main {
     @media ${device.desktop} {        
         max-width: 1280px;       
       }
+}
+
+.info-container{
+  padding-top: 42px;
+  height: 100vh;
 }
 `;

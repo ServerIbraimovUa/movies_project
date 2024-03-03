@@ -1,116 +1,119 @@
 import React, { FC } from "react";
 import { Container } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import {
+  Description,
+  ListFaq,
+  ListFaqItem,
+  SubTitle,
+  Title,
+  WellcomeDescr,
+} from "./Info.styled";
 
 const TermsOfUse: FC = () => {
   const { t } = useTranslation();
   return (
-    <>      
-        <Container>
-        <h1>{t("terms.termstitle")}</h1>
-          <h2>{t("terms.termswelcome")}</h2>
-            <p>
-            {t("terms.termsdear")}
+    <>
+      <Container className="main-container">
+        <Title>{t("terms.termstitle")}</Title>
+        <WellcomeDescr>{t("terms.termswelcome")}</WellcomeDescr>
+        <Description>{t("terms.termsdear")}</Description>
+        <Description>{t("terms.termspleace")}</Description>
+        <SubTitle>{t("terms.termsand")}</SubTitle>
 
-            {t("terms.termspleace")}
-            </p>
-            <h2>{t("terms.termsand")}</h2>
-            <p>
-            {t("terms.termsone")}
+        <ListFaq>
+          <ListFaqItem>{t("terms.termsone")}</ListFaqItem>
 
-            {t("terms.termstwo")}
+          <ListFaqItem>{t("terms.termstwo")}</ListFaqItem>
 
-            {t("terms.termsthre")}
+          <ListFaqItem>{t("terms.termsthre")}</ListFaqItem>
 
-            {t("terms.termsfour")}
+          <ListFaqItem>{t("terms.termsfour")}</ListFaqItem>
 
-            {t("terms.termsfive")}
+          <ListFaqItem>{t("terms.termsfive")}</ListFaqItem>
 
-            {t("terms.termssix")}
+          <ListFaqItem>{t("terms.termssix")}</ListFaqItem>
 
-            {t("terms.termsseven")}
+          <ListFaqItem>{t("terms.termsseven")}</ListFaqItem>
 
-            {t("terms.termseight")}
-            </p>
-          <h2>{t("terms.copyrighttitle")}</h2>
-          <p>
-          {t("terms.copyrightone")}
+          <ListFaqItem>{t("terms.termseight")}</ListFaqItem>
+        </ListFaq>
 
-          {t("terms.copyrighttwo")}
+        <SubTitle>{t("terms.copyrighttitle")}</SubTitle>
+        <ListFaq>
+          <ListFaqItem>{t("terms.copyrightone")}</ListFaqItem>
 
-          {t("terms.copyrighttwo")}
+          <ListFaqItem>{t("terms.copyrighttwo")}</ListFaqItem>
 
-          {t("terms.copyrightfour")}
+          <ListFaqItem>{t("terms.copyrighttwo")}</ListFaqItem>
 
-          {t("terms.copyrightfive")}
+          <ListFaqItem>{t("terms.copyrightfour")}</ListFaqItem>
 
-          {t("terms.copyrightsix")}
+          <ListFaqItem>{t("terms.copyrightfive")}</ListFaqItem>
 
-          {t("terms.copyrightseven")}
-          </p>
-          <h2>{t("terms.contentstitle")}</h2>
-          <p>
-          {t("terms.contentsone")}
+          <ListFaqItem>{t("terms.copyrightsix")}</ListFaqItem>
 
-          {t("terms.contentstwo")}
+          <ListFaqItem>{t("terms.copyrightseven")}</ListFaqItem>
+        </ListFaq>
+        <SubTitle>{t("terms.contentstitle")}</SubTitle>
+        <ListFaq>
+          <ListFaqItem>{t("terms.contentsone")}</ListFaqItem>
 
-          {t("terms.contentsthre")}
+          <ListFaqItem>{t("terms.contentstwo")}</ListFaqItem>
 
-          {t("terms.contentsfour")}
-            
-          {t("terms.contentsfive")}
+          <ListFaqItem>{t("terms.contentsthre")}</ListFaqItem>
 
-          {t("terms.contentssix")}
+          <ListFaqItem>{t("terms.contentsfour")}</ListFaqItem>
 
-          {t("terms.contentsseven")}
+          <ListFaqItem>{t("terms.contentsfive")}</ListFaqItem>
 
-          {t("terms.contentseight")}
+          <ListFaqItem>{t("terms.contentssix")}</ListFaqItem>
 
-          {t("terms.contentsnine")}
+          <ListFaqItem>{t("terms.contentsseven")}</ListFaqItem>
 
-          {t("terms.contentsnote")}
-          </p>
-          <h2>{t("terms.usetitle")}</h2>
-          <p>
-          
-          {t("terms.useone")}
+          <ListFaqItem>{t("terms.contentseight")}</ListFaqItem>
 
-          {t("terms.usetwo")}
+          <ListFaqItem>{t("terms.contentsnine")}</ListFaqItem>
 
-          {t("terms.usethre")}
+          <ListFaqItem>{t("terms.contentsnote")}</ListFaqItem>
+        </ListFaq>
+        <SubTitle>{t("terms.usetitle")}</SubTitle>
+        <ListFaq>
+          <ListFaqItem>{t("terms.useone")}</ListFaqItem>
 
-          {t("terms.usefour")}
+          <ListFaqItem>{t("terms.usetwo")}</ListFaqItem>
 
-          {t("terms.usefive")}
+          <ListFaqItem>{t("terms.usethre")}</ListFaqItem>
 
+          <ListFaqItem>{t("terms.usefour")}</ListFaqItem>
 
-          {t("terms.usesix")}
+          <ListFaqItem>{t("terms.usefive")}</ListFaqItem>
 
-          {t("terms.useseven")}
+          <ListFaqItem>{t("terms.usesix")}</ListFaqItem>
 
-          {t("terms.useeight")}
+          <ListFaqItem>{t("terms.useseven")}</ListFaqItem>
 
-          {t("terms.usenine")}
+          <ListFaqItem>{t("terms.useeight")}</ListFaqItem>
 
-          {t("terms.useten")}
+          <ListFaqItem>{t("terms.usenine")}</ListFaqItem>
 
-          {t("terms.useeleven")}
-          
-          {t("terms.usetwelve")}
+          <ListFaqItem>{t("terms.useten")}</ListFaqItem>
 
-         {t("terms.usethirteen")}
+          <ListFaqItem>{t("terms.useeleven")}</ListFaqItem>
 
-          {t("terms.usefourteen")}
+          <ListFaqItem>{t("terms.usetwelve")}</ListFaqItem>
 
-           {t("terms.usefiveteen")}
+          <ListFaqItem>{t("terms.usethirteen")}</ListFaqItem>
 
-            {t("terms.usesixteen")}
+          <ListFaqItem>{t("terms.usefourteen")}</ListFaqItem>
 
-          {t("terms.useseventeen")}
-          </p>
-        </Container>
-        
-     
+          <ListFaqItem>{t("terms.usefiveteen")}</ListFaqItem>
+
+          <ListFaqItem>{t("terms.usesixteen")}</ListFaqItem>
+
+          <ListFaqItem>{t("terms.useseventeen")}</ListFaqItem>
+        </ListFaq>
+      </Container>
     </>
   );
 };

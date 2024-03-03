@@ -2,8 +2,23 @@ import { FC } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { IGenres, Movies } from "../../../types/homeTypes";
 import { useTranslation } from "react-i18next";
-import { Button, ButtonWrapper, CardImg, Content, ContentWrapper, GenresList, GenresWrapper, Icon, IconBorder, Info, SubTitle, Title, WatchButton } from "./HomeListItem.styled";
-
+import {
+  Button,
+  ButtonWrapper,
+  CardImg,
+  Content,
+  ContentWrapper,
+  GenresList,
+  GenresWrapper,
+  Icon,
+  IconBorder,
+  Info,
+  StarWrapper,
+  SubTitle,
+  Title,
+  WatchButton,
+} from "./HomeListItem.styled";
+import StarRating from "../../Stars/Stars";
 
 const BASE_IMG = "https://image.tmdb.org/t/p/w200";
 
@@ -29,8 +44,7 @@ const HomeListItem: FC<HomeListItemProps> = ({
   removeFavorite,
   isFavorite,
   genres,
-  original_language
-
+  original_language,
 }) => {
   const { t } = useTranslation();
   const location = useLocation();
@@ -42,55 +56,57 @@ const HomeListItem: FC<HomeListItemProps> = ({
   });
 
   return (
-   
     <li>
-       <Info>
+      <Info>
         <ContentWrapper>
-      <Link to={`/movie/${id}`} state={{ from: location }}>        
-          <CardImg src={`${BASE_IMG}${poster_path}`} alt={title} />       
-      </Link>
-  
-        <Title>{name || title}</Title>
-        <SubTitle>
-          {t("home.year")}{" "}
-        <Content>
-          {(release_date || first_air_date) &&
-            (release_date?.substring(0, 4) || first_air_date?.substring(0, 4))}
-        </Content>
-        </SubTitle>
-        <GenresWrapper>    
-          <SubTitle>{t("home.genre")}{" "}</SubTitle>
-          {genresName && (
-            <GenresList>
-              {genresName.map((g) => (
-                <li key={g?.id}>{g?.name},</li>
-              ))}
-            </GenresList>
-          )}
-        </GenresWrapper>  
-        <SubTitle>
-          {t("home.language")}{" "}
-        <Content>{ original_language}</Content>
-        </SubTitle>
-        <SubTitle>{t("home.description")}</SubTitle>
-        <Content>{overview && overview.substring(0,100)+"..."}</Content>
+          <Link to={`/movie/${id}`} state={{ from: location }}>
+            <CardImg src={`${BASE_IMG}${poster_path}`} alt={title} />
+          </Link>
+
+          <Title>{name || title}</Title>
+          <StarWrapper>
+            <StarRating rating={vote_average} />
+          </StarWrapper>
+          <SubTitle>
+            {t("home.year")}{" "}
+            <Content>
+              {(release_date || first_air_date) &&
+                (release_date?.substring(0, 4) ||
+                  first_air_date?.substring(0, 4))}
+            </Content>
+          </SubTitle>
+          <GenresWrapper>
+            <SubTitle>{t("home.genre")} </SubTitle>
+            {genresName && (
+              <GenresList>
+                {genresName.map((g) => (
+                  <li key={g?.id}>{g?.name},</li>
+                ))}
+              </GenresList>
+            )}
+          </GenresWrapper>
+          <SubTitle>
+            {t("home.language")} <Content>{original_language}</Content>
+          </SubTitle>
+          <SubTitle>{t("home.description")}</SubTitle>
+          <Content>{overview && overview.substring(0, 100) + "..."}</Content>
         </ContentWrapper>
         <ButtonWrapper>
-        <WatchButton to={`/movie/${id}`} state={{ from: location }}>
-        {t("home.watch")}
-        </WatchButton>
-        
-        {!isFavorite ? (
-          <Button type="button" onClick={() => addFavorite(id)}>
-            <IconBorder/>
-          </Button>
-        ) : (
-          <Button type="button" onClick={() => removeFavorite(id)}>
-            <Icon />
-          </Button>
-        )}
-      </ButtonWrapper>
-    </Info>
+          <WatchButton to={`/movie/${id}`} state={{ from: location }}>
+            {t("home.watch")}
+          </WatchButton>
+
+          {!isFavorite ? (
+            <Button type="button" onClick={() => addFavorite(id)}>
+              <IconBorder />
+            </Button>
+          ) : (
+            <Button type="button" onClick={() => removeFavorite(id)}>
+              <Icon />
+            </Button>
+          )}
+        </ButtonWrapper>
+      </Info>
     </li>
   );
 };

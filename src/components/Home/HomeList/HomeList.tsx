@@ -3,7 +3,6 @@ import React, { FC, useEffect, useState } from "react";
 import HomeListItem from "../HomeListItem/HomeListItem";
 import { IGenres, Movies } from "../../../types/homeTypes";
 import { List } from "./HomeList.styled";
-import SearchMovies from "../../SearchMovies/SearchMovies";
 
 interface HomeListProps {
   movies: Movies[];
