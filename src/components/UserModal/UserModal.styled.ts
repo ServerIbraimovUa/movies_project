@@ -87,6 +87,10 @@ export const SocialsList = styled.ul`
 export const SocialMediaItem = styled.li`
   width: 35px;
   height: 35px;
+
+  &.empty {
+    display: none;
+  }
 `;
 
 export const SocialMediaLink = styled.a`
