@@ -27,12 +27,13 @@ const getIcon = (name: string) => {
 export const SocialLink: FC<ISocialLink> = ({ socials }) => {
   return (
     <div>
-      <SocialsList key={`${nanoid()}`}>
+      <SocialsList>
         {Object.keys(socials).map(linkName => {
           return (
             <>
               {socials[linkName] && (
                 <SocialMediaItem
+                  key={`${nanoid()}`}
                   className={`${linkName === '' ? 'empty' : ''}`}
                 >
                   <SocialMediaLink
