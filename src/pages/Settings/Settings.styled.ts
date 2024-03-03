@@ -3,10 +3,15 @@ import { device } from '../../css/deviceSize';
 import { NavLink } from 'react-router-dom';
 
 export const SettingsContainer = styled.div`
-  display: flex;
-  gap: 45px;
-  min-height: 500px;
   padding-top: 60px;
+  @media ${device.tablet} {
+    display: flex;
+    gap: 50px;
+    min-height: 700px;
+  }
+  @media ${device.desktop} {
+    gap: 130px;
+  }
 `;
 
 export const SettingsLinkListThumb = styled.div`
@@ -20,6 +25,7 @@ export const SettingsLinkListThumb = styled.div`
     padding: 24px;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: var(--violet-clr);
   }
 `;
 
@@ -83,5 +89,63 @@ export const SettingsLogoutBtnTablet = styled.button`
   &:focus {
     color: var(--violet-hover);
     border: 2px solid var(--violet-hover);
+  }
+`;
+
+export const SettingsSubmitBtn = styled.button`
+  width: 193px;
+  height: 44px;
+  margin-bottom: 60px;
+  font-family: var(--main-font);
+  font-weight: var(--medium-font-weight);
+  line-height: 1.5;
+  border-radius: 12px;
+  background-color: var(--dark-violet-clr);
+  color: var(--text-clr-white);
+  transition: background-color var(--hover-focus-trans);
+
+  &:active {
+    background-color: var(--violet-click);
+  }
+
+  &:disabled {
+    background-color: var(--violet-disabled-clr);
+  }
+
+  @media ${device.tablet} {
+    margin-bottom: 0;
+    &:hover,
+    &:focus {
+      background-color: var(--violet-hover);
+    }
+  }
+`;
+
+export const SettingsSelect = styled.select`
+  width: 100%;
+  height: 44px;
+  padding: 0 10px;
+  font-family: var(--main-font);
+  font-size: var(--font-size);
+  color: var(--text-clr-grey);
+  border-color: var(--text-clr-grey);
+  border-radius: 8px;
+  transition: color var(--hover-focus-trans), border var(--hover-focus-trans);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  &:focus-within {
+    outline: none;
+    color: var(--violet-click);
+    border: 1px solid var(--violet-click);
+  }
+
+  @media ${device.tablet} {
+    &:hover,
+    &:focus,
+    &:focus-within {
+      color: var(--violet-hover);
+      border: 1px solid var(--violet-hover);
+    }
   }
 `;

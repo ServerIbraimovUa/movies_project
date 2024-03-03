@@ -20,7 +20,6 @@ import AboutProject from "./Info/AboutProject";
 import Copyright from "./Info/Copyright";
 import FAQ from "./Info/FAQ";
 import { PublicRoute } from "./PublicRoute/PublicRoute";
-import SupportProject from "./Info/SupportProject";
 
 function App() {
   return (

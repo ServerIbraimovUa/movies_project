@@ -28,5 +28,5 @@ export interface IImageUpload {
 export interface ISocials {
   el: string;
   databaseUser: UserType;
-  setDatabaseUser: (object: object) => void;
+  setDatabaseUser: (object: UserType) => void;
 }

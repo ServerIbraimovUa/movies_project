@@ -5,9 +5,11 @@ export interface UserType {
   username: string;
   theme: 'light' | 'dark';
   language: 'ua' | 'en';
-  country?: object;
+  country?: { value: string; label: string };
   sex?: string;
   favorites?: FavoriteMovie[];
   imageUrl?: string;
-  socials?: object;
+  socials?: {
+    [key: string]: string;
+  };
 }

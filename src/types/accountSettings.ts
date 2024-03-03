@@ -1,3 +1,3 @@
 export type CountryHandler = {
-  (value: object): void;
+  (chosenCountry: { value: string; label: string }): void;
 };
