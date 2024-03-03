@@ -11,15 +11,17 @@ import Settings from "../pages/Settings/Settings";
 
 import { PrivateRoute } from "./PrivateRoute/PrivateRoute";
 import ActorPage from "../pages/ActorPage/ActorPage";
-import EditProfile from "../pages/EditProfile/EditProfile";
-import AccountSettings from "../pages/AccountSettings";
-import DeleteAccount from "../pages/DeleteAccount";
+
 import InfoPage from "../pages/InfoPage";
 import TermsOfUse from "./Info/TermsOfUse";
 import AboutProject from "./Info/AboutProject";
 import Copyright from "./Info/Copyright";
 import FAQ from "./Info/FAQ";
 import { PublicRoute } from "./PublicRoute/PublicRoute";
+import SupportProject from "./Info/SupportProject";
+import EditProfile from "../pages/Settings/EditProfile/EditProfile";
+import AccountSettings from "../pages/Settings/AccountSettings/AccountSettings";
+import DeleteAccount from "../pages/Settings/DeleteAccount/DeleteAccount";
 
 function App() {
   return (

@@ -57,9 +57,8 @@ const HomeList: FC<HomeListProps> = ({ movies, genres }) => {
           original_language,
         } = movie;
         return (
-          <>
+          <li key={id}>
             <HomeListItem
-              key={id}
               title={title}
               name={name}
               vote_average={vote_average}
@@ -76,7 +75,7 @@ const HomeList: FC<HomeListProps> = ({ movies, genres }) => {
               genres={genres}
               original_language={original_language}
             />
-          </>
+          </li>
         );
       })}
     </List>
