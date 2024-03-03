@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
 import { User, onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../firebase-config';
+import { auth } from '../../../firebase-config';
 
-import PasswordForm from '../../components/EditUser/PasswordForm/PasswordForm';
-import ImageUpload from '../../components/EditUser/ImageUpload/ImageUpload';
-import { upload } from '../../services/image';
-import { writeUserData } from '../../db/writeData';
-import { readData } from '../../db/readData';
+import PasswordForm from '../../../components/EditUser/PasswordForm/PasswordForm';
+import ImageUpload from '../../../components/EditUser/ImageUpload/ImageUpload';
+import { upload } from '../../../services/image';
+import { writeUserData } from '../../../db/writeData';
 import {
   failedNotification,
   successNotification,
-} from '../../services/notifications';
+} from '../../../services/notifications';
 import { useNavigate } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
@@ -23,9 +22,7 @@ import {
   NameInput,
   NameLabel,
   PasswordThumb,
-  SaveProfileInfoBtn,
   SelectorsWrap,
-  SexSelect,
   SexThumb,
   SocialNetworksContainer,
   SocialNetworksInput,
@@ -34,7 +31,10 @@ import {
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import icons from '../../assets/images/sprite.svg';
+import icons from '../../../assets/images/sprite.svg';
+import { SettingsSelect, SettingsSubmitBtn } from '../Settings.styled';
+import { useUser } from '../../../context/UserContext';
+import { UserType } from '../../../types/user';
 
 type Inputs = {
   name?: string;
@@ -49,12 +49,17 @@ const schema = yup.object().shape({
 });
 
 const EditProfile = () => {
-  const [user, setUser] = useState<User | null>(null);
   const [show, setShow] = useState(false);
   const [updatedAvatarFile, setUpdatedAvatarFile] = useState<File | null>(null);
-  const [databaseUser, setDatabaseUser] = useState<any>(null);
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { user, databaseUser, setDatabaseUser } = useUser()!;
+  const [actualUser, setActualUser] = useState<User | null>(null);
+  const [userToSave, setUserToSave] = useState({} as UserType);
+
+  useEffect(() => {
+    setUserToSave({ ...databaseUser });
+  }, [databaseUser]);
 
   const {
     register,
@@ -73,17 +78,9 @@ const EditProfile = () => {
 
   useEffect(() => {
     onAuthStateChanged(auth, currentUser => {
-      setUser(currentUser);
+      setActualUser(currentUser);
     });
   }, []);
-
-  useEffect(() => {
-    const fetchUserFromDatabase = async () => {
-      if (!auth.currentUser) return;
-      setDatabaseUser(await readData(auth.currentUser.uid));
-    };
-    fetchUserFromDatabase();
-  }, [user]);
 
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
@@ -94,10 +91,11 @@ const EditProfile = () => {
       const avatarPath = `users-images/${user?.uid}`;
       const updatedAvatarURL = await upload(avatarPath, updatedAvatarFile);
 
-      databaseUser.imageUrl = updatedAvatarURL;
+      userToSave.imageUrl = updatedAvatarURL;
     }
     try {
-      await writeUserData({ ...databaseUser, uid: user.uid });
+      await writeUserData({ ...userToSave, uid: user.uid });
+      setDatabaseUser({ ...userToSave });
       navigate('/');
       successNotification('You have updated your profile!');
     } catch {
@@ -107,10 +105,10 @@ const EditProfile = () => {
 
   return (
     <>
-      {databaseUser && (
+      {Object.keys(userToSave).length > 0 && (
         <EditProfileContainer>
           <PasswordThumb>
-            <PasswordForm user={user} close={handleClose} show={show} />
+            <PasswordForm user={actualUser} close={handleClose} show={show} />
             <ChangePasswordBtn type="button" onClick={handleShow}>
               {t('edit.change')}
             </ChangePasswordBtn>
@@ -121,17 +119,17 @@ const EditProfile = () => {
               <UserInfoWrapper>
                 <ImageUpload
                   currentAvatarURL={
-                    databaseUser?.imageUrl ? databaseUser?.imageUrl : ''
+                    userToSave?.imageUrl ? userToSave?.imageUrl : ''
                   }
                   onAvatarChanged={file => setUpdatedAvatarFile(file)}
                 />
                 <SelectorsWrap>
                   <SexThumb>
-                    <SexSelect
-                      value={databaseUser.sex}
+                    <SettingsSelect
+                      value={userToSave.sex}
                       onChange={e => {
-                        setDatabaseUser({
-                          ...databaseUser,
+                        setUserToSave({
+                          ...userToSave,
                           sex: e.target.value,
                         });
                       }}
@@ -139,33 +137,33 @@ const EditProfile = () => {
                       <option value="none">{t('edit.none')}</option>
                       <option value="Male">{t('edit.male')}</option>
                       <option value="Female">{t('edit.female')}</option>
-                    </SexSelect>
+                    </SettingsSelect>
                     <ArrowIcon>
                       <use href={`${icons}#icon-down-arrow`}></use>
                     </ArrowIcon>
                   </SexThumb>
                   <NameLabel>
-                    <NameInput
-                      {...register('name')}
-                      className={errors?.name?.message ? 'error' : ''}
-                      value={databaseUser.username}
-                      onChange={e => {
-                        setDatabaseUser({
-                          ...databaseUser,
-                          username: e.target.value,
-                        });
-                      }}
-                    />
                     {errors.name && (
                       <>
                         <ErrorInputText>
-                          Only alphabets are allowed for this field.
-                        </ErrorInputText>
-                        <ErrorInputText>
+                          Only alphabets are allowed for this field. <br />
                           Use at least 3 letters, but less than 30.
                         </ErrorInputText>
                       </>
                     )}
+                    <NameInput
+                      {...register('name')}
+                      className={`${
+                        errors?.name?.message ? 'error' : ''
+                      }  settings-input`}
+                      value={userToSave.username}
+                      onChange={e => {
+                        setUserToSave({
+                          ...userToSave,
+                          username: e.target.value,
+                        });
+                      }}
+                    />
                   </NameLabel>
                 </SelectorsWrap>
               </UserInfoWrapper>
@@ -176,15 +174,16 @@ const EditProfile = () => {
                 return (
                   <label key={el}>
                     <SocialNetworksInput
+                      className="settings-input"
                       name={el}
                       type="url"
-                      value={databaseUser.socials?.[el] || ''}
+                      value={userToSave.socials?.[el] || ''}
                       placeholder={el}
                       onChange={e => {
-                        setDatabaseUser({
-                          ...databaseUser,
-                          socials: databaseUser.socials
-                            ? { ...databaseUser.socials, [el]: e.target.value }
+                        setUserToSave({
+                          ...userToSave,
+                          socials: userToSave.socials
+                            ? { ...userToSave.socials, [el]: e.target.value }
                             : { [el]: e.target.value },
                         });
                       }}
@@ -194,12 +193,12 @@ const EditProfile = () => {
               })}
             </SocialNetworksContainer>
           </div>
-          <SaveProfileInfoBtn
+          <SettingsSubmitBtn
             type="button"
             onClick={handleSubmit(() => saveProfile())}
           >
             {t('edit.save')}
-          </SaveProfileInfoBtn>
+          </SettingsSubmitBtn>
         </EditProfileContainer>
       )}
     </>

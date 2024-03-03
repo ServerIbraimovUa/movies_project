@@ -78,7 +78,13 @@ const SettingsMobModal: FC<ISettings> = ({ show, close }) => {
                 </Link>
               </SettingsListItem>
             </SettingsList>
-            <SettingsLogoutBtn type="button" onClick={handleLogOut}>
+            <SettingsLogoutBtn
+              type="button"
+              onClick={() => {
+                handleLogOut();
+                close();
+              }}
+            >
               {t('settings.logout')}
             </SettingsLogoutBtn>
           </SettingsThumb>

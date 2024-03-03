@@ -16,11 +16,30 @@ import { updatePasswordSchema } from '../../../schemas/updatePasswordSchema';
 import { useTranslation } from 'react-i18next';
 import { RiEyeLine, RiEyeOffLine } from 'react-icons/ri';
 import { toggleClick } from '../../SignUpPage/toggleClick';
+import {
+  ModalBtnContainer,
+  ModalCloseBtn,
+  ModalSvg,
+} from '../../UserModal/UserModal.styled';
+import icons from '../../../assets/images/sprite.svg';
+import {
+  ChangePasswordForm,
+  EyeIcon,
+  PasswordFormErrorText,
+  PasswordFormInput,
+  PasswordInputThumb,
+  PasswordInputsWrap,
+  PasswordText,
+  PasswordTextThumb,
+  PasswordTitle,
+} from './PasswordForm.styled';
+import { SettingsSubmitBtn } from '../../../pages/Settings/Settings.styled';
 
 const PasswordForm: FC<IPasswordForm> = ({ user, show, close }) => {
   const { t } = useTranslation();
   const [toggleInput, setToggleInput] = useState('password');
   const [toggleIcon, setToggleIcon] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const {
     register,
@@ -64,66 +83,104 @@ const PasswordForm: FC<IPasswordForm> = ({ user, show, close }) => {
       }}
     >
       <Modal.Body>
-        <button
-          onClick={() => {
-            close();
-            resetPasswords();
-          }}
-        >
-          {t('edit.close')}
-        </button>
-        <p>{t('edit.if')}</p>
-        <form onSubmit={handleSubmit(updateUserPassword)}>
-          <label>
-            {t('edit.write')}
-            {errors.password && (
-              <div>
-                <span>{errors.password?.message}</span>
-              </div>
-            )}
-            <input
-              type={toggleInput}
-              {...register('password', { required: true })}
-            />
-            <span
-              onClick={() =>
-                toggleClick(toggleInput, setToggleInput, setToggleIcon)
-              }
-            >
-              {toggleIcon ? <RiEyeOffLine /> : <RiEyeLine />}
-            </span>
-          </label>
-          <div>
-            <label>
-              {t('edit.writenew')}
-              {errors.newPassword && (
-                <div>
-                  <span>{errors.newPassword?.message}</span>
-                </div>
-              )}
-              <input
-                type={toggleInput}
-                {...register('newPassword', { required: true })}
-              />
-              <span
-                onClick={() =>
-                  toggleClick(toggleInput, setToggleInput, setToggleIcon)
-                }
-              >
-                {toggleIcon ? <RiEyeOffLine /> : <RiEyeLine />}
-              </span>
-            </label>
-          </div>
-          <button type="submit">{t('edit.submit')}</button>
-          <button
+        <ModalBtnContainer>
+          <ModalCloseBtn
             onClick={() => {
               close();
               resetPasswords();
             }}
           >
-            {t('edit.cancle')}
-          </button>
-        </form>
+            <ModalSvg>
+              <use href={`${icons}#icon-close-btn`}></use>
+            </ModalSvg>
+          </ModalCloseBtn>
+        </ModalBtnContainer>
+        <PasswordTextThumb>
+          <PasswordTitle>Change Password</PasswordTitle>
+          <PasswordText>{t('edit.if')}</PasswordText>
+          <ChangePasswordForm onSubmit={handleSubmit(updateUserPassword)}>
+            <PasswordInputsWrap>
+              <label>
+                <PasswordInputThumb>
+                  <PasswordFormInput
+                    className={`${
+                      errors?.password?.message ? 'error' : ''
+                    }  settings-input`}
+                    type={toggleInput}
+                    placeholder={t('edit.write')}
+                    {...register('password', { required: true })}
+                    onChange={e => {
+                      if (e.target.value) {
+                        setIsDisabled(false);
+                        return;
+                      }
+                      setIsDisabled(true);
+                    }}
+                  />
+                  <EyeIcon
+                    onClick={() =>
+                      toggleClick(toggleInput, setToggleInput, setToggleIcon)
+                    }
+                  >
+                    {toggleIcon ? (
+                      <RiEyeOffLine
+                        style={{ fill: 'var(--dark-violet-clr)' }}
+                      />
+                    ) : (
+                      <RiEyeLine style={{ fill: 'var(--dark-violet-clr)' }} />
+                    )}
+                  </EyeIcon>
+                </PasswordInputThumb>
+                {errors.password && (
+                  <PasswordFormErrorText>
+                    <span>{errors.password?.message}</span>
+                  </PasswordFormErrorText>
+                )}
+              </label>
+
+              <label>
+                <PasswordInputThumb>
+                  <PasswordFormInput
+                    className={`${
+                      errors?.newPassword?.message ? 'error' : ''
+                    }  settings-input`}
+                    type={toggleInput}
+                    placeholder={t('edit.writenew')}
+                    {...register('newPassword', { required: true })}
+                    onChange={e => {
+                      if (e.target.value) {
+                        setIsDisabled(false);
+                        return;
+                      }
+                      setIsDisabled(true);
+                    }}
+                  />
+                  <EyeIcon
+                    onClick={() =>
+                      toggleClick(toggleInput, setToggleInput, setToggleIcon)
+                    }
+                  >
+                    {toggleIcon ? (
+                      <RiEyeOffLine
+                        style={{ fill: 'var(--dark-violet-clr)' }}
+                      />
+                    ) : (
+                      <RiEyeLine style={{ fill: 'var(--dark-violet-clr)' }} />
+                    )}
+                  </EyeIcon>
+                </PasswordInputThumb>
+                {errors.newPassword && (
+                  <PasswordFormErrorText>
+                    <span>{errors.newPassword?.message}</span>
+                  </PasswordFormErrorText>
+                )}
+              </label>
+            </PasswordInputsWrap>
+            <SettingsSubmitBtn type="submit" disabled={isDisabled}>
+              {t('edit.submit')}
+            </SettingsSubmitBtn>
+          </ChangePasswordForm>
+        </PasswordTextThumb>
       </Modal.Body>
     </Modal>
   );

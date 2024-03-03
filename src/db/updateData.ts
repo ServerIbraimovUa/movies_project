@@ -7,7 +7,7 @@ export function updateData({
   username,
   imageUrl = '',
   sex = 'none',
-  country = {},
+  country = { value: '', label: '' },
   language = 'ua',
   favorites = [],
   theme = 'light',

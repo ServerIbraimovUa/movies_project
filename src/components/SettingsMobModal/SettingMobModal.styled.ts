@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
 export const SettingsMobModalThumb = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   margin: 0 auto;
   width: 430px;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 8px;
 `;
 
 export const SettingsList = styled.ul`

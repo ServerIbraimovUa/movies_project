@@ -67,7 +67,13 @@ export const ModalImg = styled.img`
 export const ModalTextThumb = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  gap: 15px;
+`;
+
+export const ModalTextSocialsThumb = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 // Social Links

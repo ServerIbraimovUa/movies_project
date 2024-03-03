@@ -7,7 +7,7 @@ export function writeUserData({
   username,
   imageUrl = '',
   sex = 'none',
-  country = {},
+  country = { value: '', label: '' },
   language,
   favorites = [],
   theme,
