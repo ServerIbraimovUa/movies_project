@@ -1,14 +1,12 @@
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useUser } from '../../context/UserContext';
-import { logout } from '../../auth/logout';
-import { successNotification } from '../../services/notifications';
+
 import {
   NavLinkSettings,
   SettingsContainer,
   SettingsLinkListThumb,
   SettingsListItem,
-  SettingsLogoutBtnTablet,
   TabletSettingsIcon,
   TabletSettingsList,
 } from './Settings.styled';
@@ -17,11 +15,10 @@ import { useEffect, useState } from 'react';
 import { User, onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../firebase-config';
 import { readData } from '../../db/readData';
+import LogOutBtn from '../../components/LogOutBtn/LogOutBtn';
 
 const Settings = () => {
   const { t } = useTranslation();
-  const { logOut } = useUser()!;
-  const navigate = useNavigate();
   const location = useLocation();
   const { setDatabaseUser } = useUser()!;
   const [user, setUser] = useState<User | null>(null);
@@ -39,15 +36,6 @@ const Settings = () => {
     };
     fetchUserFromDatabase();
   }, [user, setDatabaseUser]);
-
-  const logoutUserFromSettings = () => {
-    //firebase
-    logout();
-    //context
-    logOut();
-    navigate('/');
-    successNotification('You have successfully logged out!');
-  };
 
   return (
     <SettingsContainer className="main-container">
@@ -90,9 +78,7 @@ const Settings = () => {
             </NavLinkSettings>
           </SettingsListItem>
         </TabletSettingsList>
-        <SettingsLogoutBtnTablet type="button" onClick={logoutUserFromSettings}>
-          {t('settings.logout')}
-        </SettingsLogoutBtnTablet>
+        <LogOutBtn />
       </SettingsLinkListThumb>
       <Outlet />
     </SettingsContainer>

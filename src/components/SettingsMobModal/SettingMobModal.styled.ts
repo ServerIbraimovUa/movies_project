@@ -30,17 +30,3 @@ export const SettingsIcon = styled.svg`
   height: 20px;
   fill: var(--text-clr-grey);
 `;
-
-export const SettingsLogoutBtn = styled.button`
-  min-width: 100%;
-  height: 40px;
-  color: var(--dark-violet-clr);
-  border: 2px solid var(--dark-violet-clr);
-  border-radius: 12px;
-  margin-bottom: 20px;
-
-  &:active {
-    color: var(--violet-click);
-    border: 2px solid var(--violet-click);
-  }
-`;

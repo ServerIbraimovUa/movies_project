@@ -7,6 +7,12 @@ export const ModalThumb = styled.div`
   font-family: var(--main-font);
 `;
 
+export const ModalWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+`;
+
 export const ModalBtnContainer = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -44,7 +50,6 @@ export const ModalCloseBtn = styled.button`
 `;
 
 export const ModalTitle = styled.h2`
-  margin-bottom: 15px;
   font-size: 28px;
   font-weight: var(--bold-font-weight);
 `;
@@ -52,7 +57,6 @@ export const ModalTitle = styled.h2`
 export const ModalInfoThumb = styled.div`
   display: flex;
   gap: 15px;
-  margin-bottom: 10px;
 `;
 
 export const ModalImg = styled.img`

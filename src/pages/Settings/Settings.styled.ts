@@ -69,29 +69,6 @@ export const NavLinkSettings = styled(NavLink)`
   align-items: center;
 `;
 
-export const SettingsLogoutBtnTablet = styled.button`
-  min-width: 230px;
-  height: 40px;
-  font-family: var(--main-font);
-  font-weight: var(--bold-font-weight);
-  color: var(--dark-violet-clr);
-  border: 2px solid var(--dark-violet-clr);
-  border-radius: 12px;
-  margin-bottom: 20px;
-  transform: color var(--hover-focus-trans), border var(--hover-focus-trans);
-
-  &:active {
-    color: var(--violet-click);
-    border: 2px solid var(--violet-click);
-  }
-
-  &:hover,
-  &:focus {
-    color: var(--violet-hover);
-    border: 2px solid var(--violet-hover);
-  }
-`;
-
 export const SettingsSubmitBtn = styled.button`
   width: 193px;
   height: 44px;

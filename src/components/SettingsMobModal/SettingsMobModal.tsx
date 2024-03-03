@@ -2,8 +2,6 @@ import { Modal } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { FC } from 'react';
-import { logout } from '../../auth/logout';
-import { useUser } from '../../context/UserContext';
 import {
   ModalBtnContainer,
   ModalCloseBtn,
@@ -13,11 +11,11 @@ import icons from '../../assets/images/sprite.svg';
 import {
   SettingsIcon,
   SettingsList,
-  SettingsLogoutBtn,
   SettingsMobModalThumb,
   SettingsThumb,
 } from './SettingMobModal.styled';
 import { SettingsListItem } from '../../pages/Settings/Settings.styled';
+import LogOutBtn from '../LogOutBtn/LogOutBtn';
 
 interface ISettings {
   show: boolean;
@@ -26,15 +24,6 @@ interface ISettings {
 
 const SettingsMobModal: FC<ISettings> = ({ show, close }) => {
   const { t } = useTranslation();
-  const { logOut } = useUser()!;
-
-  const handleLogOut = () => {
-    //firebase
-    logout();
-    //context
-    logOut();
-  };
-
   return (
     <Modal
       show={show}
@@ -78,15 +67,7 @@ const SettingsMobModal: FC<ISettings> = ({ show, close }) => {
                 </Link>
               </SettingsListItem>
             </SettingsList>
-            <SettingsLogoutBtn
-              type="button"
-              onClick={() => {
-                handleLogOut();
-                close();
-              }}
-            >
-              {t('settings.logout')}
-            </SettingsLogoutBtn>
+            <LogOutBtn close={close} />
           </SettingsThumb>
         </SettingsMobModalThumb>
       </Modal.Body>
