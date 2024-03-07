@@ -30,9 +30,12 @@ export const SocialLink: FC<ISocialLink> = ({ socials }) => {
       <SocialsList>
         {Object.keys(socials).map(linkName => {
           return (
-            <div key={`${socials[linkName]}${nanoid()}`}>
+            <>
               {socials[linkName] && (
-                <SocialMediaItem>
+                <SocialMediaItem
+                  key={`${nanoid()}`}
+                  className={`${linkName === '' ? 'empty' : ''}`}
+                >
                   <SocialMediaLink
                     href={socials[linkName]}
                     target="_blank"
@@ -44,7 +47,7 @@ export const SocialLink: FC<ISocialLink> = ({ socials }) => {
                   </SocialMediaLink>
                 </SocialMediaItem>
               )}
-            </div>
+            </>
           );
         })}
       </SocialsList>

@@ -15,9 +15,11 @@ import {
   ModalTextThumb,
   ModalThumb,
   ModalTitle,
+  ModalWrap,
 } from './UserModal.styled';
 import defaultImg from '../../images/defaultAvatar.jpg';
 import { useUser } from '../../context/UserContext';
+import LogOutBtn from '../LogOutBtn/LogOutBtn';
 
 const UserModal: FC<IModal> = ({ show, close }) => {
   const { t } = useTranslation();
@@ -28,42 +30,45 @@ const UserModal: FC<IModal> = ({ show, close }) => {
       <Modal show={show} onHide={close}>
         <Modal.Body className="user-modal-body">
           <ModalThumb className="user-modal">
-            <ModalBtnContainer>
-              <ModalLink to="/settings/personal-info" onClick={close}>
-                <ModalSvg>
-                  <use
-                    href={`${icons}#icon-setting`}
-                    className="modal-icon"
-                  ></use>
-                </ModalSvg>
-              </ModalLink>
-              <ModalCloseBtn onClick={close}>
-                <ModalSvg>
-                  <use href={`${icons}#icon-close-btn`}></use>
-                </ModalSvg>
-              </ModalCloseBtn>
-            </ModalBtnContainer>
-            <ModalTitle>{t('usermodal.profile')}</ModalTitle>
-            <ModalInfoThumb>
-              <ModalImg
-                src={imageUrl ? imageUrl : defaultImg}
-                alt="Avatar"
-                width={'150px'}
-                height={'150px'}
-              />
-              <ModalTextSocialsThumb>
-                <ModalTextThumb>
-                  <p>
-                    {t('usermodal.name')}: {username}
-                  </p>
-                  <p>
-                    {t('usermodal.gender')}: {sex}
-                  </p>
-                  <p>{`Country: ${country ? country.label : 'none'}`}</p>
-                </ModalTextThumb>
-                {socials && <SocialLink socials={socials} />}
-              </ModalTextSocialsThumb>
-            </ModalInfoThumb>
+            <ModalWrap>
+              <ModalBtnContainer>
+                <ModalLink to="/settings/personal-info" onClick={close}>
+                  <ModalSvg>
+                    <use
+                      href={`${icons}#icon-setting`}
+                      className="modal-icon"
+                    ></use>
+                  </ModalSvg>
+                </ModalLink>
+                <ModalCloseBtn onClick={close}>
+                  <ModalSvg>
+                    <use href={`${icons}#icon-close-btn`}></use>
+                  </ModalSvg>
+                </ModalCloseBtn>
+              </ModalBtnContainer>
+              <ModalTitle>{t('usermodal.profile')}</ModalTitle>
+              <ModalInfoThumb>
+                <ModalImg
+                  src={imageUrl ? imageUrl : defaultImg}
+                  alt="Avatar"
+                  width={'150px'}
+                  height={'150px'}
+                />
+                <ModalTextSocialsThumb>
+                  <ModalTextThumb>
+                    <p>
+                      {t('usermodal.name')}: {username}
+                    </p>
+                    <p>
+                      {t('usermodal.gender')}: {sex}
+                    </p>
+                    <p>{`Country: ${country ? country.label : 'none'}`}</p>
+                  </ModalTextThumb>
+                  {socials && <SocialLink socials={socials} />}
+                </ModalTextSocialsThumb>
+              </ModalInfoThumb>
+              <LogOutBtn />
+            </ModalWrap>
           </ModalThumb>
         </Modal.Body>
       </Modal>

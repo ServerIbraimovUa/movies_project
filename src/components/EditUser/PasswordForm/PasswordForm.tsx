@@ -40,6 +40,9 @@ const PasswordForm: FC<IPasswordForm> = ({ user, show, close }) => {
   const [toggleInput, setToggleInput] = useState('password');
   const [toggleIcon, setToggleIcon] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
+  const [newPasswordToggleInput, setNewPasswordToggleInput] =
+    useState('password');
+  const [newPasswordToggleIcon, setNewPasswordToggleIcon] = useState(false);
 
   const {
     register,
@@ -144,7 +147,7 @@ const PasswordForm: FC<IPasswordForm> = ({ user, show, close }) => {
                     className={`${
                       errors?.newPassword?.message ? 'error' : ''
                     }  settings-input`}
-                    type={toggleInput}
+                    type={newPasswordToggleInput}
                     placeholder={t('edit.writenew')}
                     {...register('newPassword', { required: true })}
                     onChange={e => {
@@ -157,10 +160,14 @@ const PasswordForm: FC<IPasswordForm> = ({ user, show, close }) => {
                   />
                   <EyeIcon
                     onClick={() =>
-                      toggleClick(toggleInput, setToggleInput, setToggleIcon)
+                      toggleClick(
+                        newPasswordToggleInput,
+                        setNewPasswordToggleInput,
+                        setNewPasswordToggleIcon
+                      )
                     }
                   >
-                    {toggleIcon ? (
+                    {newPasswordToggleIcon ? (
                       <RiEyeOffLine
                         style={{ fill: 'var(--dark-violet-clr)' }}
                       />
