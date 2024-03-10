@@ -82,8 +82,8 @@ import { darkTheme } from "./theme";
 import "./SwitcherTheme.css";
 
 const Container = styled.div`
-  background-color: ${(props) => props.theme.primaryColor};
-  color: ${(props) => props.theme.textColor};
+  /* background-color: ${(props) => props.theme.primaryColor}; */
+  /* color: ${(props) => props.theme.textColor}; */
 
   //padding: 20px;
 `;

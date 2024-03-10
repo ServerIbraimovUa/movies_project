@@ -10,7 +10,7 @@ export const StyledLi = styled.li`
 
   text-align: center;
   border-radius: 24px;
-  background-color: var(--violet-clr);
+  background-color: ${(props) => props.theme.HomeBackground};
 
   @media screen and (min-width: 768px) {
     width: 308px;

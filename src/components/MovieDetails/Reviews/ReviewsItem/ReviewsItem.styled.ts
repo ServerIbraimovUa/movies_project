@@ -8,7 +8,7 @@ export const ReviewCardStyled = styled.li`
   width: 100%;
   padding: 24px 20px;
   border-radius: 24px;
-  background-color: var(--light-violet-clr);
+  background-color: ${(props) => props.theme.HomeBackground};
   box-shadow: var(--shadow);
 
   img {

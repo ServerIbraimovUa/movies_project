@@ -36,7 +36,6 @@ export const GlobalStyle = createGlobalStyle`
     --black-bg-btn-hover: #2E0044;
     --grey-hover: #c7c7c7;
 
-
 /* SHADOW */
 // DARK
     --shadow: box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.15);
@@ -108,7 +107,7 @@ p {
     line-height: var(--line-height);
     
     color: var(--text-clr-black);
-    background-color: var(--bg-clr-light-theme);   
+    background-color: ${(props) => props.theme.mainBackground};   
 }
 
 #root {

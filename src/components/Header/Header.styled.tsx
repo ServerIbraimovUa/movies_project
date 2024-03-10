@@ -3,7 +3,7 @@ import { device } from "../../css/deviceSize";
 import { Navbar } from "react-bootstrap";
 
 export const ContainerHeader = styled.div`
-  background-color: ${(props) => props.theme.primaryColor};
+  background-color: ${(props) => props.theme.headerBackground};
   color: ${(props) => props.theme.textColor};
   padding: 10px 0px;
   overflow-x: hidden;

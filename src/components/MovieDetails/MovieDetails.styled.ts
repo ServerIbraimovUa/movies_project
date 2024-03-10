@@ -8,7 +8,7 @@ export const MovieCardStyled = styled.div`
 
   padding: 20px;
   border-radius: 24px;
-  background-color: var(--light-violet-clr);
+  background-color: ${(props) => props.theme.HomeBackground};
 
   .box-info {
     display: flex;
