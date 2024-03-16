@@ -4,7 +4,7 @@ import { Navbar } from "react-bootstrap";
 
 export const ContainerHeader = styled.div`
   background-color: ${(props) => props.theme.headerBackground};
-  color: ${(props) => props.theme.textColor};
+  color: ${(props) => props.theme.textTitle};
   padding: 10px 0px;
   overflow-x: hidden;
   .logo-icon {

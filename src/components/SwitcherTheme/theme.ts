@@ -16,8 +16,8 @@ export interface Theme {
     mainBackground: ' var(--bg-clr-light-theme)',
     HomeBackground: 'var(--light-violet-clr)',
 
-    textTitle: 'var(--dark-violet-clr)',
-
+    textTitle: 'var(--text-clr-black)',
+    
 
 
 

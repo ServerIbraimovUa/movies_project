@@ -8,8 +8,10 @@ export const HomePageContainer = styled.div`
   }
 `;
 export const List = styled.ul`
+color: ${(props) => props.theme.textTitle};
   @media ${device.tablet} {
     width: 636px;
+    
   }
   @media ${device.desktop} {
     width: 884px;

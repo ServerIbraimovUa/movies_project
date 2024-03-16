@@ -3,8 +3,9 @@ import { device } from "../../../css/deviceSize";
 
 export const MovieCastStyled = styled.div`
   padding: 0 12px;
-
+  color: ${(props) => props.theme.textTitle};
   .cast-title {
+    
     font-size: 24px;
     font-weight: var(--bold-font-weight);
 

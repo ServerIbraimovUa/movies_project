@@ -8,9 +8,11 @@
    font-weight: 700;
 font-size: 16px;
 line-height: 150%; 
+background-color: transparent;
 }
 
 @media screen and (min-width:1024px){
+   
    .accordion-button{
     width: 636px;
     height: 44px;
@@ -29,6 +31,7 @@ line-height: 150%;
 }
 
 .accordion-item{
+   background-color: transparent;
     width: 398px;
     margin-bottom: 24px;    
     border-radius: 12px;

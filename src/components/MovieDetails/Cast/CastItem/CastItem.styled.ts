@@ -14,6 +14,8 @@ export const StyledClickImg = styled.img`
   }
 `;
 export const StyledClickTitle = styled.p`
+
+
   max-width: 84px;
 
   font-size: 16px;

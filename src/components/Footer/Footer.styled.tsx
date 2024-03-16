@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export const ContainerFooter = styled.div`
   background-color: ${(props) => props.theme.primaryColor};
-  color: ${(props) => props.theme.textColor};
+  color: ${(props) => props.theme.textTitle};
   padding: 24px 16px;
   overflow-x: hidden;
 
@@ -138,7 +138,7 @@ export const SpanInfo = styled.span`
   font-weight: 400;
   font-size: 12px;
   line-height: 200%;
-  color: var(--text-clr-black);
+  color: ${(props) => props.theme.textTitle};
 `;
 export const LinkTeam = styled.a`
   text-decoration: underline;

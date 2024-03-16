@@ -24,7 +24,7 @@ export const SidebarContainer=styled.div`
 export const GenresWrapper=styled.div`
     display: flex;
     flex-direction: column;    
-   
+    color: ${(props) => props.theme.textTitle};
 `
 export const GenresTilte=styled.h3`
     margin-bottom: 20px;
@@ -33,10 +33,12 @@ export const GenresTilte=styled.h3`
     font-weight: var( --semi-bold-font-weight);
     font-size: 24px;
     line-height: 150%;
+    color: ${(props) => props.theme.textTitle};
 `
 export const YearWrapper=styled.div`
     display: flex;
     flex-direction: column;
+    color: ${(props) => props.theme.textTitle};
 `
 export const YearsTitle=styled.h3`
     margin-bottom: 20px;
@@ -45,6 +47,7 @@ export const YearsTitle=styled.h3`
     font-weight: var( --semi-bold-font-weight);
     font-size: 24px;
     line-height: 150%;
+    color: ${(props) => props.theme.textTitle};
 `
 export const ButtonReset=styled.button`
   display: flex;

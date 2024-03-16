@@ -11,6 +11,7 @@ export const StyledLi = styled.li`
   text-align: center;
   border-radius: 24px;
   background-color: ${(props) => props.theme.HomeBackground};
+  
 
   @media screen and (min-width: 768px) {
     width: 308px;
@@ -39,7 +40,7 @@ export const StyledLi = styled.li`
     line-height: 100%;
     text-align: center;
 
-    color: var(--text-clr-black);
+    color: ${(props) => props.theme.textTitle};
     @media screen and (min-width: 768px) {
       font-size: 32px;
       line-height: 1.25;
