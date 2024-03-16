@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const RecommendationsStyled = styled.div`
+color: ${(props) => props.theme.textTitle};
   padding: 0 12px;
   height: auto;
 

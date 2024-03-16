@@ -5,12 +5,14 @@ import { device } from '../../css/deviceSize';
 export const ModalThumb = styled.div`
   padding: 0 15px 15px 15px;
   font-family: var(--main-font);
+  color: ${(props) => props.theme.textTitle};
 `;
 
 export const ModalWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 25px;
+
 `;
 
 export const ModalBtnContainer = styled.div`
@@ -120,4 +122,10 @@ export const SocialMediaLink = styled.a`
 export const SocialMediaIcon = styled.svg`
   width: 20px;
   height: 20px;
+`;
+export const ModalBody = styled.div`
+ .user-modal-body {
+  background-color: ${(props) => props.theme.mainBackground};
+  border-radius: 7px;
+ }
 `;

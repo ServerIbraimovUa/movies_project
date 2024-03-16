@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { device } from '../../../css/deviceSize';
 
 export const Heading = styled.h1`
+color: ${(props) => props.theme.textTitle};
+
     margin-bottom: 24px;
 
     text-align: center;
@@ -45,6 +47,8 @@ export const CardImg = styled.img`
   
 `
 export const CardSubtitle = styled.h3`
+color: ${(props) => props.theme.textTitle};
+
     margin-bottom : 12px;
     font-size: 24px;
     font-weight: var(--bold-font-weight);
@@ -55,6 +59,8 @@ export const CardSubtitle = styled.h3`
 `
 
 export const CardText = styled.p` 
+color: ${(props) => props.theme.textTitle};
+
   margin-bottom : 16px;
   
     &:last-child{

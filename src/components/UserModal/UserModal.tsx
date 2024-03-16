@@ -16,6 +16,7 @@ import {
   ModalThumb,
   ModalTitle,
   ModalWrap,
+  ModalBody,
 } from './UserModal.styled';
 import defaultImg from '../../images/defaultAvatar.jpg';
 import { useUser } from '../../context/UserContext';
@@ -28,6 +29,7 @@ const UserModal: FC<IModal> = ({ show, close }) => {
   return (
     <div id="modal-user">
       <Modal show={show} onHide={close}>
+        <ModalBody>
         <Modal.Body className="user-modal-body">
           <ModalThumb className="user-modal">
             <ModalWrap>
@@ -71,6 +73,7 @@ const UserModal: FC<IModal> = ({ show, close }) => {
             </ModalWrap>
           </ModalThumb>
         </Modal.Body>
+        </ModalBody>
       </Modal>
     </div>
   );

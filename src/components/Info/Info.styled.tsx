@@ -7,15 +7,18 @@ export const Title = styled.h1`
   line-height: 150%;
   text-align: center;
   margin-bottom: 24px;
+  color: ${(props) => props.theme.textTitle};
 `;
 
 export const SubTitle = styled.h2`
+color: ${(props) => props.theme.textTitle};
   font-weight: 700;
   font-size: 32px;
   line-height: 125%;
   margin-bottom: 20px;
 `;
 export const WellcomeDescr = styled.p`
+color: ${(props) => props.theme.textTitle};
   font-weight: 700;
   font-size: 24px;
   line-height: 100%;
@@ -23,6 +26,7 @@ export const WellcomeDescr = styled.p`
 `;
 
 export const Description = styled.p`
+color: ${(props) => props.theme.textTitle};
   font-weight: 400;
   font-size: 20px;
   line-height: 120%;
@@ -34,6 +38,7 @@ export const Header = styled(Accordion.Header)`
 
 export const DescriptionFaq = styled.p`
   margin-bottom: 20px;
+  color: ${(props) => props.theme.textTitle};
 `;
 
 export const ListFaq = styled.ul`
@@ -44,4 +49,5 @@ export const ListFaq = styled.ul`
 `;
 export const ListFaqItem = styled.li`
   margin-bottom: 20px;
+  color: ${(props) => props.theme.textTitle};
 `;

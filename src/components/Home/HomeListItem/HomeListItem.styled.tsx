@@ -7,7 +7,7 @@ export const Info = styled.div`
   padding: 20px;
   margin-bottom: 24px;
 
-  background-color: var(--light-violet-clr);
+  background-color: ${(props) => props.theme.HomeBackground};
   border-radius: 24px;
 
   @media ${device.desktop} {

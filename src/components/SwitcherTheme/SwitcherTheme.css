@@ -29,7 +29,7 @@
     border: 1px solid #61646B;
     transition: 0.4s;
      border-radius: 10px;
-    border-color: var(--grey-normal);
+    /* border-color: var(--grey-normal); */
 
   }
   
@@ -45,9 +45,7 @@
     border: 1px solid var(--grey-normal);
     transition: 0.4s;
   }
-  .slider.dark {
-    background-color: white;
-  }
+
   @media screen and (min-width:1024px){
      .slider:before{
       height: 32px;     

@@ -9,8 +9,9 @@ export const LinkCredit = styled(Link)`
     font-size: 16px;  
     line-height: 125%;
     letter-spacing: 0.03em;
-    text-decoration-color: var( --text-clr-black);
+    text-decoration-color: ${(props) => props.theme.textTitle};
     text-decoration: underline;
+    color: ${(props) => props.theme.textTitle};
 `
 export const ListGroupCredit=styled(ListGroup)`
     padding: 20px 16px;
@@ -22,11 +23,13 @@ export const ListGroupItemCredit = styled(ListGroup.Item)`
     padding: 10px;
     border: none;
     background-color: transparent;
-  
+    color: ${(props) => props.theme.textTitle};
 `
 export const Heading=styled.h2`
     margin-bottom : 16px;
     
+    color: ${(props) => props.theme.textTitle};
+
     font-size: 32px;
     font-weight: var(--bold-font-weight);
     line-height: 125%;
