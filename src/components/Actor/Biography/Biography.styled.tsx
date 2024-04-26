@@ -16,7 +16,7 @@ export const Button = styled.button`
 
 `
 export const HeadingName = styled.h2`
-
+color: ${(props) => props.theme.textTitle};
      @media screen and (max-width:768px){
          position: absolute;
           width: 1px;
@@ -49,6 +49,8 @@ export const Heading = styled.h2`
     line-height: 125%;
     margin-bottom: 16px;
 
+    color: ${(props) => props.theme.textTitle};
+
     @media ${device.tablet}{
         margin-bottom: 20px;
     }
@@ -59,6 +61,8 @@ export const Heading = styled.h2`
 `
 
 export const BiographyText = styled.p`
+color: ${(props) => props.theme.textTitle};
+
     margin-bottom: 24px;
     padding-top: 20px;
     padding-left: 16px;

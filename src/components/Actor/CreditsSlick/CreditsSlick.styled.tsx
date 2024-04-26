@@ -24,6 +24,8 @@ export const SlickImg = styled.img`
    }
 `
 export const Heading = styled.h2`   
+color: ${(props) => props.theme.textTitle};
+
    margin-bottom: 16px;
 
    font-size: 32px;

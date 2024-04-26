@@ -3,8 +3,8 @@ import { device } from "../../css/deviceSize";
 import { Navbar } from "react-bootstrap";
 
 export const ContainerHeader = styled.div`
-  background-color: ${(props) => props.theme.primaryColor};
-  color: ${(props) => props.theme.textColor};
+  background-color: ${(props) => props.theme.headerBackground};
+  color: ${(props) => props.theme.textTitle};
   padding: 10px 0px;
   overflow-x: hidden;
   .logo-icon {
