@@ -7,10 +7,7 @@ import { darkTheme } from "./theme";
 import "./SwitcherTheme.css";
 
 const Container = styled.div`
-  /* background-color: ${(props) => props.theme.primaryColor}; */
-  /* color: ${(props) => props.theme.textColor}; */
 
-  //padding: 20px;
 `;
 
 const SwitcherTheme: React.FC = () => {
@@ -25,15 +22,15 @@ const SwitcherTheme: React.FC = () => {
           onChange={toggleTheme}
         />
         <span className="slider">
-          {theme.primaryColor === "light" ? (
-            <>
-              <IoSunny className="sun" />
-              <FaRegMoon className="moon" />
-            </>
-          ) : (
+          {theme === darkTheme ? (
             <>
               <IoSunnyOutline className="sun" />
               <FaMoon className="moon" />
+            </>
+          ) : (
+            <>
+              <IoSunny className="sun" />
+              <FaRegMoon className="moon" />
             </>
           )}
         </span>

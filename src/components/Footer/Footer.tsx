@@ -12,12 +12,26 @@ import {
 } from "./Footer.styled";
 import Icon from "../Icon/Icon";
 
+import { darkTheme } from "../SwitcherTheme/theme";
+import { useTheme } from "../SwitcherTheme/ThemeContext";
+
+
 const Footer = () => {
   const { t } = useTranslation();
+  const { theme } = useTheme();
   return (
     <ContainerFooter>
       <LogoWrapper>
-        <Icon className="logo-icon" id="Logo" />
+      {theme === darkTheme ? (
+            <>
+<Icon className="logo-icon" id="logo" />
+            </>
+          ) : (
+            <>
+             <Icon className="logo-icon" id="Logo" />
+            </>
+          )}
+        
       </LogoWrapper>
       <IconWrapper>
         <li>

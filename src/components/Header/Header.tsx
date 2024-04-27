@@ -21,11 +21,18 @@ import SearchMovies from '../SearchMovies/SearchMovies';
 import { Navbar } from 'react-bootstrap';
 import AuthMenu from '../AuthMenu/AuthMenu';
 
+
+import { useTheme } from "../SwitcherTheme/ThemeContext";
+import { darkTheme } from "../SwitcherTheme/theme";
+
 const Header: FC = () => {
   const { isLoggedIn } = useUser()!;
   const [show, setShow] = useState(false);
   const isMobile = useMediaQuery({ query: '(max-width: 1023px)' });
   const { pathname } = useLocation();
+
+  const { theme } = useTheme();
+
 
   const handleShow = () => {
     setShow(true);
@@ -51,7 +58,15 @@ const Header: FC = () => {
           </SettingMobileModalBtn>
 
           <Navbar.Brand href="/" className="logo">
-            <Icon className="logo-icon" id="Logo" />
+          {theme === darkTheme ? (
+            <>
+<Icon className="logo-icon" id="logo" />
+            </>
+          ) : (
+            <>
+             <Icon className="logo-icon" id="Logo" />
+            </>
+          )}
           </Navbar.Brand>
 
           {isTabletOrDesktop && pathname === '/' && <SearchMovies />}
