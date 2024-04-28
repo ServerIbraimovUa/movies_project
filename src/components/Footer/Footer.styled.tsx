@@ -77,6 +77,23 @@ export const IconWrapper = styled.ul`
       stroke: var(--dark-violet-clr);
     }
   }
+  .github-icon-dark,
+  .telegram-icon-dark,
+  .facebook-icon-dark,
+  .circles-icon-dark,
+  .cross-icon-dark {
+    width: 36px;
+    height: 36px;
+    fill: transparent;
+    stroke: white;
+    border: 1px white solid;
+    border-radius: 10px;
+
+    &:hover {
+      stroke: var(--dark-violet-clr);
+    }
+  }
+
 `;
 
 export const FooterList = styled.ul`
@@ -115,7 +132,17 @@ export const ButtonWrapper = styled.div`
     width: 189px;
     height: 63px;
     border-radius: 12px;
+
     border: 1px solid var(--text-clr-black);
+  }
+  .google-icon-dark,
+  .apple-icon-dark {
+    width: 189px;
+    height: 63px;
+    border-radius: 12px;
+    fill: none;
+    stroke: white;
+    border: 1px solid var(--text-clr-white);
   }
 
   @media ${device.tablet} {

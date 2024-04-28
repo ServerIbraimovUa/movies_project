@@ -21,7 +21,8 @@ export const SearchInput = styled.input`
   width: 305px;
   height: 30px;
   outline: none;
-  border: 1px solid var(--dark-violet-clr);
+  background-color: transparent;
+  border: 1px solid ${(props) => props.theme.grayBorder};
   @media screen and (min-width: 1024px) {
     height: 44px;
   }

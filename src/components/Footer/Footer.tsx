@@ -36,27 +36,72 @@ const Footer = () => {
       <IconWrapper>
         <li>
           <FooterLink to="https://github.com/">
-            <Icon className="github-icon" id="githubf" />
+          {theme === darkTheme ? (
+            <>
+<Icon className="github-icon-dark" id="githubf" />
+            </>
+          ) : (
+            <>
+             <Icon className="github-icon" id="githubf" />
+            </>
+          )}
           </FooterLink>
         </li>
         <li>
           <FooterLink to="https://web.telegram.org/">
+          {theme === darkTheme ? (
+            <>
+            <Icon className="telegram-icon-dark" id="telegramf" />
+            </>
+          ) : (
+            <>
             <Icon className="telegram-icon" id="telegramf" />
+            </>
+          )}
+
+
           </FooterLink>
         </li>
         <li>
           <FooterLink to="https://www.facebook.com/">
+          {theme === darkTheme ? (
+            <>
+            <Icon className="facebook-icon-dark" id="facebookf" />
+            </>
+          ) : (
+            <>
             <Icon className="facebook-icon" id="facebookf" />
+            </>
+          )}
+            
           </FooterLink>
         </li>
         <li>
           <FooterLink to="https://www.instagram.com/">
+            
+            {theme === darkTheme ? (
+            <>
+            <Icon className="circles-icon-dark" id="circlesf" />
+            </>
+          ) : (
+            <>
             <Icon className="circles-icon" id="circlesf" />
+            </>
+          )}
           </FooterLink>
         </li>
         <li>
           <FooterLink to="https://twitter.com/?lang=ru">
-            <Icon className="cross-icon" id="crossf" />
+          {theme === darkTheme ? (
+            <>
+            <Icon className="cross-icon-dark" id="crossf" />
+            </>
+          ) : (
+            <>
+             <Icon className="cross-icon" id="crossf" />
+            </>
+          )}
+           
           </FooterLink>
         </li>
       </IconWrapper>
@@ -83,11 +128,27 @@ const Footer = () => {
       <ButtonWrapper>
         <FooterLink to="https://www.apple.com/store">
           {" "}
-          <Icon className="apple-icon" id="apple" />
+          {theme === darkTheme ? (
+            <>
+<Icon className="apple-icon-dark" id="apple-dark" />
+            </>
+          ) : (
+            <>
+             <Icon className="apple-icon" id="apple" />
+            </>
+          )}
         </FooterLink>
 
         <FooterLink to="https://play.google.com/store/games?device=phone">
-          <Icon className="google-icon" id="googlef" />
+          {theme === darkTheme ? (
+            <>
+<Icon className="google-icon-dark" id="googlef-dark" />
+            </>
+          ) : (
+            <>
+             <Icon className="google-icon" id="googlef" />
+            </>
+          )}
         </FooterLink>
       </ButtonWrapper>
       <InfoWrapper>
