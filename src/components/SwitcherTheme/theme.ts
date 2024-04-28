@@ -8,6 +8,8 @@ export interface Theme {
     mainBackground: string;
     HomeBackground: string;
 
+    grayBorder: string;
+
     textTitle: string;
   }
   
@@ -19,7 +21,7 @@ export interface Theme {
     textTitle: 'var(--text-clr-black)',
     
 
-
+    grayBorder: 'var(--dark-violet-clr)',
 
 
     primaryColor: '#ffffff',
@@ -34,7 +36,7 @@ export interface Theme {
 
     textTitle: 'var(--text-clr-white)',
 
-
+   grayBorder: 'var(--grey-disabled-clr)',
 
     primaryColor: '#222222',
     secondaryColor: '#333333',
