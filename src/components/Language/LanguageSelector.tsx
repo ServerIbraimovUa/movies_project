@@ -11,12 +11,13 @@ const LanguageSelector: React.FC = () => {
     i18n.changeLanguage(lng);
   };
 
-  const handleLanguageChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
+  const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedLanguage = event.target.value;
     setLanguage(selectedLanguage);
     changeLanguage(selectedLanguage);
+
+
+    localStorage.setItem("selectedLanguage", selectedLanguage);
   };
 
   return (

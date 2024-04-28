@@ -1,14 +1,10 @@
 import React from "react";
-import styled from "styled-components";
+
 import { IoSunny, IoSunnyOutline } from "react-icons/io5";
 import { FaRegMoon, FaMoon } from "react-icons/fa";
 import { useTheme } from "./ThemeContext";
 import { darkTheme } from "./theme";
-import "./SwitcherTheme.css";
-
-const Container = styled.div`
-
-`;
+import Container from './SwitcherTheme.styled';
 
 const SwitcherTheme: React.FC = () => {
   const { theme, toggleTheme } = useTheme();

@@ -1,4 +1,7 @@
-.switch {
+import styled from 'styled-components';
+
+const Container = styled.div`
+  .switch {
     position: relative;
     display: inline-block;
     width: 82px;
@@ -26,10 +29,10 @@
     bottom: 0;
     background-color: transparent;
     border-radius: 4px;
-    border: 1px solid #61646B;
+    border: 1px solid ${(props) => props.theme.grayBorder};
     transition: 0.4s;
      border-radius: 10px;
-    /* border-color: var(--grey-normal); */
+
 
   }
   
@@ -44,7 +47,7 @@
     -webkit-transition: .4s;
     transition: .4s;
     border-radius: 4px;
-    border: #61646B solid 1px;
+    border: 1px solid ${(props) => props.theme.grayBorder};
   }
 
   @media screen and (min-width:1024px){
@@ -86,3 +89,6 @@
     
   }
 }
+`;
+
+export default Container;

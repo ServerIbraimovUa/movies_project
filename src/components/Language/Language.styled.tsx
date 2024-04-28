@@ -13,9 +13,22 @@ export const LanguageContainer = styled.form`
 
   .select-lang {
     border-radius: 10px;
+
+    height: 44px;
+    width: 44px;
+
+    text-align: center;
+
+
+
     outline: none;
-    border-color: var(--grey-normal);
+    background-color: transparent;
+    border: 1px solid ${(props) => props.theme.grayBorder};
     color: var(--dark-violet-clr);
     font-size: 16px;
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+    appearance: none; 
+    background-image: none;
   }
 `;

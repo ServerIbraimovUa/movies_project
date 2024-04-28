@@ -22,7 +22,11 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider: FC<LanguageProviderProps> = ({ children }) => {
-  const [language, setLanguage] = useState("en");
+  const [language, setLanguage] = useState(() => {
+
+    const storedLanguage = localStorage.getItem("selectedLanguage");
+    return storedLanguage || "en"; 
+  });
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
